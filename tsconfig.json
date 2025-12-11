@@ -18,8 +18,11 @@
         "name": "next"
       }
     ],
+
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/.velite": [".velite/index"]   // ✅ 하나만, 확장자 없이
     }
   },
   "include": [
@@ -28,7 +31,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "velite-env.d.ts"
   ],
   "exclude": ["node_modules"]
 }
