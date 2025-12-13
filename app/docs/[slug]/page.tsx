@@ -61,7 +61,7 @@ export default async function DocDetailPage({
       <h1 className="text-3xl font-bold mb-4">{doc.title}</h1>
 
       {doc.description && (
-        <p className="text-gray-500 mb-4">{doc.description}</p>
+        <p className="text-teal-600 mb-4">{doc.description}</p>
       )}
 
       <article
