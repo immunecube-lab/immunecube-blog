@@ -1,22 +1,37 @@
 // app/layout.tsx
+import localFont from "next/font/local";
 import type { Metadata } from "next";
 import React from "react";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import { Layout, Navbar, Footer } from "nextra-theme-docs";
 import { getPageMap } from "nextra/page-map";
 
-import "../theme.config"; // 타입 때문에 한 번 불러두기 (필수는 아님)
-import themeConfig from "../theme.config"; // 우리가 만든 config
-import "nextra-theme-docs/style.css"; // ✅ Nextra Docs 스타일
-import "./globals.css";                // 기존 글로벌 스타일
+import "../theme.config";                 // 타입 때문에 한 번 불러두기
+import themeConfig from "../theme.config";
+import "nextra-theme-docs/style.css";     // Nextra Docs 스타일
+import "./globals.css";                   // 글로벌 스타일
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// ✅ Pretendard (본문 기본 폰트)
+const pretendard = localFont({
+  src: [
+    {
+      path: "../public/fonts/Pretendard-Regular.subset.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Pretendard-Bold.subset.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-sans",
+  display: "swap",
 });
 
+// ✅ 코드용 폰트는 Geist Mono만 유지
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -25,23 +40,23 @@ export const metadata: Metadata = {
   description: "immunecube docs",
 };
 
-// ✅ Nextra 4에서는 layout이 Layout 컴포넌트를 감싸는 구조가 됩니다.
+// ✅ Nextra 4 Root Layout
 export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   const pageMap = await getPageMap();
 
   return (
-    // ✔ 한국어 사이트이므로 lang="ko" 로 변경 (선택이지만 권장)
     <html lang="ko" suppressHydrationWarning>
       <body
-        className={
-          // ✔ 기존 Geist 변수 + 안티앨리어싱 유지
-          // ✔ 여기에 Tailwind의 font-sans + 배경/글자색을 추가
-         
-        `${geistSans.variable} ${geistMono.variable} antialiased font-sans` }
+        className={`
+          ${pretendard.variable}
+          ${geistMono.variable}
+          antialiased
+          font-sans
+        `}
       >
         <Layout
           navbar={

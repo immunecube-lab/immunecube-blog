@@ -10,23 +10,32 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // 일반 본문용
+        /**
+         * 본문 기본 폰트
+         * - app/layout.tsx에서 localFont로 주입한 Pretendard
+         * - var(--font-sans)가 1순위
+         */
         sans: [
-          "Freesentation",          // 1순위: 웹폰트(또는 설치 폰트)
-          "-apple-system",          // macOS / iOS
-          "BlinkMacSystemFont",     // macOS Chrome
-          "Apple SD Gothic Neo",    // 한글 macOS / iOS
-          "Noto Sans KR",           // 한글 안드로이드 / 크롬OS / 웹폰트
-          "Segoe UI",               // Windows 기본 UI
-          "Roboto",                 // 일부 안드로이드/크롬
+          "var(--font-sans)",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Apple SD Gothic Neo",
+          "Noto Sans KR",
+          "Segoe UI",
+          "Roboto",
           "Helvetica Neue",
           "Arial",
           "sans-serif",
         ],
-        // 제목·헤딩용
+
+        /**
+         * 헤딩용 폰트
+         * - 기본은 본문과 동일하게 Pretendard
+         * - 필요하면 Montserrat을 맨 뒤에서 선택적으로 사용
+         */
         heading: [
-          "Montserrat",             // 영문 헤딩
-          "Freesentation",          // 영문+한글 공통 톤
+          "var(--font-sans)",
+          "Montserrat",
           "-apple-system",
           "BlinkMacSystemFont",
           "Apple SD Gothic Neo",
@@ -34,34 +43,52 @@ module.exports = {
           "Segoe UI",
           "sans-serif",
         ],
+
+        /**
+         * 코드용 폰트
+         * - layout.tsx에서 Geist Mono 주입
+         */
+        mono: [
+          "var(--font-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace",
+        ],
       },
 
-      // Tailwind Typography 커스터마이즈
+      /**
+       * Tailwind Typography (prose) 커스터마이즈
+       */
       typography: (theme) => ({
         DEFAULT: {
           css: {
             fontFamily: theme("fontFamily.sans").join(", "),
             color: "var(--foreground)",
 
-            // 본문 기본
+            /* 본문 기본 */
             fontSize: "0.95rem",
-            lineHeight: "1.7",
+            lineHeight: "1.8",
 
-            // 링크
+            /* 링크 */
             a: {
               color: "inherit",
               textDecoration: "underline",
               fontWeight: "500",
             },
 
-            // 헤딩 공통
+            /* 헤딩 공통 */
             "h1,h2,h3,h4": {
               fontFamily: theme("fontFamily.heading").join(", "),
               fontWeight: "700",
               letterSpacing: "-0.02em",
             },
 
-            // 한국 기준 약간 줄인 헤딩 스케일
+            /* 한국어 본문에 맞춘 헤딩 스케일 */
             h1: {
               fontSize: "1.8rem",
               lineHeight: "1.4",
@@ -79,20 +106,20 @@ module.exports = {
               lineHeight: "1.6",
               marginTop: "1.5rem",
               marginBottom: "0.7rem",
-              color: "#60a5fa",   // ✔ Tailwind blue-400 (더 밝은 하늘색)
+              color: "#60a5fa",
             },
             h4: {
               fontSize: "1.05rem",
               lineHeight: "1.6",
             },
 
-            // 문단
+            /* 문단 */
             p: {
               marginTop: "0.5rem",
               marginBottom: "0.5rem",
             },
 
-            // 리스트
+            /* 리스트 */
             "ul,ol": {
               paddingLeft: "1.3rem",
               marginTop: "0.4rem",
@@ -103,25 +130,33 @@ module.exports = {
               marginBottom: "0.1rem",
             },
 
-            // 인용구
+            /* 인용 */
             blockquote: {
-              fontStyle: "normal",
-              borderLeftWidth: "3px",
+              marginLeft: "0",
+              fontStyle: "normal", // 이탤릭 제거
+              fontSize: "0.95em", // 본문보다 살짝 작게
+              lineHeight: "1.75",
+              marginTop: "1.2rem",
+              marginBottom: "1.2rem",
+              paddingLeft: "1rem",
+              borderLeftWidth: "2px",
               borderLeftColor: theme("colors.slate.300"),
-              paddingLeft: "0.9rem",
               color: theme("colors.slate.700"),
+              backgroundColor: "transparent",
             },
 
-            // 코드
+            /* 인라인 코드 */
             code: {
+              fontFamily: theme("fontFamily.mono").join(", "),
               fontSize: "0.9em",
               padding: "0.15rem 0.3rem",
               borderRadius: "0.25rem",
               backgroundColor: theme("colors.slate.100"),
             },
 
-            // pre 코드 블록
+            /* 코드 블록 */
             pre: {
+              fontFamily: theme("fontFamily.mono").join(", "),
               fontSize: "0.85rem",
               lineHeight: "1.5",
               borderRadius: "0.5rem",
@@ -130,7 +165,7 @@ module.exports = {
           },
         },
 
-        // 글 전체를 조금 더 줄인 버전 (prose-sm 쓸 때)
+        /* prose-sm */
         sm: {
           css: {
             fontSize: "0.9rem",
@@ -142,4 +177,4 @@ module.exports = {
       }),
     },
   },
-}
+};
