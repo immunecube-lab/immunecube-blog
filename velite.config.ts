@@ -33,6 +33,7 @@ export default defineConfig({
         body: s.mdx(),
         tags: s.array(s.string()).optional(),
         category: s.string().optional(),
+        order: s.number().optional(),
         cover: s.string().optional(),
         featured: s.boolean().default(false),
       }),

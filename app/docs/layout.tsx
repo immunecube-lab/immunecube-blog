@@ -31,7 +31,7 @@ function DocsSidebar() {
   return (
     <aside className="hidden md:block md:w-64 pr-8 border-r border-neutral-200 dark:border-neutral-800">
       <h2 className="text-sm font-semibold text-neutral-500 mb-4">
-        문서 목록
+        최근 문서
       </h2>
       <nav className="space-y-6 text-sm">
         {entries.map(([category, items]) => (

@@ -11,6 +11,10 @@ import themeConfig from "../theme.config";
 import "nextra-theme-docs/style.css";     // Nextra Docs 스타일
 import "./globals.css";                   // 글로벌 스타일
 
+// ✅ 여기만 당신 프로젝트 경로에 맞게 수정하세요
+import { GlobalTopNav } from "../GlobalTopNav";
+// 또는: import GlobalTopNav from "@/components/site/GlobalTopNav";
+
 // ✅ Pretendard (본문 기본 폰트)
 const pretendard = localFont({
   src: [
@@ -60,10 +64,16 @@ export default async function RootLayout({
       >
         <Layout
           navbar={
-            <Navbar
-              logo={themeConfig.logo}
-              projectLink={themeConfig.project.link}
-            />
+            <>
+              {/* ✅ Nextra navbar 영역 "안에서" 가장 위에 고정 */}
+              <GlobalTopNav />
+
+              {/* ✅ 기존 Nextra Navbar 유지 */}
+              <Navbar
+                logo={themeConfig.logo}
+                projectLink={themeConfig.project.link}
+              />
+            </>
           }
           footer={<Footer>{themeConfig.footer.text}</Footer>}
           pageMap={pageMap}
