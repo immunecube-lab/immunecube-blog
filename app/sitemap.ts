@@ -30,7 +30,7 @@ function entriesFrom(contentRoot: string, urlPrefix: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const postRoot = path.join(process.cwd(), "content", "post");
+  const postRoot = path.join(process.cwd(), "content", "posts");
   const docsRoot = path.join(process.cwd(), "content", "docs");
 
   const blogEntries = entriesFrom(postRoot, "blog");
