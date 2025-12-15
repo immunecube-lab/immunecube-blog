@@ -21,10 +21,8 @@ function Breadcrumbs({ pathname }: { pathname: string }) {
     const clean = pathname.split('?')[0].split('#')[0];
     const parts = clean.split('/').filter(Boolean);
 
-    // 홈에서는 breadcrumb 숨김
     if (parts.length === 0) return [];
 
-    // label prettify: kebab/snake -> Title-ish
     const prettify = (s: string) =>
       decodeURIComponent(s)
         .replace(/[-_]/g, ' ')
@@ -60,15 +58,14 @@ export function GlobalTopNav() {
   const pathname = usePathname() || '/';
   const [open, setOpen] = useState(false);
 
-  // 활성 탭: 정확히 일치 또는 하위 경로 포함
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur">
-      <div className="mx-auto max-w-5xl px-4 py-3">
+    <header className="border-b bg-background">
+      <div className="mx-auto max-w-5xl px-4 py-2">
         <div className="flex items-center justify-between gap-3">
           {/* 왼쪽: 로고/사이트명 + 기본 네비 */}
           <div className="flex items-center gap-3">
@@ -97,23 +94,8 @@ export function GlobalTopNav() {
             <Breadcrumbs pathname={pathname} />
           </div>
 
-          {/* 오른쪽: 검색(placeholder) + 모바일 메뉴 */}
+          {/* 오른쪽: 모바일 메뉴만 남김 */}
           <div className="flex items-center gap-2">
-            {/* 미래 확장 포인트: 검색 모달/커맨드 팔레트 */}
-            <button
-              type="button"
-              className="hidden sm:inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm text-foreground/70 hover:bg-muted transition"
-              onClick={() => {
-                // TODO: Command Palette / Search modal 연결
-                // 예: setSearchOpen(true)
-                alert('검색 기능은 추후 연결 예정입니다.');
-              }}
-              aria-label="Search"
-            >
-              <span>Search</span>
-              <span className="rounded border px-1.5 py-0.5 text-xs">⌘K</span>
-            </button>
-
             <button
               type="button"
               className="md:hidden inline-flex items-center rounded-lg border px-3 py-1.5 text-sm hover:bg-muted transition"
@@ -144,16 +126,6 @@ export function GlobalTopNav() {
                 {item.label}
               </Link>
             ))}
-            <button
-              type="button"
-              className="rounded-lg border px-3 py-2 text-sm text-foreground/70 hover:bg-muted transition text-left"
-              onClick={() => {
-                setOpen(false);
-                alert('검색 기능은 추후 연결 예정입니다.');
-              }}
-            >
-              Search (추후 연결)
-            </button>
           </div>
         )}
       </div>

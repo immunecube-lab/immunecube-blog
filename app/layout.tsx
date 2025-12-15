@@ -3,19 +3,16 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import React from "react";
 import { Geist_Mono } from "next/font/google";
-import { Layout, Navbar, Footer } from "nextra-theme-docs";
+import { Layout, Footer } from "nextra-theme-docs";
 import { getPageMap } from "nextra/page-map";
 
-import "../theme.config";                 // 타입 때문에 한 번 불러두기
+import "../theme.config";
 import themeConfig from "../theme.config";
-import "nextra-theme-docs/style.css";     // Nextra Docs 스타일
-import "./globals.css";                   // 글로벌 스타일
+import "nextra-theme-docs/style.css";
+import "./globals.css";
 
-// ✅ 여기만 당신 프로젝트 경로에 맞게 수정하세요
 import { GlobalTopNav } from "../GlobalTopNav";
-// 또는: import GlobalTopNav from "@/components/site/GlobalTopNav";
 
-// ✅ Pretendard (본문 기본 폰트)
 const pretendard = localFont({
   src: [
     {
@@ -33,7 +30,6 @@ const pretendard = localFont({
   display: "swap",
 });
 
-// ✅ 코드용 폰트는 Geist Mono만 유지
 const geistMono = Geist_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -44,7 +40,6 @@ export const metadata: Metadata = {
   description: "immunecube docs",
 };
 
-// ✅ Nextra 4 Root Layout
 export default async function RootLayout({
   children,
 }: {
@@ -64,16 +59,9 @@ export default async function RootLayout({
       >
         <Layout
           navbar={
-            <>
-              {/* ✅ Nextra navbar 영역 "안에서" 가장 위에 고정 */}
-              <GlobalTopNav />
-
-              {/* ✅ 기존 Nextra Navbar 유지 */}
-              <Navbar
-                logo={themeConfig.logo}
-                projectLink={themeConfig.project.link}
-              />
-            </>
+          <div key="global-top-nav">
+             <GlobalTopNav />
+          </div>
           }
           footer={<Footer>{themeConfig.footer.text}</Footer>}
           pageMap={pageMap}
