@@ -1,9 +1,33 @@
 // app/docs/_categories.ts
-export const CATEGORY_ORDER: Record<string, number> = {
-  "안내" : 5, 
-  "면역학": 10,
-  "생활면역": 20,
-  "암의 역사": 30,
-  "의학의 역사": 40,
-  "비만/다이어트": 9999,
+export const CATEGORIES: Record<
+  string,
+  {
+    order: number;
+    description: string;
+  }
+> = {
+  "안내": {
+    order: 5,
+    description: "사이트 이용 방법과 문서 구조에 대한 안내입니다.",
+  },
+  "면역학": {
+    order: 10,
+    description: "면역계의 원리와 주요 개념을 정리한 문서 모음입니다.",
+  },
+  "생활면역": {
+    order: 20,
+    description: "일상 속 면역과 건강을 설명합니다. 생활면역을 주로 선천면역과 LPS 독소에 대한 이야기들입니다.",
+  },
+  "암의 역사": {
+    order: 30,
+    description: "암의 발견과 치료법에 대한 간략한 역사속 에피소드들입니다. 저희는 암 자체에 대해서는 하나 하나 자세히 다루지 않습니다.",
+  },
+  "의학의 역사": {
+    order: 40,
+    description: "의학 지식과 치료법이 발전해 온 과정을 다룹니다.",
+  },
+  "비만/다이어트": {
+    order: 9999,
+    description: "현재 인터넷에 잘못 알려진 정보를 수정하고, 가장 최신 정보를 제공합니다.",
+  },
 };
