@@ -1,66 +1,23 @@
 // app/docs/layout.tsx
-import { ReactNode } from "react";
-import Link from "next/link";
-import * as site from "@/.velite";
+import React from "react";
+import { Layout, Footer } from "nextra-theme-docs";
+import { getPageMap } from "nextra/page-map";
 
-type Doc = {
-  slug: string;
-  title: string;
-  category?: string;
-  published?: boolean;
-};
+import "../../theme.config";
+import themeConfig from "../../theme.config";
+import "nextra-theme-docs/style.css";
 
-const docs = (site as any).docs as Doc[] | undefined;
+import { GlobalTopNav } from "../../GlobalTopNav";
 
-function DocsSidebar() {
-  if (!docs) return null;
-
-  const published = docs.filter((d) => d.published !== false);
-  const grouped = new Map<string, Doc[]>();
-
-  for (const doc of published) {
-    const key = doc.category || "기타";
-    if (!grouped.has(key)) grouped.set(key, []);
-    grouped.get(key)!.push(doc);
-  }
-
-  const entries = Array.from(grouped.entries()).sort(([a], [b]) =>
-    a.localeCompare(b, "ko")
-  );
+export default async function DocsLayout({ children }: { children: React.ReactNode }) {
+  const pageMap = await getPageMap();
 
   return (
-    <aside className="hidden md:block md:w-64 pr-8 border-r border-neutral-200 dark:border-neutral-800">
-      <h2 className="text-sm font-semibold text-neutral-500 mb-4">
-        최근 문서
-      </h2>
-      <nav className="space-y-6 text-sm">
-        {entries.map(([category, items]) => (
-          <div key={category}>
-            <div className="font-semibold mb-2">{category}</div>
-            <ul className="space-y-1">
-              {items.map((doc) => (
-                <li key={doc.slug}>
-                  <Link
-                    href={`/docs/${doc.slug}`}
-                    className="text-neutral-700 dark:text-neutral-300 hover:text-sky-600"
-                  >
-                    {doc.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </nav>
-    </aside>
-  );
-}
-
-export default function DocsLayout({ children }: { children: ReactNode }) {
-  return (
-    <div className="max-w-6xl mx-auto py-10 px-4 flex">
-      <DocsSidebar />
-      <div className="flex-1 md:pl-8">{children}</div>
-    </div>
+    <Layout
+      footer={<Footer>{themeConfig.footer.text}</Footer>}
+      pageMap={pageMap}
+    >
+      {children}
+    </Layout>
   );
 }

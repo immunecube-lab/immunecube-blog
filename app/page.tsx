@@ -1,8 +1,12 @@
 // app/page.tsx
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import fs from "node:fs";
 import path from "node:path";
 import { BookOpen, PenLine } from "lucide-react";
+import * as site from "@/.velite";
 
 type Entry = {
   title: string;
@@ -12,6 +16,8 @@ type Entry = {
 };
 
 const MAX_ITEMS_EACH = 5;
+
+/* ----------------------------- utils ----------------------------- */
 
 // content 아래의 md/mdx를 서브폴더까지 재귀로 수집
 function walk(dir: string): string[] {
@@ -26,7 +32,7 @@ function walk(dir: string): string[] {
   return out;
 }
 
-// MDX frontmatter에서 title만 가볍게 추출 (YAML 파서 없이 최소 구현)
+// MDX frontmatter에서 title만 가볍게 추출
 function extractTitleFromFrontmatter(fileContent: string): string | null {
   const fm = fileContent.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
   if (!fm) return null;
@@ -39,9 +45,7 @@ function extractTitleFromFrontmatter(fileContent: string): string | null {
 
   if (!m) return null;
 
-  const raw = m[1].trim();
-  const cleaned = raw.replace(/\s+#.*$/, "").trim();
-  return cleaned.length ? cleaned : null;
+  return m[1].replace(/\s+#.*$/, "").trim() || null;
 }
 
 function slugPathFromFile(contentRoot: string, fullPath: string) {
@@ -50,7 +54,7 @@ function slugPathFromFile(contentRoot: string, fullPath: string) {
 }
 
 function formatDate(d: Date) {
-  const yyyy = String(d.getFullYear());
+  const yyyy = d.getFullYear();
   const mm = String(d.getMonth() + 1).padStart(2, "0");
   const dd = String(d.getDate()).padStart(2, "0");
   return `${yyyy}.${mm}.${dd}`;
@@ -89,20 +93,47 @@ function getEntriesFromDir(params: {
   return entries.sort((a, b) => b.updated.getTime() - a.updated.getTime());
 }
 
+// docs 페이지와 동일한 href 규칙(혹시 slug 형태가 달라도 안전)
+function getDocHref(slug: string) {
+  if (!slug) return "/docs";
+  if (slug.startsWith("/")) return slug;
+  if (slug.startsWith("docs/")) return `/${slug}`;
+  return `/docs/${slug}`;
+}
+
+/* ----------------------------- page ----------------------------- */
+
+type VeliteDoc = {
+  slug: string;
+  title: string;
+  published?: boolean;
+  order?: number;
+  // section/category를 쓰고 싶으면 여기에 추가
+  // section?: string;
+  // category?: string;
+};
+
 export default function Home() {
   const root = process.cwd();
 
+  // 블로그는 기존(fs 기반) 유지
   const blogAll = getEntriesFromDir({
     contentDir: path.join(root, "content", "posts"),
     urlBase: "/blog",
     kind: "blog",
   });
 
-  const docsAll = getEntriesFromDir({
-    contentDir: path.join(root, "content", "docs"),
-    urlBase: "/docs",
-    kind: "docs",
-  });
+  // 문서는 Velite 기반으로 링크 생성 (홈에서만 깨지던 문제 해결)
+  const veliteDocs = ((site as any).docs ?? []) as VeliteDoc[];
+  const docsAll: Entry[] = veliteDocs
+    .filter((d) => d.published !== false)
+    .sort((a, b) => (a.order ?? 9999) - (b.order ?? 9999))
+    .map((d) => ({
+      title: d.title,
+      href: getDocHref(d.slug),
+      updated: new Date(), // 홈에서 날짜 표시는 일단 생략/고정 (원하면 개선 가능)
+      kind: "docs",
+    }));
 
   const blogLatest = blogAll.slice(0, MAX_ITEMS_EACH);
   const docsLatest = docsAll.slice(0, MAX_ITEMS_EACH);
@@ -114,21 +145,19 @@ export default function Home() {
         <section className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
           <h1 className="text-3xl font-semibold tracking-tight">immunecube</h1>
 
-          {/* 대표 SVG (public/images/hero.svg) */}
+          {/* 대표 SVG */}
           <div className="mt-4 overflow-hidden rounded-xl border border-neutral-100 bg-neutral-50">
             <img
               src="/images/hero.svg"
               alt="연구와 기록을 상징하는 면역 아카이브 이미지"
               className="h-40 w-full object-contain sm:h-48 md:h-56"
-              loading="eager"
+              fetchPriority="high"
             />
           </div>
 
           <p className="mt-4 text-sm leading-relaxed text-neutral-600">
-            생활면역과 저속노화, 면역 연구의 역사와 현대 면역대사를 다루는
-            블로그 & 문서 사이트입니다.
-            <br />
-            모든 글은 논문과 공식 자료를 바탕으로 정리합니다.
+            면역을 중심으로 논문과 공식 자료를 읽고 정리하는
+            블로그 & 문서 아카이브입니다.
             <br />
             자료는 문서로, 해설은 블로그로 정리합니다.
           </p>
@@ -136,7 +165,7 @@ export default function Home() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/blog"
-              className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800 transition"
+              className="inline-flex items-center justify-center rounded-full bg-neutral-800 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-700 transition"
             >
               블로그로 가기
             </Link>
@@ -150,7 +179,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 최근 업데이트 (분리) */}
+        {/* 최근 업데이트 */}
         <section className="space-y-3">
           <div className="flex items-baseline justify-between">
             <h2 className="text-base font-semibold">최근 업데이트</h2>
@@ -169,7 +198,7 @@ export default function Home() {
                 </div>
                 <Link
                   href="/blog"
-                  className="text-xs text-neutral-500 hover:text-neutral-900 underline underline-offset-4"
+                  className="text-xs rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-neutral-700 hover:bg-neutral-100 transition"
                 >
                   전체 보기
                 </Link>
@@ -208,7 +237,7 @@ export default function Home() {
                 </div>
                 <Link
                   href="/docs"
-                  className="text-xs text-neutral-500 hover:text-neutral-900 underline underline-offset-4"
+                  className="text-xs rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-neutral-700 hover:bg-neutral-100 transition"
                 >
                   전체 보기
                 </Link>
@@ -228,9 +257,7 @@ export default function Home() {
                         title={item.title}
                       >
                         <div className="truncate font-medium">{item.title}</div>
-                        <div className="mt-1 text-xs text-neutral-500">
-                          {formatDate(item.updated)}
-                        </div>
+                        {/* docs는 velite에 updatedAt이 없으면 날짜를 표시하지 않는 편이 안전합니다 */}
                       </Link>
                     </li>
                   ))}

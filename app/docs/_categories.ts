@@ -1,5 +1,6 @@
 // app/docs/_categories.ts
 export const CATEGORY_ORDER: Record<string, number> = {
+  "안내" : 5, 
   "면역학": 10,
   "생활면역": 20,
   "암의 역사": 30,
