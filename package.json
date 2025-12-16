@@ -11,6 +11,7 @@
     "velite:watch": "velite build --watch"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "lucide-react": "^0.561.0",
     "next": "16.0.10",
     "nextra": "^4.6.1",
