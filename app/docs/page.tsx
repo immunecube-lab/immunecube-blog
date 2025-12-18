@@ -2,6 +2,7 @@
 import Link from "next/link";
 import * as site from "@/.velite";
 import { CATEGORIES } from "./_categories";
+import { formatYmdDot } from "@/components/utils/date";
 
 type Doc = {
   slug: string;
@@ -10,6 +11,8 @@ type Doc = {
   published?: boolean;
   category?: string;
   order?: number;
+  date?: string;     // ✅ 발행일
+  updated?: string;  // ✅ 최종 수정일
 };
 
 const docs = (site as any).docs as Doc[] | undefined;
@@ -56,6 +59,11 @@ function getDocHref(slug: string) {
   return `/docs/${slug}`;
 }
 
+function pickDisplayDate(doc: Doc) {
+  // ✅ 화면 표시: updated → date
+  return formatYmdDot(doc.updated ?? doc.date);
+}
+
 /* ----------------------------- page ----------------------------- */
 
 type PageProps = {
@@ -83,13 +91,9 @@ export default async function DocsPage({ searchParams }: PageProps) {
   const grouped = groupByCategory(published);
 
   const categories = grouped.map(([c]) => c);
-  const activeCategory = categories.includes(selected)
-    ? selected
-    : categories[0];
+  const activeCategory = categories.includes(selected) ? selected : categories[0];
 
-  const activeItems =
-    grouped.find(([c]) => c === activeCategory)?.[1] ?? [];
-
+  const activeItems = grouped.find(([c]) => c === activeCategory)?.[1] ?? [];
   const categoryMeta = CATEGORIES[activeCategory];
 
   return (
@@ -143,22 +147,38 @@ export default async function DocsPage({ searchParams }: PageProps) {
           )}
 
           <ul className="space-y-3">
-            {activeItems.map((doc) => (
-              <li key={doc.slug}>
-                <Link
-                  href={getDocHref(doc.slug)}
-                  className="text-sky-600 hover:underline font-medium"
-                >
-                  {doc.title}
-                </Link>
+            {activeItems.map((doc) => {
+              const label = pickDisplayDate(doc);
 
-                {doc.description && (
-                  <p className="text-sm text-neutral-500">
-                    {doc.description}
-                  </p>
-                )}
-              </li>
-            ))}
+              return (
+                <li key={doc.slug}>
+                  <Link
+                    href={getDocHref(doc.slug)}
+                    className="block rounded-md px-2 py-2 hover:bg-neutral-50 transition"
+                    title={doc.title}
+                  >
+                    <div className="flex items-baseline justify-between gap-3">
+                      <span className="text-sky-600 hover:underline font-medium">
+                        {doc.title}
+                      </span>
+
+                      {/* ✅ 제목 오른쪽 날짜 */}
+                      {label && (
+                        <span className="shrink-0 text-[11px] text-neutral-400">
+                          {label}
+                        </span>
+                      )}
+                    </div>
+
+                    {doc.description && (
+                      <p className="mt-1 text-sm text-neutral-500">
+                        {doc.description}
+                      </p>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </section>
       </div>

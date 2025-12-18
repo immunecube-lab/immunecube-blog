@@ -1,17 +1,16 @@
 // app/page.tsx
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
-
 import Link from "next/link";
-import fs from "node:fs";
-import path from "node:path";
 import { BookOpen, PenLine } from "lucide-react";
 import * as site from "@/.velite";
+
+// 홈은 정적이어도 충분합니다(velite는 빌드 시점에 생성됨).
+// export const dynamic = "force-dynamic";  // ❌ 제거 권장
+// export const runtime = "nodejs";         // 필요하면 유지 가능(없어도 대개 OK)
 
 type Entry = {
   title: string;
   href: string;
-  updated: Date;
+  dateLabel?: string; // "YYYY.MM.DD" (없으면 표시 안 함)
   kind: "blog" | "docs";
 };
 
@@ -19,81 +18,24 @@ const MAX_ITEMS_EACH = 5;
 
 /* ----------------------------- utils ----------------------------- */
 
-// content 아래의 md/mdx를 서브폴더까지 재귀로 수집
-function walk(dir: string): string[] {
-  if (!fs.existsSync(dir)) return [];
-  const out: string[] = [];
-
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walk(full));
-    else if (entry.isFile() && /\.(md|mdx)$/.test(entry.name)) out.push(full);
-  }
-  return out;
+function normalizeSlugPart(slug: string) {
+  const s = slug.startsWith("/") ? slug.slice(1) : slug;
+  if (s.startsWith("docs/")) return s.slice("docs/".length);
+  if (s.startsWith("posts/")) return s.slice("posts/".length);
+  if (s.startsWith("blog/")) return s.slice("blog/".length);
+  return s;
 }
 
-// MDX frontmatter에서 title만 가볍게 추출
-function extractTitleFromFrontmatter(fileContent: string): string | null {
-  const fm = fileContent.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
-  if (!fm) return null;
-
-  const body = fm[1];
-  const m =
-    body.match(/^title:\s*"(.*?)"\s*$/m) ||
-    body.match(/^title:\s*'(.*?)'\s*$/m) ||
-    body.match(/^title:\s*(.+?)\s*$/m);
-
-  if (!m) return null;
-
-  return m[1].replace(/\s+#.*$/, "").trim() || null;
+function formatYmdDot(v?: string | Date) {
+  if (!v) return undefined;
+  const d = v instanceof Date ? v : new Date(v);
+  if (Number.isNaN(d.getTime())) return undefined;
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}.${m}.${day}`;
 }
 
-function slugPathFromFile(contentRoot: string, fullPath: string) {
-  const rel = path.relative(contentRoot, fullPath).replace(/\.(md|mdx)$/, "");
-  return rel.split(path.sep).map(encodeURIComponent).join("/");
-}
-
-function formatDate(d: Date) {
-  const yyyy = d.getFullYear();
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const dd = String(d.getDate()).padStart(2, "0");
-  return `${yyyy}.${mm}.${dd}`;
-}
-
-function getEntriesFromDir(params: {
-  contentDir: string;
-  urlBase: "/blog" | "/docs";
-  kind: "blog" | "docs";
-}): Entry[] {
-  const { contentDir, urlBase, kind } = params;
-  const files = walk(contentDir);
-
-  const entries: Entry[] = [];
-
-  for (const fullPath of files) {
-    const stat = fs.statSync(fullPath);
-    const content = fs.readFileSync(fullPath, "utf8");
-    const title =
-      extractTitleFromFrontmatter(content) ||
-      path
-        .basename(fullPath)
-        .replace(/\.(md|mdx)$/, "")
-        .replace(/-/g, " ");
-
-    const slugPath = slugPathFromFile(contentDir, fullPath);
-
-    entries.push({
-      title,
-      href: `${urlBase}/${slugPath}`,
-      updated: stat.mtime,
-      kind,
-    });
-  }
-
-  return entries.sort((a, b) => b.updated.getTime() - a.updated.getTime());
-}
-
-// docs 페이지와 동일한 href 규칙(혹시 slug 형태가 달라도 안전)
 function getDocHref(slug: string) {
   if (!slug) return "/docs";
   if (slug.startsWith("/")) return slug;
@@ -101,42 +43,68 @@ function getDocHref(slug: string) {
   return `/docs/${slug}`;
 }
 
-/* ----------------------------- page ----------------------------- */
+function getBlogHref(slug: string) {
+  // velite slug가 "posts/xxx" 형태일 수도 있으니 방어
+  const s = normalizeSlugPart(slug);
+  return `/blog/${encodeURIComponent(s)}`;
+}
+
+/* ----------------------------- velite types ----------------------------- */
+
+type VelitePost = {
+  slug: string;
+  title: string;
+  published?: boolean;
+  date?: string;
+  updated?: string;
+};
 
 type VeliteDoc = {
   slug: string;
   title: string;
   published?: boolean;
+  date?: string;
+  updated?: string;
   order?: number;
-  // section/category를 쓰고 싶으면 여기에 추가
-  // section?: string;
-  // category?: string;
 };
 
+/* ----------------------------- page ----------------------------- */
+
 export default function Home() {
-  const root = process.cwd();
+  const posts = (((site as any).posts ?? []) as VelitePost[])
+    .filter((p) => p.published !== false)
+    .map((p) => {
+      const label = formatYmdDot(p.updated ?? p.date);
+      const dt = (p.updated ?? p.date) ? new Date(p.updated ?? p.date!) : null;
+      return {
+        title: p.title,
+        href: getBlogHref(p.slug),
+        dateLabel: label,
+        _dt: dt?.getTime() ?? 0,
+        kind: "blog" as const,
+      };
+    })
+    .sort((a, b) => (b._dt ?? 0) - (a._dt ?? 0));
 
-  // 블로그는 기존(fs 기반) 유지
-  const blogAll = getEntriesFromDir({
-    contentDir: path.join(root, "content", "posts"),
-    urlBase: "/blog",
-    kind: "blog",
-  });
-
-  // 문서는 Velite 기반으로 링크 생성 (홈에서만 깨지던 문제 해결)
-  const veliteDocs = ((site as any).docs ?? []) as VeliteDoc[];
-  const docsAll: Entry[] = veliteDocs
+  const docs = (((site as any).docs ?? []) as VeliteDoc[])
     .filter((d) => d.published !== false)
-    .sort((a, b) => (a.order ?? 9999) - (b.order ?? 9999))
-    .map((d) => ({
-      title: d.title,
-      href: getDocHref(d.slug),
-      updated: new Date(), // 홈에서 날짜 표시는 일단 생략/고정 (원하면 개선 가능)
-      kind: "docs",
-    }));
+    .map((d) => {
+      const label = formatYmdDot(d.updated ?? d.date);
+      const dt = (d.updated ?? d.date) ? new Date(d.updated ?? d.date!) : null;
+      return {
+        title: d.title,
+        href: getDocHref(d.slug),
+        dateLabel: label,
+        _dt: dt?.getTime() ?? 0,
+        kind: "docs" as const,
+      };
+    })
+    // 문서는 order가 있는 경우 그것도 존중하고 싶으면 아래를 바꾸면 됩니다.
+    // 여기서는 "최근 업데이트" 목적이므로 날짜 기준 정렬
+    .sort((a, b) => (b._dt ?? 0) - (a._dt ?? 0));
 
-  const blogLatest = blogAll.slice(0, MAX_ITEMS_EACH);
-  const docsLatest = docsAll.slice(0, MAX_ITEMS_EACH);
+  const blogLatest: Entry[] = posts.slice(0, MAX_ITEMS_EACH).map(({ _dt, ...x }) => x);
+  const docsLatest: Entry[] = docs.slice(0, MAX_ITEMS_EACH).map(({ _dt, ...x }) => x);
 
   return (
     <main className="min-h-screen bg-neutral-50 text-neutral-900 px-6 py-20">
@@ -145,7 +113,6 @@ export default function Home() {
         <section className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
           <h1 className="text-3xl font-semibold tracking-tight">immunecube</h1>
 
-          {/* 대표 SVG */}
           <div className="mt-4 overflow-hidden rounded-xl border border-neutral-100 bg-neutral-50">
             <img
               src="/images/hero.svg"
@@ -156,8 +123,7 @@ export default function Home() {
           </div>
 
           <p className="mt-4 text-sm leading-relaxed text-neutral-600">
-            면역을 중심으로 논문과 공식 자료를 읽고 정리하는
-            블로그 & 문서 아카이브입니다.
+            면역을 중심으로 논문과 공식 자료를 읽고 정리하는 블로그 & 문서 아카이브입니다.
             <br />
             자료는 문서로, 해설은 블로그로 정리합니다.
           </p>
@@ -183,9 +149,7 @@ export default function Home() {
         <section className="space-y-3">
           <div className="flex items-baseline justify-between">
             <h2 className="text-base font-semibold">최근 업데이트</h2>
-            <p className="text-xs text-neutral-500">
-              최신 수정 기준으로 자동 정렬됩니다.
-            </p>
+            <p className="text-xs text-neutral-500">updated → date 기준으로 정렬됩니다.</p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -205,9 +169,7 @@ export default function Home() {
               </div>
 
               {blogLatest.length === 0 ? (
-                <div className="px-5 pb-5 text-sm text-neutral-600">
-                  아직 블로그 글이 없습니다.
-                </div>
+                <div className="px-5 pb-5 text-sm text-neutral-600">아직 블로그 글이 없습니다.</div>
               ) : (
                 <ul className="divide-y divide-neutral-100">
                   {blogLatest.map((item) => (
@@ -218,9 +180,9 @@ export default function Home() {
                         title={item.title}
                       >
                         <div className="truncate font-medium">{item.title}</div>
-                        <div className="mt-1 text-xs text-neutral-500">
-                          {formatDate(item.updated)}
-                        </div>
+                        {item.dateLabel && (
+                          <div className="mt-1 text-xs text-neutral-500">{item.dateLabel}</div>
+                        )}
                       </Link>
                     </li>
                   ))}
@@ -244,9 +206,7 @@ export default function Home() {
               </div>
 
               {docsLatest.length === 0 ? (
-                <div className="px-5 pb-5 text-sm text-neutral-600">
-                  아직 문서가 없습니다.
-                </div>
+                <div className="px-5 pb-5 text-sm text-neutral-600">아직 문서가 없습니다.</div>
               ) : (
                 <ul className="divide-y divide-neutral-100">
                   {docsLatest.map((item) => (
@@ -257,7 +217,9 @@ export default function Home() {
                         title={item.title}
                       >
                         <div className="truncate font-medium">{item.title}</div>
-                        {/* docs는 velite에 updatedAt이 없으면 날짜를 표시하지 않는 편이 안전합니다 */}
+                        {item.dateLabel && (
+                          <div className="mt-1 text-xs text-neutral-500">{item.dateLabel}</div>
+                        )}
                       </Link>
                     </li>
                   ))}
