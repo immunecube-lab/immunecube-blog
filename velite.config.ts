@@ -12,6 +12,7 @@ export default defineConfig({
         title: s.string(),
         description: s.string().optional(),
         date: s.isodate(),
+        updated: s.isodate().optional(),        // ✅ 추가
         slug: s.slug('posts'),
         published: s.boolean().default(true),
         body: s.mdx(),
@@ -24,11 +25,12 @@ export default defineConfig({
 
     docs: {
       name: 'Doc',
-      pattern: 'docs/**/*.mdx', // ← 이 패턴 매우 중요
+      pattern: 'docs/**/*.mdx',
       schema: s.object({
         title: s.string(),
         description: s.string().optional(),
-        date: s.isodate().optional(),  // 문서는 날짜 없을 수도 있음
+        date: s.isodate().optional(),
+        updated: s.isodate().optional(),        // ✅ 추가
         slug: s.slug('docs'),
         body: s.mdx(),
         tags: s.array(s.string()).optional(),

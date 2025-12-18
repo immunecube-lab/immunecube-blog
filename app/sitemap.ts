@@ -7,39 +7,55 @@ const SITE_URL = "https://datacube.immunecube.com";
 type VeliteItem = {
   slug: string;
   published?: boolean;
-  // velite 스키마에 updated가 있으면 그걸 쓰세요. 없으면 new Date()로 처리합니다.
+  date?: string | Date;
   updated?: string | Date;
 };
 
 function normalizePathSlug(slug: string) {
-  // slug가 "/docs/..." 같은 형태로 들어와도 안전하게 처리
   const s = slug.startsWith("/") ? slug.slice(1) : slug;
   if (s.startsWith("docs/")) return s.slice("docs/".length);
   if (s.startsWith("blog/")) return s.slice("blog/".length);
   return s;
 }
 
-function lastMod(v?: string | Date) {
-  if (!v) return new Date();
+// updated → date → undefined
+function pickLastMod(item: VeliteItem): Date | undefined {
+  const v = item.updated ?? item.date;
+  if (!v) return undefined;
+
   const d = v instanceof Date ? v : new Date(v);
-  return Number.isNaN(d.getTime()) ? new Date() : d;
+  return Number.isNaN(d.getTime()) ? undefined : d;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = (((site as any).posts ?? []) as VeliteItem[])
     .filter((p) => p.published !== false)
-    .map((p) => ({
-      url: `${SITE_URL}/blog/${encodeURIComponent(normalizePathSlug(p.slug))}`,
-      lastModified: lastMod(p.updated),
-    }));
+    .map((p) => {
+      const lastModified = pickLastMod(p);
+      return {
+        url: `${SITE_URL}/blog/${encodeURIComponent(
+          normalizePathSlug(p.slug)
+        )}`,
+        ...(lastModified ? { lastModified } : {}),
+      };
+    });
 
   const docs = (((site as any).docs ?? []) as VeliteItem[])
     .filter((d) => d.published !== false)
-    .map((d) => ({
-      // ✅ 핵심: 서브폴더 경로가 아니라 "docs/slug"로 고정
-      url: `${SITE_URL}/docs/${encodeURIComponent(normalizePathSlug(d.slug))}`,
-      lastModified: lastMod(d.updated),
-    }));
+    .map((d) => {
+      const lastModified = pickLastMod(d);
+      return {
+        url: `${SITE_URL}/docs/${encodeURIComponent(
+          normalizePathSlug(d.slug)
+        )}`,
+        ...(lastModified ? { lastModified } : {}),
+      };
+    });
 
-  return [{ url: SITE_URL, lastModified: new Date() }, ...posts, ...docs];
+  // 홈은 의미 있는 변경 시점이 없으므로 lastModified 생략
+  return [
+    { url: SITE_URL },
+    ...posts,
+    ...docs,
+  ];
 }
