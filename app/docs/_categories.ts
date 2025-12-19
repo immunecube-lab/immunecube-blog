@@ -30,8 +30,14 @@ export const CATEGORIES: Record<
     order: 40,
     description: "의학 지식과 치료법이 발전해 온 과정을 다룹니다.",
   },
-  "비만/다이어트": {
+
+  "대사와 면역": {
+    order: 50, 
+    description: "면역반응은 metabolism과 밀접하게 관련되어 있습니다. 특히 이기적인 뇌와 이기적인 면역에 대해서 자세히 다룹니다.",
+  },
+
+  "비만 다이어트": {
     order: 9999,
     description: "현재 인터넷에 잘못 알려진 정보를 수정하고, 가장 최신 정보를 제공합니다.",
-  },
+  }
 };

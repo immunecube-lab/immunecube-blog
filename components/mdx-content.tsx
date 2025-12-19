@@ -1,51 +1,33 @@
 // components/mdx-content.tsx
 import * as runtime from "react/jsx-runtime";
-import type React from "react";
+import type { ComponentType } from "react";
+import type { MDXComponents } from "mdx/types";
 
-const sharedComponents = {};
+// ✅ 커스텀 MDX 컴포넌트만 직접 import (Nextra 테마 훅 import 금지)
+import { Series } from "@/components/mdx/Series";
+import { KeyPoint } from "@/components/mdx/KeyPoint";
+import { Concept } from "@/components/mdx/Concept";
 
-const useMDXComponent = (code: string) => {
-  const fn = new Function(code);
-  return fn({ ...runtime }).default as React.ComponentType<any>;
+const sharedComponents: MDXComponents = {
+  Series,
+  KeyPoint,
+  Concept,
 };
 
-type MdxMeta = {
-  date?: string;     // "YYYY-MM-DD"
-  updated?: string;  // "YYYY-MM-DD"
-  showPublished?: boolean; // 기본 false 권장
+// Velite가 만들어 준 function-body 문자열을 React 컴포넌트로 변환
+const useMDXComponent = (code: string) => {
+  const fn = new Function(code);
+  return fn({ ...runtime }).default as ComponentType<any>;
 };
 
 interface MDXProps {
   code: string;
-  components?: Record<string, React.ComponentType<any>>;
-  meta?: MdxMeta;
+  components?: MDXComponents;
 }
 
-function MetaLine({ meta }: { meta: MdxMeta }) {
-  const { date, updated, showPublished = false } = meta;
-
-  if (!date && !updated) return null;
-
-  const parts: string[] = [];
-  if (showPublished && date) parts.push(`발행: ${date}`);
-  if (updated) parts.push(`최종 업데이트: ${updated}`);
-
-  if (!parts.length) return null;
-
-  return (
-    <p className="mt-2 text-sm text-muted-foreground">
-      {parts.join(" · ")}
-    </p>
-  );
-}
-
-export const MDXContent = ({ code, components = {}, meta }: MDXProps) => {
+export function MDXContent({ code, components = {} }: MDXProps) {
   const Component = useMDXComponent(code);
 
-  return (
-    <>
-      {meta ? <MetaLine meta={meta} /> : null}
-      <Component components={{ ...sharedComponents, ...components }} />
-    </>
-  );
-};
+  // ✅ Velite 경로에서는 "sharedComponents + page components"만 병합
+  return <Component components={{ ...sharedComponents, ...components }} />;
+}
