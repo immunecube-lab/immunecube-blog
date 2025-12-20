@@ -3,9 +3,7 @@ import React, { ReactNode } from "react";
 
 type KeyPointProps = {
   children: ReactNode;
-  /** Optional visual emphasis */
   variant?: "default" | "subtle";
-  /** Optional extra classes */
   className?: string;
 };
 
@@ -15,16 +13,21 @@ export function KeyPoint({
   className = "",
 }: KeyPointProps) {
   const base =
-    "my-8 pl-5 pr-4 py-4 border-l-4 leading-relaxed";
+    "my-6 pl-4 pr-4 py-3 border-l-4";
 
   const style =
     variant === "subtle"
       ? "border-gray-300 bg-gray-50 text-gray-700"
-      : "border-gray-900 bg-gray-50 text-gray-900";
+      : "border-red-600 bg-slate-50 text-gray-900";
+
+  const text =
+    variant === "subtle"
+      ? "text-[0.95rem] leading-relaxed"
+      : "text-[1.02rem] leading-snug font-medium"; // ✅ 여기만 변경
 
   return (
     <div
-      className={`${base} ${style} ${className}`.trim()}
+      className={`${base} ${style} ${text} ${className}`.trim()}
       role="note"
       aria-label="Key point"
     >
