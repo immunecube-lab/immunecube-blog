@@ -123,9 +123,9 @@ export default function Home() {
           </div>
 
           <p className="mt-4 text-sm leading-relaxed text-neutral-600">
-            면역을 중심으로 논문과 공식 자료를 읽고 정리하는 블로그 & 문서 아카이브입니다.
+            면역 과학 아카이브:
             <br />
-            자료는 문서로, 해설은 블로그로 정리합니다.
+            연구 논문, 공식 자료, 그리고 해설 블로그를 한 곳에서 읽고 정리합니다.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
