@@ -46,7 +46,7 @@ export function Paper({
   links = [],
   takeaway,
   className = "",
-  showLinks = false, // ✅ 기본은 숨김
+  showLinks = false,
 }: PaperProps) {
   const primaryUrl =
     (doi && doiToUrl(doi)) || url || (pmid && pmidToUrl(pmid)) || "";
@@ -59,6 +59,9 @@ export function Paper({
     pages ? `pp. ${pages}` : undefined,
   ].filter(Boolean);
 
+  // ✅ 한 줄 메타: "Nowell PC · Cancer Research · 1960 · Vol 20 · pp. 462–466"
+  const oneLineMeta = [authors, ...metaParts].filter(Boolean).join(" · ");
+
   const allLinks: LinkItem[] = [
     ...(doi ? [{ label: "DOI", href: doiToUrl(doi) }] : []),
     ...(pmid ? [{ label: "PubMed", href: pmidToUrl(pmid) }] : []),
@@ -69,55 +72,34 @@ export function Paper({
   return (
     <section
       className={[
-        "my-8 border-l-4 border-gray-900 bg-gray-50 px-5 py-4",
+        "my-6 overflow-hidden rounded-md border border-gray-200",
         className,
       ].join(" ")}
       role="note"
       aria-label="Paper"
     >
-      {/* ✅ gap 제거: 요소별 간격을 직접 제어 */}
-      <div>
-        {/* ✅ Paper-제목 간격 축소 */}
-        <div className="text-[0.7rem] font-semibold tracking-widest text-gray-600 uppercase mb-1">
-          Paper
-        </div>
+      {/* ✅ 제목 바: h3 제거(heading 간섭 제거), 상단 공간 제거 */}
+      <div className="-mt-px px-4 py-3 text-[1.05rem] font-semibold leading-snug bg-rose-100 text-gray-900 border-b border-rose-200 rounded-t-md">
+  {title}
+</div>
 
-        <h3 className="m-0 text-[1.15rem] font-semibold leading-snug text-gray-900">
-          {primaryUrl ? (
-            <a
-              href={primaryUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4"
-            >
-              {title}
-            </a>
-          ) : (
-            title
-          )}
-        </h3>
-
-        {authors && (
-          <div className="mt-2 text-[0.95rem] leading-relaxed text-gray-800">
-            {authors}
-          </div>
-        )}
-
-        {metaParts.length > 0 && (
-          <div className="mt-1 text-[0.9rem] text-gray-700">
-            {metaParts.join(" · ")}
+      {/* ✅ 본문(메타+요약) 영역만 흰 배경 */}
+      <div className="bg-white">
+        {oneLineMeta && (
+          <div className="px-4 pt-2 text-[0.92rem] text-gray-700 whitespace-normal">
+            {oneLineMeta}
           </div>
         )}
 
         {takeaway && (
-          <div className="mt-3 text-[0.98rem] leading-relaxed font-medium text-gray-900">
+          <div className="px-4 pt-2 pb-3 text-[0.95rem] leading-relaxed text-gray-900">
             {takeaway}
           </div>
         )}
 
-        {/* ✅ 링크는 기본 숨김, 필요할 때만 showLinks=true */}
+        {/* ✅ 링크는 기본 숨김 (필요 시 showLinks=true) */}
         {showLinks && allLinks.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-[0.9rem] text-gray-700">
+          <div className="px-4 pb-3 flex flex-wrap gap-x-3 gap-y-1 text-[0.9rem] text-gray-700">
             {allLinks.map((l) => (
               <a
                 key={`${l.label}:${l.href}`}

@@ -2,17 +2,10 @@
 import React, { ReactNode } from "react";
 
 type ConceptProps = {
-  /** Term being defined */
   term: string;
   children: ReactNode;
-
-  /** Optional short alias or subtitle */
   alias?: string;
-
-  /** Optional visual variant */
   variant?: "default" | "boxed";
-
-  /** Optional extra classes */
   className?: string;
 };
 
@@ -23,21 +16,21 @@ export function Concept({
   variant = "default",
   className = "",
 }: ConceptProps) {
-  const base =
-    "my-6 px-5 py-4 leading-relaxed";
+  const base = "my-6 overflow-hidden leading-relaxed";
 
-  const style =
+  const container =
     variant === "boxed"
       ? "border border-gray-200 rounded-md bg-white"
       : "border-l-4 border-gray-200 bg-white";
 
   return (
     <div
-      className={`${base} ${style} ${className}`.trim()}
+      className={`${base} ${container} ${className}`.trim()}
       role="definition"
       aria-label={`Concept: ${term}`}
     >
-      <div className="mb-1 font-semibold text-gray-900">
+      {/* 제목 영역 */}
+      <div className="px-5 py-2 bg-gray-100 text-gray-900 font-semibold">
         {term}
         {alias && (
           <span className="ml-2 text-sm font-normal text-gray-500">
@@ -46,7 +39,8 @@ export function Concept({
         )}
       </div>
 
-      <div className="text-gray-700">
+      {/* 설명 영역 */}
+      <div className="px-5 py-0 text-gray-700">
         {children}
       </div>
     </div>
