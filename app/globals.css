@@ -107,3 +107,130 @@ body {
   margin-top: 0.05rem;
   margin-bottom: 0.05rem;
 }
+
+
+/* =========================================================
+   PRINT (final)
+   - 첫 페이지가 비고 2페이지부터 본문이 시작되는 문제 해결
+   - Nextra/Next 레이아웃의 sticky/fixed/aside/toc/skip-link 제거
+   - 본문 1컬럼 강제 + 여백 정리
+   ========================================================= */
+
+/* =========================================================
+   PRINT STYLE (FINAL, FULL)
+   - 첫 페이지가 비고 2페이지부터 시작되는 문제 해결
+   - 목차/사이드바/헤더 제거
+   - 본문 1컬럼 인쇄
+   - 이미지 과도 확대 방지
+   ========================================================= */
+
+@media print {
+
+  /* 0) HTML / BODY 기본 리셋 */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* 1) 인쇄에 필요 없는 UI 전부 제거 */
+  header,
+  nav,
+  footer,
+  aside,
+  .nextra-nav-container,
+  .nextra-sidebar,
+  .nextra-toc,
+  .nextra-search,
+  .nextra-scrollbar,
+  .menu,
+  .toc,
+  .sidebar,
+  .search,
+  .theme-toggle,
+  .toggle,
+  [data-toc],
+  [data-sidebar],
+  [data-nav],
+  [data-search],
+  a[href="#content"],
+  a[href="#main-content"],
+  a[href="#skip-to-content"],
+  .skip-to-content {
+    display: none !important;
+  }
+
+  /* 2) fixed / sticky / transform / contain 전부 무력화
+        (이게 1페이지가 비는 문제의 핵심 원인임) */
+  * {
+    position: static !important;
+    float: none !important;
+    transform: none !important;
+    filter: none !important;
+    contain: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+
+    break-before: auto !important;
+    break-after: auto !important;
+    break-inside: auto !important;
+    page-break-before: auto !important;
+    page-break-after: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  /* 3) 본문을 무조건 첫 페이지, 1컬럼으로 */
+  main,
+  article,
+  .content,
+  .prose,
+  .nextra-content,
+  .nextra-body,
+  .nextra-container,
+  .nextra-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 4) 제목(h1)이 첫 페이지 상단을 밀어내는 현상 방지 */
+  h1,
+  .prose h1 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* 5) 링크는 인쇄에서 눈에 띄지 않게 */
+  a, a:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* 6) 이미지 / 도표가 페이지 중간에서 잘리지 않게 */
+  img,
+  figure,
+  table,
+  pre,
+  blockquote {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* 7) 🔽 이미지가 너무 커지는 문제 완화 (인쇄 전용) */
+  img,
+  figure img {
+    max-height: 180mm;   /* A4 기준 안전한 최대 높이 */
+    width: auto !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block;
+    object-fit: contain !important;
+  }
+
+  /* 8) 페이지 여백 (하나만 유지) */
+  @page {
+    margin: 12mm;
+  }
+}
