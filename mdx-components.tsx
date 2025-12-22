@@ -7,20 +7,20 @@ import { Series } from "@/components/mdx/Series";
 import { KeyPoint } from "@/components/mdx/KeyPoint";
 import { Concept } from "@/components/mdx/Concept";
 
-// Nextra Docs 테마의 기본 MDX 컴포넌트 세트
+// ✅ 여기! 실제 파일 위치가 mdx/RelatedPosts.tsx 라면 이게 정답입니다.
+import RelatedPosts from "@/components/mdx/RelatedPosts";
+
 const themeComponents = getThemeComponents();
 
-// Nextra + 커스텀 컴포넌트 병합용 훅
 export function useMDXComponents(
   components: MDXComponents = {}
 ): MDXComponents {
   return {
     ...themeComponents,
     ...components,
-
-    // ✅ 여기서 MDX 태그 이름과 컴포넌트 매핑
     Series,
     KeyPoint,
     Concept,
+    RelatedPosts,
   };
 }

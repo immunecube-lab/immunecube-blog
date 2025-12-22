@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import React from "react";
 import { Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react"; // ✅ 추가
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 import { GlobalTopNav } from "../GlobalTopNav";
@@ -31,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`
           ${pretendard.variable}
           ${geistMono.variable}
@@ -40,8 +41,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <GlobalTopNav />
         {children}
-
-        {/* ✅ 방문자 추적용 (body 맨 아래가 가장 안전) */}
         <Analytics />
       </body>
     </html>
