@@ -12,6 +12,8 @@ import { KeyPoint } from "@/components/mdx/KeyPoint";
 import { Concept } from "@/components/mdx/Concept";
 import { PaperLite } from "@/components/mdx/PaperLite";
 import RelatedPosts from "@/components/mdx/RelatedPosts";
+import { FigureGroup } from "@/components/mdx/FigureGroup";
+
 
 const sharedComponents: MDXComponents = {
   Series,
@@ -21,6 +23,7 @@ const sharedComponents: MDXComponents = {
   Paper,
   PaperLite,
   RelatedPosts, // ✅ 반드시 포함
+  FigureGroup,
 };
 
 interface MDXProps {
