@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 431.093 579.979">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 21px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        fill: #231916;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-5, .cls-11, .cls-6, .cls-12, .cls-13, .cls-8, .cls-9, .cls-10 {
+        font-family: Pretendard-SemiBold-KSCpc-EUC-H, Pretendard;
+        font-weight: 600;
+      }
+
+      .cls-2, .cls-11, .cls-12 {
+        font-size: 13px;
+      }
+
+      .cls-3 {
+        font-size: 10px;
+      }
+
+      .cls-14 {
+        stroke-width: .5px;
+      }
+
+      .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-20 {
+        stroke: #231916;
+      }
+
+      .cls-16, .cls-17 {
+        stroke-width: 1.071px;
+      }
+
+      .cls-21 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4, .cls-22 {
+        stroke-width: 0px;
+      }
+
+      .cls-23, .cls-12 {
+        fill: #00a1e9;
+      }
+
+      .cls-24, .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        font-size: 15px;
+      }
+
+      .cls-17 {
+        stroke-dasharray: 0 0 3.167 3.167;
+      }
+
+      .cls-6 {
+        font-size: 30.316px;
+      }
+
+      .cls-22 {
+        fill: url(#_무제_그라디언트_11);
+      }
+
+      .cls-13 {
+        fill: #e60013;
+        font-size: 22.375px;
+      }
+
+      .cls-18 {
+        stroke-dasharray: 0 0 3.456 3.456;
+      }
+
+      .cls-18, .cls-20 {
+        stroke-width: 1.146px;
+      }
+
+      .cls-8, .cls-10 {
+        font-size: 16px;
+      }
+
+      .cls-9 {
+        font-size: 37.011px;
+      }
+
+      .cls-19 {
+        stroke: #130b0b;
+        stroke-width: 2px;
+      }
+    </style>
+    <linearGradient id="_무제_그라디언트_11" data-name="무제 그라디언트 11" x1="147.973" y1="354.452" x2="322.94" y2="443.226" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5fb8e9"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <polyline class="cls-22" points="332.291 420.946 123.259 332.43 316.807 467.139"/>
+    <path class="cls-15" d="m332.291,419.656l-209.032-87.226c-53.677,0-46.452,179.097-46.452,179.097v-198.216"/>
+    <line class="cls-15" x1="316.807" y1="467.139" x2="123.259" y2="332.43"/>
+    <text class="cls-3" transform="translate(205.054 361.623) rotate(22.65)"><tspan x="0" y="0">수</tspan></text>
+    <text class="cls-3" transform="translate(213.044 364.957) rotate(22.65)"><tspan x="0" y="0">소</tspan></text>
+    <text class="cls-3" transform="translate(221.013 368.283) rotate(22.65)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(223.215 369.201) rotate(22.65)"><tspan x="0" y="0">동</tspan></text>
+    <text class="cls-3" transform="translate(231.188 372.528) rotate(22.65)"><tspan x="0" y="0">위</tspan></text>
+    <text class="cls-3" transform="translate(239.167 375.857) rotate(22.65)"><tspan x="0" y="0">원</tspan></text>
+    <text class="cls-3" transform="translate(247.155 379.191) rotate(22.65)"><tspan x="0" y="0">소</tspan></text>
+    <text class="cls-3" transform="translate(152.152 354.24) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(154.12 355.611) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(156.075 356.971) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(158.013 358.321) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(159.968 359.681) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(161.904 361.028) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(163.854 362.386) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(165.816 363.751) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(167.757 365.102) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(169.709 366.46) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(171.652 367.813) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(173.605 369.172) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(175.548 370.525) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(177.5 371.883) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(179.44 373.233) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(181.386 374.588) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(183.338 375.946) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(177.872 387.98) rotate(34.838)"><tspan x="0" y="0">산</tspan></text>
+    <text class="cls-3" transform="translate(184.953 392.91) rotate(34.838)"><tspan x="0" y="0">소</tspan></text>
+    <text class="cls-3" transform="translate(192.061 397.856) rotate(34.838)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-3" transform="translate(194.014 399.216) rotate(34.838)"><tspan x="0" y="0">동</tspan></text>
+    <text class="cls-3" transform="translate(201.102 404.15) rotate(34.838)"><tspan x="0" y="0">위</tspan></text>
+    <text class="cls-3" transform="translate(208.2 409.09) rotate(34.838)"><tspan x="0" y="0">원</tspan></text>
+    <text class="cls-3" transform="translate(215.3 414.033) rotate(34.838)"><tspan x="0" y="0">소</tspan></text>
+    <text class="cls-2" transform="translate(234.567 400.296) rotate(30.136)"><tspan x="0" y="0">칼로리 소비량</tspan></text>
+    <text class="cls-12" transform="translate(335.514 424.656)"><tspan x="0" y="0">H</tspan></text>
+    <text class="cls-12" transform="translate(344.807 428.985) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-2" transform="translate(349.373 424.656)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-2" transform="translate(326.224 477.648)"><tspan x="0" y="0">H</tspan></text>
+    <text class="cls-2" transform="translate(335.517 481.977) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-12" transform="translate(340.083 477.648)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-11" transform="translate(365.714 477.067)"><tspan class="cls-7" x="0" y="0">C</tspan><tspan class="cls-23" x="9.28" y="0">O</tspan></text>
+    <text class="cls-12" transform="translate(384.668 481.397) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <g>
+      <line class="cls-20" x1="123.259" y1="314.398" x2="123.259" y2="316.117"/>
+      <line class="cls-18" x1="123.259" y1="319.574" x2="123.259" y2="539.047"/>
+      <line class="cls-20" x1="123.259" y1="540.775" x2="123.259" y2="542.494"/>
+    </g>
+    <g>
+      <line class="cls-16" x1="305.749" y1="314.398" x2="305.749" y2="316.004"/>
+      <line class="cls-17" x1="305.749" y1="319.172" x2="305.749" y2="539.305"/>
+      <line class="cls-16" x1="305.749" y1="540.888" x2="305.749" y2="542.494"/>
+    </g>
+    <text class="cls-5" transform="translate(63.592 487.638) rotate(-90)"><tspan x="0" y="0">L</tspan></text>
+    <text class="cls-5" transform="translate(63.592 479.523) rotate(-90) scale(.7)"><tspan x="0" y="0">N</tspan></text>
+    <text class="cls-5" transform="translate(63.592 472.048) rotate(-90)"><tspan x="0" y="0" xml:space="preserve"> 동위원소량(</tspan></text>
+    <text class="cls-5" transform="translate(63.592 398.058) rotate(-90) scale(.7)"><tspan x="0" y="0">PPM</tspan></text>
+    <text class="cls-5" transform="translate(63.592 375.941) rotate(-90)"><tspan x="0" y="0">)</tspan></text>
+    <text class="cls-2" transform="translate(90.513 537.527)"><tspan x="0" y="0">평형</tspan></text>
+    <text class="cls-2" transform="translate(59.197 564.038)"><tspan x="0" y="0">샘플 A</tspan></text>
+    <text class="cls-2" transform="translate(106.381 564.039)"><tspan x="0" y="0">샘플 B</tspan></text>
+    <text class="cls-2" transform="translate(284.753 564.039)"><tspan x="0" y="0">샘플 C</tspan></text>
+    <text class="cls-2" transform="translate(193.152 537.505)"><tspan x="0" y="0">제거</tspan></text>
+    <text class="cls-5" transform="translate(191.423 575.409)"><tspan x="0" y="0">시간</tspan></text>
+    <line class="cls-15" x1="74.265" y1="511.526" x2="352.201" y2="511.526"/>
+    <g>
+      <line class="cls-14" x1="79.5" y1="519.656" x2="119.729" y2="519.656"/>
+      <path class="cls-4" d="m76.482,519.656c1.42.527,3.182,1.426,4.274,2.378l-.86-2.378.86-2.377c-1.092.952-2.854,1.851-4.274,2.377Z"/>
+      <polygon class="cls-4" points="123.259 519.656 118.284 521.688 119.465 519.656 118.284 517.623 123.259 519.656"/>
+    </g>
+    <g>
+      <line class="cls-14" x1="126.277" y1="519.656" x2="302.514" y2="519.656"/>
+      <path class="cls-4" d="m123.259,519.656c1.42.527,3.182,1.426,4.274,2.378l-.86-2.378.86-2.377c-1.092.952-2.854,1.851-4.274,2.377Z"/>
+      <polygon class="cls-4" points="306.044 519.656 301.07 521.688 302.25 519.656 301.07 517.623 306.044 519.656"/>
+    </g>
+    <text class="cls-2" transform="translate(354.619 476.32)"><tspan x="0" y="0">+</tspan></text>
+  </g>
+  <g>
+    <text class="cls-13" transform="translate(20.408 56.238)"><tspan x="0" y="0">INPUT</tspan></text>
+    <text class="cls-13" transform="translate(310.214 60.109)"><tspan x="0" y="0">OUTPUT</tspan></text>
+    <text class="cls-10" transform="translate(0 103.849) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-10" transform="translate(5.621 109.177)"><tspan x="0" y="0">H</tspan></text>
+    <text class="cls-10" transform="translate(17.058 114.505) scale(.583)"><tspan class="cls-24" x="0" y="0">2</tspan><tspan class="cls-21" x="9.64" y="-18.278">18</tspan></text>
+    <text class="cls-10" transform="translate(32.845 109.177)"><tspan x="0" y="0">O Dose</tspan></text>
+    <text class="cls-10" transform="translate(170.517 102.668) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-10" transform="translate(176.137 107.996)"><tspan x="0" y="0">H</tspan></text>
+    <text class="cls-10" transform="translate(187.575 113.324) scale(.583)"><tspan class="cls-24" x="0" y="0">2</tspan><tspan class="cls-21" x="9.64" y="-18.278">18</tspan></text>
+    <text class="cls-10" transform="translate(203.362 107.996)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-10" transform="translate(161.789 232.401)"><tspan x="0" y="0">CO</tspan></text>
+    <text class="cls-10" transform="translate(185.117 237.729) scale(.583)"><tspan x="0" y="0" xml:space="preserve">2  </tspan></text>
+    <text class="cls-10" transform="translate(195.165 232.401)"><tspan x="0" y="0">pool</tspan></text>
+    <text class="cls-10" transform="translate(232.555 245.341)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-10" transform="translate(244.462 240.013) scale(.583)"><tspan x="0" y="0">18</tspan></text>
+    <text class="cls-10" transform="translate(228.693 186.026) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-10" transform="translate(234.314 191.354)"><tspan x="0" y="0">H</tspan></text>
+    <text class="cls-8" transform="translate(245.751 196.682) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-10" transform="translate(251.372 191.354)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(17.518 162.499) scale(.583)"><tspan x="0" y="0">음식과 물</tspan><tspan x="-18.149" y="30.875">대기중 수증기</tspan></text>
+    <text class="cls-6" transform="translate(146.312 171.419) scale(.583)"><tspan x="0" y="0">신체 수분 pool</tspan></text>
+    <text class="cls-10" transform="translate(340.277 196.682)"><tspan x="0" y="0">H</tspan></text>
+    <text class="cls-10" transform="translate(351.714 202.01) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-10" transform="translate(357.335 196.682)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-9" transform="translate(372.535 199.732) scale(.583)"><tspan x="0" y="0" xml:space="preserve"> (신장)</tspan></text>
+    <text class="cls-10" transform="translate(338.987 241.806)"><tspan x="0" y="0">H</tspan></text>
+    <text class="cls-10" transform="translate(350.424 247.134) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-10" transform="translate(356.045 241.806)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-10" transform="translate(340.033 273.413)"><tspan x="0" y="0">CO</tspan></text>
+    <text class="cls-10" transform="translate(363.361 278.741) scale(.583)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-9" transform="translate(379.425 246.866) scale(.583)"><tspan x="0" y="0">(폐)</tspan></text>
+    <g>
+      <g>
+        <line class="cls-15" x1="182.893" y1="120.796" x2="182.893" y2="144.438"/>
+        <path class="cls-4" d="m182.893,150.473c-1.054-2.84-2.852-6.363-4.756-8.547l4.756,1.72,4.755-1.72c-1.904,2.184-3.702,5.708-4.755,8.547Z"/>
+      </g>
+      <g>
+        <line class="cls-15" x1="195.352" y1="150.473" x2="195.352" y2="126.831"/>
+        <path class="cls-4" d="m195.352,120.796c1.054,2.84,2.852,6.363,4.756,8.547l-4.756-1.72-4.755,1.72c1.904-2.184,3.702-5.708,4.755-8.547Z"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <line class="cls-15" x1="182.893" y1="184.893" x2="182.893" y2="208.535"/>
+        <path class="cls-4" d="m182.893,214.57c-1.054-2.84-2.852-6.363-4.756-8.547l4.756,1.72,4.755-1.72c-1.904,2.184-3.702,5.708-4.755,8.547Z"/>
+      </g>
+      <g>
+        <line class="cls-15" x1="195.352" y1="214.57" x2="195.352" y2="190.928"/>
+        <path class="cls-4" d="m195.352,184.893c1.054,2.84,2.852,6.363,4.756,8.547l-4.756-1.72-4.755,1.72c1.904-2.184,3.702-5.708,4.755-8.547Z"/>
+      </g>
+    </g>
+    <g>
+      <line class="cls-15" x1="265.4" y1="192.796" x2="330.181" y2="192.796"/>
+      <polygon class="cls-4" points="337.241 192.796 327.292 196.861 329.653 192.796 327.292 188.731 337.241 192.796"/>
+    </g>
+    <g>
+      <line class="cls-15" x1="265.4" y1="237.729" x2="330.181" y2="237.729"/>
+      <polygon class="cls-4" points="337.241 237.729 327.292 241.794 329.653 237.729 327.292 233.664 337.241 237.729"/>
+    </g>
+    <g>
+      <line class="cls-15" x1="92.755" y1="101.699" x2="157.535" y2="101.699"/>
+      <polygon class="cls-4" points="164.596 101.699 154.647 105.764 157.008 101.699 154.647 97.634 164.596 101.699"/>
+    </g>
+    <g>
+      <line class="cls-15" x1="70.561" y1="166.215" x2="135.342" y2="166.215"/>
+      <polygon class="cls-4" points="142.402 166.215 132.453 170.28 134.814 166.215 132.453 162.151 142.402 166.215"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="265.4" y1="196.682" x2="333.933" y2="230.337"/>
+      <g>
+        <line class="cls-15" x1="265.4" y1="196.682" x2="327.595" y2="227.225"/>
+        <polygon class="cls-4" points="333.933 230.337 323.21 229.601 327.121 226.992 326.794 222.303 333.933 230.337"/>
+      </g>
+    </g>
+    <g>
+      <line class="cls-4" x1="265.4" y1="239.946" x2="333.933" y2="273.601"/>
+      <g>
+        <line class="cls-15" x1="265.4" y1="239.946" x2="327.595" y2="270.489"/>
+        <polygon class="cls-4" points="333.933 273.601 323.21 272.865 327.121 270.256 326.794 265.567 333.933 273.601"/>
+      </g>
+    </g>
+    <g>
+      <line class="cls-4" x1="267.054" y1="235.512" x2="335.587" y2="201.856"/>
+      <g>
+        <line class="cls-15" x1="267.054" y1="235.512" x2="329.249" y2="204.969"/>
+        <polygon class="cls-4" points="335.587 201.856 328.448 209.891 328.776 205.201 324.865 202.594 335.587 201.856"/>
+      </g>
+    </g>
+    <path class="cls-19" d="m133.99,268.362l117.937,1.907s5.923-8.551,9.567-11.839c.309-.279.549-.631.76-1.011,1.327-.655,8.169-4.394,8.655-4.943.023.104.036.169.036.169l4.7-2.136s-.002-.01-.002-.01c.115.082.251.159.346.254l.681.99s10.674-10.526,12.042-13.817c1.368-3.288,4.101-10.196,6.15-12.497,2.052-2.302,0-16.445.684-24.339.684-7.891-1.028-11.512-2.392-15.785-1.365-4.277-7.175-23.024-7.515-28.616-.34-5.592-13.665-39.468-14.012-43.415-.34-3.95-4.439-6.578-4.098-8.88.343-2.305-1.709-5.592-1.709-5.592,0,0-39.978-11.183-42.708-14.143-2.001-2.164-3.625-3.792-4.358-4.515-.963-2.876-1.98-4.567-2.816-5.681-.048-.002-.099-.003-.147-.004-.253-.562-.538-.874-.538-.874.911-2.628,1.592-9.428,2.963-10.744,1.365-1.313,5.009-4.822,6.604-7.454,1.595-2.632,2.279-8.773,1.822-10.526-.454-1.753-2.049-.878-1.368-1.975.687-1.094,1.141-3.725.911-5.919-.224-2.194.23-1.534,1.598-6.141,1.364-4.603-.23-5.479-1.141-10.085-.914-4.604-4.555-8.113-6.147-9.207-1.599-1.097-24.939-2.853-24.939-2.853,0,0-2.279,0-3.651-1.535-1.362-1.538.233-3.069.233-3.069,0,0-1.825,1.315-2.963,1.535-1.141.218-5.239-3.509-6.604-4.385-1.371-.878-.457,1.097-1.825,1.097s-4.558-.659-8.2-.221c-3.647.437-9.34,4.384-10.935,5.262-1.595.878-1.595-.659-2.276-.659-.684,0,0,1.537-1.368,2.197-1.368.656,17.878,6.797,16.056,8.988-1.822,2.193-1.592,13.157-1.141,17.982.46,4.822,1.595,3.944.23,5.263-1.368,1.313-.048,12.48.684,13.595,1.053,1.605,2.963,1.312,3.19,4.165.227,2.848,1.822,12.06,3.871,15.567,0,0-1.244.685-2.344,2.053.022-.098.043-.199.065-.297,0,0-.159.316-.404.782-.313.45-.607.941-.832,1.511-.904,1.589-2.095,3.475-2.865,3.845-1.365.656-31.432,8.332-40.999,12.06,0,0-3.871.216-3.871,1.534s-.684,6.138-1.822,8.332c-1.142,2.194-6.377,15.788-5.466,19.076.911,3.29,1.138,5.481-.684,10.085-1.825,4.607-4.328,24.123-5.696,29.605-1.365,5.482-3.641,17.101-5.236,21.27-1.595,4.166-.003,16.007-1.595,20.17-1.598,4.168.457,5.481.227,7.238-.227,1.753-1.825,7.894-.684,10.963,1.138,3.07-.684,8.113.227,10.307.911,2.191,4.104,8.989,5.012,12.058.914,3.069,1.138,8.991,3.417,11.185,2.137,2.057,5.398,2.122,5.8,2.122,1.415,1.898,3.677,4.918,3.84,5.045.24.181,7.124,5.212,7.124,5.212,0,0-.03-.092-.081-.253.275.344.533.65.75.872m122.423-36.35"/>
+  </g>
+</svg>
