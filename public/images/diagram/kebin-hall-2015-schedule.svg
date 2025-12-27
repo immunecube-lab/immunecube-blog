@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 529.632 278.908">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 10px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-5 {
+        stroke: #231916;
+      }
+
+      .cls-6 {
+        fill: #5165a3;
+      }
+
+      .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        stroke-width: 0px;
+      }
+
+      .cls-7, .cls-11 {
+        fill: #231916;
+      }
+
+      .cls-11, .cls-12 {
+        font-family: Pretendard-Medium-KSCpc-EUC-H, Pretendard;
+        font-size: 10px;
+        font-weight: 500;
+      }
+
+      .cls-3 {
+        stroke-width: .75px;
+      }
+
+      .cls-8 {
+        fill: #c30f23;
+      }
+
+      .cls-12 {
+        fill: #fff;
+      }
+
+      .cls-13 {
+        letter-spacing: -.014em;
+      }
+
+      .cls-9 {
+        fill: #624a87;
+      }
+
+      .cls-4 {
+        stroke: #c30f23;
+      }
+
+      .cls-5 {
+        fill: #91bf4b;
+        stroke-width: .5px;
+      }
+
+      .cls-10 {
+        fill: #8f413e;
+      }
+    </style>
+  </defs>
+  <g>
+    <g>
+      <g>
+        <rect class="cls-6" x="418.729" y="173.388" width="109.935" height="33.29"/>
+        <rect class="cls-9" x="325.438" y="173.388" width="93.29" height="33.29"/>
+      </g>
+      <text class="cls-12" transform="translate(345.003 186.895)"><tspan x="0" y="0">5일간 에너지 </tspan><tspan x="8.574" y="12">균형 식단</tspan></text>
+      <text class="cls-12" transform="translate(465.347 186.497)"><tspan x="0" y="0">6일간 </tspan><tspan x="-24.033" y="12">탄수화물 제한 식단</tspan></text>
+    </g>
+    <rect class="cls-5" x="344.609" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="400.148" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="418.729" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="471.761" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="510.083" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-10" x="160.535" y="173.958" width="109.935" height="33.29"/>
+      <rect class="cls-9" x="67.245" y="173.958" width="93.29" height="33.29"/>
+      <text class="cls-12" transform="translate(92.293 187.862)"><tspan x="0" y="0">5일간 에너지 </tspan><tspan x="8.574" y="12">균형 식단</tspan></text>
+      <text class="cls-12" transform="translate(204.439 187.862)"><tspan x="0" y="0">6일간 </tspan><tspan x="-15.391" y="12">지방 제한 식단</tspan></text>
+    </g>
+    <rect class="cls-5" x="86.416" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="141.954" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="160.535" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="213.567" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="251.89" y="145.7" width="18.581" height="28.258" rx=".387" ry=".387"/>
+  </g>
+  <g>
+    <g>
+      <g>
+        <rect class="cls-6" x="160.535" y="55.195" width="109.935" height="33.29"/>
+        <rect class="cls-9" x="67.245" y="55.195" width="93.29" height="33.29"/>
+      </g>
+      <text class="cls-12" transform="translate(86.81 68.701)"><tspan x="0" y="0">5일간 에너지 </tspan><tspan x="8.574" y="12">균형 식단</tspan></text>
+      <text class="cls-12" transform="translate(207.154 68.303)"><tspan x="0" y="0">6일간 </tspan><tspan x="-24.033" y="12">탄수화물 제한 식단</tspan></text>
+    </g>
+    <rect class="cls-5" x="86.416" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="141.954" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="160.535" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="213.567" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="251.89" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+  </g>
+  <g>
+    <g>
+      <rect class="cls-10" x="418.729" y="55.765" width="109.935" height="33.29"/>
+      <rect class="cls-9" x="325.438" y="55.765" width="93.29" height="33.29"/>
+      <text class="cls-12" transform="translate(350.487 69.669)"><tspan x="0" y="0">5일간 에너지 </tspan><tspan x="8.574" y="12">균형 식단</tspan></text>
+      <text class="cls-12" transform="translate(462.632 69.669)"><tspan x="0" y="0">6일간 </tspan><tspan x="-15.391" y="12">지방 제한 식단</tspan></text>
+    </g>
+    <rect class="cls-5" x="344.609" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="400.148" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="418.729" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="471.761" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+    <rect class="cls-5" x="510.083" y="27.506" width="18.581" height="28.258" rx=".387" ry=".387"/>
+  </g>
+  <g>
+    <path class="cls-1" d="m22.827,114.808v-28.452c0-8.017,6.499-14.516,14.516-14.516h8.81"/>
+    <polygon class="cls-7" points="43.235 81.812 60.505 71.84 43.235 61.868 43.235 81.812"/>
+  </g>
+  <g>
+    <path class="cls-1" d="m22.827,148.897v28.452c0,8.017,6.499,14.516,14.516,14.516h8.81"/>
+    <polygon class="cls-7" points="43.235 201.837 60.505 191.864 43.235 181.893 43.235 201.837"/>
+  </g>
+  <g>
+    <line class="cls-1" x1="273.632" y1="73.739" x2="307.925" y2="73.739"/>
+    <polygon class="cls-7" points="305.007 83.712 322.277 73.739 305.007 63.768 305.007 83.712"/>
+  </g>
+  <g>
+    <line class="cls-1" x1="273.632" y1="191.933" x2="307.925" y2="191.933"/>
+    <polygon class="cls-7" points="305.007 201.905 322.277 191.933 305.007 181.961 305.007 201.905"/>
+  </g>
+  <g>
+    <line class="cls-2" x1="64.664" y1="27.506" x2="64.664" y2="48.05"/>
+    <polygon class="cls-7" points="61.672 47.175 64.664 52.356 67.656 47.175 61.672 47.175"/>
+  </g>
+  <g>
+    <line class="cls-2" x1="132.23" y1="252.105" x2="132.23" y2="272.649"/>
+    <polygon class="cls-7" points="129.238 271.773 132.23 276.954 135.221 271.773 129.238 271.773"/>
+  </g>
+  <g>
+    <line class="cls-4" x1="242.729" y1="252.105" x2="242.729" y2="272.649"/>
+    <polygon class="cls-8" points="239.737 271.773 242.729 276.954 245.72 271.773 239.737 271.773"/>
+  </g>
+  <g>
+    <g>
+      <line class="cls-4" x1="86.416" x2="86.416" y2="20.544"/>
+      <polygon class="cls-8" points="83.424 19.669 86.416 24.849 89.407 19.669 83.424 19.669"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="142.938" x2="142.938" y2="20.544"/>
+      <polygon class="cls-8" points="139.946 19.669 142.938 24.849 145.929 19.669 139.946 19.669"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="251.89" x2="251.89" y2="20.544"/>
+      <polygon class="cls-8" points="248.898 19.669 251.89 24.849 254.881 19.669 248.898 19.669"/>
+    </g>
+  </g>
+  <g>
+    <g>
+      <line class="cls-4" x1="345.282" x2="345.282" y2="20.544"/>
+      <polygon class="cls-8" points="342.29 19.669 345.282 24.849 348.273 19.669 342.29 19.669"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="401.804" x2="401.804" y2="20.544"/>
+      <polygon class="cls-8" points="398.812 19.669 401.804 24.849 404.796 19.669 398.812 19.669"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="510.756" x2="510.756" y2="20.544"/>
+      <polygon class="cls-8" points="507.764 19.669 510.756 24.849 513.747 19.669 507.764 19.669"/>
+    </g>
+  </g>
+  <g>
+    <g>
+      <line class="cls-4" x1="345.282" y1="117.806" x2="345.282" y2="138.35"/>
+      <polygon class="cls-8" points="342.29 137.475 345.282 142.656 348.273 137.475 342.29 137.475"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="401.804" y1="117.806" x2="401.804" y2="138.35"/>
+      <polygon class="cls-8" points="398.812 137.475 401.804 142.656 404.796 137.475 398.812 137.475"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="510.756" y1="117.806" x2="510.756" y2="138.35"/>
+      <polygon class="cls-8" points="507.764 137.475 510.756 142.656 513.747 137.475 507.764 137.475"/>
+    </g>
+  </g>
+  <g>
+    <g>
+      <line class="cls-4" x1="86.416" y1="117.806" x2="86.416" y2="138.35"/>
+      <polygon class="cls-8" points="83.424 137.475 86.416 142.656 89.407 137.475 83.424 137.475"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="142.938" y1="117.806" x2="142.938" y2="138.35"/>
+      <polygon class="cls-8" points="139.946 137.475 142.938 142.656 145.929 137.475 139.946 137.475"/>
+    </g>
+    <g>
+      <line class="cls-4" x1="251.89" y1="117.806" x2="251.89" y2="138.35"/>
+      <polygon class="cls-8" points="248.898 137.475 251.89 142.656 254.881 137.475 248.898 137.475"/>
+    </g>
+  </g>
+  <g>
+    <line class="cls-2" x1="325.438" y1="27.506" x2="325.438" y2="48.05"/>
+    <polygon class="cls-7" points="322.446 47.175 325.438 52.356 328.43 47.175 322.446 47.175"/>
+  </g>
+  <g>
+    <line class="cls-2" x1="325.438" y1="147.404" x2="325.438" y2="167.948"/>
+    <polygon class="cls-7" points="322.446 167.073 325.438 172.254 328.43 167.073 322.446 167.073"/>
+  </g>
+  <g>
+    <line class="cls-2" x1="67.245" y1="147.404" x2="67.245" y2="167.948"/>
+    <polygon class="cls-7" points="64.253 167.073 67.245 172.254 70.236 167.073 64.253 167.073"/>
+  </g>
+  <text class="cls-11" transform="translate(136.853 269.265)"><tspan x="0" y="0">D</tspan><tspan class="cls-13" x="6.904" y="0">L</tspan><tspan x="12.139" y="0">W Dose</tspan></text>
+  <text class="cls-11" transform="translate(247.643 269.265)"><tspan x="0" y="0">체성분 분석</tspan></text>
+  <text class="cls-11" transform="translate(356.33 270.096)"><tspan x="0" y="0">Metabolic chamber</tspan></text>
+  <rect class="cls-5" x="329.954" y="250.4" width="18.581" height="28.258" rx=".387" ry=".387"/>
+  <text class="cls-11" transform="translate(0 136.074)"><tspan x="0" y="0">무작위 배정</tspan></text>
+  <text class="cls-11" transform="translate(283.897 226.565)"><tspan x="0" y="0">2 주간 </tspan><tspan x="-6.709" y="12">wash out</tspan></text>
+  <text class="cls-11" transform="translate(390.36 226.565)"><tspan x="0" y="0">대사 측정 챔버</tspan></text>
+  <text class="cls-11" transform="translate(141.456 226.565)"><tspan x="0" y="0">대사 측정 챔버</tspan></text>
+  <g>
+    <line class="cls-3" x1="72.54" y1="231.494" x2="265.175" y2="231.494"/>
+    <polygon class="cls-7" points="67.245 231.494 74.707 234.543 72.936 231.494 74.707 228.446 67.245 231.494"/>
+    <polygon class="cls-7" points="270.47 231.494 263.009 234.543 264.779 231.494 263.009 228.446 270.47 231.494"/>
+  </g>
+  <g>
+    <line class="cls-3" x1="331.701" y1="231.494" x2="524.336" y2="231.494"/>
+    <polygon class="cls-7" points="326.406 231.494 333.868 234.543 332.097 231.494 333.868 228.446 326.406 231.494"/>
+    <polygon class="cls-7" points="529.632 231.494 522.17 234.543 523.94 231.494 522.17 228.446 529.632 231.494"/>
+  </g>
+</svg>
