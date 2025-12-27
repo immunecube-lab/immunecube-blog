@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 509.127 238.458">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: AppleSDGothicNeoEB00, AppleSDGothicNeoEB00;
+        font-size: 11.616px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: #231916;
+      }
+
+      .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-12 {
+        stroke: #231916;
+      }
+
+      .cls-5, .cls-8, .cls-10 {
+        stroke-width: .25px;
+      }
+
+      .cls-5, .cls-12 {
+        fill: #fff;
+      }
+
+      .cls-6, .cls-7, .cls-11 {
+        fill: none;
+        stroke-width: .5px;
+      }
+
+      .cls-2 {
+        font-size: 9.347px;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        font-family: AppleSDGothicNeoR00, AppleSDGothicNeoR00;
+      }
+
+      .cls-7 {
+        stroke-dasharray: 0 0 .457 .457;
+      }
+
+      .cls-8, .cls-9 {
+        fill: #d6d6d6;
+      }
+
+      .cls-3 {
+        font-size: 14.898px;
+      }
+
+      .cls-13 {
+        stroke-width: 0px;
+      }
+
+      .cls-13, .cls-10 {
+        fill: #020107;
+      }
+
+      .cls-9, .cls-12 {
+        stroke-width: .115px;
+      }
+
+      .cls-4 {
+        font-size: 9.673px;
+      }
+
+      .cls-11 {
+        stroke: #e60013;
+      }
+    </style>
+  </defs>
+  <rect class="cls-13" x="72.942" y="62.934" width="25.925" height="109.026"/>
+  <rect class="cls-9" x="72.942" y="44.112" width="25.925" height="18.822"/>
+  <rect class="cls-12" x="72.942" y="4.604" width="25.925" height="39.864"/>
+  <g>
+    <rect class="cls-13" x="72.942" y="62.934" width="25.925" height="109.026"/>
+    <rect class="cls-9" x="72.942" y="44.112" width="25.925" height="18.822"/>
+    <rect class="cls-12" x="72.942" y="4.604" width="25.925" height="39.864"/>
+  </g>
+  <rect class="cls-13" x="139.323" y="51.452" width="25.925" height="120.509"/>
+  <rect class="cls-13" x="205.378" y="31.86" width="25.925" height="140.1"/>
+  <rect class="cls-9" x="139.323" y="27.658" width="25.925" height="23.794"/>
+  <rect class="cls-9" x="205.378" y="21.916" width="25.925" height="9.944"/>
+  <rect class="cls-12" x="139.323" y="4.604" width="25.925" height="23.054"/>
+  <rect class="cls-12" x="205.378" y="4.604" width="25.925" height="17.313"/>
+  <rect class="cls-13" x="270.49" y="119.578" width="25.925" height="52.382"/>
+  <rect class="cls-9" x="270.49" y="49.528" width="25.925" height="70.05"/>
+  <rect class="cls-12" x="270.49" y="4.604" width="25.925" height="44.924"/>
+  <rect class="cls-13" x="335.745" y="158.998" width="25.925" height="12.962"/>
+  <rect class="cls-9" x="335.745" y="38.43" width="25.925" height="120.568"/>
+  <rect class="cls-12" x="335.745" y="4.604" width="25.925" height="33.827"/>
+  <g>
+    <rect class="cls-13" x="400.735" y="89.481" width="25.925" height="82.48"/>
+    <rect class="cls-9" x="400.735" y="33.547" width="25.925" height="55.934"/>
+    <rect class="cls-12" x="400.735" y="4.604" width="25.925" height="28.943"/>
+  </g>
+  <text class="cls-4" transform="translate(69.059 186.577)"><tspan x="0" y="0">하드자</tspan></text>
+  <text class="cls-3" transform="translate(11.977 177.201) rotate(-90)"><tspan x="0" y="0">식단의 다량 영양소(%에너지)</tspan></text>
+  <text class="cls-4" transform="translate(136.179 186.577)"><tspan x="0" y="0">치메네</tspan></text>
+  <text class="cls-1" transform="translate(291.088 210.342)"><tspan x="0" y="0">구석기 식단</tspan></text>
+  <text class="cls-4" transform="translate(203.416 186.577)"><tspan x="0" y="0">슈아르</tspan></text>
+  <text class="cls-4" transform="translate(270.49 186.576)"><tspan x="0" y="0">코데인</tspan></text>
+  <text class="cls-4" transform="translate(335.746 186.576)"><tspan x="0" y="0">펄뮤터</tspan></text>
+  <text class="cls-4" transform="translate(389.803 186.576)"><tspan x="0" y="0">미국 NHANES</tspan></text>
+  <line class="cls-6" x1="50.746" y1="4.604" x2="50.746" y2="173.647"/>
+  <line class="cls-6" x1="47.284" y1="171.96" x2="462.258" y2="171.96"/>
+  <line class="cls-11" x1="47.284" y1="4.604" x2="50.746" y2="4.604"/>
+  <line class="cls-11" x1="47.284" y1="37.631" x2="50.746" y2="37.631"/>
+  <line class="cls-11" x1="47.284" y1="70.658" x2="50.746" y2="70.658"/>
+  <line class="cls-11" x1="47.284" y1="104.663" x2="50.746" y2="104.663"/>
+  <line class="cls-11" x1="47.284" y1="136.713" x2="50.746" y2="136.713"/>
+  <text class="cls-2" transform="translate(18.556 7.478)"><tspan x="0" y="0">100%</tspan></text>
+  <text class="cls-2" transform="translate(22.408 40.375)"><tspan x="0" y="0">80%</tspan></text>
+  <text class="cls-2" transform="translate(22.604 73.271)"><tspan x="0" y="0">60%</tspan></text>
+  <text class="cls-2" transform="translate(22.594 106.167)"><tspan x="0" y="0">40%</tspan></text>
+  <text class="cls-2" transform="translate(22.801 139.064)"><tspan x="0" y="0">20%</tspan></text>
+  <text class="cls-2" transform="translate(27.782 171.96)"><tspan x="0" y="0">0%</tspan></text>
+  <g>
+    <line class="cls-6" x1="258.215" y1="173.647" x2="258.215" y2="173.877"/>
+    <line class="cls-7" x1="258.215" y1="174.334" x2="258.215" y2="214.347"/>
+    <line class="cls-6" x1="258.215" y1="214.576" x2="258.215" y2="214.805"/>
+  </g>
+  <g>
+    <line class="cls-6" x1="378.358" y1="173.647" x2="378.358" y2="173.877"/>
+    <line class="cls-7" x1="378.358" y1="174.334" x2="378.358" y2="214.347"/>
+    <line class="cls-6" x1="378.358" y1="214.576" x2="378.358" y2="214.805"/>
+  </g>
+  <rect class="cls-5" x="454.203" y="55.897" width="14.761" height="10.581"/>
+  <rect class="cls-8" x="454.203" y="69.575" width="14.761" height="10.581"/>
+  <rect class="cls-10" x="454.203" y="84.19" width="14.761" height="10.581"/>
+  <text class="cls-4" transform="translate(475.658 64.512)"><tspan x="0" y="0">단백질</tspan></text>
+  <text class="cls-4" transform="translate(475.658 78.687)"><tspan x="0" y="0">지방</tspan></text>
+  <text class="cls-4" transform="translate(475.658 92.292)"><tspan x="0" y="0">탄수화물</tspan></text>
+  <text class="cls-4" transform="translate(348.913 236.542)"><tspan x="0" y="0">출처 : 운동의 역설(2022), 290쪽</tspan></text>
+</svg>

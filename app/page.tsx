@@ -1,11 +1,7 @@
 // app/page.tsx
 import Link from "next/link";
-import { BookOpen, PenLine } from "lucide-react";
+import { BookOpen, Bell, Compass } from "lucide-react";
 import * as site from "@/.velite";
-
-// 홈은 정적이어도 충분합니다(velite는 빌드 시점에 생성됨).
-// export const dynamic = "force-dynamic";  // ❌ 제거 권장
-// export const runtime = "nodejs";         // 필요하면 유지 가능(없어도 대개 OK)
 
 type Entry = {
   title: string;
@@ -14,7 +10,8 @@ type Entry = {
   kind: "blog" | "docs";
 };
 
-const MAX_ITEMS_EACH = 5;
+const MAX_DOC_ITEMS = 10; // 홈에서는 Docs 중심으로 더 보여도 됩니다.
+const MAX_BLOG_ITEMS = 3; // 공지/운영 성격이므로 최소 노출
 
 /* ----------------------------- utils ----------------------------- */
 
@@ -71,11 +68,13 @@ type VeliteDoc = {
 /* ----------------------------- page ----------------------------- */
 
 export default function Home() {
+  // Blog(공지/운영)
   const posts = (((site as any).posts ?? []) as VelitePost[])
     .filter((p) => p.published !== false)
     .map((p) => {
-      const label = formatYmdDot(p.updated ?? p.date);
-      const dt = (p.updated ?? p.date) ? new Date(p.updated ?? p.date!) : null;
+      const raw = p.updated ?? p.date;
+      const label = formatYmdDot(raw);
+      const dt = raw ? new Date(raw) : null;
       return {
         title: p.title,
         href: getBlogHref(p.slug),
@@ -86,11 +85,13 @@ export default function Home() {
     })
     .sort((a, b) => (b._dt ?? 0) - (a._dt ?? 0));
 
+  // Docs(객관적 자료)
   const docs = (((site as any).docs ?? []) as VeliteDoc[])
     .filter((d) => d.published !== false)
     .map((d) => {
-      const label = formatYmdDot(d.updated ?? d.date);
-      const dt = (d.updated ?? d.date) ? new Date(d.updated ?? d.date!) : null;
+      const raw = d.updated ?? d.date;
+      const label = formatYmdDot(raw);
+      const dt = raw ? new Date(raw) : null;
       return {
         title: d.title,
         href: getDocHref(d.slug),
@@ -99,134 +100,197 @@ export default function Home() {
         kind: "docs" as const,
       };
     })
-    // 문서는 order가 있는 경우 그것도 존중하고 싶으면 아래를 바꾸면 됩니다.
-    // 여기서는 "최근 업데이트" 목적이므로 날짜 기준 정렬
     .sort((a, b) => (b._dt ?? 0) - (a._dt ?? 0));
 
-  const blogLatest: Entry[] = posts.slice(0, MAX_ITEMS_EACH).map(({ _dt, ...x }) => x);
-  const docsLatest: Entry[] = docs.slice(0, MAX_ITEMS_EACH).map(({ _dt, ...x }) => x);
+  const docsLatest: Entry[] = docs.slice(0, MAX_DOC_ITEMS).map(({ _dt, ...x }) => x);
+  const blogLatest: Entry[] = posts.slice(0, MAX_BLOG_ITEMS).map(({ _dt, ...x }) => x);
 
   return (
     <main className="min-h-screen bg-neutral-50 text-neutral-900 px-6 py-20">
       <div className="mx-auto max-w-3xl space-y-12">
-        {/* 소개 */}
+        {/* 1) Hero / 정의 (홈의 주인공은 Docs의 목적) */}
         <section className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
           <h1 className="text-3xl font-semibold tracking-tight">immunecube</h1>
 
           <div className="mt-4 overflow-hidden rounded-xl border border-neutral-100 bg-neutral-50">
             <img
               src="/images/hero.svg"
-              alt="연구와 기록을 상징하는 면역 아카이브 이미지"
+              alt="면역학 지식 정리를 상징하는 이미지"
               className="h-40 w-full object-contain sm:h-48 md:h-56"
               fetchPriority="high"
             />
           </div>
 
-          <p className="mt-4 text-sm leading-relaxed text-neutral-600">
-            면역 과학 아카이브:
-            <br />
-            연구 논문, 공식 자료, 그리고 해설 블로그를 한 곳에서 읽고 정리합니다.
+          <p className="mt-5 text-lg font-semibold leading-snug text-neutral-900">
+            어려운 면역학을, 이해할 수 있게 정리합니다.
           </p>
 
+          <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+            면역학은 복잡하고 전문적인 학문입니다.
+            <br />
+            이곳은 논문, 역사, 실험 자료를 바탕으로
+            <br />
+            그 복잡함을 차분히 풀어 설명하는 공간입니다.
+          </p>
+
+          {/* CTA: Docs 중심 */}
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="/blog"
-              className="inline-flex items-center justify-center rounded-full bg-neutral-800 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-700 transition"
+              href="/docs"
+              className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800 transition"
             >
-              블로그로 가기
+              객관적 자료 보기 (Docs)
             </Link>
 
             <Link
               href="/docs"
               className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition"
             >
-              문서 보기
+              전체 목차로 들어가기
+            </Link>
+          </div>
+
+          <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
+            이 사이트의 핵심 콘텐츠는 문서(Docs)에 정리되어 있습니다. 블로그(Blog)는 운영·공지 성격의 글을
+            게시합니다.
+          </p>
+        </section>
+
+        {/* 2) 시작 안내 (Docs로 안내) */}
+        <section className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div className="flex items-center gap-2">
+            <Compass className="h-4 w-4 text-neutral-700" aria-hidden />
+            <h2 className="text-base font-semibold">어디서부터 보면 좋을까요?</h2>
+          </div>
+
+          <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+            처음 방문하셨다면 문서(Docs)에서 시작하시는 것이 가장 빠릅니다.
+            <br />
+            아래는 자주 찾는 진입 경로입니다. (허브 문서를 만들면 링크를 해당 페이지로 연결하는 것이 가장 좋습니다.)
+          </p>
+
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            {/* 아래 링크들은 우선 /docs로 연결해 두었습니다.
+                허브 문서(slug)가 준비되면 각각 해당 경로로 바꾸세요. */}
+            <Link
+              href="/docs"
+              className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 hover:bg-neutral-100 transition"
+            >
+              <div className="text-sm font-semibold text-neutral-900">면역학 고전</div>
+              <div className="mt-1 text-xs leading-relaxed text-neutral-600">
+                중요한 실험과 개념을 역사적 맥락에서 정리합니다.
+              </div>
+            </Link>
+
+            <Link
+              href="/docs"
+              className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 hover:bg-neutral-100 transition"
+            >
+              <div className="text-sm font-semibold text-neutral-900">질병과 과학의 역사</div>
+              <div className="mt-1 text-xs leading-relaxed text-neutral-600">
+                질병이 이해되어 온 과정과 과학의 변화를 함께 다룹니다.
+              </div>
+            </Link>
+
+            <Link
+              href="/docs"
+              className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 hover:bg-neutral-100 transition"
+            >
+              <div className="text-sm font-semibold text-neutral-900">실험과 데이터 해설</div>
+              <div className="mt-1 text-xs leading-relaxed text-neutral-600">
+                지표와 설계를 읽는 방법을 가능한 한 쉽게 풀어 설명합니다.
+              </div>
+            </Link>
+
+            <Link
+              href="/docs"
+              className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 hover:bg-neutral-100 transition"
+            >
+              <div className="text-sm font-semibold text-neutral-900">생활면역 해설</div>
+              <div className="mt-1 text-xs leading-relaxed text-neutral-600">
+                대중적 주장과 근거를 구분해 차분히 설명합니다.
+              </div>
             </Link>
           </div>
         </section>
 
-        {/* 최근 업데이트 */}
+        {/* 3) 최근 업데이트: Docs만 전면에 (핵심) */}
         <section className="space-y-3">
           <div className="flex items-baseline justify-between">
-            <h2 className="text-base font-semibold">최근 업데이트</h2>
-            <p className="text-xs text-neutral-500">updated → date 기준으로 정렬됩니다.</p>
+            <h2 className="text-base font-semibold">최근에 정리한 문서</h2>
+            <Link
+              href="/docs"
+              className="text-xs rounded-full border border-neutral-200 bg-white px-3 py-1 text-neutral-700 hover:bg-neutral-100 transition"
+            >
+              문서 전체 보기
+            </Link>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {/* 블로그 */}
-            <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm">
-              <div className="flex items-center justify-between px-5 py-4">
-                <div className="flex items-center gap-2">
-                  <PenLine className="h-4 w-4 text-neutral-700" aria-hidden />
-                  <div className="font-semibold">블로그</div>
-                </div>
-                <Link
-                  href="/blog"
-                  className="text-xs rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-neutral-700 hover:bg-neutral-100 transition"
-                >
-                  전체 보기
-                </Link>
-              </div>
-
-              {blogLatest.length === 0 ? (
-                <div className="px-5 pb-5 text-sm text-neutral-600">아직 블로그 글이 없습니다.</div>
-              ) : (
-                <ul className="divide-y divide-neutral-100">
-                  {blogLatest.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="block px-5 py-4 hover:bg-neutral-50 transition"
-                        title={item.title}
-                      >
+          <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm">
+            {docsLatest.length === 0 ? (
+              <div className="px-5 py-5 text-sm text-neutral-600">아직 문서가 없습니다.</div>
+            ) : (
+              <ul className="divide-y divide-neutral-100">
+                {docsLatest.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="block px-5 py-4 hover:bg-neutral-50 transition"
+                      title={item.title}
+                    >
+                      <div className="flex items-baseline justify-between gap-3">
                         <div className="truncate font-medium">{item.title}</div>
                         {item.dateLabel && (
-                          <div className="mt-1 text-xs text-neutral-500">{item.dateLabel}</div>
+                          <div className="shrink-0 text-xs text-neutral-500">{item.dateLabel}</div>
                         )}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            {/* 문서 */}
-            <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm">
-              <div className="flex items-center justify-between px-5 py-4">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="h-4 w-4 text-neutral-700" aria-hidden />
-                  <div className="font-semibold">문서</div>
-                </div>
-                <Link
-                  href="/docs"
-                  className="text-xs rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-neutral-700 hover:bg-neutral-100 transition"
-                >
-                  전체 보기
-                </Link>
-              </div>
-
-              {docsLatest.length === 0 ? (
-                <div className="px-5 pb-5 text-sm text-neutral-600">아직 문서가 없습니다.</div>
-              ) : (
-                <ul className="divide-y divide-neutral-100">
-                  {docsLatest.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="block px-5 py-4 hover:bg-neutral-50 transition"
-                        title={item.title}
-                      >
-                        <div className="truncate font-medium">{item.title}</div>
-                        {item.dateLabel && (
-                          <div className="mt-1 text-xs text-neutral-500">{item.dateLabel}</div>
-                        )}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
+        </section>
+
+        {/* 4) Blog(공지/운영) : 홈에서 한 번만, 작게 */}
+        <section className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Bell className="h-4 w-4 text-neutral-700" aria-hidden />
+              <h2 className="text-base font-semibold">공지 · 운영 업데이트</h2>
+            </div>
+            <Link
+              href="/blog"
+              className="text-xs rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-neutral-700 hover:bg-neutral-100 transition"
+            >
+              전체 보기
+            </Link>
+          </div>
+
+          <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+            블로그(Blog)에는 사이트 운영과 공지, 업데이트 안내를 올립니다.
+            <br />
+            콘텐츠 자체는 문서(Docs)에 계속 축적됩니다.
+          </p>
+
+          {blogLatest.length === 0 ? (
+            <div className="mt-3 text-sm text-neutral-600">아직 공지 글이 없습니다.</div>
+          ) : (
+            <ul className="mt-3 space-y-2">
+              {blogLatest.map((item) => (
+                <li key={item.href} className="rounded-xl border border-neutral-200 bg-neutral-50">
+                  <Link
+                    href={item.href}
+                    className="block px-4 py-3 hover:bg-neutral-100 transition"
+                    title={item.title}
+                  >
+                    <div className="truncate text-sm font-medium">{item.title}</div>
+                    {item.dateLabel && <div className="mt-1 text-xs text-neutral-500">{item.dateLabel}</div>}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       </div>
     </main>
