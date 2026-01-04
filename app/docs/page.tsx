@@ -10,9 +10,10 @@ type Doc = {
   description?: string;
   published?: boolean;
   category?: string;
+  section?: string; // ✅ subgroup(2단)로 사용할 값
   order?: number;
-  date?: string;     // ✅ 발행일
-  updated?: string;  // ✅ 최종 수정일
+  date?: string;
+  updated?: string;
 };
 
 const docs = (site as any).docs as Doc[] | undefined;
@@ -41,7 +42,7 @@ function groupByCategory(list: Doc[]) {
     return [category, sortDocsInCategory(items)] as const;
   });
 
-  // ✅ CATEGORIES.order 기준으로 카테고리 정렬
+  // CATEGORIES.order 기준으로 카테고리 정렬
   entries.sort(([a], [b]) => {
     const ao = CATEGORIES[a]?.order ?? 9999;
     const bo = CATEGORIES[b]?.order ?? 9999;
@@ -52,6 +53,36 @@ function groupByCategory(list: Doc[]) {
   return entries;
 }
 
+// ✅ activeCategory 내부에서 section별로 그룹핑
+function groupBySection(items: Doc[]) {
+  const map = new Map<string, Doc[]>();
+
+  for (const doc of items) {
+    const key = (doc.section || "etc").trim(); // section 없으면 etc
+    if (!map.has(key)) map.set(key, []);
+    map.get(key)!.push(doc);
+  }
+
+  const entries = Array.from(map.entries()).map(([section, list]) => {
+    return [section, sortDocsInCategory(list)] as const;
+  });
+
+  // section 정렬(원하시면 여기에서 별도 우선순위 맵도 가능)
+  entries.sort(([a], [b]) => a.localeCompare(b, "ko"));
+  return entries;
+}
+
+// ✅ section을 사람이 읽는 라벨로 바꾸고 싶으면 여기에서 매핑
+const SECTION_LABELS: Record<string, string> = {
+  // "imm-classic": "면역학 고전",
+  // 예: "vaccine-society": "백신과 사회",
+  // 없으면 그대로 노출됩니다.
+};
+
+function sectionLabel(section: string) {
+  return SECTION_LABELS[section] ?? section;
+}
+
 function getDocHref(slug: string) {
   if (!slug) return "/docs";
   if (slug.startsWith("/")) return slug;
@@ -60,7 +91,6 @@ function getDocHref(slug: string) {
 }
 
 function pickDisplayDate(doc: Doc) {
-  // ✅ 화면 표시: updated → date
   return formatYmdDot(doc.updated ?? doc.date);
 }
 
@@ -69,6 +99,7 @@ function pickDisplayDate(doc: Doc) {
 type PageProps = {
   searchParams?: Promise<{
     cat?: string;
+    sec?: string; // ✅ 2단 필터
   }>;
 };
 
@@ -85,50 +116,124 @@ export default async function DocsPage({ searchParams }: PageProps) {
   }
 
   const params = await searchParams;
-  const selected = (params?.cat || "").trim();
+  const selectedCat = (params?.cat || "").trim();
+  const selectedSec = (params?.sec || "").trim(); // ✅
 
   const published = docs.filter((d) => d.published !== false);
   const grouped = groupByCategory(published);
 
   const categories = grouped.map(([c]) => c);
-  const activeCategory = categories.includes(selected) ? selected : categories[0];
+  const activeCategory = categories.includes(selectedCat) ? selectedCat : categories[0];
 
-  const activeItems = grouped.find(([c]) => c === activeCategory)?.[1] ?? [];
+  const activeAllItems = grouped.find(([c]) => c === activeCategory)?.[1] ?? [];
   const categoryMeta = CATEGORIES[activeCategory];
+
+  // ✅ 현재 카테고리 내부에서 section 그룹 생성
+  const sectionGroups = groupBySection(activeAllItems);
+  const sections = sectionGroups.map(([s]) => s);
+
+  // ✅ sec 파라미터가 유효하면 필터, 아니면 전체
+  const activeSection = sections.includes(selectedSec) ? selectedSec : "";
+  const activeItems =
+    activeSection
+      ? (sectionGroups.find(([s]) => s === activeSection)?.[1] ?? [])
+      : activeAllItems;
+
+  const baseCatHref = (cat: string) => `/docs?cat=${encodeURIComponent(cat)}`;
+  const catSecHref = (cat: string, sec: string) =>
+    `/docs?cat=${encodeURIComponent(cat)}&sec=${encodeURIComponent(sec)}`;
 
   return (
     <main className="max-w-6xl mx-auto py-12 px-4">
       <div className="flex items-baseline justify-between mb-8">
         <h1 className="text-3xl font-bold">글 모음</h1>
         <div className="text-xs text-neutral-500">
-          카테고리를 선택하면 오른쪽에 목록이 표시됩니다.
+          카테고리(1단)와 섹션(2단)을 선택하면 목록이 필터링됩니다.
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6">
         {/* 왼쪽 사이드바 */}
         <aside className="md:sticky md:top-24 h-fit rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm">
           <div className="text-sm font-semibold mb-3">카테고리</div>
 
-          <ul className="space-y-1">
+          <ul className="space-y-2">
             {grouped.map(([category, items]) => {
-              const isActive = category === activeCategory;
+              const isCatActive = category === activeCategory;
+
+              // ✅ 카테고리별 section 미리 계산(펼쳐질 때만 사용)
+              const catSectionGroups = isCatActive ? groupBySection(items) : [];
+              const totalCount = items.length;
+
               return (
-                <li key={category}>
+                <li key={category} className="rounded-xl">
+                  {/* 1단: category */}
                   <Link
-                    href={`/docs?cat=${encodeURIComponent(category)}`}
+                    href={baseCatHref(category)} // ✅ cat만 바꾸면 sec는 자동으로 전체 처리
                     className={[
                       "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition",
-                      isActive
+                      isCatActive
                         ? "bg-neutral-900 text-white"
                         : "hover:bg-neutral-50 text-neutral-800",
                     ].join(" ")}
                   >
                     <span className="truncate">{category}</span>
-                    <span className="ml-2 text-xs rounded-full px-2 py-0.5 bg-neutral-100 text-neutral-600">
-                      {items.length}
+                    <span
+                      className={[
+                        "ml-2 text-xs rounded-full px-2 py-0.5",
+                        isCatActive ? "bg-white/15 text-white" : "bg-neutral-100 text-neutral-600",
+                      ].join(" ")}
+                    >
+                      {totalCount}
                     </span>
                   </Link>
+
+                  {/* 2단: section (active category일 때만 노출) */}
+                  {isCatActive && (
+                    <div className="mt-2 ml-2 pl-2 border-l border-neutral-200">
+                      <ul className="space-y-1">
+                        {/* 전체 */}
+                        <li>
+                          <Link
+                            href={baseCatHref(category)} // sec 제거(=전체)
+                            className={[
+                              "flex items-center justify-between rounded-lg px-3 py-2 text-xs transition",
+                              activeSection === ""
+                                ? "bg-neutral-100 text-neutral-900"
+                                : "hover:bg-neutral-50 text-neutral-700",
+                            ].join(" ")}
+                          >
+                            <span className="truncate">전체</span>
+                            <span className="ml-2 text-[11px] text-neutral-500">
+                              {totalCount}
+                            </span>
+                          </Link>
+                        </li>
+
+                        {catSectionGroups.map(([sec, secItems]) => {
+                          const isSecActive = activeSection === sec;
+                          return (
+                            <li key={sec}>
+                              <Link
+                                href={catSecHref(category, sec)}
+                                className={[
+                                  "flex items-center justify-between rounded-lg px-3 py-2 text-xs transition",
+                                  isSecActive
+                                    ? "bg-neutral-100 text-neutral-900"
+                                    : "hover:bg-neutral-50 text-neutral-700",
+                                ].join(" ")}
+                              >
+                                <span className="truncate">{sectionLabel(sec)}</span>
+                                <span className="ml-2 text-[11px] text-neutral-500">
+                                  {secItems.length}
+                                </span>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  )}
                 </li>
               );
             })}
@@ -137,9 +242,21 @@ export default async function DocsPage({ searchParams }: PageProps) {
 
         {/* 오른쪽 목록 */}
         <section className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
-          <h2 className="text-xl font-semibold">{activeCategory}</h2>
+          <div className="flex items-baseline justify-between gap-3">
+            <h2 className="text-xl font-semibold">
+              {activeCategory}
+              {activeSection ? (
+                <span className="ml-2 text-sm font-normal text-neutral-500">
+                  / {sectionLabel(activeSection)}
+                </span>
+              ) : null}
+            </h2>
 
-          {/* ✅ 카테고리 소개 문구 */}
+            <div className="text-xs text-neutral-400">
+              {activeItems.length}개
+            </div>
+          </div>
+
           {categoryMeta?.description && (
             <p className="mt-2 mb-5 text-sm text-neutral-600 leading-relaxed">
               {categoryMeta.description}
@@ -162,7 +279,6 @@ export default async function DocsPage({ searchParams }: PageProps) {
                         {doc.title}
                       </span>
 
-                      {/* ✅ 제목 오른쪽 날짜 */}
                       {label && (
                         <span className="shrink-0 text-[11px] text-neutral-400">
                           {label}

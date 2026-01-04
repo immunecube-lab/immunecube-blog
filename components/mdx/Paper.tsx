@@ -59,7 +59,6 @@ export function Paper({
     pages ? `pp. ${pages}` : undefined,
   ].filter(Boolean);
 
-  // ✅ 한 줄 메타: "Nowell PC · Cancer Research · 1960 · Vol 20 · pp. 462–466"
   const oneLineMeta = [authors, ...metaParts].filter(Boolean).join(" · ");
 
   const allLinks: LinkItem[] = [
@@ -72,21 +71,21 @@ export function Paper({
   return (
     <section
       className={[
-        "my-6 overflow-hidden rounded-md border border-gray-200",
+        "my-6 overflow-hidden rounded-md border border-gray-200 shadow-sm",
         className,
       ].join(" ")}
       role="note"
       aria-label="Paper"
     >
-      {/* ✅ 제목 바: h3 제거(heading 간섭 제거), 상단 공간 제거 */}
+      {/* 제목 바 */}
       <div className="-mt-px px-4 py-3 text-[1.05rem] font-semibold leading-snug bg-rose-100 text-gray-900 border-b border-rose-200 rounded-t-md">
-  {title}
-</div>
+        {title}
+      </div>
 
-      {/* ✅ 본문(메타+요약) 영역만 흰 배경 */}
-      <div className="bg-white">
+      {/* ✅ 본문 영역: 옅은 배경 + inset ring으로 '카드' 느낌 강화 */}
+      <div className="bg-rose-50/40 ring-1 ring-inset ring-rose-100">
         {oneLineMeta && (
-          <div className="px-4 pt-2 text-[0.92rem] text-gray-700 whitespace-normal">
+          <div className="px-4 pt-2 text-[0.92rem] text-rose-950/70 whitespace-normal">
             {oneLineMeta}
           </div>
         )}
@@ -97,16 +96,15 @@ export function Paper({
           </div>
         )}
 
-        {/* ✅ 링크는 기본 숨김 (필요 시 showLinks=true) */}
         {showLinks && allLinks.length > 0 && (
-          <div className="px-4 pb-3 flex flex-wrap gap-x-3 gap-y-1 text-[0.9rem] text-gray-700">
+          <div className="px-4 pb-3 flex flex-wrap gap-x-3 gap-y-1 text-[0.9rem] text-rose-950/70">
             {allLinks.map((l) => (
               <a
                 key={`${l.label}:${l.href}`}
                 href={l.href}
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-4"
+                className="underline underline-offset-4 decoration-rose-300 hover:decoration-rose-500"
               >
                 {l.label}
               </a>
