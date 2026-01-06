@@ -7,8 +7,8 @@ type PaperMeta = {
   journal?: string;
 };
 
-const FILES = ["docs/**/*.tsx"];
-const DOI_REGEX = /doi\s*=\s*"/;
+const FILES = [ "content/docs/**/*.{mdx,tsx}",];
+const DOI_REGEX = /\bdoi\s*=\s*"/;
 
 function extractPaper(content: string) {
   const m = content.match(/<Paper[\s\S]*?\/>/m);
