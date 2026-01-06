@@ -5,6 +5,8 @@ import * as site from "@/.velite";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
 
+export const dynamic = "force-dynamic"; // ⭐ 핵심
+
 type Doc = {
   slug: string;
   title: string;
@@ -17,36 +19,28 @@ type Doc = {
 
 const docs = (site as any).docs as Doc[] | undefined;
 
-function getDoc(slug: string): Doc | undefined {
+function getDocByPublicSlug(slug: string): Doc | undefined {
   if (!docs) return undefined;
-  return docs.find((d) => d.slug === slug);
+
+  return docs.find((d) => {
+    const last = d.slug.split("/").pop();
+    return last === slug;
+  });
 }
 
-// (선택) 프린트 페이지는 검색 노출/공유 최소화
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const doc = getDoc(slug);
+  const doc = getDocByPublicSlug(slug);
   if (!doc) return {};
 
   return {
     title: `${doc.title} (print)`,
-    description: doc.description,
-    robots: {
-      index: false,
-      follow: false,
-    },
+    robots: { index: false, follow: false },
   };
-}
-
-export function generateStaticParams() {
-  if (!docs) return [];
-  return docs
-    .filter((d) => d.published !== false)
-    .map((doc) => ({ slug: doc.slug }));
 }
 
 export default async function PrintDocPage({
@@ -55,34 +49,22 @@ export default async function PrintDocPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const doc = getDoc(slug);
+  const doc = getDocByPublicSlug(slug);
 
   if (!doc || doc.published === false) notFound();
 
   return (
     <main className="print-root">
       <article className="print-article">
-        <header className="print-header">
+        <header>
           <h1 className="print-title">{doc.title}</h1>
-
-          {/* 날짜는 인쇄 시에도 있으면 유용 */}
-          <div className="print-meta">
-            <MetaLine date={doc.date} updated={doc.updated} />
-          </div>
-
-          {doc.description ? (
+          <MetaLine date={doc.date} updated={doc.updated} />
+          {doc.description && (
             <p className="print-desc">{doc.description}</p>
-          ) : null}
+          )}
         </header>
 
-        <section
-          className="
-            print-body
-            prose prose-slate max-w-none
-            prose-h2:text-sky-700
-            prose-h3:text-sky-600
-          "
-        >
+        <section className="prose max-w-none">
           <MDXContent code={doc.body} />
         </section>
       </article>

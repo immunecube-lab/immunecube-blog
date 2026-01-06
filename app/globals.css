@@ -19,41 +19,33 @@ body {
   color: var(--foreground);
 }
 
-
 /* =========================
    Footnotes (Markdown/MDX)
-   - remark/rehype 계열 footnote HTML
-   - Nextra/typography(prose)와 충돌 최소화
    ========================= */
 
-/* 각주 섹션 전체 */
 .prose .footnotes {
   margin-top: 2rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
-  font-size: 0.92em; /* 본문보다 살짝 작게 */
+  font-size: 0.92em;
   line-height: 1.65;
 }
 
-/* 각주 리스트 */
 .prose .footnotes ol {
   padding-left: 1.25rem;
   margin-top: 0.75rem;
 }
 
-/* 각주 항목 */
 .prose .footnotes li {
   margin: 0.35rem 0;
 }
 
-/* 본문에서 각주 참조 링크 (예: [^1]) */
 .prose a[href^="#fn:"],
 .prose a[href^="#footnote-"] {
   text-decoration: none;
   font-variant-numeric: tabular-nums;
 }
 
-/* 각주에서 본문으로 돌아가는 링크(↩︎) */
 .prose a[href^="#fnref:"],
 .prose a[href^="#footnote-ref-"] {
   text-decoration: none;
@@ -67,7 +59,7 @@ body {
 }
 
 /* =========================
-   Blockquote (disable italic globally)
+   Blockquote (disable italic)
    ========================= */
 
 .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)),
@@ -79,98 +71,87 @@ body {
    Lists – tighter spacing
    ========================= */
 
-/* 리스트 자체 위아래 여백 축소 */
 .prose ul,
 .prose ol {
   margin-top: 0.15rem;
   margin-bottom: 0.15rem;
-  padding-left: 1.1rem; /* 필요 시 1.0rem까지 더 줄이셔도 됩니다 */
+  padding-left: 1.1rem;
 }
 
-/* 항목(불릿) 간 간격 축소: 핵심 */
 .prose ul > li,
 .prose ol > li {
   margin-top: 0.05rem;
   margin-bottom: 0.05rem;
 }
 
-/* 리스트 항목 내부에 p가 생길 때(특히 MDX에서) 추가 마진 제거 */
 .prose li > p {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1.55;
 }
 
-/* 중첩 리스트 간 간격도 최소화 */
 .prose li > ul,
 .prose li > ol {
   margin-top: 0.05rem;
   margin-bottom: 0.05rem;
 }
 
-
 /* =========================================================
-   PRINT (final)
-   - 첫 페이지가 비고 2페이지부터 본문이 시작되는 문제 해결
-   - Nextra/Next 레이아웃의 sticky/fixed/aside/toc/skip-link 제거
-   - 본문 1컬럼 강제 + 여백 정리
-   ========================================================= */
-
-/* =========================================================
-   PRINT STYLE (FINAL, FULL)
-   - 첫 페이지가 비고 2페이지부터 시작되는 문제 해결
-   - 목차/사이드바/헤더 제거
-   - 본문 1컬럼 인쇄
-   - 이미지 과도 확대 방지
+   PRINT (scoped to /print/* via .print-mode wrapper)
    ========================================================= */
 
 @media print {
-
-  /* 0) HTML / BODY 기본 리셋 */
-  html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    min-height: 0 !important;
+  @page {
+    size: A4;
+    margin: 30mm 22mm 22mm 22mm;
+  /* top right bottom left */
   }
 
-  /* 1) 인쇄에 필요 없는 UI 전부 제거 */
-  header,
-  nav,
-  footer,
-  aside,
-  .nextra-nav-container,
-  .nextra-sidebar,
-  .nextra-toc,
-  .nextra-search,
-  .nextra-scrollbar,
-  .menu,
-  .toc,
-  .sidebar,
-  .search,
-  .theme-toggle,
-  .toggle,
-  [data-toc],
-  [data-sidebar],
-  [data-nav],
-  [data-search],
-  a[href="#content"],
-  a[href="#main-content"],
-  a[href="#skip-to-content"],
-  .skip-to-content {
+  .print-mode {
+    color: #000 !important;
+    background: #fff !important;
+    font-size: 10.0pt;
+    line-height: 1.5;
+  }
+
+  .print-mode,
+  .print-mode * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .print-mode header,
+  .print-mode nav,
+  .print-mode footer,
+  .print-mode aside,
+  .print-mode .nextra-nav-container,
+  .print-mode .nextra-sidebar,
+  .print-mode .nextra-toc,
+  .print-mode .nextra-search,
+  .print-mode .nextra-scrollbar,
+  .print-mode .menu,
+  .print-mode .toc,
+  .print-mode .sidebar,
+  .print-mode .search,
+  .print-mode .theme-toggle,
+  .print-mode .toggle,
+  .print-mode [data-toc],
+  .print-mode [data-sidebar],
+  .print-mode [data-nav],
+  .print-mode [data-search],
+  .print-mode a[href="#content"],
+  .print-mode a[href="#main-content"],
+  .print-mode a[href="#skip-to-content"],
+  .print-mode .skip-to-content {
     display: none !important;
   }
 
-  /* 2) fixed / sticky / transform / contain 전부 무력화
-        (이게 1페이지가 비는 문제의 핵심 원인임) */
-  * {
+  .print-mode * {
     position: static !important;
     float: none !important;
     transform: none !important;
     filter: none !important;
     contain: none !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
 
     break-before: auto !important;
     break-after: auto !important;
@@ -180,57 +161,76 @@ body {
     page-break-inside: auto !important;
   }
 
-  /* 3) 본문을 무조건 첫 페이지, 1컬럼으로 */
-  main,
-  article,
-  .content,
-  .prose,
-  .nextra-content,
-  .nextra-body,
-  .nextra-container,
-  .nextra-wrapper {
+  .print-mode main,
+  .print-mode article,
+  .print-mode .content,
+  .print-mode .prose,
+  .print-mode .nextra-content,
+  .print-mode .nextra-body,
+  .print-mode .nextra-container,
+  .print-mode .nextra-wrapper {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* 4) 제목(h1)이 첫 페이지 상단을 밀어내는 현상 방지 */
-  h1,
-  .prose h1 {
+  .print-mode h1,
+  .print-mode .prose h1 {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
-  /* 5) 링크는 인쇄에서 눈에 띄지 않게 */
-  a, a:visited {
+  .print-mode a,
+  .print-mode a:visited {
     color: inherit !important;
     text-decoration: none !important;
   }
 
-  /* 6) 이미지 / 도표가 페이지 중간에서 잘리지 않게 */
-  img,
-  figure,
-  table,
-  pre,
-  blockquote {
+  .print-mode img,
+  .print-mode figure,
+  .print-mode table,
+  .print-mode pre,
+  .print-mode blockquote {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
-  /* 7) 🔽 이미지가 너무 커지는 문제 완화 (인쇄 전용) */
-  img,
-  figure img {
-    max-height: 180mm;   /* A4 기준 안전한 최대 높이 */
+  .print-mode img,
+  .print-mode figure img {
+    max-height: 180mm;
     width: auto !important;
     height: auto !important;
     margin: 0 auto !important;
-    display: block;
+    display: block !important;
     object-fit: contain !important;
   }
 
-  /* 8) 페이지 여백 (하나만 유지) */
-  @page {
-    margin: 12mm;
+  .print-mode pre,
+  .print-mode code {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    font-size: 9.5pt;
   }
+}
+
+/* 화면에서도 print 페이지가 깔끔하게 */
+.print-root {
+  padding: 24px 16px;
+}
+.print-article {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.print-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+}
+.print-desc {
+  margin: 10px 0 0 0;
+  color: #0f766e;
+}
+.print-meta {
+  margin-top: 4px;
 }
