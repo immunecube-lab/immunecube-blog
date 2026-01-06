@@ -13,7 +13,7 @@ import { Concept } from "@/components/mdx/Concept";
 import { PaperLite } from "@/components/mdx/PaperLite";
 import RelatedPosts from "@/components/mdx/RelatedPosts";
 import { FigureGroup } from "@/components/mdx/FigureGroup";
-
+import { References, Reference } from "@/components/mdx/References";
 
 const sharedComponents: MDXComponents = {
   Series,
@@ -24,6 +24,10 @@ const sharedComponents: MDXComponents = {
   PaperLite,
   RelatedPosts, // ✅ 반드시 포함
   FigureGroup,
+
+  // ✅ 전역 레퍼런스 컴포넌트 등록
+  References,
+  Reference,
 };
 
 interface MDXProps {
