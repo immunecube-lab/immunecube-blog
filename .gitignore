@@ -45,3 +45,6 @@ next-env.d.ts
 
 # velite output (optional)
 .velite/
+
+# generated PDFs
+pdf/
