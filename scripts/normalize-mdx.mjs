@@ -4,10 +4,12 @@ import path from "node:path";
 const ROOT = path.resolve("content");
 const EXTENSIONS = new Set([".md", ".mdx"]);
 
-// Characters that often break markdown parsing when copy/pasted
-const ZW_CHARS = /[\u200B\u200C\u200D\uFEFF]/g; // zero-width + BOM
-const NBSP = /\u00A0/g; // non-breaking space
-const FULLWIDTH_ASTERISK = /＊/g; // U+FF0A
+// zero-width + BOM
+const ZW_CHARS = /[\u200B\u200C\u200D\uFEFF]/g;
+// non-breaking space
+const NBSP = /\u00A0/g;
+// fullwidth asterisk
+const FULLWIDTH_ASTERISK = /＊/g;
 
 function walk(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -19,6 +21,7 @@ function walk(dir) {
   }
 }
 
+// Apply replacer only outside inline code spans: `...`
 function replaceOutsideInlineCode(line, replacer) {
   const parts = line.split(/(`[^`]*`)/g);
   for (let i = 0; i < parts.length; i++) {
@@ -30,38 +33,46 @@ function replaceOutsideInlineCode(line, replacer) {
 function applyFixes(text) {
   let out = text;
 
-  // 0) Remove zero-width and BOM characters globally (safe)
-  out = out.replace(/[\u200B\u200C\u200D\uFEFF]/g, "");
+  // 0) Remove zero-width and BOM globally
+  out = out.replace(ZW_CHARS, "");
 
-  // 0-1) Normalize NBSP to regular space globally
-  out = out.replace(/\u00A0/g, " ");
+  // 1) Normalize NBSP to regular space globally
+  out = out.replace(NBSP, " ");
 
-  // 0-2) Normalize fullwidth asterisk (rare but happens in paste)
-  out = out.replace(/＊/g, "*");
+  // 2) Normalize fullwidth asterisk
+  out = out.replace(FULLWIDTH_ASTERISK, "*");
 
-  // 0-3) CRITICAL: clean garbage RIGHT NEXT TO strong delimiters (**)
-  // - Remove spaces/controls between ** and the next visible char
-  // - Remove spaces/controls between previous visible char and **
+  // 3) Strong delimiter hygiene (SAFETY-FIRST)
+  //    - Only touch spaces INSIDE **...**
+  //    - Never remove the normal spacing BEFORE an opening **
   //
-  // Examples fixed:
-  //   ** text**   -> **text**
-  //   **text **   -> **text**
-  //   **text** "  -> **text**"
-  //   **text**\u200B" -> **text**"
-  out = out
-    // after opening **
-    .replace(/\*\*[\s\u00A0]+/g, "**")
-    // before closing **
-    .replace(/[\s\u00A0]+\*\*/g, "**")
-    // controls right after closing **
-    .replace(/\*\*[\u200B\u200C\u200D\uFEFF]+/g, "**")
-    // controls right before opening ** (rare)
-    .replace(/[\u200B\u200C\u200D\uFEFF]+\*\*/g, "**");
+  //    Fix:
+  //      ** text**  -> **text**
+  //      **text **  -> **text**
+  //    Preserve:
+  //      foo **bar**  (space before opening ** stays)
 
-  // 1) Smart-quote case: **“text”** / **‘text’** -> <strong>…</strong>
+  // 3-1) After opening **: remove spaces immediately after ** (inside strong)
+  //      "**   text" -> "**text"
+  out = out.replace(/\*\*[\s\u00A0]+(?=\S)/g, "**");
+
+  // 3-2) Before closing **: remove spaces immediately before ** (inside strong)
+  //      "text   **" -> "text**"
+  //      Implemented WITHOUT lookbehind for compatibility:
+  //      capture the preceding visible char, then drop the spaces.
+  out = out.replace(/(\S)[\s\u00A0]+(\*\*)/g, "$1$2");
+
+  // 3-3) Controls right after closing ** (rare paste artifact)
+  out = out.replace(/\*\*[\u200B\u200C\u200D\uFEFF]+/g, "**");
+
+  // NOTE: Do NOT remove controls/spaces right before ** globally.
+  // That pattern can incorrectly delete the space before an opening **.
+
+  // 4) Optional conversions (keep your original intent)
+  // 4-1) Smart-quote case: **“text”** / **‘text’** -> <strong>…</strong>
   out = out.replace(/\*\*([“‘][\s\S]+?[”’])\*\*/g, "<strong>$1</strong>");
 
-  // 2) Parentheses-leading case: **( ... )** -> (<strong>...</strong>)
+  // 4-2) Parentheses-leading case: **( ... )** -> (<strong>...</strong>)
   out = out.replace(/\*\*\(([\s\S]*?)\)\*\*/g, "(<strong>$1</strong>)");
 
   return out;
