@@ -3,19 +3,15 @@
   "version": "0.1.0",
   "private": true,
 
-  "scripts": {
-    
-    "dev": "npm run normalize && next dev",
-    "build": "npm run normalize && npm run velite:build && next build",
-
-    "start": "next start",
-    "lint": "next lint",
-
-    "velite:build": "velite build",
-    "velite:watch": "npm run normalize && velite build --watch",
-
-    "gen:index": "tsx scripts/generate-posts-index.ts"
-  },
+ "scripts": {
+  "dev": "next dev",
+  "build": "npm run velite:build && next build",
+  "start": "next start",
+  "lint": "next lint",
+  "velite:build": "velite build",
+  "velite:watch": "velite build --watch",
+  "gen:index": "tsx scripts/generate-posts-index.ts"
+},
 
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
