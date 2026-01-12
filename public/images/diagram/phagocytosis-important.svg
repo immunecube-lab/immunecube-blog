@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220.903 214.194">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-4, .cls-5 {
+        stroke-width: .666px;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        stroke: #231916;
+      }
+
+      .cls-1, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-7 {
+        fill: #00a1e9;
+      }
+
+      .cls-7, .cls-8, .cls-6, .cls-9 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        stroke: #00a1e9;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-8, .cls-10, .cls-11 {
+        fill: #231916;
+      }
+
+      .cls-3 {
+        stroke-width: .639px;
+      }
+
+      .cls-10 {
+        font-size: 7.994px;
+      }
+
+      .cls-10, .cls-12 {
+        font-family: AppleSDGothicNeoEB00, AppleSDGothicNeoEB00;
+      }
+
+      .cls-5 {
+        stroke: #c30f23;
+      }
+
+      .cls-9 {
+        fill: #c30f23;
+      }
+
+      .cls-12 {
+        fill: #e60013;
+      }
+
+      .cls-12, .cls-11 {
+        font-size: 7.328px;
+      }
+
+      .cls-11 {
+        font-family: AppleSDGothicNeoM00, AppleSDGothicNeoM00;
+      }
+    </style>
+  </defs>
+  <rect class="cls-6" width="220.903" height="214.194"/>
+  <circle class="cls-1" cx="114.11" cy="97.889" r="23.594"/>
+  <text class="cls-12" transform="translate(22.726 97.889)"><tspan x="0" y="0">박테리아</tspan></text>
+  <text class="cls-12" transform="translate(149.348 64.026)"><tspan x="0" y="0">DAMP</tspan></text>
+  <text class="cls-12" transform="translate(164.575 133.811)"><tspan x="0" y="0">암세포</tspan></text>
+  <text class="cls-11" transform="translate(56.688 46.023)"><tspan x="0" y="0">병원성 미생물</tspan><tspan x="0" y="8.794">항체와 결합</tspan></text>
+  <text class="cls-12" transform="translate(30.085 129.518)"><tspan x="0" y="0">바이러스</tspan></text>
+  <text class="cls-11" transform="translate(49.763 162)"><tspan x="0" y="0">세포 감염</tspan></text>
+  <text class="cls-11" transform="translate(96.927 166.208)"><tspan x="0" y="0">세포사멸</tspan></text>
+  <g>
+    <line class="cls-4" x1="63.332" y1="93.725" x2="83.634" y2="93.725"/>
+    <polygon class="cls-8" points="82.137 95.699 82.975 93.725 82.137 91.751 86.815 93.725 82.137 95.699"/>
+  </g>
+  <g>
+    <line class="cls-8" x1="59.982" y1="124.721" x2="87.565" y2="113.156"/>
+    <g>
+      <line class="cls-3" x1="59.982" y1="124.721" x2="84.749" y2="114.336"/>
+      <polygon class="cls-8" points="84.157 116.638 84.166 114.581 82.692 113.145 87.565 113.156 84.157 116.638"/>
+    </g>
+  </g>
+  <g>
+    <path class="cls-2" d="m47.029,134.992s-1.275,10.172,5.355,14.701"/>
+    <polygon class="cls-7" points="50.183 150.685 51.837 149.321 52.003 147.183 55.244 151.091 50.183 150.685"/>
+  </g>
+  <g>
+    <path class="cls-2" d="m72.936,165.821s8.257,4.178,18.296,1.115"/>
+    <polygon class="cls-7" points="90.474 169.252 90.6 167.111 89.148 165.534 94.217 165.821 90.474 169.252"/>
+  </g>
+  <g>
+    <line class="cls-4" x1="109.022" y1="150.629" x2="110.223" y2="130.199"/>
+    <polygon class="cls-8" points="112.105 131.809 110.184 130.856 108.165 131.577 110.409 127.023 112.105 131.809"/>
+  </g>
+  <g>
+    <path class="cls-2" d="m168.701,138.826s-8.914,20.031-30.595,22.252"/>
+    <polygon class="cls-7" points="139.445 158.948 138.758 160.979 139.743 162.884 134.929 161.269 139.445 158.948"/>
+  </g>
+  <g>
+    <line class="cls-4" x1="153.193" y1="67.355" x2="138.765" y2="79.214"/>
+    <polygon class="cls-8" points="138.668 76.739 139.274 78.796 141.175 79.788 136.307 81.234 138.668 76.739"/>
+  </g>
+  <g>
+    <path class="cls-2" d="m36.332,85.848s-.891-17.597,14.216-25.481"/>
+    <polygon class="cls-7" points="50.041 62.82 49.968 60.677 48.375 59.242 53.449 59.056 50.041 62.82"/>
+  </g>
+  <g>
+    <line class="cls-4" x1="79.876" y1="57.681" x2="94.648" y2="72.074"/>
+    <polygon class="cls-8" points="92.199 72.443 94.177 71.615 94.954 69.616 96.927 74.294 92.199 72.443"/>
+  </g>
+  <g>
+    <path class="cls-2" d="m16.52,121.178S-4.449,61.851,50.877,49.203"/>
+    <polygon class="cls-7" points="49.856 51.5 50.245 49.391 48.998 47.647 53.993 48.556 49.856 51.5"/>
+  </g>
+  <text class="cls-11" transform="translate(65.83 16.181)"><tspan x="0" y="0">B세포(항체 생산)</tspan></text>
+  <text class="cls-11" transform="translate(24.169 192.63)"><tspan x="0" y="0">세포독성 T세포</tspan><tspan x="0" y="8.794">NK세포</tspan></text>
+  <text class="cls-11" transform="translate(171.361 168.951)"><tspan x="0" y="0">세포독성 T세포</tspan><tspan x="0" y="8.794">NK세포</tspan></text>
+  <text class="cls-10" transform="translate(100.699 100.503)"><tspan x="0" y="0">탐식작용</tspan></text>
+  <g>
+    <line class="cls-5" x1="75.073" y1="21.942" x2="75.073" y2="30.456"/>
+    <polygon class="cls-9" points="72.606 28.585 75.073 29.633 77.54 28.585 75.073 34.433 72.606 28.585"/>
+  </g>
+  <g>
+    <line class="cls-5" x1="58.132" y1="183.013" x2="58.132" y2="170.335"/>
+    <polygon class="cls-9" points="60.599 172.206 58.132 171.158 55.665 172.206 58.132 166.358 60.599 172.206"/>
+  </g>
+  <g>
+    <line class="cls-5" x1="176.103" y1="158.956" x2="176.103" y2="146.278"/>
+    <polygon class="cls-9" points="178.57 148.15 176.103 147.101 173.636 148.15 176.103 142.301 178.57 148.15"/>
+  </g>
+</svg>

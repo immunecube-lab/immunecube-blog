@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 289.049 219.871">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_무제_그라디언트_297-3);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        stroke: #231916;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-5, .cls-6, .cls-7, .cls-10 {
+        stroke-width: .477px;
+      }
+
+      .cls-11 {
+        fill: url(#_무제_그라디언트_298-4);
+      }
+
+      .cls-11, .cls-12, .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20 {
+        stroke-width: 0px;
+      }
+
+      .cls-12 {
+        fill: url(#_무제_그라디언트_3);
+      }
+
+      .cls-21 {
+        clip-path: url(#clippath-11);
+      }
+
+      .cls-2 {
+        fill: url(#_무제_그라디언트_297-2);
+      }
+
+      .cls-3 {
+        fill: url(#_무제_그라디언트_2-2);
+      }
+
+      .cls-3, .cls-4, .cls-8 {
+        stroke-width: .534px;
+      }
+
+      .cls-22 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-23 {
+        clip-path: url(#clippath-13);
+      }
+
+      .cls-24 {
+        clip-path: url(#clippath-6);
+      }
+
+      .cls-13, .cls-25, .cls-26, .cls-27 {
+        fill: #231916;
+      }
+
+      .cls-14, .cls-4, .cls-5, .cls-9 {
+        fill: none;
+      }
+
+      .cls-28 {
+        clip-path: url(#clippath-7);
+      }
+
+      .cls-25 {
+        font-size: 8.119px;
+      }
+
+      .cls-25, .cls-27 {
+        font-family: AppleSDGothicNeoR00, AppleSDGothicNeoR00;
+      }
+
+      .cls-29 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-30 {
+        clip-path: url(#clippath-4);
+      }
+
+      .cls-15 {
+        fill: url(#_무제_그라디언트_298-2);
+      }
+
+      .cls-31 {
+        clip-path: url(#clippath-12);
+      }
+
+      .cls-16 {
+        fill: #fff;
+      }
+
+      .cls-26, .cls-32 {
+        font-family: AppleSDGothicNeoEB00, AppleSDGothicNeoEB00;
+      }
+
+      .cls-26, .cls-32, .cls-27 {
+        font-size: 6.495px;
+      }
+
+      .cls-17 {
+        fill: url(#_무제_그라디언트_9);
+      }
+
+      .cls-18 {
+        fill: url(#_무제_그라디언트_298-3);
+      }
+
+      .cls-6 {
+        fill: url(#_무제_그라디언트_10);
+      }
+
+      .cls-32 {
+        fill: #c30f23;
+      }
+
+      .cls-7 {
+        fill: url(#_무제_그라디언트_297);
+      }
+
+      .cls-33 {
+        clip-path: url(#clippath-9);
+      }
+
+      .cls-34 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-8 {
+        fill: url(#_무제_그라디언트_2);
+      }
+
+      .cls-9 {
+        stroke-width: .406px;
+      }
+
+      .cls-35 {
+        clip-path: url(#clippath-3);
+      }
+
+      .cls-19 {
+        fill: url(#_무제_그라디언트_3-2);
+      }
+
+      .cls-36 {
+        clip-path: url(#clippath-8);
+      }
+
+      .cls-20 {
+        fill: url(#_무제_그라디언트_298);
+      }
+
+      .cls-37 {
+        clip-path: url(#clippath-5);
+      }
+
+      .cls-38 {
+        clip-path: url(#clippath-10);
+      }
+
+      .cls-10 {
+        fill: url(#_무제_그라디언트_297-4);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-5" d="m135.565,31.088c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_297" data-name="무제 그라디언트 297" cx="-126.822" cy="497.033" fx="-126.822" fy="497.033" r="2.864" gradientTransform="translate(772.383 2463.902) scale(4.901 -4.901)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#bae0d9"/>
+    </radialGradient>
+    <clipPath id="clippath-1">
+      <path class="cls-14" d="m140.704,30.804c0,4.699,3.806,8.5,8.497,8.5s8.503-3.8,8.503-8.5-3.806-8.497-8.503-8.497-8.497,3.803-8.497,8.497"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_298" data-name="무제 그라디언트 298" cx="-129.134" cy="543.42" fx="-129.134" fy="543.42" r="2.864" gradientTransform="translate(841.234 -2881.068) scale(5.35)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bae0d9"/>
+      <stop offset="1" stop-color="#67c1b2"/>
+    </radialGradient>
+    <clipPath id="clippath-2">
+      <path class="cls-5" d="m135.565,73.518c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_297-2" data-name="무제 그라디언트 297" cy="488.376" fy="488.376" xlink:href="#_무제_그라디언트_297"/>
+    <clipPath id="clippath-3">
+      <path class="cls-14" d="m140.704,73.233c0,4.699,3.806,8.5,8.497,8.5s8.503-3.8,8.503-8.5-3.806-8.497-8.503-8.497-8.497,3.803-8.497,8.497"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_298-2" data-name="무제 그라디언트 298" cy="551.35" fy="551.35" xlink:href="#_무제_그라디언트_298"/>
+    <clipPath id="clippath-4">
+      <path class="cls-5" d="m135.565,115.948c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_297-3" data-name="무제 그라디언트 297" cy="479.72" fy="479.72" xlink:href="#_무제_그라디언트_297"/>
+    <clipPath id="clippath-5">
+      <path class="cls-14" d="m140.704,115.663c0,4.699,3.806,8.5,8.497,8.5s8.503-3.8,8.503-8.5-3.806-8.497-8.503-8.497-8.497,3.803-8.497,8.497"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_298-3" data-name="무제 그라디언트 298" cy="559.281" fy="559.281" xlink:href="#_무제_그라디언트_298"/>
+    <clipPath id="clippath-6">
+      <path class="cls-5" d="m135.565,158.377c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_297-4" data-name="무제 그라디언트 297" cy="471.063" fy="471.063" xlink:href="#_무제_그라디언트_297"/>
+    <clipPath id="clippath-7">
+      <path class="cls-14" d="m140.704,158.093c0,4.699,3.806,8.5,8.497,8.5s8.503-3.8,8.503-8.5-3.806-8.497-8.503-8.497-8.497,3.803-8.497,8.497"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_298-4" data-name="무제 그라디언트 298" cy="567.212" fy="567.212" xlink:href="#_무제_그라디언트_298"/>
+    <clipPath id="clippath-8">
+      <path class="cls-5" d="m135.565,200.807c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_10" data-name="무제 그라디언트 10" cx="-126.822" cy="462.406" fx="-126.822" fy="462.406" r="2.864" gradientTransform="translate(772.383 2463.902) scale(4.901 -4.901)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#d5b7d7"/>
+    </radialGradient>
+    <clipPath id="clippath-9">
+      <path class="cls-14" d="m140.704,200.523c0,4.699,3.806,8.5,8.497,8.5s8.503-3.8,8.503-8.5-3.806-8.497-8.503-8.497-8.497,3.803-8.497,8.497"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_9" data-name="무제 그라디언트 9" cx="-129.134" cy="575.142" fx="-129.134" fy="575.142" r="2.864" gradientTransform="translate(841.234 -2881.068) scale(5.35)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d5b7d7"/>
+      <stop offset="1" stop-color="#a76aa9"/>
+    </radialGradient>
+    <clipPath id="clippath-10">
+      <path class="cls-4" d="m5.237,117.649c0,7.64,6.196,13.826,13.833,13.826s13.83-6.186,13.83-13.826-6.189-13.836-13.83-13.836-13.833,6.196-13.833,13.836"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_2" data-name="무제 그라디언트 2" cx="-153.043" cy="479.453" fx="-153.043" fy="479.453" r="3.204" gradientTransform="translate(772.383 2463.902) scale(4.901 -4.901)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#b8ccdc"/>
+    </radialGradient>
+    <clipPath id="clippath-11">
+      <path class="cls-14" d="m8.787,118.43c0,5.865,4.75,10.607,10.604,10.607s10.611-4.743,10.611-10.607-4.75-10.604-10.611-10.604-10.604,4.746-10.604,10.604"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_3" data-name="무제 그라디언트 3" cx="-153.344" cy="559.588" fx="-153.344" fy="559.588" r="3.574" gradientTransform="translate(841.234 -2881.068) scale(5.35)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b8ccdc"/>
+      <stop offset="1" stop-color="#3d7db5"/>
+    </radialGradient>
+    <clipPath id="clippath-12">
+      <path class="cls-4" d="m59.715,117.23c0,7.64,6.196,13.826,13.833,13.826s13.83-6.186,13.83-13.826-6.189-13.836-13.83-13.836-13.833,6.196-13.833,13.836"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_2-2" data-name="무제 그라디언트 2" cx="-141.929" cy="479.539" fx="-141.929" fy="479.539" r="3.204" xlink:href="#_무제_그라디언트_2"/>
+    <clipPath id="clippath-13">
+      <path class="cls-14" d="m64.361,118.011c0,5.259,4.259,9.511,9.508,9.511s9.514-4.252,9.514-9.511-4.259-9.508-9.514-9.508-9.508,4.256-9.508,9.508"/>
+    </clipPath>
+    <radialGradient id="_무제_그라디언트_3-2" data-name="무제 그라디언트 3" cx="-143.189" cy="559.619" fx="-143.189" fy="559.619" r="3.205" xlink:href="#_무제_그라디언트_3"/>
+  </defs>
+  <rect class="cls-16" width="289.049" height="219.871"/>
+  <g>
+    <g>
+      <g>
+        <g class="cls-34">
+          <rect class="cls-7" x="135.565" y="18.719" width="24.729" height="24.729"/>
+        </g>
+        <path class="cls-5" d="m135.565,31.088c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+      </g>
+      <g class="cls-29">
+        <rect class="cls-20" x="140.704" y="22.307" width="17" height="16.997"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <g class="cls-22">
+          <rect class="cls-2" x="135.565" y="61.149" width="24.729" height="24.729"/>
+        </g>
+        <path class="cls-5" d="m135.565,73.518c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+      </g>
+      <g class="cls-35">
+        <rect class="cls-15" x="140.704" y="64.737" width="17" height="16.997"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <g class="cls-30">
+          <rect class="cls-1" x="135.565" y="103.579" width="24.729" height="24.729"/>
+        </g>
+        <path class="cls-5" d="m135.565,115.948c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+      </g>
+      <g class="cls-37">
+        <rect class="cls-18" x="140.704" y="107.166" width="17" height="16.997"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <g class="cls-24">
+          <rect class="cls-10" x="135.565" y="146.009" width="24.729" height="24.729"/>
+        </g>
+        <path class="cls-5" d="m135.565,158.377c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+      </g>
+      <g class="cls-28">
+        <rect class="cls-11" x="140.704" y="149.596" width="17" height="16.997"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <g class="cls-36">
+          <rect class="cls-6" x="135.565" y="188.439" width="24.729" height="24.729"/>
+        </g>
+        <path class="cls-5" d="m135.565,200.807c0,6.83,5.539,12.36,12.366,12.36s12.363-5.53,12.363-12.36-5.533-12.369-12.363-12.369-12.366,5.539-12.366,12.369"/>
+      </g>
+      <g class="cls-33">
+        <rect class="cls-17" x="140.704" y="192.026" width="17" height="16.997"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <g class="cls-38">
+          <rect class="cls-8" x="5.237" y="103.813" width="27.662" height="27.662"/>
+        </g>
+        <path class="cls-4" d="m5.237,117.649c0,7.64,6.196,13.826,13.833,13.826s13.83-6.186,13.83-13.826-6.189-13.836-13.83-13.836-13.833,6.196-13.833,13.836"/>
+      </g>
+      <g class="cls-21">
+        <rect class="cls-12" x="8.787" y="107.826" width="21.215" height="21.211"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <g class="cls-31">
+          <rect class="cls-3" x="59.715" y="103.394" width="27.662" height="27.662"/>
+        </g>
+        <path class="cls-4" d="m59.715,117.23c0,7.64,6.196,13.826,13.833,13.826s13.83-6.186,13.83-13.826-6.189-13.836-13.83-13.836-13.833,6.196-13.833,13.836"/>
+      </g>
+      <g class="cls-23">
+        <rect class="cls-19" x="64.361" y="108.504" width="19.022" height="19.019"/>
+      </g>
+    </g>
+    <text class="cls-25" transform="translate(188.37 25.226)"><tspan x="0" y="0">세포성 면역</tspan><tspan x="0" y="9.743">염증</tspan><tspan x="0" y="19.486">개체 방어(바이러스, 박테리아)</tspan></text>
+    <text class="cls-25" transform="translate(188.37 67.219)"><tspan x="0" y="0">체액성 면역</tspan><tspan x="0" y="9.743">알러지</tspan><tspan x="0" y="19.486">개체 방어(기생충)</tspan></text>
+    <text class="cls-25" transform="translate(188.371 109.211)"><tspan x="0" y="0">염증</tspan><tspan x="0" y="9.743">상처치유</tspan><tspan x="0" y="19.486">개체 방어(진균)</tspan></text>
+    <text class="cls-25" transform="translate(188.371 151.203)"><tspan x="0" y="0">항상성</tspan><tspan x="0" y="9.743">조절</tspan><tspan x="0" y="19.486">억제</tspan></text>
+    <text class="cls-25" transform="translate(188.371 193.196)"><tspan x="0" y="0">B세포 성숙</tspan><tspan x="0" y="9.743">B세포 분화</tspan><tspan x="0" y="19.486">자가 면역</tspan></text>
+    <g>
+      <line class="cls-13" x1="85.701" y1="100.96" x2="130.959" y2="40.616"/>
+      <g>
+        <line class="cls-9" x1="85.701" y1="100.96" x2="129.505" y2="42.555"/>
+        <polygon class="cls-13" points="130.024 44.369 129.204 42.956 127.618 42.565 130.959 40.616 130.024 44.369"/>
+      </g>
+    </g>
+    <g>
+      <line class="cls-13" x1="89.472" y1="106.408" x2="130.121" y2="78.75"/>
+      <g>
+        <line class="cls-9" x1="89.472" y1="106.408" x2="128.118" y2="80.114"/>
+        <polygon class="cls-13" points="128.021 81.998 127.703 80.396 126.329 79.512 130.121 78.75 128.021 81.998"/>
+      </g>
+    </g>
+    <g>
+      <line class="cls-9" x1="92.406" y1="116.047" x2="126.441" y2="116.047"/>
+      <polygon class="cls-13" points="125.3 117.55 125.939 116.047 125.3 114.543 128.864 116.047 125.3 117.55"/>
+    </g>
+    <g>
+      <line class="cls-13" x1="89.891" y1="122.752" x2="130.54" y2="149.991"/>
+      <g>
+        <line class="cls-9" x1="89.891" y1="122.752" x2="128.527" y2="148.641"/>
+        <polygon class="cls-13" points="126.743 149.256 128.11 148.362 128.417 146.758 130.54 149.991 126.743 149.256"/>
+      </g>
+    </g>
+    <g>
+      <line class="cls-13" x1="84.444" y1="130.295" x2="132.217" y2="189.382"/>
+      <g>
+        <line class="cls-9" x1="84.444" y1="130.295" x2="130.693" y2="187.498"/>
+        <polygon class="cls-13" points="128.807 187.556 130.378 187.108 131.145 185.666 132.217 189.382 128.807 187.556"/>
+      </g>
+    </g>
+    <text class="cls-27" transform="translate(94.758 85.806) rotate(-53.148)"><tspan x="0" y="0">IL-12, IL-27</tspan></text>
+    <text class="cls-27" transform="translate(96.788 99.53) rotate(-34.456)"><tspan x="0" y="0">IL-4, IL-25</tspan></text>
+    <text class="cls-27" transform="translate(94.75 115.358) rotate(-.395)"><tspan x="0" y="0">IL-6, TGF</tspan></text>
+    <text class="cls-27" transform="translate(98.779 127.877) rotate(34.052)"><tspan x="0" y="0">TGF-β</tspan></text>
+    <text class="cls-27" transform="translate(95.049 140.217) rotate(51.002)"><tspan x="0" y="0">IL-6, IL-21</tspan></text>
+    <text class="cls-32" transform="translate(141.21 14.361)"><tspan x="0" y="0">Th1</tspan></text>
+    <text class="cls-32" transform="translate(141.21 57.105)"><tspan x="0" y="0">Th2</tspan></text>
+    <text class="cls-32" transform="translate(141 101.736)"><tspan x="0" y="0">Th17</tspan></text>
+    <text class="cls-32" transform="translate(141 145.528)"><tspan x="0" y="0">Treg</tspan></text>
+    <text class="cls-32" transform="translate(141 187.24)"><tspan x="0" y="0">Tfth</tspan></text>
+    <g>
+      <line class="cls-9" x1="35.833" y1="116.466" x2="53.105" y2="116.466"/>
+      <polygon class="cls-13" points="51.965 117.969 52.603 116.466 51.965 114.962 55.528 116.466 51.965 117.969"/>
+    </g>
+    <text class="cls-26" transform="translate(12.366 100.122)"><tspan x="0" y="0">Th0</tspan></text>
+    <text class="cls-26" transform="translate(61.569 93.933)"><tspan x="0" y="0">활성화된 </tspan><tspan x="2.803" y="7.794">Th세포</tspan></text>
+  </g>
+</svg>
