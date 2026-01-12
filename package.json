@@ -4,8 +4,7 @@
   "private": true,
 
   "scripts": {
-    "normalize": "node scripts/normalize-mdx.mjs",
-
+    
     "dev": "npm run normalize && next dev",
     "build": "npm run normalize && npm run velite:build && next build",
 
