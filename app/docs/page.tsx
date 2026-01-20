@@ -1,5 +1,6 @@
 // app/docs/page.tsx
 import Link from "next/link";
+import type { Metadata } from "next";
 import * as site from "@/.velite";
 import { CATEGORIES } from "./_categories";
 import { formatYmdDot } from "@/components/utils/date";
@@ -17,6 +18,21 @@ type Doc = {
 };
 
 const docs = (site as any).docs as Doc[] | undefined;
+
+/* --------------------------- metadata --------------------------- */
+/**
+ * ✅ /docs는 필터 쿼리(cat/sec)가 붙어도 canonical은 /docs로 고정합니다.
+ * - 이유: /docs?cat=...&sec=... 형태의 URL이 무한히 생기면
+ *   Google이 중복/얇은 페이지로 판단해 색인/크롤링 효율이 떨어질 수 있습니다.
+ * - 전역 app/layout.tsx에 metadataBase가 설정되어 있어야 절대 URL로 정상 출력됩니다.
+ */
+export const metadata: Metadata = {
+  title: "글 모음",
+  description: "카테고리 및 섹션별 문서 목록입니다.",
+  alternates: {
+    canonical: "/docs",
+  },
+};
 
 /* ----------------------------- utils ----------------------------- */
 
@@ -97,13 +113,13 @@ function pickDisplayDate(doc: Doc) {
 /* ----------------------------- page ----------------------------- */
 
 type PageProps = {
-  searchParams?: Promise<{
+  searchParams?: {
     cat?: string;
     sec?: string; // ✅ 2단 필터
-  }>;
+  };
 };
 
-export default async function DocsPage({ searchParams }: PageProps) {
+export default function DocsPage({ searchParams }: PageProps) {
   if (!docs) {
     return (
       <main className="max-w-6xl mx-auto py-12 px-4">
@@ -115,9 +131,8 @@ export default async function DocsPage({ searchParams }: PageProps) {
     );
   }
 
-  const params = await searchParams;
-  const selectedCat = (params?.cat || "").trim();
-  const selectedSec = (params?.sec || "").trim(); // ✅
+  const selectedCat = (searchParams?.cat || "").trim();
+  const selectedSec = (searchParams?.sec || "").trim();
 
   const published = docs.filter((d) => d.published !== false);
   const grouped = groupByCategory(published);

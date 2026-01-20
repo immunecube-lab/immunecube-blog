@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 import { GlobalTopNav } from "../GlobalTopNav";
-import { SiteFooter } from "@/components/SiteFooter"; // alias 없으면 상대경로로
+import { SiteFooter } from "@/components/SiteFooter";
 
 const pretendard = localFont({
   src: [
@@ -24,6 +24,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://datacube.immunecube.com"), // ✅ 추가
   title: "immunecube",
   description: "immunecube docs",
 };
