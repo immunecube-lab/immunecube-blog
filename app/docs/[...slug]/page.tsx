@@ -6,7 +6,7 @@ import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
 
 type Doc = {
-  slug: string; // velite slug: "imm-classic/xxx" 또는 "xxx"
+  slug: string;
   title: string;
   description?: string;
   date?: string;
@@ -22,25 +22,25 @@ function getDocByVeliteSlug(veliteSlug: string): Doc | undefined {
   return docs.find((d) => d.slug === veliteSlug);
 }
 
-export function generateMetadata({
+// ✅ async로 변경 + params를 Promise로 받고 await
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string[] };
-}): Metadata {
-  const veliteSlug = params.slug.join("/");
+  params: Promise<{ slug?: string[] }>;
+}): Promise<Metadata> {
+  const { slug: segs } = await params;
+
+  if (!segs || segs.length === 0) return {};
+
+  const veliteSlug = segs.join("/");
   const doc = getDocByVeliteSlug(veliteSlug);
   if (!doc) return {};
 
   return {
     title: doc.title,
     description: doc.description,
-    alternates: {
-      canonical: `/docs/${veliteSlug}`,
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
+    alternates: { canonical: `/docs/${veliteSlug}` },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -48,17 +48,20 @@ export function generateStaticParams() {
   if (!docs) return [];
   return docs
     .filter((d) => d.published !== false)
-    .map((doc) => ({
-      slug: doc.slug.split("/"), // ✅ velite slug를 그대로 segment로
-    }));
+    .map((doc) => ({ slug: doc.slug.split("/") }));
 }
 
-export default function DocPage({
+// ✅ async로 변경 + params await
+export default async function DocPage({
   params,
 }: {
-  params: { slug: string[] };
+  params: Promise<{ slug?: string[] }>;
 }) {
-  const veliteSlug = params.slug.join("/");
+  const { slug: segs } = await params;
+
+  if (!segs || segs.length === 0) notFound();
+
+  const veliteSlug = segs.join("/");
   const doc = getDocByVeliteSlug(veliteSlug);
 
   if (!doc || doc.published === false) notFound();

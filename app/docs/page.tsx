@@ -11,7 +11,7 @@ type Doc = {
   description?: string;
   published?: boolean;
   category?: string;
-  section?: string; // ✅ subgroup(2단)로 사용할 값
+  section?: string; // subgroup(2단)로 사용할 값
   order?: number;
   date?: string;
   updated?: string;
@@ -21,9 +21,8 @@ const docs = (site as any).docs as Doc[] | undefined;
 
 /* --------------------------- metadata --------------------------- */
 /**
- * ✅ /docs는 필터 쿼리(cat/sec)가 붙어도 canonical은 /docs로 고정합니다.
- * - 이유: /docs?cat=...&sec=... 형태의 URL이 무한히 생기면
- *   Google이 중복/얇은 페이지로 판단해 색인/크롤링 효율이 떨어질 수 있습니다.
+ * /docs는 필터 쿼리(cat/sec)가 붙어도 canonical은 /docs로 고정합니다.
+ * - /docs?cat=...&sec=... 형태의 URL이 무한히 생기면 중복 페이지로 판단될 수 있습니다.
  * - 전역 app/layout.tsx에 metadataBase가 설정되어 있어야 절대 URL로 정상 출력됩니다.
  */
 export const metadata: Metadata = {
@@ -69,7 +68,7 @@ function groupByCategory(list: Doc[]) {
   return entries;
 }
 
-// ✅ activeCategory 내부에서 section별로 그룹핑
+// activeCategory 내부에서 section별로 그룹핑
 function groupBySection(items: Doc[]) {
   const map = new Map<string, Doc[]>();
 
@@ -83,16 +82,14 @@ function groupBySection(items: Doc[]) {
     return [section, sortDocsInCategory(list)] as const;
   });
 
-  // section 정렬(원하시면 여기에서 별도 우선순위 맵도 가능)
   entries.sort(([a], [b]) => a.localeCompare(b, "ko"));
   return entries;
 }
 
-// ✅ section을 사람이 읽는 라벨로 바꾸고 싶으면 여기에서 매핑
+// section을 사람이 읽는 라벨로 바꾸고 싶으면 여기에서 매핑
 const SECTION_LABELS: Record<string, string> = {
   // "imm-classic": "면역학 고전",
   // 예: "vaccine-society": "백신과 사회",
-  // 없으면 그대로 노출됩니다.
 };
 
 function sectionLabel(section: string) {
@@ -112,27 +109,30 @@ function pickDisplayDate(doc: Doc) {
 
 /* ----------------------------- page ----------------------------- */
 
-type PageProps = {
-  searchParams?: {
-    cat?: string;
-    sec?: string; // ✅ 2단 필터
-  };
+type SearchParams = {
+  cat?: string;
+  sec?: string;
 };
 
-export default function DocsPage({ searchParams }: PageProps) {
+type PageProps = {
+  searchParams?: Promise<SearchParams>;
+};
+
+export default async function DocsPage({ searchParams }: PageProps) {
+  // ✅ Next(App Router)에서 searchParams가 Promise로 들어오는 케이스 대응
+  const sp = await searchParams;
+
   if (!docs) {
     return (
       <main className="max-w-6xl mx-auto py-12 px-4">
         <h1 className="text-3xl font-bold mb-8">글 모음</h1>
-        <p className="text-sm text-neutral-500">
-          docs 컬렉션이 아직 준비되지 않았습니다.
-        </p>
+        <p className="text-sm text-neutral-500">docs 컬렉션이 아직 준비되지 않았습니다.</p>
       </main>
     );
   }
 
-  const selectedCat = (searchParams?.cat || "").trim();
-  const selectedSec = (searchParams?.sec || "").trim();
+  const selectedCat = (sp?.cat || "").trim();
+  const selectedSec = (sp?.sec || "").trim();
 
   const published = docs.filter((d) => d.published !== false);
   const grouped = groupByCategory(published);
@@ -143,16 +143,15 @@ export default function DocsPage({ searchParams }: PageProps) {
   const activeAllItems = grouped.find(([c]) => c === activeCategory)?.[1] ?? [];
   const categoryMeta = CATEGORIES[activeCategory];
 
-  // ✅ 현재 카테고리 내부에서 section 그룹 생성
+  // 현재 카테고리 내부에서 section 그룹 생성
   const sectionGroups = groupBySection(activeAllItems);
   const sections = sectionGroups.map(([s]) => s);
 
-  // ✅ sec 파라미터가 유효하면 필터, 아니면 전체
+  // sec 파라미터가 유효하면 필터, 아니면 전체
   const activeSection = sections.includes(selectedSec) ? selectedSec : "";
-  const activeItems =
-    activeSection
-      ? (sectionGroups.find(([s]) => s === activeSection)?.[1] ?? [])
-      : activeAllItems;
+  const activeItems = activeSection
+    ? sectionGroups.find(([s]) => s === activeSection)?.[1] ?? []
+    : activeAllItems;
 
   const baseCatHref = (cat: string) => `/docs?cat=${encodeURIComponent(cat)}`;
   const catSecHref = (cat: string, sec: string) =>
@@ -176,7 +175,7 @@ export default function DocsPage({ searchParams }: PageProps) {
             {grouped.map(([category, items]) => {
               const isCatActive = category === activeCategory;
 
-              // ✅ 카테고리별 section 미리 계산(펼쳐질 때만 사용)
+              // 카테고리별 section 미리 계산(펼쳐질 때만 사용)
               const catSectionGroups = isCatActive ? groupBySection(items) : [];
               const totalCount = items.length;
 
@@ -184,12 +183,10 @@ export default function DocsPage({ searchParams }: PageProps) {
                 <li key={category} className="rounded-xl">
                   {/* 1단: category */}
                   <Link
-                    href={baseCatHref(category)} // ✅ cat만 바꾸면 sec는 자동으로 전체 처리
+                    href={baseCatHref(category)} // cat만 바꾸면 sec는 자동으로 전체 처리
                     className={[
                       "flex items-center justify-between rounded-xl px-3 py-2 text-sm transition",
-                      isCatActive
-                        ? "bg-neutral-900 text-white"
-                        : "hover:bg-neutral-50 text-neutral-800",
+                      isCatActive ? "bg-neutral-900 text-white" : "hover:bg-neutral-50 text-neutral-800",
                     ].join(" ")}
                   >
                     <span className="truncate">{category}</span>
@@ -219,9 +216,7 @@ export default function DocsPage({ searchParams }: PageProps) {
                             ].join(" ")}
                           >
                             <span className="truncate">전체</span>
-                            <span className="ml-2 text-[11px] text-neutral-500">
-                              {totalCount}
-                            </span>
+                            <span className="ml-2 text-[11px] text-neutral-500">{totalCount}</span>
                           </Link>
                         </li>
 
@@ -239,9 +234,7 @@ export default function DocsPage({ searchParams }: PageProps) {
                                 ].join(" ")}
                               >
                                 <span className="truncate">{sectionLabel(sec)}</span>
-                                <span className="ml-2 text-[11px] text-neutral-500">
-                                  {secItems.length}
-                                </span>
+                                <span className="ml-2 text-[11px] text-neutral-500">{secItems.length}</span>
                               </Link>
                             </li>
                           );
@@ -267,15 +260,11 @@ export default function DocsPage({ searchParams }: PageProps) {
               ) : null}
             </h2>
 
-            <div className="text-xs text-neutral-400">
-              {activeItems.length}개
-            </div>
+            <div className="text-xs text-neutral-400">{activeItems.length}개</div>
           </div>
 
           {categoryMeta?.description && (
-            <p className="mt-2 mb-5 text-sm text-neutral-600 leading-relaxed">
-              {categoryMeta.description}
-            </p>
+            <p className="mt-2 mb-5 text-sm text-neutral-600 leading-relaxed">{categoryMeta.description}</p>
           )}
 
           <ul className="space-y-3">
@@ -290,22 +279,12 @@ export default function DocsPage({ searchParams }: PageProps) {
                     title={doc.title}
                   >
                     <div className="flex items-baseline justify-between gap-3">
-                      <span className="text-sky-600 hover:underline font-medium">
-                        {doc.title}
-                      </span>
+                      <span className="text-sky-600 hover:underline font-medium">{doc.title}</span>
 
-                      {label && (
-                        <span className="shrink-0 text-[11px] text-neutral-400">
-                          {label}
-                        </span>
-                      )}
+                      {label && <span className="shrink-0 text-[11px] text-neutral-400">{label}</span>}
                     </div>
 
-                    {doc.description && (
-                      <p className="mt-1 text-sm text-neutral-500">
-                        {doc.description}
-                      </p>
-                    )}
+                    {doc.description && <p className="mt-1 text-sm text-neutral-500">{doc.description}</p>}
                   </Link>
                 </li>
               );
