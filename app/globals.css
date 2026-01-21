@@ -1,3 +1,4 @@
+@config "../tailwind.config.js";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -94,4 +95,70 @@ body {
 .prose li > ol {
   margin-top: 0.05rem;
   margin-bottom: 0.05rem;
+}
+
+@layer components {
+  .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply text-sky-500 text-2xl font-bold;
+  }
+
+  .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply text-sky-400 text-xl font-semibold;
+  }
+
+  .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply text-sky-300 text-lg font-medium;
+  }
+}
+@media print {
+  /* 인쇄 색상 보존 */
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* 스크롤/컨테이너 문제 완화 */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  @page {
+    size: A4;
+    margin: 30mm 18mm 22mm 18mm;
+    /*        top  right bottom left */
+  }
+
+
+
+  /* ✅ 사이트 레이아웃(전역)만 숨김: 문서 article 내부 header는 유지 */
+  body > header,
+  body > nav,
+  body > aside,
+  body > footer {
+    display: none !important;
+  }
+
+  /* 본문 영역 정리 */
+  main {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 겹침 유발 1순위만 타겟으로 리셋 (전체 * 리셋은 하지 않음) */
+  body > header,
+  body > nav,
+  body > aside {
+    position: static !important;
+    transform: none !important;
+  }
+
+  /* 페이지 나눔 개선 */
+  pre, blockquote, table, figure, img {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
 }

@@ -75,13 +75,13 @@ export default async function DocPage({
             <MetaLine date={doc.date} updated={doc.updated} />
           </div>
           {doc.description ? (
-            <p className="mt-4 text-base text-neutral-600 leading-relaxed">
+            <p className="mt-4 mb-8 text-sm text-violet-900/100 leading-relaxed">
               {doc.description}
             </p>
           ) : null}
         </header>
 
-        <section className="prose prose-slate max-w-none">
+        <section className="prose max-w-none">
           <MDXContent code={doc.body} />
         </section>
       </article>

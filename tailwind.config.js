@@ -10,11 +10,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        /**
-         * 본문 기본 폰트
-         * - app/layout.tsx에서 localFont로 주입한 Pretendard
-         * - var(--font-sans)가 1순위
-         */
         sans: [
           "var(--font-sans)",
           "-apple-system",
@@ -27,12 +22,6 @@ module.exports = {
           "Arial",
           "sans-serif",
         ],
-
-        /**
-         * 헤딩용 폰트
-         * - 기본은 본문과 동일하게 Pretendard
-         * - 필요하면 Montserrat을 맨 뒤에서 선택적으로 사용
-         */
         heading: [
           "var(--font-sans)",
           "Montserrat",
@@ -43,11 +32,6 @@ module.exports = {
           "Segoe UI",
           "sans-serif",
         ],
-
-        /**
-         * 코드용 폰트
-         * - layout.tsx에서 Geist Mono 주입
-         */
         mono: [
           "var(--font-mono)",
           "ui-monospace",
@@ -61,13 +45,10 @@ module.exports = {
         ],
       },
 
-      /**
-       * Tailwind Typography (prose) 커스터마이즈
-       */
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            fontFamily: theme("fontFamily.sans").join(", "),
+            fontFamily: theme("fontFamily.sans"),
             color: "var(--foreground)",
 
             /* 본문 기본 */
@@ -83,34 +64,39 @@ module.exports = {
 
             /* 헤딩 공통 */
             "h1,h2,h3,h4": {
-              fontFamily: theme("fontFamily.heading").join(", "),
+              fontFamily: theme("fontFamily.heading"),
               fontWeight: "700",
               letterSpacing: "-0.02em",
             },
 
-            /* 한국어 본문에 맞춘 헤딩 스케일 */
+            /**
+             * ✅ 헤딩 컬러 위계 (하늘색 계열)
+             * - h1 > h2 > h3 순서로 조금씩 연해지게
+             */
             h1: {
               fontSize: "1.8rem",
               lineHeight: "1.4",
               marginBottom: "1.1rem",
+              color: theme("colors.sky.600"),
             },
             h2: {
               fontSize: "1.4rem",
               lineHeight: "1.5",
               marginTop: "1.7rem",
               marginBottom: "0.9rem",
-              color: "#3b82f6",
+              color: theme("colors.sky.500"),
             },
             h3: {
               fontSize: "1.2rem",
               lineHeight: "1.6",
               marginTop: "1.5rem",
               marginBottom: "0.7rem",
-              color: "#60a5fa",
+              color: theme("colors.sky.400"),
             },
             h4: {
               fontSize: "1.05rem",
               lineHeight: "1.6",
+              color: theme("colors.sky.300"),
             },
 
             /* 문단 */
@@ -133,8 +119,8 @@ module.exports = {
             /* 인용 */
             blockquote: {
               marginLeft: "0",
-              fontStyle: "normal", // 이탤릭 제거
-              fontSize: "0.95em", // 본문보다 살짝 작게
+              fontStyle: "normal",
+              fontSize: "0.95em",
               lineHeight: "1.75",
               marginTop: "1.2rem",
               marginBottom: "1.2rem",
@@ -147,7 +133,7 @@ module.exports = {
 
             /* 인라인 코드 */
             code: {
-              fontFamily: theme("fontFamily.mono").join(", "),
+              fontFamily: theme("fontFamily.mono"),
               fontSize: "0.9em",
               padding: "0.15rem 0.3rem",
               borderRadius: "0.25rem",
@@ -156,7 +142,7 @@ module.exports = {
 
             /* 코드 블록 */
             pre: {
-              fontFamily: theme("fontFamily.mono").join(", "),
+              fontFamily: theme("fontFamily.mono"),
               fontSize: "0.85rem",
               lineHeight: "1.5",
               borderRadius: "0.5rem",
@@ -165,7 +151,6 @@ module.exports = {
           },
         },
 
-        /* prose-sm */
         sm: {
           css: {
             fontSize: "0.9rem",
