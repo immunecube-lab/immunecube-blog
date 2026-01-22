@@ -75,7 +75,7 @@ export default async function DocPage({
             <MetaLine date={doc.date} updated={doc.updated} />
           </div>
           {doc.description ? (
-            <p className="mt-4 mb-8 text-sm text-violet-900/100 leading-relaxed">
+            <p className="mt-4 mb-8 text-sm text-violet-900 leading-relaxed">
               {doc.description}
             </p>
           ) : null}

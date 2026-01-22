@@ -2,17 +2,15 @@
   "name": "immunecube",
   "version": "0.1.0",
   "private": true,
-
- "scripts": {
-  "dev": "next dev",
-  "build": "npm run velite:build && next build",
-  "start": "next start",
-  "lint": "next lint",
-  "velite:build": "velite build",
-  "velite:watch": "velite build --watch",
-  "gen:index": "tsx scripts/generate-posts-index.ts"
-},
-
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run velite:build && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "velite:build": "velite build",
+    "velite:watch": "velite build --watch",
+    "gen:index": "tsx scripts/generate-posts-index.ts"
+  },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "lucide-react": "^0.561.0",
@@ -22,7 +20,6 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },
-
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
     "@tailwindcss/typography": "^0.5.19",

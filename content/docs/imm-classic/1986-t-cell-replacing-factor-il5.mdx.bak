@@ -1,0 +1,121 @@
+---
+title: IL-5의 발견 역사, T-cell replacing factor의 정체, TRF, BCGF2, 그리고 IL-5라는 이름에 이르기까지"
+description: "1986년 Nature에 발표된 이 논문은 1970년대부터 이어진 T-cell replacing factor(TRF) 개념의 분자적 실체를 cDNA 클로닝으로 처음 규명하고, TRF와 B-cell growth factor II가 동일한 사이토카인, 즉 IL-5임을 입증한 결정적 전환점이다."
+slug: "t-cell-replacing-factor-il5"
+category: "면역학 고전"
+section: "IL-2 saga"
+order: 1986
+tags: ["IL-5", "T-cell replacing factor", "BCGF2", "B세포", "호산구", "면역학 고전"]
+status: "rewrite"
+published: true
+date: 2026-01-02
+updated: 2026-01-04
+---
+
+<Paper title="Cloning of complementary DNA encoding T-cell replacing factor and identity with B-cell growth factor II" authors="Tatsuo Kinashi, Eva Severinson, Pascale Sideras, Kiyoshi Takatsu, Tasuku Honjo" journal="Nature" year={1986} takeaway="1970년대부터 개념적으로만 존재하던 T-cell replacing factor(TRF)를 cDNA 클로닝과 기능적 assay로 처음 분자 수준에서 규명하고, 이 인자가 B-cell growth factor II와 동일한 단백질임을 입증함으로써, 훗날 IL-5로 명명될 사이토카인의 정체와 기능적 범위를 확립한 고전 논문." 
+  doi="10.1038/324070a0"
+/>
+
+## “T세포를 대신할 수 있는 무언가”라는 오래된 개념
+
+오늘날의 면역학 교과서에서 **T-cell replacing factor**(TRF)라는 용어는 거의 등장하지 않습니다. 그러나 1970년대 초반 면역학자들에게 이 개념은, “T세포가 왜 필요한가?”라는 질문에 대한 매우 진지한 시도였습니다.
+
+1972년 **Annalisa Schimpl**과 **Eberhard Wecker**는 mixed lymphocyte culture에서 얻은 상층액이 T세포를 제거한 비장 세포에서도 **IgM 항체 생성**(plaque formation)을 회복시킨다는 사실을 보고합니다.  
+이 결과는 하나의 급진적인 가설로 이어졌습니다.
+
+> <strong>“T세포 자체가 없어도, T세포에서 나온 수용성 인자만 있으면 B세포 반응은 일어날 수 있다.”</strong>
+
+이 수용성 인자가 바로 **T-cell replacing factor**(TRF)입니다. 이 시점에서 TRF는 철저히 **기능적 개념**이었고, 어떤 분자인지는 아무도 알지 못했습니다.
+
+## 14년 동안 TRF를 좇은 연구자
+
+이 논문의 핵심 인물은 일본 구마모토 대학의 **Kiyoshi Takatsu**입니다. Takatsu는 1970년대 초반부터, TRF라는 개념이 단순한 실험적 부산물이 아니라 **실제로 존재하는 분자**라고 확신하고 있던 몇 안 되는 연구자였습니다.
+
+그러나 문제는 기술이었습니다. 당시 사용 가능한 assay는 주로 두 가지였습니다.
+
+1. **Michell–Dutton plaque assay**
+    → IgM을 분비하는 B세포의 수를 측정
+    
+2. **B세포 종양 세포주(BCL1)의 증식 assay**
+    → 특정 인자가 B세포 증식을 유도하는지 평가
+    
+
+Takatsu는 이 두 시스템을 이용해, “진짜 TRF라면 B세포 증식과 항체 분비라는 두 기능을 모두 만족해야 한다”는 엄격한 기준을 세웁니다.
+
+## BCGF1, BCGF2, 그리고 점점 커지는 혼란
+
+문제는 같은 시기에, 다른 연구자들이 **다른 assay**를 사용해 비슷해 보이는 인자들을 발견하기 시작했다는 점이었습니다.
+
+- **BCGF1**: anti-μ로 자극한 비장 B세포의 증식을 촉진
+    
+- **BCGF2**: BCL1 세포주의 증식을 촉진
+    
+
+각각의 연구자들은 자신이 사용하는 assay를 기준으로 인자에 이름을 붙였고, 그 결과 면역학계에는 TRF, BCGF1, BCGF2, IgG1 switch factor 같은 용어들이 난립하게 됩니다.
+
+> **이것들이 서로 다른 분자인가, 아니면 같은 분자를 다른 각도에서 본 것인가?**
+
+이 질문에 답하지 못한 채, 면역학은 한동안 혼란 속에 머물러 있었습니다.
+
+## IL-4 연구가 던져 준 결정적 단서
+
+상황이 바뀐 계기는, 불과 몇 달 앞서 발표된 **IL-4 cDNA 클로닝 논문**이었습니다. **Tasuku Honjo**연구실과 스웨덴 카롤린스카 연구소의 **Eva Severinson**, **Pascale Sideras**는 IL-4를 만들어 내는 **2.19 T세포주**에서 얻은 cDNA 라이브러리를 이미 보유하고 있었습니다.
+
+흥미롭게도, Takatsu가 TRF/BCGF2 assay에서 사용하던 상층액 역시 바로 이 **2.19 T세포주**에서 나온 것이었습니다.  
+즉, 동일한 세포주가 IgG1 switching assay (IL-4), BCL1 증식 assay (BCGF2), IgM plaque assay (TRF) 모두에서 양성 반응을 보이고 있었던 것입니다.
+
+이 관찰은 하나의 실험 계획으로 이어집니다.
+
+> **이미 만들어진 IL-4용 cDNA 라이브러리에서 TRF를 암호화한 클론을 다시 찾아보자.**
+
+## 두 가지 기능을 동시에 만족시키는 클론을 찾아라
+
+연구진은 2.19 유래 cDNA 라이브러리를 여러 제한효소로 절단한 뒤, 약 3,000개씩 **18개의 풀**(pool)로 나누어 스크리닝합니다.
+
+각 풀에서 합성된 RNA를 **개구리 난**(oocyte)에 주입해 단백질을 발현시키고, 다음 두 가지 assay를 동시에 수행합니다.
+
+1. **IgM plaque assay**→ TRF 기능
+    
+2. **³H-thymidine incorporation**→ BCGF2 기능
+    
+
+그 결과, 18개 풀 중 단 하나의 풀만이 **두 assay 모두에서 양성**을 보입니다. 이 풀을 반복적으로 서브클로닝한 끝에, 연구진은 **클론 23**이라는 단일 cDNA를 얻습니다.
+
+이 클론은, B세포 증식을 촉진하고 IgM 플라크 형성을 유도하는 즉, **TRF가 요구받아 왔던 모든 기능을 만족**시키는 최초의 분자였습니다.
+
+## “이것은 새로운 인터류킨이다”
+
+클론 23의 서열 분석 결과는 흥미로웠습니다.
+
+- 약 **133개의 아미노산**을 암호화
+    
+- N말단에 **신호 펩타이드**를 가진 분비 단백질
+    
+- IL-3, IFN-γ, GM-CSF와 일부 상동성
+    
+- 그러나 IL-1, IL-2, IL-4와는 명확히 구별됨
+    
+
+이 결과를 바탕으로, 저자들은 조심스럽지만 분명한 결론을 내립니다.
+
+> <strong>“이 분자는 지금까지 알려진 인터류킨들과는 다른, 새로운 사이토카인이다.”</strong>
+
+그리고 이 인자는 **Interleukin-5**(IL-5)라는 이름을 얻게 됩니다. 이 논문은, IL-5라는 이름이 공식적으로 제안된 최초의 논문 중 하나입니다.
+
+## 이후 밝혀진 진짜 주무대: 호산구
+
+흥미롭게도, 시간이 지나면서 IL-5의 **주된 생리적 역할**은 B세포보다는 **호산구**(eosinophil)에 있음을 알게 됩니다.
+
+같은 해 초, 영국 Mill Hill 그룹은 골수 세포에서 **호산구 분화 인자**를 연구하고 있었고, 이 인자가 BCL1 증식 assay에서도 양성이라는 사실을 보고했습니다. 이 인자가 바로 **인간 IL-5**에 해당함이  
+이후의 연구로 확인됩니다.
+
+결국, 마우스에서는 B세포 기능이 비교적 뚜렷하게 보였던 IL-5가, 인간에서는 호산구 분화, 알레르기·기생충 감염 반응의 핵심 조절자로 자리 잡게 됩니다.
+
+## 정리하며
+
+1986년 이 Nature 논문은, 14년 동안 면역학을 괴롭혀 온 질문에 마침내 분자적 답을 제시했습니다.
+
+**T-cell replacing factor란 무엇인가?**그 답은, **그것은 하나의 사이토카인이며, 우리가 지금 IL-5라고 부르는 분자다.**
+
+이 논문은 혼란스럽게 흩어져 있던 기능적 개념들(TRF, BCGF2)을 **하나의 분자 이름 아래로 통합**한 연구였고, 면역학이 다시 한 단계 “개념에서 분자”로 이동했음을 보여주는 상징적인 이정표였습니다.
+
