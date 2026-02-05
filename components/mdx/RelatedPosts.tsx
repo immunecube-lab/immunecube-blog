@@ -12,7 +12,7 @@ type Props = {
 export default function RelatedPosts({
   slugs,
   heading = "관련 글",
-  max = 4,
+  max = 5,
   basePath = "/docs",
 }: Props) {
   if (!Array.isArray(slugs) || slugs.length === 0) return null;

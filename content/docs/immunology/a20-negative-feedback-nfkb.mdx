@@ -1,0 +1,109 @@
+---
+title: "05. 염증을 멈추는 분자 스위치 A20: NF-κB는 어떻게 꺼지는가"
+description: "TLR4–NF-κB 신호는 왜 무한히 지속되지 않는가. A20이 면역계의 핵심 음성 피드백 스위치로 작동하는 분자 논리를 정리합니다."
+slug: "a20-negative-feedback-nfkb"
+category: "면역학"
+section: "NF-kB"
+order: 7
+tags: ["A20", "NF-κB", "TLR4", "염증종결", "면역조절"]
+status: "rewrite"
+published: true
+date: 2026-01-16
+updated: 2026-01-16
+---
+<Paper
+  title="A20: linking a complex regulator of ubiquitylation to immunity and human disease"
+  authors="A. Ma, B. A. Malynn"
+  journal="Nature Reviews Immunology"
+  year={2012}
+  takeaway="A20(TNFAIP3)은 TLR과 TNF 수용체 신호에서 NF-κB 활성화를 유비퀴틴 편집을 통해 종결시키는 핵심 음성 피드백 인자로, 만성 염증과 자가면역을 방지하는 면역 항상성 조절자임을 종합적으로 정리한 표준 리뷰 논문."
+/>
+
+## 왜 TLR4–NF-κB 신호는 무한히 지속되지 않는가
+
+앞선 글들에서 살펴본 것처럼, 지질다당류(LPS)가 TLR4에 결합하면 NF-κB 신호전달 경로가 활성화되고 강력한 염증 반응이 유도됩니다. 이 신호는 패혈증과 같은 급성 상황에서는 생존에 필수적이지만, 만약 이 경로가 멈추지 않는다면 결과는 치명적입니다. NF-kB 신호전달은 좀 특이한 면이 있는데, 일정한 활성이 높아지다가 낮아지는 것이 아니라 NF-kB가 핵안으로 들어갔다고 다시 나오는 과정에서 마치 펄스처럼 활성이 나타납니다. 그리고 자극이 강하지 않으면 NF-kB신호가 급격히 줄어듭니다. 
+
+면역계는 이 점을 이미 전제로 설계되어 있습니다. 즉, **염증은 시작과 동시에 억제를 하는 단백질도 같이 발현**합니다.   
+그 중심에 위치한 분자가 바로 **A20**입니다.
+
+## A20은 왜 NF-κB 음성 피드백 회로의 핵심인가
+
+A20은 흥미롭게도 **NF-κB에 의해 유도되는 유전자**입니다. TLR4 신호가 강해질수록 NF-κB 활성은 증가하고, 그 결과 A20 발현도 함께 증가합니다. 이는 전형적인 **음성 피드백 구조**입니다.
+
+A20는 하나의 효소가 아니라 2개의 상반된 ubiquitin 기능을 동시에 가진 단백질로, A20은 TRAF6에 신호 전달용으로 붙어 있는 K63-linked ubiquitin을 제거하고, 동시에 TRAF6 신호 복합체 구성 요소에 K48-linked ubiquitin을 부가하여 해당 신호 플랫폼이 분해되도록 유도하는 조절 단백질입니다. 
+
+우선 TLR4 신호전달을 살펴보면 다음과 같은 방식으로 진행됩니다. 
+
+<Figure
+  src="/images/diagram/LPS-TLR4-MyD88.svg"
+  alt="TLR-MyD88 신호전달"
+  caption="TLR4-MyD88 신호전달 과정"
+  number={1}
+  maxWidth={400}
+/>
+
+<Figure
+  src="/images/diagram/LPS-TLR4-MyD88-a20.svg"
+  alt="A20 작용부위"
+  caption="A20에 의한 TLR4의 MyD88 신호전달의 억제과정"
+  number={2}
+  maxWidth={400}
+/>
+
+이러한 2가지 효과 때문에 A20은 신호를 즉시 끊을 수도 있고 (K63 제거) 신호 장치를 완전히 해체할 수도 있음 (K48 부가)
+
+중요한 점은 A20이 NF-κB를 단순 억제제가 아니라 **타이머**로 작동시킨다는 점입니다. 즉, 염증이 충분히 발생한 이후에만 작동하도록 설계된 분자입니다.
+
+## TLR4 신호가 강할수록 A20이 반드시 필요한 이유
+
+LPS–TLR4 신호는 선천면역 경로 중에서도 가장 강력한 축에 속합니다. 이 강도는 병원균 침입 초기에 결정적인 이점을 제공하지만, 동시에 **통제 실패 시 가장 위험한 신호**이기도 합니다. 즉 패혈증이 일어날 수도 있습니다. 
+
+따라서 TLR4 경로에는 다음과 같은 특징이 나타납니다.
+
+- 강력한 NF-κB 활성
+    
+- 빠른 사이토카인 분비
+    
+- 동시에 매우 빠른 A20 유도
+    
+
+이는 우연이 아닙니다. **신호가 강할수록, 종료 장치는 더 정교해야 하기 때문**입니다. A20이 없다면 TLR4 신호는 짧은 자극에도 과도하게 증폭되며, 이는 급성 염증을 만성 염증으로 전환시키는 결정적 조건이 됩니다.
+
+## A20 결핍이 보여주는 면역계의 본질
+
+A20 결핍 마우스 모델은 이 분자의 중요성을 극단적으로 보여줍니다.
+
+- 자발적 장염 발생
+    
+- 전신 염증 반응
+    
+- 자가면역 유사 증상
+    
+- 미생물 자극에 대한 과민 반응
+    
+
+특히 주목할 점은, **외부 병원체가 없어도 염증이 발생한다는 사실**입니다. 이는 염증이 단순히 “공격 신호의 존재” 때문이 아니라, **억제 실패 그 자체로도 발생할 수 있음**을 의미합니다.
+
+이 관점에서 보면, 많은 만성 염증 질환은 과도한 면역이 아니라 **멈추지 못한 면역**의 결과로 재해석할 수 있습니다.
+
+## 면역계는 공격보다 종료를 더 정교하게 설계했다
+
+면역학 교과서에서는 종종 면역계를 “공격 시스템”으로 묘사합니다. 그러나 분자 수준에서 들여다보면, 면역계는 공격보다 **종료에 더 많은 장치를 투자**하고 있습니다.
+
+A20은 그 대표적인 예입니다.
+
+- MyD88 염증 신호에 의해 유도되고 
+- MyD88 신호의 핵심인 TRAF6 관련된 스캐폴드를 억제시키며,     
+- 염증을 억제하면서도 면역 기억과 방어 능력은 보존합니다
+    
+
+이는 면역계가 추구하는 목표가 **최대 반응**(maximal response)이 아니라 **적절한 반응**(optimal response)임을 보여줍니다.
+
+다음 글에서는 이러한 종료 실패가 어떻게 만성 염증으로 이어지는지, 그리고 TLR4 신호가 “끝나지 않는 조건”은 무엇인지 살펴보겠습니다.
+
+## 참고문헌 
+Ma, A., and B. A. Malynn. "A20: Linking a Complex Regulator of Ubiquitylation to Immunity and Human Disease.” Nature Reviews Immunology, vol. 12, no. 11, 2012, pp. 774–785. https://www.nature.com/articles/nri3313
+
+Boone, D. L., et al. “The Ubiquitin-Modifying Enzyme A20 Is Required for Termination of Toll-Like Receptor Responses.” Nature Immunology, vol. 5, no. 10, 2004, pp. 1052–1060. https://www.nature.com/articles/ni1110
+
+Vereecke, L., et al. “The Ubiquitin-Editing Enzyme A20 (TNFAIP3) Is a Central Regulator of Immunopathology.” Journal of Experimental Medicine, vol. 206, no. 2, 2009, pp. 315–331. https://doi.org/10.1016/j.it.2009.05.007
