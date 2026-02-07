@@ -2,7 +2,7 @@
 import type { MetadataRoute } from "next";
 import * as site from "@/.velite";
 
-const SITE_URL = "https://datacube.immunecube.com";
+const SITE_URL = "https://immunecube.com";
 
 type VeliteItem = {
   slug: string;
