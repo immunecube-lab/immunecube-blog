@@ -65,7 +65,7 @@ export default async function BlogPostPage(props: {
   const datePublished = isoDate(dateRaw) ?? dateYmd;
   const dateModified = isoDate(updatedRaw) ?? datePublished;
 
-  // 가능하면 절대 URL을 쓰는 게 더 좋습니다. (예: https://datacube.immunecube.com)
+  // 가능하면 절대 URL을 쓰는 게 더 좋습니다. (예: https://immunecube.com)
   // 지금은 상대경로로 두되, SITE_URL 환경변수가 있으면 자동으로 절대화합니다.
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "");
   const canonicalUrl = SITE_URL

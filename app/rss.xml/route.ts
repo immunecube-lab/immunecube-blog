@@ -2,10 +2,10 @@
 import { NextResponse } from "next/server";
 import * as site from "@/.velite";
 
-const SITE_URL = "https://datacube.immunecube.com";
+const SITE_URL = "https://immunecube.com";
 const FEED_URL = `${SITE_URL}/rss.xml`;
-const TITLE = "DataCube";
-const DESCRIPTION = "Latest updates from DataCube docs & posts.";
+const TITLE = "ImmuneCube";
+const DESCRIPTION = "Latest updates from ImmuneCube docs & posts.";
 
 export const dynamic = "force-static"; // 정적 빌드 기반이면 이게 안전
 // export const revalidate = 3600; // (선택) ISR 쓰면 1시간 캐시
