@@ -2,14 +2,23 @@
 import type { MetadataRoute } from "next";
 import * as site from "@/.velite";
 
-const SITE_URL = "https://immunecube.com";
-
 type VeliteItem = {
   slug: string;
   published?: boolean;
   date?: string | Date;
   updated?: string | Date;
 };
+
+// ✅ 운영 도메인 (우선순위: SITE_URL > NEXT_PUBLIC_SITE_URL > 기본값)
+function getSiteUrl(): string {
+  const raw =
+    process.env.SITE_URL ??
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://immunecube.com";
+
+  // 혹시 끝에 / 붙어 있으면 제거
+  return raw.endsWith("/") ? raw.slice(0, -1) : raw;
+}
 
 // "docs/xxx" 또는 "/docs/xxx" 같은 형태가 들어오면 "xxx"로 정리
 function normalizeCollectionSlug(slug: string, collection: "docs" | "blog") {
@@ -64,6 +73,7 @@ function addEntry(out: MetadataRoute.Sitemap, url: string, lastModified?: Date) 
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const SITE_URL = getSiteUrl();
   const out: MetadataRoute.Sitemap = [];
 
   const posts = (((site as any).posts ?? []) as VeliteItem[])
