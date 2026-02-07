@@ -24,9 +24,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://datacube.immunecube.com"), // ✅ 추가
+  metadataBase: new URL("https://immunecube.com"),
   title: "immunecube",
   description: "immunecube docs",
+
+  // ✅ RSS 알림용 alternate link 추가
+  alternates: {
+    types: {
+      "application/rss+xml": "/rss.xml",
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
