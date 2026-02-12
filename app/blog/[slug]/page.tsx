@@ -4,9 +4,35 @@ import type { Metadata } from "next";
 import { posts } from "@/.velite";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
+import { normalizePostSlug } from "../_lib";
+
+function getSiteUrl() {
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "");
+  return SITE_URL || "";
+}
+
+function buildCanonical(slugPart: string) {
+  const siteUrl = getSiteUrl();
+  return siteUrl ? `${siteUrl}/blog/${slugPart}` : `/blog/${slugPart}`;
+}
 
 function getPost(slug: string) {
-  return posts.find((p) => p.slug === slug);
+  const normalized = normalizePostSlug(slug);
+
+  // ✅ 폴더가 바뀌어도 URL은 마지막 세그먼트만 기준으로 매칭
+  const matches = posts.filter(
+    (p) => normalizePostSlug(p.slug) === normalized
+  );
+
+  // ✅ (선택) slug 중복을 빠르게 드러내기: 중복이면 첫 글을 쓰되, 원인 파악이 쉬워짐
+  // 운영에서도 에러를 내고 싶지 않다면 아래 console.warn만 유지하세요.
+  if (matches.length > 1) {
+    console.warn(
+      `[blog] Duplicate slug detected: "${normalized}" (${matches.length} matches)`
+    );
+  }
+
+  return matches[0];
 }
 
 // ISO 문자열(예: 2025-12-17T00:00:00.000Z)에서 YYYY-MM-DD만 추출
@@ -18,12 +44,13 @@ function ymd(v?: string) {
 // JSON-LD에는 ISO 8601이 더 적합합니다(시간이 없어도 됨: YYYY-MM-DD 허용).
 function isoDate(v?: string) {
   if (!v) return undefined;
-  // Velite s.isodate()가 이미 ISO를 주므로 그대로 사용, 없다면 YYYY-MM-DD라도 OK
   return v;
 }
 
 export function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slug }));
+  return posts
+    .filter((p) => p.published !== false)
+    .map((post) => ({ slug: normalizePostSlug(post.slug) }));
 }
 
 export async function generateMetadata(props: {
@@ -34,18 +61,23 @@ export async function generateMetadata(props: {
 
   if (!post) return {};
 
+  const slugPart = normalizePostSlug(post.slug);
+  const canonical = buildCanonical(slugPart);
+
   return {
     title: `${post.title} | Blog`,
     description: post.description,
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `/blog/${post.slug}`,
+      url: canonical,
       type: "article",
     },
   };
 }
-
 
 export default async function BlogPostPage(props: {
   params: Promise<{ slug: string }>;
@@ -54,23 +86,18 @@ export default async function BlogPostPage(props: {
   const post = getPost(slug);
 
   if (!post) notFound();
-  
+
   const dateRaw = (post as any).date as string | undefined;
   const updatedRaw = (post as any).updated as string | undefined;
 
   const dateYmd = ymd(dateRaw);
-  const updatedYmd = ymd(updatedRaw);
 
   // JSON-LD용 날짜: modified가 없으면 published로 대체
   const datePublished = isoDate(dateRaw) ?? dateYmd;
   const dateModified = isoDate(updatedRaw) ?? datePublished;
 
-  // 가능하면 절대 URL을 쓰는 게 더 좋습니다. (예: https://immunecube.com)
-  // 지금은 상대경로로 두되, SITE_URL 환경변수가 있으면 자동으로 절대화합니다.
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "");
-  const canonicalUrl = SITE_URL
-    ? `${SITE_URL}/blog/${post.slug}`
-    : `/blog/${post.slug}`;
+  const slugPart = normalizePostSlug(post.slug);
+  const canonicalUrl = buildCanonical(slugPart);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -83,16 +110,14 @@ export default async function BlogPostPage(props: {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-10 px-4">
-      {/* ✅ 검색엔진용 구조화 데이터(JSON-LD) */}
+    <div className="mx-auto max-w-3xl px-4 py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+      <h1 className="mb-2 text-3xl font-bold">{post.title}</h1>
 
-      {/* ✅ 화면용 날짜 표시(시간 없이 YYYY-MM-DD만) */}
       <MetaLine date={dateRaw} updated={updatedRaw} />
 
       {post.description && (
@@ -108,9 +133,7 @@ export default async function BlogPostPage(props: {
           prose-h3:text-sky-400
         "
       >
-        <MDXContent
-          code={post.body}
-             />
+        <MDXContent code={post.body} />
       </article>
     </div>
   );

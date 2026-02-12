@@ -1,22 +1,33 @@
 // app/blog/layout.tsx
-import type { ReactNode } from 'react'
-import Link from 'next/link'
-import { posts } from '@/.velite'
-import type { Post } from '@/.velite'
+import type { ReactNode } from "react";
+import Link from "next/link";
+import { posts } from "@/.velite";
+import { type PostWithMeta } from "./_lib";
 
-type PostWithMeta = Post & {
-  featured?: boolean
-  cover?: string
-  tags?: string[]
-  category?: string
+const CATEGORY_LABELS: Record<string, string> = {
+  notice: "공지사항",
+  article: "기사",
+};
+
+function categoryLabel(cat: string) {
+  return CATEGORY_LABELS[cat] ?? cat;
 }
 
 export default function BlogLayout({ children }: { children: ReactNode }) {
-  // 최근 글 10개 정도만 사이드바에 노출
-  const recent = [...(posts as PostWithMeta[])]
-    .filter(p => p.published !== false)
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 10)
+  const all = [...(posts as PostWithMeta[])].filter((p) => p.published !== false);
+
+  // ✅ 카테고리 목록만 생성
+  const categories = Array.from(
+    new Set(
+      all
+        .map((p) => (p.category ?? "").trim())
+        .filter((v) => v.length > 0)
+    )
+  ).sort((a, b) => {
+    const order = (x: string) => (x === "notice" ? 0 : x === "article" ? 1 : 2);
+    const d = order(a) - order(b);
+    return d !== 0 ? d : a.localeCompare(b, "ko");
+  });
 
   return (
     <div className="mx-auto flex max-w-6xl gap-10 px-6 py-10">
@@ -42,30 +53,31 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
           >
             전체 글
           </Link>
-          {/* 나중에 카테고리 생기면 여기 추가 */}
-        </nav>
 
-        <div>
-          <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-            최근 글
-          </h3>
-          <ul className="space-y-1">
-            {recent.map(post => (
-              <li key={post.slug}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="block rounded px-2 py-1 text-[13px] text-neutral-700 hover:bg-neutral-100"
-                >
-                  {post.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          {/* ✅ 카테고리만 표시 */}
+          {categories.length > 0 && (
+            <div className="pt-2">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                분류
+              </div>
+              <div className="space-y-1">
+                {categories.map((cat) => (
+                  <Link
+                    key={cat}
+                    href={`/blog?category=${encodeURIComponent(cat)}`}
+                    className="block rounded-md px-2 py-1 text-neutral-800 hover:bg-neutral-100"
+                  >
+                    {categoryLabel(cat)}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </nav>
       </aside>
 
       {/* 오른쪽 메인 영역 */}
       <main className="flex-1">{children}</main>
     </div>
-  )
+  );
 }

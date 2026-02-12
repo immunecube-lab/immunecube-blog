@@ -148,6 +148,8 @@ module.exports = {
               borderRadius: "0.5rem",
               padding: "0.9rem 1rem",
             },
+
+            // ✅ 테이블 관련 커스텀 제거: 기본(prose) 스타일로 복귀
           },
         },
 
