@@ -1,0 +1,93 @@
+# P1 Paper Recheck
+
+- Generated: 2026-02-19 20:13:01
+- Paper blocks checked: 17
+- VERIFIED_DOI: 12
+- VERIFIED_PRIMARY_SOURCE: 4
+- PROBABLE_TITLE_YEAR: 1
+- UNRESOLVED: 0
+- DOI_NOT_FOUND: 0
+
+- [PROBABLE_TITLE_YEAR] content/docs/CTLA4/1996-il2-ctla4-negative-feedback.mdx
+  - title: Regulation of surface and intracellular expression of CTLA4 on mouse T cells
+  - year: 1996
+  - evidence: reference-aligned metadata (manual confirmation)
+- [VERIFIED_PRIMARY_SOURCE] content/docs/imm-classic/1898-bordet-complement-experiment-functional-separation.mdx
+  - title: Sur l’agglutination et la dissolution des globules rouges par le sérum d’animaux injectés de sang défibriné
+  - year: 1898
+  - evidence: Wellcome bibliographic record (https://wellcomecollection.org/works/ef7ek5bv)
+- [VERIFIED_PRIMARY_SOURCE] content/docs/imm-classic/1901-landsteiner-blood-group-self-nonself.mdx
+  - title: Über Agglutinationserscheinungen normalen menschlichen Blutes
+  - year: 1901
+  - evidence: primary source PDF (https://litfl.com/wp-content/uploads/2025/07/Landsteiner-1901-English.pdf)
+- [VERIFIED_PRIMARY_SOURCE] content/docs/imm-classic/1905-von-pirquet-schick-serum-sickness-allergy-begins.mdx
+  - title: Die Serumkrankheit (Serum Sickness)
+  - year: 1905
+  - evidence: primary source archive (https://archive.org/details/dieserumkrankhei00pirquoft)
+- [VERIFIED_PRIMARY_SOURCE] content/docs/imm-classic/1944-medawar-1944-skin-graft-rejection.mdx
+  - title: The Behavior and Fate of Skin Autografts and Skin Homografts in Rabbits
+  - year: 1944
+  - evidence: primary source PubMed (https://pubmed.ncbi.nlm.nih.gov/17104960/)
+- [VERIFIED_DOI] content/docs/imm-classic/1970-t-b-cell-separation-helper-t-cell.mdx
+  - title: Inhibition of in vitro Immune Response by Treatment of Spleen Cell Suspensions with Anti-θ Serum
+  - year: 1970
+  - doi: 10.1038/2261258a0
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/pd-1/2002-carter-pdl-inhibitory-pathway-il2.mdx
+  - title: PD-1:PD-L inhibitory pathway affects both CD4+ and CD8+ T cells and is overcome by IL-2
+  - year: 2002
+  - doi: 10.1002/1521-4141(200203)32:3<634::AID-IMMU634>3.0.CO;2-9
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/imm-classic/1925-pyrogen-discovery-seibert-endotoxin.mdx
+  - title: The Cause of Many Febrile Reactions Following Intravenous Injections. I
+  - year: 1925
+  - doi: 10.1152/ajplegacy.1925.71.3.621
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/imm-classic/1953-active-acquired-tolerance-medawar-1953.mdx
+  - title: Actively acquired tolerance of foreign cells
+  - year: 1953
+  - doi: 10.1038/172603a0
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/imm-classic/1957-talmage-clonal-selection-experiment-1957.mdx
+  - title: Allergy and Immunology
+  - year: 1957
+  - doi: 10.1146/annurev.me.08.020157.001323
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/imm-classic/1959-edelman-porter-antibody-structure-1959.mdx
+  - title: Dissociation of gamma-globulin
+  - year: 1959
+  - doi: 10.1021/ja01521a071
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/imm-classic/1970-t-b-cell-separation-helper-t-cell.mdx
+  - title: The role of thymus-derived lymphocytes in the secondary humoral immune response in mice
+  - year: 1970
+  - doi: 10.1038/2261257a0
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/treg/1959-scurfy-mouse-x-linked-autoimmunity-1959.mdx
+  - title: Exceptional inheritance of a sex-linked gene in mice
+  - year: 1959
+  - doi: 10.1073/pnas.45.4.554
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/treg/1985-sakaguchi-1985-lyt1-suppression.mdx
+  - title: Suppression of organ-specific autoimmune disease by Lyt-1⁺ T cells in mice
+  - year: 1985
+  - doi: 10.1084/jem.161.1.72
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/treg/2001-foxp3-scurfy-ipex-2001.mdx
+  - title: Disruption of a new forkhead/winged-helix protein, scurfin, results in the fatal lymphoproliferative disorder of the scurfy mouse
+  - year: 2001
+  - doi: 10.1038/83784
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/treg/2008-treg-ctla4-conditional-knockout-wing-2008-2016.mdx
+  - title: CTLA-4 expressed by Treg cells contributes to their function in vivo
+  - year: 2008
+  - doi: 10.1126/science.1160062
+  - evidence: doi ok
+- [VERIFIED_DOI] content/docs/treg/2008-treg-ctla4-conditional-knockout-wing-2008-2016.mdx
+  - title: Induction of autoimmune disease by deletion of CTLA-4 in mice in adulthood
+  - year: 2016
+  - doi: 10.1073/pnas.1603892113
+  - evidence: doi ok
+
+
+

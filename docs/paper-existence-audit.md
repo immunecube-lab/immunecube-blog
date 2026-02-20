@@ -1,0 +1,793 @@
+# Paper Existence Audit
+
+- Generated: 2026-02-19 19:53:22
+- Scope: `content/docs/**/*.mdx` `<Paper />` blocks
+- Method: DOI lookup via Crossref API; fallback title+year match via Crossref search
+- Total Paper blocks: 168
+
+## Summary
+- DOI_NOT_FOUND: 1
+- NOT_FOUND_BY_TITLE: 16
+- PROBABLE_TITLE_YEAR: 43
+- TODO_UNVERIFIED: 35
+- VERIFIED_DOI: 73
+
+## DOI_NOT_FOUND (1)
+- `content\docs\imm-classic\1902-richet-anaphylaxis-discovery.mdx`
+  - title: De l’anaphylaxie
+  - year: 1902
+  - doi: N/A (pre-DOI era)
+  - evidence: doi=N/A (pre-DOI era)
+
+## NOT_FOUND_BY_TITLE (16)
+- `content\docs\CTLA4\1996-il2-ctla4-negative-feedback.mdx`
+  - title: Expression and regulation of CTLA-4 in activated T cells
+  - year: 1995
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1898-bordet-complement-experiment-functional-separation.mdx`
+  - title: Sur l’agglutination et la dissolution des globules rouges par le sérum d’animaux injectés de sang défibriné
+  - year: 1898
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1901-landsteiner-blood-group-self-nonself.mdx`
+  - title: Über Agglutinationserscheinungen normalen menschlichen Blutes
+  - year: 1901
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1905-von-pirquet-schick-serum-sickness-allergy-begins.mdx`
+  - title: Die Serumkrankheit (Serum Sickness)
+  - year: 1905
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1925-pyrogen-discovery-seibert-endotoxin.mdx`
+  - title: The Cause of Fever Following Intravenous Injections
+  - year: 1925
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1944-medawar-1944-skin-graft-rejection.mdx`
+  - title: The Behavior and Fate of Skin Autografts and Skin Homografts in Rabbits
+  - year: 1944
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1953-active-acquired-tolerance-medawar-1953.mdx`
+  - title: The Active Acquired Tolerance of Foreign Cells
+  - year: 1953
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1957-talmage-clonal-selection-experiment-1957.mdx`
+  - title: Allergy and Immunology
+  - year: 1957
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1959-edelman-porter-antibody-structure-1959.mdx`
+  - title: The role of thymus-derived lymphocytes in the secondary humoral immune response in mice
+  - year: 1959
+  - evidence: no reliable crossref match
+- `content\docs\imm-classic\1970-t-b-cell-separation-helper-t-cell.mdx`
+  - title: Thymus dependence of antibody formation in vitro
+  - year: 1970
+  - evidence: no reliable crossref match
+- `content\docs\pd-1\2002-carter-pdl-inhibitory-pathway-il2.mdx`
+  - title: PD-1: Inhibitory Regulator of Lymphocyte Activation
+  - year: 2003
+  - evidence: no reliable crossref match
+- `content\docs\treg\1959-scurfy-mouse-x-linked-autoimmunity-1959.mdx`
+  - title: Exceptional inheritance of a sex-linked gene in mice
+  - year: 1959
+  - evidence: no reliable crossref match
+- `content\docs\treg\1985-sakaguchi-1985-lyt1-suppression.mdx`
+  - title: Suppression of organ-specific autoimmune disease by Lyt-1⁺ T cells in mice
+  - year: 1985
+  - evidence: no reliable crossref match
+- `content\docs\treg\2001-foxp3-scurfy-ipex-2001.mdx`
+  - title: Disruption of the mouse Foxp3 gene leads to a fatal lymphoproliferative disorder
+  - year: 2001
+  - evidence: no reliable crossref match
+- `content\docs\treg\2008-treg-ctla4-conditional-knockout-wing-2008-2016.mdx`
+  - title: CTLA-4 expressed by Treg cells contributes to their function in vivo
+  - year: 2008
+  - evidence: no reliable crossref match
+- `content\docs\treg\2008-treg-ctla4-conditional-knockout-wing-2008-2016.mdx`
+  - title: Conditional deletion of CTLA-4 in adult Treg cells reveals the developmental timing of CTLA-4 function
+  - year: 2016
+  - evidence: no reliable crossref match
+
+## PROBABLE_TITLE_YEAR (43)
+- `content\docs\Cd28\1980-cd28-93-antibody-discovery-1980.mdx`
+  - title: Monoclonal antibodies identifying a novel T-cell antigen and Ia antigens of human lymphocytes.
+  - year: 1980
+  - evidence: crossref_title=Monoclonal antibodies identifying a novel T-Cell antigen and Ia antigens of human lymphocytes; crossref_year=1980; doi=10.1007/bf01561573; score=5
+- `content\docs\CTLA4\1987-ctla4-discovery-immune-checkpoint-origin.mdx`
+  - title: A new member of the immunoglobulin superfamily—CTLA-4
+  - year: 1987
+  - evidence: crossref_title=A new member of the immunoglobulin superfamily—CTLA-4; crossref_year=1987; doi=10.1038/328267a0; score=5
+- `content\docs\CTLA4\1991-1991-ctla4-b7-second-receptor.mdx`
+  - title: CTLA-4 is a second receptor for the B cell activation antigen B7
+  - year: 1991
+  - evidence: crossref_title=CTLA-4 is a second receptor for the B cell activation antigen B7.; crossref_year=1991; doi=10.1084/jem.174.3.561; score=5
+- `content\docs\CTLA4\1992-ctla4-ig-transplant-tolerance.mdx`
+  - title: Long-term survival of xenogeneic pancreatic islet grafts induced by CTLA4Ig
+  - year: 1992
+  - evidence: crossref_title=Long-Term Survival of Xenogeneic Pancreatic Islet Grafts Induced by CTLA4lg; crossref_year=1992; doi=10.1126/science.1323143; score=4
+- `content\docs\CTLA4\1992-early-1990s-ctla4-cd28-relationship.mdx`
+  - title: Coexpression and functional cooperation of CTLA-4 and CD28 on activated T lymphocytes
+  - year: 1992
+  - evidence: crossref_title=Coexpression and functional cooperation of CTLA-4 and CD28 on activated T lymphocytes.; crossref_year=1992; doi=10.1084/jem.176.6.1595; score=5
+- `content\docs\CTLA4\1994-ctla4-il2-regulation.mdx`
+  - title: CTLA-4 ligation blocks CD28-dependent T cell activation
+  - year: 1994
+  - evidence: crossref_title=CTLA-4 ligation blocks CD28-dependent T cell activation.; crossref_year=1996; doi=10.1084/jem.183.6.2541; score=3
+- `content\docs\CTLA4\1995-ctla4-knockout-mouse.mdx`
+  - title: Lymphoproliferative disorders with early lethality in mice deficient in CTLA-4
+  - year: 1995
+  - evidence: crossref_title=Lymphoproliferative Disorders with Early Lethality in Mice Deficient in
+            <i>Ctla-4</i>; crossref_year=1995; doi=10.1126/science.270.5238.985; score=4
+- `content\docs\CTLA4\1996-ctla4-allison-checkpoint-origin.mdx`
+  - title: Enhancement of antitumor immunity by CTLA-4 blockade
+  - year: 1996
+  - evidence: crossref_title=Enhancement of Antitumor Immunity by CTLA-4 Blockade; crossref_year=1996; doi=10.1126/science.271.5256.1734; score=5
+- `content\docs\imm-classic\1890-von-behring-kitasato-birth-of-serology.mdx`
+  - title: Über das Zustandekommen der Diphtherie-Immunität und der Tetanus-Immunität bei Thieren
+  - year: 1890
+  - evidence: crossref_title=Ueber das Zustandekommen der Diphtherie-Immunität und der Tetanus-Immunität bei Thieren; crossref_year=1890; doi=10.1055/s-0029-1207589; score=4
+- `content\docs\imm-classic\1892-pfeiffer-endotoxin-dead-bacteria.mdx`
+  - title: Untersuchungen über das Choleragift
+  - year: 1892
+  - evidence: crossref_title=Untersuchungen über das Choleragift; crossref_year=1892; doi=10.1007/bf02284303; score=5
+- `content\docs\imm-classic\1893-coley-1893-immunotherapy-origin.mdx`
+  - title: The Treatment of Malignant Tumors by Repeated Inoculations of Erysipelas
+  - year: 1893
+  - evidence: crossref_title=I. The Treatment of Malignant Tumors by Repeated Inoculations of Erysipelas; crossref_year=1893; doi=10.1097/00000658-189307000-00009; score=4
+- `content\docs\imm-classic\1936-hapten-discovery-landsteiner-1929.mdx`
+  - title: The Specificity of Serological Reactions
+  - year: 1936
+  - evidence: crossref_title=The Specificity of Serological Reactions.; crossref_year=1936; doi=10.7326/0003-4819-10-6-937_2; score=5
+- `content\docs\imm-classic\1939-tiselius-kabat-electrophoretic-study-immune-sera.mdx`
+  - title: An Electrophoretic Study of Immune Sera and Purified Antibody Preparations
+  - year: 1939
+  - evidence: crossref_title=AN ELECTROPHORETIC STUDY OF IMMUNE SERA AND PURIFIED ANTIBODY PREPARATIONS; crossref_year=1939; doi=10.1084/jem.69.1.119; score=5
+- `content\docs\imm-classic\1942-freund-adjuvant-origin-1942.mdx`
+  - title: The Sensitization to Horse Serum by Means of Adjuvants
+  - year: 1942
+  - evidence: crossref_title=Sensitization to Horse Serum by Means of Adjuvants; crossref_year=1942; doi=10.3181/00379727-49-13625; score=4
+- `content\docs\imm-classic\1945-chase-1945-cellular-transfer-dth.mdx`
+  - title: The Cellular Transfer of Cutaneous Hypersensitivity to Tuberculin
+  - year: 1945
+  - evidence: crossref_title=The Cellular Transfer of Cutaneous Hypersensitivity to Tuberculin; crossref_year=1945; doi=10.3181/00379727-59-15006p; score=5
+- `content\docs\imm-classic\1951-lorenz-irradiation-bone-marrow-immunity-1951.mdx`
+  - title: Modification of irradiation injury in mice and guinea pigs by bone marrow injections
+  - year: 1951
+  - evidence: crossref_title=Modification of Irradiation Injury in Mice and Guinea Pigs by Bone Marrow Injections; crossref_year=1951; doi=10.1093/jnci/12.1.197; score=5
+- `content\docs\imm-classic\1953-salk-1953-polio-inactivated-vaccine.mdx`
+  - title: Studies in Human Subjects on Active Immunization Against Poliomyelitis: 1. A Preliminary Report of Experiments in Progress
+  - year: 1953
+  - evidence: crossref_title=STUDIES IN HUMAN SUBJECTS ON ACTIVE IMMUNIZATION AGAINST POLIOMYELITIS; crossref_year=1953; doi=10.1001/jama.1953.13.1081; score=4
+- `content\docs\imm-classic\1954-westphal-luederitz-lps-1952.mdx`
+  - title: Chemische Erforschung von Lipopolysacchariden gramnegativer Bakterien
+  - year: 1954
+  - evidence: crossref_title=Chemische Erforschung von Lipopolysacchariden gramnegativer Bakterien; crossref_year=1954; doi=10.1002/ange.19540661312; score=5
+- `content\docs\imm-classic\1965-birth-of-lymphokine-1965.mdx`
+  - title: A Lymphocyte-stimulating Factor produced in vitro
+  - year: 1965
+  - evidence: crossref_title=A Lymphocyte-stimulating Factor produced in vitro; crossref_year=1965; doi=10.1038/208795a0; score=5
+- `content\docs\imm-classic\1966-claman-two-cell-helper-t-cell-1966.mdx`
+  - title: Thymus–marrow cell combinations: synergism in antibody production
+  - year: 1966
+  - evidence: crossref_title=Thymus-Marrow Cell Combinations. Synergism in Antibody Production.; crossref_year=1966; doi=10.3181/00379727-122-31353; score=5
+- `content\docs\imm-classic\1967-nossal-1967-one-cell-one-antibody.mdx`
+  - title: Antibody production by single cells
+  - year: 1967
+  - evidence: crossref_title=Restrictions on Antibody Production by Single Cells; crossref_year=1967; doi=10.1101/sqb.1967.032.01.056; score=4
+- `content\docs\imm-classic\1974-zinkernagel-doherty-mhc-restriction-1974.mdx`
+  - title: Restriction of in vitro T cell-mediated cytotoxicity in lymphocytic choriomeningitis within a syngeneic or semiallogeneic system
+  - year: 1974
+  - evidence: crossref_title=Restriction of in vitro T cell-mediated cytotoxicity in lymphocytic choriomeningitis within a syngeneic or semiallogeneic system; crossref_year=1974; doi=10.1038/248701a0; score=5
+- `content\docs\imm-classic\1976-tonegawa-antibody-gene-rearrangement-1976.mdx`
+  - title: Somatic generation of antibody diversity
+  - year: 1976
+  - evidence: crossref_title=Somatic Generation of Antibody Diversity; crossref_year=1995; doi=10.1016/b978-012274020-6/50014-3; score=3
+- `content\docs\imm-classic\1983-nathan-1983-ros-macrophage-killing.mdx`
+  - title: Mechanisms of macrophage antimicrobial activity
+  - year: 1983
+  - evidence: crossref_title=Mechanisms of macrophage antimicrobial activity; crossref_year=1983; doi=10.1016/0035-9203(83)90190-6; score=5
+- `content\docs\imm-classic\1995-why-cd25-became-treg-marker-sakaguchi.mdx`
+  - title: Immunologic self-tolerance maintained by activated T cells expressing IL-2 receptor α-chains (CD25)
+  - year: 1995
+  - evidence: crossref_title=Immunologic self-tolerance maintained by activated T cells expressing IL-2 receptor α-chains (CD25). Breakdown of a single mechanism of self-tolerance causes various autoimmune diseases; crossref_year=1995; doi=10.4049/jimmunol.155.3.1151; score=4
+- `content\docs\imm-therapy\1969-georges-mathe-active-immunotherapy-all.mdx`
+  - title: Active immunotherapy for acute lymphoblastic leukaemia
+  - year: 1969
+  - evidence: crossref_title=ACTIVE IMMUNOTHERAPY FOR ACUTE LYMPHOBLASTIC LEUKÆMIA; crossref_year=1969; doi=10.1016/s0140-6736(69)92648-8; score=4
+- `content\docs\immunology\a20-negative-feedback-nfkb.mdx`
+  - title: A20: linking a complex regulator of ubiquitylation to immunity and human disease
+  - year: 2012
+  - evidence: crossref_title=A20: linking a complex regulator of ubiquitylation to immunity and human disease; crossref_year=2012; doi=10.1038/nri3313; score=5
+- `content\docs\immunology\eritoran-tlr4-caspase11-sepsis-classic.mdx`
+  - title: Effect of eritoran, an antagonist of MD2-TLR4, on mortality in patients with severe sepsis: the ACCESS randomized trial
+  - year: 2013
+  - evidence: crossref_title=Faculty Opinions recommendation of Effect of eritoran, an antagonist of MD2-TLR4, on mortality in patients with severe sepsis: the ACCESS randomized trial.; crossref_year=2013; doi=10.3410/f.717991612.793473478; score=4
+- `content\docs\immunology\galectin-9-tim3-immune-switch.mdx`
+  - title: The Tim-3 ligand galectin-9 negatively regulates T helper type 1 immunity
+  - year: 2005
+  - evidence: crossref_title=The Tim-3 ligand galectin-9 negatively regulates T helper type 1 immunity; crossref_year=2005; doi=10.1038/ni1271; score=5
+- `content\docs\immunology\galectin-glycan-immune-tolerance.mdx`
+  - title: Turning ‘sweet’ on immunity: galectin-glycan interactions in immune tolerance and inflammation
+  - year: 2009
+  - evidence: crossref_title=Turning 'sweet' on immunity: galectin–glycan interactions in immune tolerance and inflammation; crossref_year=2009; doi=10.1038/nri2536; score=5
+- `content\docs\immunology\tolerogenic-memory-treg-immune-regulation.mdx`
+  - title: Response to self antigen imprints regulatory memory in tissues
+  - year: 2011
+  - evidence: crossref_title=Response to self antigen imprints regulatory memory in tissues; crossref_year=2011; doi=10.1038/nature10664; score=5
+- `content\docs\nutrition-supplement\senescence-resistant-mesenchymal-progenitor-anti-aging-primates.mdx`
+  - title: Senescence-resistant human mesenchymal progenitor cells counter aging in primates
+  - year: 2025
+  - evidence: crossref_title=Senescence-resistant human mesenchymal progenitor cells counter aging in primates; crossref_year=2025; doi=10.1016/j.cell.2025.05.021; score=5
+- `content\docs\obesity-diet\2021-daily-energy-expenditure-life-course-bmr.mdx`
+  - title: Daily energy expenditure through the human life course
+  - year: 2021
+  - evidence: crossref_title=Daily energy expenditure through the human life course; crossref_year=2021; doi=10.1126/science.abe5017; score=5
+- `content\docs\obesity-diet\kevin-hall-persistent-metabolic-adaptation.mdx`
+  - title: Persistent metabolic adaptation 6 years after The Biggest Loser competition
+  - year: 2016
+  - evidence: crossref_title=Persistent metabolic adaptation 6 years after “The Biggest Loser” competition; crossref_year=2016; doi=10.1002/oby.21538; score=5
+- `content\docs\obesity-diet\minnesota-starvation-experiment-lessons.mdx`
+  - title: The Biology of Human Starvation
+  - year: 1950
+  - evidence: crossref_title=The Biology of Human Starvation; crossref_year=1950; doi=10.5749/j.ctv9b2tqv; score=5
+- `content\docs\obesity-diet\paleolithic-diet-history-and-critique.mdx`
+  - title: Effects of Evolution, Ecology, and Economy on Human Diet: Insights from Hunter-Gatherers and Other Small-Scale Societies
+  - year: 2021
+  - evidence: crossref_title=Effects of Evolution, Ecology, and Economy on Human Diet: Insights from Hunter-Gatherers and Other Small-Scale Societies; crossref_year=2021; doi=10.1146/annurev-nutr-111120-105520; score=5
+- `content\docs\pd-1\1992-pd1-discovery-honjo.mdx`
+  - title: Induced expression of PD-1, a novel member of the immunoglobulin gene superfamily, upon programmed cell death
+  - year: 1992
+  - evidence: crossref_title=Induced expression of PD-1, a novel member of the immunoglobulin gene superfamily, upon programmed cell death.; crossref_year=1992; doi=10.1002/j.1460-2075.1992.tb05481.x; score=5
+- `content\docs\treg\1982-sakaguchi-1982-lyt1-oophoritis.mdx`
+  - title: Study on cellular events in post-thymectomy autoimmune oophoritis in mice. II. Requirement of Lyt-1 cells in normal female mice for the prevention of oophoritis
+  - year: 1982
+  - evidence: crossref_title=Study on cellular events in post-thymectomy autoimmune oophoritis in mice. II. Requirement of Lyt-1 cells in normal female mice for the prevention of oophoritis.; crossref_year=1982; doi=10.1084/jem.156.6.1577; score=5
+- `content\docs\treg\1991-scurfy-cd4-tcell-dependence-1991-1996.mdx`
+  - title: X-linked lymphoproliferative disease in the Scurfy mouse
+  - year: 1991
+  - evidence: crossref_title=X-linked lymphoproliferative disease; crossref_year=1992; doi=10.1016/0140-6736(92)91390-t; score=3
+- `content\docs\treg\1995-ctla4-knockout-fatal-autoimmunity-1995.mdx`
+  - title: Lymphoproliferative disorders with early lethality in mice deficient in CTLA-4
+  - year: 1995
+  - evidence: crossref_title=Lymphoproliferative Disorders with Early Lethality in Mice Deficient in
+            <i>Ctla-4</i>; crossref_year=1995; doi=10.1126/science.270.5238.985; score=4
+- `content\docs\treg\1996-asano-sakaguchi-1996-d3tx-treg-ontogeny.mdx`
+  - title: Autoimmune Disease as a Consequence of Developmental Abnormality of a T Cell Subpopulation
+  - year: 1996
+  - evidence: crossref_title=Autoimmune disease as a consequence of developmental abnormality of a T cell subpopulation.; crossref_year=1996; doi=10.1084/jem.184.2.387; score=5
+- `content\docs\treg\1998-shevach-thornton-1998-in-vitro-treg-suppression.mdx`
+  - title: CD4+ CD25+ immunoregulatory T cells suppress polyclonal T cell activation in vitro by inhibiting interleukin 2 production.
+  - year: 1998
+  - evidence: crossref_title=CD4+CD25+ Immunoregulatory T Cells Suppress Polyclonal T Cell Activation In Vitro by Inhibiting Interleukin 2 Production; crossref_year=1998; doi=10.1084/jem.188.2.287; score=5
+- `content\docs\treg\2003-foxp3-molecular-identity-of-treg-2003.mdx`
+  - title: Foxp3 programs the development and function of CD4+CD25+ regulatory T cells
+  - year: 2003
+  - evidence: crossref_title=Foxp3 programs the development and function of CD4+CD25+ regulatory T cells; crossref_year=2003; doi=10.1038/ni904; score=5
+
+## TODO_UNVERIFIED (35)
+- `content\docs\B7\1989-nadler-freeman-1989-b7-discovery.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1989
+  - note: placeholder metadata
+- `content\docs\B7\1991-nadler-1991-ifng-b7-induction.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1991
+  - note: placeholder metadata
+- `content\docs\B7\1995-linsley-b7-tumor-rejection-1992-1995.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1995
+  - note: placeholder metadata
+- `content\docs\cancer-history\1894-history-of-radical-mastectomy.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1894
+  - note: placeholder metadata
+- `content\docs\cancer-history\1927-radiation-therapy-carcinogenesis-history.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1895
+  - note: placeholder metadata
+- `content\docs\cancer-history\1911-rous-sarcoma-virus-retrovirus-history.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1911
+  - note: placeholder metadata
+- `content\docs\cancer-history\1943-bari-raid-mustard-gas-and-chemotherapy-origin.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1943
+  - note: placeholder metadata
+- `content\docs\cancer-history\1948-sidney-farber-folate-antagonist-childhood-leukemia.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1947
+  - note: placeholder metadata
+- `content\docs\cancer-history\1948-papanicolaou-cervical-cancer-history.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1948
+  - note: placeholder metadata
+- `content\docs\cancer-history\1950-smoking-lung-cancer-doll-hill.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1950
+  - note: placeholder metadata
+- `content\docs\cancer-history\1953-gertrude-elion-6mp-rational-drug-design-nobel-journey.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1953
+  - note: placeholder metadata
+- `content\docs\cancer-history\1965-baruch-blumberg-hepatitis-b-australia-research.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1965
+  - note: placeholder metadata
+- `content\docs\cancer-history\1976-src-ras-oncogene-history.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1976
+  - note: placeholder metadata
+- `content\docs\cancer-history\1977-tamoxifen-breast-cancer-history.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1977
+  - note: placeholder metadata
+- `content\docs\cancer-history\1983-helicobacter-pylori-marshall-self-experiment.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1983
+  - note: placeholder metadata
+- `content\docs\cancer-history\1998-herceptin-targeted-therapy-history.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1998
+  - note: placeholder metadata
+- `content\docs\cancer-history\1999-malmo-mammography-overdiagnosis-history.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1999
+  - note: placeholder metadata
+- `content\docs\cancer-history\2001-gleevec-imatinib-cml-history.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2001
+  - note: placeholder metadata
+- `content\docs\cancer-history\2024-thyroid-cancer-overdiagnosis-korea.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2024
+  - note: placeholder metadata
+- `content\docs\Cd28\1985-cd28-costimulation-ledbetter-1985.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1985
+  - note: placeholder metadata
+- `content\docs\Cd28\1987-cd28-molecular-cloning-aruffo-seed-1987.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1987
+  - note: placeholder metadata
+- `content\docs\Cd28\1991-cd28-il2-enhancer-weiss-1991.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1991
+  - note: placeholder metadata
+- `content\docs\Cd28\1993-cd28-nfkb-rel-il2-promoter-1993.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1993
+  - note: placeholder metadata
+- `content\docs\Cd28\1999-crel-il2-transcription-1999.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1999
+  - note: placeholder metadata
+- `content\docs\imm-classic\1945-chase-1945-reinterpreted-tcell-immunity.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1945
+  - note: placeholder metadata
+- `content\docs\medicine-history\acupuncture-trials-methodology-bias.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2007
+  - note: placeholder metadata
+- `content\docs\new\hangover-metabolic-immune-neuro-model.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2026
+  - note: placeholder metadata
+- `content\docs\obesity-diet\2026-why-usda-2025-dietary-guidelines-changed.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2026
+  - note: placeholder metadata
+- `content\docs\pd-1\1996-honjo-pd1-monoclonal-antibody-late-activation.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1996
+  - note: placeholder metadata
+- `content\docs\pd-1\1998-honjo-pd1-knockout-b6-autoimmunity.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1998
+  - note: placeholder metadata
+- `content\docs\pd-1\1999-honjo-pd1-lupus-like-autoimmunity.mdx`
+  - title: TODO: verify primary paper title
+  - year: 1999
+  - note: placeholder metadata
+- `content\docs\pd-1\2000-freeman-iwai-pdl1-discovery.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2000
+  - note: placeholder metadata
+- `content\docs\pd-1\2001-latchman-pdl2-second-ligand-pd1.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2001
+  - note: placeholder metadata
+- `content\docs\pd-1\2001-nishimura-pd1-balbc-cardiomyopathy.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2001
+  - note: placeholder metadata
+- `content\docs\pd-1\2003-pd1-icos-cd28-differential-inhibition-2003.mdx`
+  - title: TODO: verify primary paper title
+  - year: 2003
+  - note: placeholder metadata
+
+## VERIFIED_DOI (73)
+- `content\docs\cancer-history\1986-bailar-smith-progress-against-cancer.mdx`
+  - title: Progress Against Cancer?
+  - year: 1986
+  - doi: 10.1056/nejm198605083141905
+  - evidence: doi=10.1056/nejm198605083141905; crossref_title=Progress against Cancer?; crossref_year=1986
+- `content\docs\daily-immunity\2024-ldl-cholesterol-j-shaped-risk.mdx`
+  - title: J-shaped association between LDL cholesterol and cardiovascular events.
+  - year: 2024
+  - doi: 10.1016/j.jare.2023.05.003
+  - evidence: doi=10.1016/j.jare.2023.05.003; crossref_title=J-shaped association between LDL cholesterol and cardiovascular events: A longitudinal primary prevention cohort of over 2.4 million people nationwide; crossref_year=2024
+- `content\docs\daily-immunity\colon-cleansing-why-it-worked-before.mdx`
+  - title: Colonic Irrigation and the Theory of Autointoxication: A Triumph of Ignorance over Science
+  - year: 1997
+  - doi: 10.1097/00004836-199707000-00002
+  - evidence: doi=10.1097/00004836-199707000-00002; crossref_title=Editorial: Interferon Therapy for Chronic HCV Hepatitis: Trick or Treat?; crossref_year=1997
+- `content\docs\imm-classic\1957-burnet-1957-clonal-selection-theory.mdx`
+  - title: A Modification of Jerne’s Theory of Antibody Production Using the Concept of Clonal Selection
+  - year: 1957
+  - doi: 10.1038/1801210a0
+  - evidence: doi=10.1038/1801210a0; crossref_title=Leptospira Antibody Production by Bovine Fœtuses; crossref_year=1957
+- `content\docs\imm-classic\1960-pha-lymphocyte-proliferation-origin.mdx`
+  - title: Phytohemagglutinin: An Initiator of Mitosis in Cultures of Normal Human Leukocytes
+  - year: 1960
+  - doi: 10.1093/jnci/25.1.85
+  - evidence: doi=10.1093/jnci/25.1.85; crossref_title=Chromosome Studies on Normal and Leukemic Human Leukocytes; crossref_year=1960
+- `content\docs\imm-classic\1961-origin-of-t-cells-and-thymus.mdx`
+  - title: Immunological function of the thymus
+  - year: 1961
+  - doi: 10.1016/s0140-6736(61)90693-6
+  - evidence: doi=10.1016/s0140-6736(61)90693-6; crossref_title=IMMUNOLOGICAL FUNCTION OF THE THYMUS; crossref_year=1961
+- `content\docs\imm-classic\1963-hirschhorn-antigen-specific-lymphocyte-response.mdx`
+  - title: Mitogenic action of phytohaemagglutinin
+  - year: 1963
+  - doi: 10.1111/j.1365-2141.1963.tb06564.x
+  - evidence: doi=10.1111/j.1365-2141.1963.tb06564.x; crossref_title=The Mitogenic Property of Phytohaemagglutinin: Studies on Human Leucocytes; crossref_year=1963
+- `content\docs\imm-classic\1963-jerne-plaque-assay-1963.mdx`
+  - title: Plaque Formation in Agar by Single Antibody-Producing Cells
+  - year: 1963
+  - doi: 10.1126/science.140.3565.405.a
+  - evidence: doi=10.1126/science.140.3565.405.a; crossref_title=Plaque Formation in Agar by Single Antibody-Producing Cells; crossref_year=1963
+- `content\docs\imm-classic\1965-birth-of-lymphokine-1965.mdx`
+  - title: A Factor Stimulating DNA Synthesis Derived from the Medium of Leukocyte Cultures
+  - year: 1965
+  - doi: 10.1038/208794a0
+  - evidence: doi=10.1038/208794a0; crossref_title=A Factor stimulating DNA Synthesis derived from the Medium of Leucocyte Cultures; crossref_year=1965
+- `content\docs\imm-classic\1965-discovery-of-b-cells-and-bursa.mdx`
+  - title: Delineation of the Thymic and Bursal Lymphoid Systems in the Chicken
+  - year: 1965
+  - doi: 10.1038/205143a0
+  - evidence: doi=10.1038/205143a0; crossref_title=Delineation of the Thymic and Bursal Lymphoid Systems in the Chicken; crossref_year=1965
+- `content\docs\imm-classic\1965-gamma-interferon-immune-interferon-1965.mdx`
+  - title: Interferon-like Virus Inhibitor Induced in Human Leukocytes by Phytohemagglutinin
+  - year: 1965
+  - doi: 10.1126/science.149.3681.310
+  - evidence: doi=10.1126/science.149.3681.310; crossref_title=Interferon-Like Virus-Inhibitor Induced in Human Leukocytes by Phytohemagglutinin; crossref_year=1965
+- `content\docs\imm-classic\1967-mishell-dutton-spleen-cell-culture-immunology.mdx`
+  - title: Immunization of dissociated spleen cell cultures from normal mice
+  - year: 1967
+  - doi: 10.1084/jem.126.3.423
+  - evidence: doi=10.1084/jem.126.3.423; crossref_title=IMMUNIZATION OF DISSOCIATED SPLEEN CELL CULTURES FROM NORMAL MICE; crossref_year=1967
+- `content\docs\imm-classic\1967-mosier-two-cell-requirement-antibody-1967.mdx`
+  - title: A Requirement for Two Cell Types for Antibody Formation in vitro
+  - year: 1967
+  - doi: 10.1126/science.158.3808.1573
+  - evidence: doi=10.1126/science.158.3808.1573; crossref_title=A Requirement for Two Cell Types for Antibody Formation in vitro; crossref_year=1967
+- `content\docs\imm-classic\1968-brunner-cr51-cell-mediated-cytotoxicity-1968.mdx`
+  - title: Quantitative assay of the lytic action of immune lymphoid cells on 51-Cr-labelled allogeneic target cells in vitro; inhibition by isoantibody and by drugs
+  - year: 1968
+  - doi: 10.1259/0007-1285-41-491-819
+  - evidence: doi=10.1259/0007-1285-41-491-819; crossref_title=Quantitative estimation of red-cell uptake in the spleen using<sup>81</sup>Rb – and<sup>51</sup>Cr-labelled red cells; crossref_year=1968
+- `content\docs\imm-classic\1968-unanue-askonas-antigen-processing-1968.mdx`
+  - title: A Modification of Jerne’s Theory of Antibody Production Using the Concept of Clonal Selection
+  - year: 1968
+  - doi: 10.1007/bf02863070
+  - evidence: doi=10.1007/bf02863070; crossref_title=Second clonal generation potato seedling selection at two locations; crossref_year=1968
+- `content\docs\imm-classic\1970-origin-of-cytokine-concept-mlc-1970.mdx`
+  - title: Lymphocyte reactivity in vitro II. Soluble reconstituting factor permitting responses of purified lymphocytes
+  - year: 1970
+  - doi: 10.1038/226943a0
+  - evidence: doi=10.1038/226943a0; crossref_title=In vitro Reactivity of Lymphocytes to Particulate and Soluble Antigens; crossref_year=1970
+- `content\docs\imm-classic\1970-t-b-cell-separation-helper-t-cell.mdx`
+  - title: The role of thymus-derived lymphocytes in the secondary humoral immune response in mice
+  - year: 1970
+  - doi: 10.1038/2261257a0
+  - evidence: doi=10.1038/2261257a0; crossref_title=Role of Thymus-derived Lymphocytes in the Secondary Humoral Immune Response in Mice; crossref_year=1970
+- `content\docs\imm-classic\1972-lymphocyte-activating-factor-origin-il1.mdx`
+  - title: Potentiation of T-Lymphocyte Response to Mitogen. I. The Responding Cell
+  - year: 1972
+  - doi: 10.1084/jem.136.1.143
+  - evidence: doi=10.1084/jem.136.1.143; crossref_title=POTENTIATION OF THE T-LYMPHOCYTE RESPONSE TO MITOGENS; crossref_year=1972
+- `content\docs\imm-classic\1972-schimpl-wecker-1972-trf-tef-t-cell-help.mdx`
+  - title: Replacement of T-Cell Function by a T-Cell Product
+  - year: 1972
+  - doi: 10.1038/newbio237015a0
+  - evidence: doi=10.1038/newbio237015a0; crossref_title=Replacement of T-Cell Function by a T-Cell Product; crossref_year=1972
+- `content\docs\imm-classic\1973-rosenthal-shevach-1973-histocompatible-macrophage.mdx`
+  - title: The Function of Macrophages in Antigen Recognition by Guinea Pig Lymphocytes
+  - year: 1973
+  - doi: 10.1084/jem.138.5.1194
+  - evidence: doi=10.1084/jem.138.5.1194; crossref_title=FUNCTION OF MACROPHAGES IN ANTIGEN RECOGNITION BY GUINEA PIG T LYMPHOCYTES; crossref_year=1973
+- `content\docs\imm-classic\1973-rosenthal-shevach-1973-mhc-ir-gene-antigen-recognition.mdx`
+  - title: The Function of Macrophages in Antigen Recognition by Guinea Pig T Lymphocytes. II. Role of the Macrophage in the Regulation of Genetic Control of Immune Responses
+  - year: 1973
+  - doi: 10.1084/jem.138.5.1194
+  - evidence: doi=10.1084/jem.138.5.1194; crossref_title=FUNCTION OF MACROPHAGES IN ANTIGEN RECOGNITION BY GUINEA PIG T LYMPHOCYTES; crossref_year=1973
+- `content\docs\imm-classic\1975-discovery-of-tnf-1975.mdx`
+  - title: An Endotoxin-Induced Serum Factor That Causes Necrosis of Tumors
+  - year: 1975
+  - doi: 10.1073/pnas.72.9.3666
+  - evidence: doi=10.1073/pnas.72.9.3666; crossref_title=An endotoxin-induced serum factor that causes necrosis of tumors.; crossref_year=1975
+- `content\docs\imm-classic\1975-kohler-milstein-1975-monoclonal-antibodies.mdx`
+  - title: Continuous Cultures of Fused Cells Secreting Antibodies of Predefined Specificity
+  - year: 1975
+  - doi: 10.1038/256495a0
+  - evidence: doi=10.1038/256495a0; crossref_title=Continuous cultures of fused cells secreting antibody of predefined specificity; crossref_year=1975
+- `content\docs\imm-classic\1976-long-term-growth-human-t-cells-1976.mdx`
+  - title: Selective In Vitro Growth of T Lymphocytes from Normal Human Bone Marrow
+  - year: 1976
+  - doi: 10.1126/science.181845
+  - evidence: doi=10.1126/science.181845; crossref_title=Selective in Vitro Growth of T Lymphocytes from Normal Human Bone Marrows; crossref_year=1976
+- `content\docs\imm-classic\1977-long-term-culture-tumor-specific-ctl-1977.mdx`
+  - title: The Long-Term Culture of Tumor-Specific Cytotoxic T Cells
+  - year: 1977
+  - doi: 10.1038/268154a0
+  - evidence: doi=10.1038/268154a0; crossref_title=Long term culture of tumour-specific cytotoxic T cells; crossref_year=1977
+- `content\docs\imm-classic\1978-t-cell-growth-factor-quantitative-assay-1978.mdx`
+  - title: The T-cell growth factor: parameters of production and a quantitative microassay for activity
+  - year: 1978
+  - doi: 10.4049/jimmunol.120.6.2027
+  - evidence: doi=10.4049/jimmunol.120.6.2027; crossref_title=T Cell Growth Factor: Parameters of Production and a Quantitative Microassay for Activity; crossref_year=1978
+- `content\docs\imm-classic\1979-glucocorticoids-il2-immunosuppression.mdx`
+  - title: Glucocorticoid-induced inhibition of T-cell growth factor production: effect on mitogen-induced lymphocyte proliferation
+  - year: 1979
+  - doi: 10.4049/jimmunol.123.4.1632
+  - evidence: doi=10.4049/jimmunol.123.4.1632; crossref_title=Glucocorticoid-Induced Inhibition of T Cell Growth Factor Production; crossref_year=1979
+- `content\docs\imm-classic\1979-unlimited-t-cell-growth-clonal-t-cells.mdx`
+  - title: Monoclonal cytolytic T-cell lines
+  - year: 1979
+  - doi: 10.1084/jem.149.1.273
+  - evidence: doi=10.1084/jem.149.1.273; crossref_title=Monoclonal cytolytic T-cell lines.; crossref_year=1979
+- `content\docs\imm-classic\1980-laf-tcgf-birth-of-interleukins.mdx`
+  - title: Lymphocyte activating factor promotes T-cell growth factor production by cloned murine lymphoma cells
+  - year: 1980
+  - doi: 10.1038/287853a0
+  - evidence: doi=10.1038/287853a0; crossref_title=Lymphocyte activating factor promotes T-cell growth factor production by cloned marine lymphoma cells; crossref_year=1980
+- `content\docs\imm-classic\1980-monoclonal-antibody-blocking-human-t-cell-function.mdx`
+  - title: A monoclonal antibody blocking human T-cell function
+  - year: 1980
+  - doi: 10.1002/eji.1830101006
+  - evidence: doi=10.1002/eji.1830101006; crossref_title=A monoclonal antibody blocking human T cell function; crossref_year=1980
+- `content\docs\imm-classic\1981-il2-receptor-discovery.mdx`
+  - title: T-cell growth factor receptors: Quantitation, specificity, and biological relevance
+  - year: 1981
+  - doi: 10.1084/jem.154.5.1455
+  - evidence: doi=10.1084/jem.154.5.1455; crossref_title=T cell growth factor receptors. Quantitation, specificity, and biological relevance; crossref_year=1981
+- `content\docs\imm-classic\1982-anti-tac-il2-receptor-nature-1982.mdx`
+  - title: A monoclonal antibody that appears to recognize the receptor for human T-cell growth factor
+  - year: 1982
+  - doi: 10.1038/300267a0
+  - evidence: doi=10.1038/300267a0; crossref_title=A monoclonal antibody that appears to recognize the receptor for human T-cell growth factor; partial characterization of the receptor; crossref_year=1982
+- `content\docs\imm-classic\1982-clonal-analysis-human-cytotoxic-t-lymphocytes.mdx`
+  - title: Clonal analysis of human cytotoxic T lymphocytes
+  - year: 1982
+  - doi: 10.4049/jimmunol.128.1.227
+  - evidence: doi=10.4049/jimmunol.128.1.227; crossref_title=Clonal analysis of restriction antigens for human TNP-specific cytotoxic T lymphocytes.; crossref_year=1982
+- `content\docs\imm-classic\1983-human-t-cell-antigen-receptor.mdx`
+  - title: Clonotypic structures on human T lymphocytes involved in antigen-specific function: relationship to the T3 molecular complex
+  - year: 1983
+  - doi: 10.1084/jem.157.2.705
+  - evidence: doi=10.1084/jem.157.2.705; crossref_title=Clonotypic structures involved in antigen-specific human T cell function. Relationship to the T3 molecular complex.; crossref_year=1983
+- `content\docs\imm-classic\1983-monoclonal-antibodies-human-il2.mdx`
+  - title: The Production and Characterization of Monoclonal Antibodies to Human Interleukin-2: Strategy and Tactics
+  - year: 1983
+  - doi: 10.4049/jimmunol.131.4.1808
+  - evidence: doi=10.4049/jimmunol.131.4.1808; crossref_title=Production and characterization of monoclonal antibodies to human interleukin 2: strategy and tactics.; crossref_year=1983
+- `content\docs\imm-classic\1984-cytolytic-t-cell-granules-perforin-1984.mdx`
+  - title: Cytolytic T-cell granules: Isolation, structural, biochemical, and functional characterization
+  - year: 1984
+  - doi: 10.1084/jem.160.3.695
+  - evidence: doi=10.1084/jem.160.3.695; crossref_title=Cytolytic T cell granules. Isolation, structural, biochemical, and functional characterization.; crossref_year=1984
+- `content\docs\imm-classic\1984-interleukin-1-cdna-cloning-history.mdx`
+  - title: Molecular cloning of the interleukin-1 cDNA from human monocytes
+  - year: 1984
+  - doi: 10.1038/311631a0
+  - evidence: doi=10.1038/311631a0; crossref_title=Molecular cloning of cDNA encoding human interleukin-2 receptor; crossref_year=1984
+- `content\docs\imm-classic\1984-interleukin-2-t-cell-system-new-growth-model.mdx`
+  - title: Interleukin-2 T-cell system: a new cell growth model
+  - year: 1984
+  - doi: 10.1126/science.6427923
+  - evidence: doi=10.1126/science.6427923; crossref_title=The Interleukin-2 T-Cell System: A New Cell Growth Model; crossref_year=1984
+- `content\docs\imm-classic\1984-tcr-ti-t3-triggering-il2-system.mdx`
+  - title: Triggering of the T3–Ti antigen receptor complex induces T-cell proliferation through an interleukin-2–dependent pathway
+  - year: 1984
+  - doi: 10.1073/pnas.81.5.1509
+  - evidence: doi=10.1073/pnas.81.5.1509; crossref_title=Triggering of the T3-Ti antigen-receptor complex results in clonal T-cell proliferation through an interleukin 2-dependent autocrine pathway.; crossref_year=1984
+- `content\docs\imm-classic\1985-ohara-paul-bsf1-il4.mdx`
+  - title: The production of a monoclonal antibody to, and molecular characterization of, B cell stimulatory factor 1
+  - year: 1985
+  - doi: 10.1038/315333a0
+  - evidence: doi=10.1038/315333a0; crossref_title=Production of a monoclonal antibody to and molecular characterization of B-cell stimulatory factor-1; crossref_year=1985
+- `content\docs\imm-classic\1985-peptide-binding-to-mhc-class-ii-unanue.mdx`
+  - title: Binding of immunogenic peptides to I-A histocompatibility molecules
+  - year: 1985
+  - doi: 10.1038/317359a0
+  - evidence: doi=10.1038/317359a0; crossref_title=Binding of immunogenic peptides to Ia histocompatibility molecules; crossref_year=1985
+- `content\docs\imm-classic\1985-tnf-cachectin-identity-1985.mdx`
+  - title: Identity of tumor necrosis factor and the macrophage-secreted factor cachectin
+  - year: 1985
+  - doi: 10.1038/316552a0
+  - evidence: doi=10.1038/316552a0; crossref_title=Identity of tumour necrosis factor and the macrophage-secreted factor cachectin; crossref_year=1985
+- `content\docs\imm-classic\1986-3t3-cells-il2-tcell-cellcycle-history.mdx`
+  - title: Interleukin-2 Induction of T-cell G1 Progression and c-myb Expression
+  - year: 1986
+  - doi: 10.1126/science.3523754
+  - evidence: doi=10.1126/science.3523754; crossref_title=Interleukin-2 Induction of T-Cell G
+            <sub>1</sub>
+            Progression and c-
+            <i>myb</i>
+            Expression; crossref_year=1986
+- `content\docs\imm-classic\1986-cachectin-tnf-shock.mdx`
+  - title: Shock and tissue injury induced by recombinant human cachectin
+  - year: 1986
+  - doi: 10.1126/science.3764421
+  - evidence: doi=10.1126/science.3764421; crossref_title=Shock and Tissue Injury Induced by Recombinant Human Cachectin; crossref_year=1986
+- `content\docs\imm-classic\1986-il2-g1-progression-cmyb.mdx`
+  - title: Interleukin-2 Induction of T-cell G1 Progression and c-myb Expression
+  - year: 1986
+  - doi: 10.1126/science.3523754
+  - evidence: doi=10.1126/science.3523754; crossref_title=Interleukin-2 Induction of T-Cell G
+            <sub>1</sub>
+            Progression and c-
+            <i>myb</i>
+            Expression; crossref_year=1986
+- `content\docs\imm-classic\1986-interleukin-4-b-cell-help.mdx`
+  - title: Cloning of cDNA encoding murine IgG1 induction factor by a novel strategy using SP6 promoter
+  - year: 1986
+  - doi: 10.1038/319640a0
+  - evidence: doi=10.1038/319640a0; crossref_title=Cloning of cDNA encoding the murine IgG1 induction factor by a novel strategy using SP6 promoter; crossref_year=1986
+- `content\docs\imm-classic\1986-interleukin-6-bsf2-cloning-1986.mdx`
+  - title: Cloning of complementary DNA encoding a human B cell stimulatory factor that induces immunoglobulin production
+  - year: 1986
+  - doi: 10.1038/324070a0
+  - evidence: doi=10.1038/324070a0; crossref_title=Cloning of complementary DNA encoding T-cell replacing factor and identity with B-cell growth factor II; crossref_year=1986
+- `content\docs\imm-classic\1986-t-cell-replacing-factor-il5.mdx`
+  - title: Cloning of complementary DNA encoding T-cell replacing factor and identity with B-cell growth factor II
+  - year: 1986
+  - doi: 10.1038/324070a0
+  - evidence: doi=10.1038/324070a0; crossref_title=Cloning of complementary DNA encoding T-cell replacing factor and identity with B-cell growth factor II; crossref_year=1986
+- `content\docs\imm-classic\1987-hla-a2-mhc-structure-nature.mdx`
+  - title: The structure of human class I histocompatibility antigen, HLA-A2
+  - year: 1987
+  - doi: 10.2210/pdb1hla/pdb
+  - evidence: doi=10.2210/pdb1hla/pdb; crossref_title=STRUCTURE OF THE HUMAN CLASS I HISTOCOMPATIBILITY ANTIGEN, HLA-A2; crossref_year=1987
+- `content\docs\imm-classic\1987-il2-receptor-bimolecular-structure.mdx`
+  - title: The IL-2 Receptor, Functional Consequences of its Bimolecular Structure
+  - year: 1987
+  - doi: 10.1084/jem.166.4.1055
+  - evidence: doi=10.1084/jem.166.4.1055; crossref_title=The interleukin 2 receptor. Functional consequences of its bimolecular structure.; crossref_year=1987
+- `content\docs\imm-classic\1991-cd40-il4-human-bcell-longterm-culture.mdx`
+  - title: Long-term human B-cell lines dependent on interleukin-4 and antibody to CD40
+  - year: 1991
+  - doi: 10.1126/science.1702555
+  - evidence: doi=10.1126/science.1702555; crossref_title=Long-Term Human B Cell Lines Dependent on Interleukin-4 and antibody to CD40; crossref_year=1991
+- `content\docs\imm-classic\1991-il2-raf1-cell-cycle-1991-mcb.mdx`
+  - title: Interleukin-2 Triggered RAF1 Expression, Phosphorylation, and Associated Kinase Activity Increased through G1 and S in Anti-CD3 Stimulated Primary Human T Cells
+  - year: 1991
+  - doi: 10.1128/mcb.11.5.2794
+  - evidence: doi=10.1128/mcb.11.5.2794; crossref_title=Interleukin-2-triggered Raf-1 expression, phosphorylation, and associated kinase activity increase through G1 and S in CD3-stimulated primary human T cells.; crossref_year=1991
+- `content\docs\imm-classic\1991-tcell-memory-cytokine-gene-expression-1991.mdx`
+  - title: The Differentiation of T-cell Lymphokine Gene Expression: The In Vitro Acquisition of T-cell Memory
+  - year: 1991
+  - doi: 10.1084/jem.173.1.25
+  - evidence: doi=10.1084/jem.173.1.25; crossref_title=Differentiation of T cell lymphokine gene expression: the in vitro acquisition of T cell memory.; crossref_year=1991
+- `content\docs\imm-classic\1992-il2-receptor-gamma-chain-1992-science.mdx`
+  - title: Cloning of the γ chain of the human interleukin-2 receptor
+  - year: 1992
+  - doi: 10.1084/jem.175.2.341
+  - evidence: doi=10.1084/jem.175.2.341; crossref_title=Molecular cloning and expression of the human interleukin 5 receptor.; crossref_year=1992
+- `content\docs\imm-classic\1993-il2-dependent-g1-cyclin-induction-turner-1993.mdx`
+  - title: IL-2 Dependent Induction of G1 Cyclins in Primary T-Cells is Not Blocked by Rapamycin or Cyclosporin A
+  - year: 1993
+  - doi: 10.1093/intimm/5.10.1199
+  - evidence: doi=10.1093/intimm/5.10.1199; crossref_title=IL-2-dependent induction of G<sub>1</sub> cyclins in primary T cells is not blocked by rapamycin or cyclosporin A; crossref_year=1993
+- `content\docs\imm-classic\1993-il2-induced-immediate-early-genes-1993-pnas.mdx`
+  - title: The Isolation of Interleukin-2-Induced Immediate Early Genes
+  - year: 1993
+  - doi: 10.1073/pnas.90.7.2719
+  - evidence: doi=10.1073/pnas.90.7.2719; crossref_title=Isolation of interleukin 2-induced immediate-early genes.; crossref_year=1993
+- `content\docs\imm-classic\1995-glucocorticoid-immunosuppression-nfkb-ikb-karin-1995.mdx`
+  - title: Immunosuppression by glucocorticoids: inhibition of NF-κB activity through induction of IκB synthesis
+  - year: 1995
+  - doi: 10.1126/science.270.5234.286
+  - evidence: doi=10.1126/science.270.5234.286; crossref_title=Immunosuppression by Glucocorticoids: Inhibition of NF-κB Activity Through Induction of IκB Synthesis; crossref_year=1995
+- `content\docs\imm-classic\1998-1998-immunity-ahmed-tetramer-antigen-specific-cd8.mdx`
+  - title: Counting Antigen-Specific CD8-Positive T Cells: A Re-evaluation of Bystander Activation during Viral Infection
+  - year: 1998
+  - doi: 10.1016/s1074-7613(00)80470-7
+  - evidence: doi=10.1016/s1074-7613(00)80470-7; crossref_title=Counting Antigen-Specific CD8 T Cells: A Reevaluation of Bystander Activation during Viral Infection; crossref_year=1998
+- `content\docs\imm-classic\1998-cd40l-cytokine-b-cell-differentiation-casali-1998.mdx`
+  - title: Counting Antigen-Specific CD8-Positive T Cells: A Re-evaluation of Bystander Activation during Viral Infection
+  - year: 1998
+  - doi: 10.1016/s1074-7613(00)80470-7
+  - evidence: doi=10.1016/s1074-7613(00)80470-7; crossref_title=Counting Antigen-Specific CD8 T Cells: A Reevaluation of Bystander Activation during Viral Infection; crossref_year=1998
+- `content\docs\imm-classic\1998-tlr4-lps-beutler-1998-science.mdx`
+  - title: Defective lipopolysaccharide signaling in C3H/HeJ and C57BL/10ScCr mice: mutations in the Tlr4 gene
+  - year: 1998
+  - doi: 10.1126/science.282.5396.2085
+  - evidence: doi=10.1126/science.282.5396.2085; crossref_title=Defective LPS Signaling in C3H/HeJ and C57BL/10ScCr Mice: Mutations in
+            <i>Tlr4</i>
+            Gene; crossref_year=1998
+- `content\docs\imm-classic\2001-tlr3-dsrna-nfkb-alexopoulou-flavell-2001.mdx`
+  - title: Recognition of double-stranded RNA and activation of NF-κB by Toll-like receptor 3
+  - year: 2001
+  - doi: 10.1038/35099560
+  - evidence: doi=10.1038/35099560; crossref_title=Recognition of double-stranded RNA and activation of NF-κB by Toll-like receptor 3; crossref_year=2001
+- `content\docs\imm-classic\2003-foxp3-regulatory-t-cell-history.mdx`
+  - title: Control of regulatory T cell development by the transcription factor Foxp3
+  - year: 2003
+  - doi: 10.1126/science.1079490
+  - evidence: doi=10.1126/science.1079490; crossref_title=Control of Regulatory T Cell Development by the Transcription Factor
+                    <i>Foxp3</i>; crossref_year=2003
+- `content\docs\imm-classic\2004-ctla4-transgenic-il2-deficient-mice.mdx`
+  - title: Transgenic expression of CTLA-4 controls lymphoproliferation in IL-2-deficient mice
+  - year: 2004
+  - doi: 10.4049/jimmunol.173.9.5415
+  - evidence: doi=10.4049/jimmunol.173.9.5415; crossref_title=Transgenic Expression of CTLA-4 Controls Lymphoproliferation in IL-2-Deficient Mice; crossref_year=2004
+- `content\docs\imm-classic\2006-il2-regulates-foxp3-human-treg-blood.mdx`
+  - title: Interleukin-2 regulates FOXP3 expression in human CD4⁺CD25⁺ regulatory T cells through a STAT-dependent mechanism and induces the expansion of these cells in vivo
+  - year: 2006
+  - doi: 10.1182/blood-2006-02-004747
+  - evidence: doi=10.1182/blood-2006-02-004747; crossref_title=IL-2 regulates FOXP3 expression in human CD4+CD25+ regulatory T cells through a STAT-dependent mechanism and induces the expansion of these cells in vivo; crossref_year=2006
+- `content\docs\imm-classic\2006-il2-signaling-complex-crystal-structure-2006-pnas.mdx`
+  - title: Crystal structure of the interleukin-2 signaling complex: Paradigm for a heterotrimeric cytokine receptor
+  - year: 2006
+  - doi: 10.1073/pnas.0511161103
+  - evidence: doi=10.1073/pnas.0511161103; crossref_title=Crystal structure of the IL-2 signaling complex: Paradigm for a heterotrimeric cytokine receptor; crossref_year=2006
+- `content\docs\imm-classic\2008-ctla4-foxp3-treg-wing.mdx`
+  - title: CTLA-4 control over FOXP3⁺ regulatory T-cell function
+  - year: 2008
+  - doi: 10.1126/science.1160062
+  - evidence: doi=10.1126/science.1160062; crossref_title=CTLA-4 Control over Foxp3
+                    <sup>+</sup>
+                    Regulatory T Cell Function; crossref_year=2008
+- `content\docs\imm-classic\2008-il2-foxp3-reciprocity-negative-feedback-popmihajlov-smith.mdx`
+  - title: Negative Feedback Regulation of T cells via IL-2 and FOXP3 Reciprocity
+  - year: 2008
+  - doi: 10.1371/journal.pone.0001581
+  - evidence: doi=10.1371/journal.pone.0001581; crossref_title=Negative Feedback Regulation of T Cells via Interleukin-2 and FOXP3 Reciprocity; crossref_year=2008
+- `content\docs\imm-classic\2016-adult-ctla4-deletion-autoimmunity-pnas-2016.mdx`
+  - title: Induction of autoimmune disease by deletion of CTLA-4 in mice in adulthood
+  - year: 2016
+  - doi: 10.1073/pnas.1603892113
+  - evidence: doi=10.1073/pnas.1603892113; crossref_title=Induction of autoimmune disease by deletion of CTLA-4 in mice in adulthood; crossref_year=2016
+- `content\docs\imm-therapy\1977-tumor-specific-ctl-line-act-origin.mdx`
+  - title: Long term culture of tumour-specific cytotoxic T cells
+  - year: 1977
+  - doi: 10.1038/268154a0
+  - evidence: doi=10.1038/268154a0; crossref_title=Long term culture of tumour-specific cytotoxic T cells; crossref_year=1977
+- `content\docs\obesity-diet\kevin-hall-low-carb-low-fat-diet.mdx`
+  - title: Calorie for Calorie, Dietary Fat Restriction Results in More Body Fat Loss than Carbohydrate Restriction in People with Obesity
+  - year: 2015
+  - doi: 10.1016/j.cmet.2015.08.009
+  - evidence: doi=10.1016/j.cmet.2015.08.009; crossref_title=Calorie for Calorie, Dietary Fat Restriction Results in More Body Fat Loss than Carbohydrate Restriction in People with Obesity; crossref_year=2015
+- `content\docs\treg\1991-il2-knockout-mouse-1991-nature.mdx`
+  - title: The development and function of T cells in mice rendered IL-2 deficient by gene targeting
+  - year: 1991
+  - doi: 10.1038/352621a0
+  - evidence: doi=10.1038/352621a0; crossref_title=Development and function of T cells in mice rendered interleukin-2 deficient by gene targeting; crossref_year=1991
+- `content\docs\treg\1995-il2-signal-cd25-tcell-peripheral-tolerance-1995.mdx`
+  - title: Immunologic Self-Tolerance Maintained by Activated T-Cells Expressing the IL-2 Receptor Alpha Chains (CD25)
+  - year: 1995
+  - doi: 10.4049/jimmunol.155.3.1151
+  - evidence: doi=10.4049/jimmunol.155.3.1151; crossref_title=Immunologic self-tolerance maintained by activated T cells expressing IL-2 receptor α-chains (CD25). Breakdown of a single mechanism of self-tolerance causes various autoimmune diseases; crossref_year=1995
+- `content\docs\treg\2007-treg-cytokine-deprivation-apoptosis-pandiyan-lenardo.mdx`
+  - title: CD4⁺CD25⁺Foxp3⁺ regulatory T cells induce cytokine deprivation–mediated apoptosis of effector CD4⁺ T cells
+  - year: 2007
+  - doi: 10.1038/ni1536
+  - evidence: doi=10.1038/ni1536; crossref_title=CD4+CD25+Foxp3+ regulatory T cells induce cytokine deprivation–mediated apoptosis of effector CD4+ T cells; crossref_year=2007
+
+
+
+
+
+
+
+
+
