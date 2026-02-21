@@ -2,3 +2,4 @@
 
 export { default as posts } from './posts.json' with { type: 'json' }
 export { default as docs } from './docs.json' with { type: 'json' }
+export { default as drafts } from './drafts.json' with { type: 'json' }

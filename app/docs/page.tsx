@@ -18,6 +18,8 @@ type Doc = {
 };
 
 const docs = (site as any).docs as Doc[] | undefined;
+const drafts = (site as any).drafts as Doc[] | undefined;
+const isLocalDev = process.env.NODE_ENV === "development";
 
 /* --------------------------- metadata --------------------------- */
 /**
@@ -134,8 +136,9 @@ export default async function DocsPage({ searchParams }: PageProps) {
   const selectedCat = (sp?.cat || "").trim();
   const selectedSec = (sp?.sec || "").trim();
 
-  const published = docs.filter((d) => d.published !== false);
-  const grouped = groupByCategory(published);
+  const source = [...docs, ...(isLocalDev ? drafts ?? [] : [])];
+  const visible = isLocalDev ? source : source.filter((d) => d.published !== false);
+  const grouped = groupByCategory(visible);
 
   const categories = grouped.map(([c]) => c);
   const activeCategory = categories.includes(selectedCat) ? selectedCat : categories[0];
@@ -279,7 +282,14 @@ export default async function DocsPage({ searchParams }: PageProps) {
                     title={doc.title}
                   >
                     <div className="flex items-baseline justify-between gap-3">
-                      <span className="text-sky-600 hover:underline font-medium">{doc.title}</span>
+                      <span className="inline-flex items-center gap-2 text-sky-600 hover:underline font-medium">
+                        <span>{doc.title}</span>
+                        {isLocalDev && doc.published === false ? (
+                          <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold text-amber-800 no-underline">
+                            DRAFT
+                          </span>
+                        ) : null}
+                      </span>
 
                       {label && <span className="shrink-0 text-[11px] text-neutral-400">{label}</span>}
                     </div>

@@ -42,5 +42,25 @@ export default defineConfig({
         featured: s.boolean().default(false),
       }),
     },
+
+    drafts: {
+      name: "DraftDoc",
+      pattern: "draft/**/*.mdx",
+      schema: s.object({
+        title: s.string(),
+        description: s.string().optional(),
+        date: s.isodate().optional(),
+        updated: s.isodate().optional(),
+        slug: s.slug("docs"),
+        published: s.boolean().default(false),
+        body: s.mdx(),
+        tags: s.array(s.string()).optional(),
+        category: s.string().optional(),
+        section: s.string().optional(),
+        order: s.number().optional(),
+        cover: s.string().optional(),
+        featured: s.boolean().default(false),
+      }),
+    },
   },
 });

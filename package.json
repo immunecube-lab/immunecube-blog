@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently -k \"npm:velite:watch\" \"next dev\"",
     "build": "npm run velite:build && next build",
     "start": "next start",
     "lint": "next lint",
@@ -27,6 +27,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.22",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "^16.0.10",
     "fast-glob": "^3.3.3",

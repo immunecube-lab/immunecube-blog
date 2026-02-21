@@ -9,3 +9,6 @@ export declare const posts: Post[]
 
 export type Doc = Collections['docs']['schema']['_output']
 export declare const docs: Doc[]
+
+export type DraftDoc = Collections['drafts']['schema']['_output']
+export declare const drafts: DraftDoc[]
