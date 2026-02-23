@@ -71,7 +71,7 @@ function groupByCategory(list: Doc[]) {
 }
 
 // activeCategory 내부에서 section별로 그룹핑
-function groupBySection(items: Doc[]) {
+function groupBySection(items: Doc[], category?: string) {
   const map = new Map<string, Doc[]>();
 
   for (const doc of items) {
@@ -84,7 +84,26 @@ function groupBySection(items: Doc[]) {
     return [section, sortDocsInCategory(list)] as const;
   });
 
-  entries.sort(([a], [b]) => a.localeCompare(b, "ko"));
+  const minOrderBySection = new Map<string, number>();
+  for (const [section, list] of entries) {
+    const min = list.reduce((acc, doc) => Math.min(acc, doc.order ?? 9999), 9999);
+    minOrderBySection.set(section, min);
+  }
+
+  entries.sort(([a], [b]) => {
+    const ao = SECTION_ORDER[a] ?? 9999;
+    const bo = SECTION_ORDER[b] ?? 9999;
+    if (ao !== bo) return ao - bo;
+
+    // 면역학 고전은 섹션의 대표 연도(최소 order) 기준으로 흐름 정렬
+    if (category === "면역학 고전") {
+      const am = minOrderBySection.get(a) ?? 9999;
+      const bm = minOrderBySection.get(b) ?? 9999;
+      if (am !== bm) return am - bm;
+    }
+
+    return a.localeCompare(b, "ko");
+  });
   return entries;
 }
 
@@ -92,6 +111,14 @@ function groupBySection(items: Doc[]) {
 const SECTION_LABELS: Record<string, string> = {
   // "imm-classic": "면역학 고전",
   // 예: "vaccine-society": "백신과 사회",
+};
+
+// 필요 시 섹션 순서를 강제로 지정할 수 있습니다.
+// 지정되지 않은 섹션은 기본 정렬 규칙(면역학 고전은 최소 order, 그 외 이름순)을 따릅니다.
+const SECTION_ORDER: Record<string, number> = {
+  // "보조신호-CD28": 10,
+  // "보조신호-B7": 20,
+  // "보조신호-CTLA4": 30,
 };
 
 function sectionLabel(section: string) {
@@ -147,7 +174,7 @@ export default async function DocsPage({ searchParams }: PageProps) {
   const categoryMeta = CATEGORIES[activeCategory];
 
   // 현재 카테고리 내부에서 section 그룹 생성
-  const sectionGroups = groupBySection(activeAllItems);
+  const sectionGroups = groupBySection(activeAllItems, activeCategory);
   const sections = sectionGroups.map(([s]) => s);
 
   // sec 파라미터가 유효하면 필터, 아니면 전체
@@ -179,7 +206,7 @@ export default async function DocsPage({ searchParams }: PageProps) {
               const isCatActive = category === activeCategory;
 
               // 카테고리별 section 미리 계산(펼쳐질 때만 사용)
-              const catSectionGroups = isCatActive ? groupBySection(items) : [];
+              const catSectionGroups = isCatActive ? groupBySection(items, category) : [];
               const totalCount = items.length;
 
               return (
