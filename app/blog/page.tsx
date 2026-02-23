@@ -1,9 +1,18 @@
 // app/blog/page.tsx
 import Link from "next/link";
+import type { Metadata } from "next";
 import { posts } from "@/.velite";
 import type { Post } from "@/.velite";
 import { formatYmdDot } from "@/components/utils/date";
 import { normalizePostSlug } from "./_lib";
+
+export const metadata: Metadata = {
+  title: "블로그",
+  description: "생활면역, 연구 노트, 개발 기록을 정리한 블로그입니다.",
+  alternates: {
+    canonical: "/blog",
+  },
+};
 
 type PostWithMeta = Post & {
   featured?: boolean;

@@ -83,7 +83,7 @@ function buildItems(): FeedItem[] {
       if (!s) return null;
       return {
         title: p.title ?? s,
-        url: `${SITE_URL}/posts/${s}`, // ✅ 너의 가정(/posts/...)에 맞춤
+        url: `${SITE_URL}/blog/${s}`,
         description: p.description,
         date: pickLastMod(p),
       } satisfies FeedItem;
