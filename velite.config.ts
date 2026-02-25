@@ -37,6 +37,7 @@ export default defineConfig({
         tags: s.array(s.string()).optional(),
         category: s.string().optional(),
         section: s.string().optional(), // ✅ 추가: 이게 핵심
+        docType: s.string().optional(), // "paper" | "docent" (선택)
         order: s.number().optional(),
         cover: s.string().optional(),
         featured: s.boolean().default(false),
@@ -57,6 +58,7 @@ export default defineConfig({
         tags: s.array(s.string()).optional(),
         category: s.string().optional(),
         section: s.string().optional(),
+        docType: s.string().optional(),
         order: s.number().optional(),
         cover: s.string().optional(),
         featured: s.boolean().default(false),

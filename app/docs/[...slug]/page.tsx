@@ -13,6 +13,7 @@ type Doc = {
   updated?: string;
   body: any;
   published?: boolean;
+  docType?: string; // "paper" | "docent"
 };
 
 const docs = (site as any).docs as Doc[] | undefined;
@@ -74,7 +75,12 @@ export default async function DocPage({
     <main className="max-w-3xl mx-auto py-10 px-4">
       <article>
         <header className="mb-6">
-          <h1 className="text-3xl font-bold leading-tight">
+          <h1
+            className={[
+              "text-3xl font-bold leading-tight",
+              doc.docType === "docent" ? "text-amber-700" : "",
+            ].join(" ")}
+          >
             {doc.title}
             {isLocalDev && doc.published === false ? (
               <span className="ml-3 align-middle rounded bg-amber-100 px-2 py-1 text-xs font-semibold text-amber-800">
@@ -92,7 +98,7 @@ export default async function DocPage({
           ) : null}
         </header>
 
-        <section className="prose max-w-none">
+        <section className={["prose max-w-none", doc.docType === "docent" ? "prose-docent" : ""].join(" ")}>
           <MDXContent code={doc.body} />
         </section>
       </article>

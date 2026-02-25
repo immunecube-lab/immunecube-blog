@@ -102,6 +102,10 @@ body {
     @apply text-sky-500 text-2xl font-bold;
   }
 
+  .prose-docent :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply text-amber-700;
+  }
+
   .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     @apply text-sky-400 text-xl font-semibold;
   }

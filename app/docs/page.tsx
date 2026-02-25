@@ -12,6 +12,7 @@ type Doc = {
   published?: boolean;
   category?: string;
   section?: string; // subgroup(2단)로 사용할 값
+  docType?: string; // "paper" | "docent"
   order?: number;
   date?: string;
   updated?: string;
@@ -309,7 +310,12 @@ export default async function DocsPage({ searchParams }: PageProps) {
                     title={doc.title}
                   >
                     <div className="flex items-baseline justify-between gap-3">
-                      <span className="inline-flex items-center gap-2 text-sky-600 hover:underline font-medium">
+                      <span
+                        className={[
+                          "inline-flex items-center gap-2 hover:underline font-medium",
+                          doc.docType === "docent" ? "text-amber-700" : "text-sky-600",
+                        ].join(" ")}
+                      >
                         <span>{doc.title}</span>
                         {isLocalDev && doc.published === false ? (
                           <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold text-amber-800 no-underline">

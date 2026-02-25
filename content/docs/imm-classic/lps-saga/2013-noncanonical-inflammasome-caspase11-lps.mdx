@@ -1,0 +1,74 @@
+---
+title: "TLR4 없이도 LPS를 감지한다: 비정형 인플라마좀(caspase-11)의 발견"
+description: "Kayagaki 등(2013, Science)의 연구를 중심으로 세포 내 LPS가 TLR4와 무관하게 caspase-11을 활성화하는 비정형 인플라마좀 경로를 설명합니다."
+slug: "noncanonical-inflammasome-caspase11-lps"
+category: "면역학 고전"
+section: "lps-saga"
+order: 2013
+tags: ["Inflammasome", "Caspase-11", "LPS", "TLR4", "Sepsis"]
+status: "rewrite"
+published: true
+date: 2026-02-25
+updated: 2026-02-25
+---
+<Paper title="Noncanonical Inflammasome Activation by Intracellular LPS Independent of TLR4" authors="Nobuhiko Kayagaki et al." journal="Science" year={2013} doi="10.1126/science.1240248" takeaway="세포 내로 유입된 LPS의 lipid A가 TLR4와 무관하게 caspase-11을 활성화하여 비정형 인플라마좀을 유도하며, 이는 패혈증 병태생리에 핵심적 역할을 한다는 것을 입증한 연구." />
+
+## LPS는 TLR4만으로 감지되지 않습니다
+
+그람음성균의 핵심 병원성 인자인 **지질다당류**(lipopolysaccharide, LPS)는 오랫동안 **톨유사수용체 4**(Toll-like receptor 4, TLR4)를 통해 인식된다고 알려져 왔습니다. 실제로 TLR4는 세포 표면에서 LPS를 감지하고 염증성 사이토카인 분비를 유도합니다.
+
+그러나 Nobuhiko Kayagaki와 동료들이 2013년 Science에 발표한 이 논문은, LPS가 세포 안으로 들어가면 전혀 다른 경로가 작동한다는 사실을 보여주었습니다.
+
+핵심은 **비정형 인플라마좀**(noncanonical inflammasome)입니다.
+
+## 비정형 인플라마좀과 caspase-11
+
+기존의 정형 인플라마좀(canonical inflammasome)은 NLRP3, ASC, caspase-1을 중심으로 작동합니다. 반면 이 논문은 그람음성균 감염 조건에서 **카스파아제-11**(caspase-11)이 필수 축이라는 점을 제시했습니다. 세포 내로 전달된 LPS는 TLR4 유무와 무관하게 caspase-11을 활성화하고, caspase-11은 pyroptosis를 유도합니다. 이후 caspase-1 활성과 IL-1β/IL-18 분비가 이어지며, 결과적으로 LPS는 세포 표면에서는 TLR4로, 세포 내부에서는 caspase-11로 감지된다는 이중 인식 모델이 성립합니다.
+
+## 핵심 실험: TLR4가 없어도 반응한다
+
+논문 3페이지의 실험 결과에 따르면, Tlr4 결손 마우스 유래 대식세포에서도 세포 내 LPS 전달 시 IL-1β 분비와 세포사멸이 정상적으로 발생했습니다.
+
+또한 MD-2, CD14, RP105 등 TLR4 복합체 구성요소가 없어도 비정형 인플라마좀은 정상적으로 활성화되었습니다.
+
+이는 TLR4가 세포 외 LPS 감지에는 필수적이지만, 세포 내 LPS 감지에는 필요하지 않다는 점을 의미합니다.
+
+## lipid A가 핵심입니다
+
+LPS는 O-특이 다당, core oligosaccharide, **지질 A**(lipid A)로 구성됩니다. 이 연구는 세포 내로 전달된 **지질 A**가 caspase-11 활성화의 실제 유발 인자임을 보여주었습니다.
+
+특히 hexa-acylated lipid A는 강하게 비정형 인플라마좀을 활성화했지만, 구조가 변형된 lipid A(예: lipid IVa)는 활성화 능력이 크게 감소했습니다.
+
+이는 병원균이 lipid A 구조를 변형함으로써 면역 회피를 시도할 수 있음을 시사합니다.
+
+## 패혈증 모델에서의 의미
+
+논문의 가장 중요한 부분은 마우스 패혈증 모델입니다. Casp11 결손 마우스는 고용량 LPS에 저항성을 보였고, Tlr4 결손 마우스도 저항성을 보였습니다. 그런데 poly(I:C)로 caspase-11을 미리 유도한 뒤 LPS를 투여하면 Tlr4 결손 마우스도 사망했습니다. 이는 패혈증에서 TLR4 의존 경로와 caspase-11 의존 비정형 인플라마좀 경로가 병렬적으로 작동할 수 있음을 시사하며, 특히 치명적 병태에서 caspase-11 매개 pyroptosis의 비중이 클 수 있다는 해석으로 이어집니다.
+
+## 왜 이 연구가 중요한가
+
+이 논문은 세 가지 패러다임 전환을 제시했습니다. 첫째, 하나의 PAMP(LPS)에 대해 위치 의존적 감지 체계가 존재한다는 점입니다. 즉 세포 외부에서는 TLR4가, 세포 내부에서는 caspase-11이 중심 역할을 하며, 선천면역 인식이 공간적으로 분화되어 있음을 보여줍니다. 둘째, 마우스 caspase-11의 인간 상동 단백질인 caspase-4/5로 연결되면서 사람 패혈증 병태와 치료 타깃 연구로 자연스럽게 확장되었습니다. 셋째, 인플라마좀 개념이 NLRP3 중심 틀에서 비정형 인플라마좀까지 확장되었고, 이후 “세포질 LPS 직접 인식” 모델을 지지하는 후속 연구의 토대가 마련되었습니다.
+
+## 결론
+
+Kayagaki 등의 2013년 연구는 LPS 감지의 이중 체계를 규명했습니다.
+
+LPS는 단순히 TLR4의 리간드가 아닙니다. 세포 내로 침투한 LPS의 lipid A는 caspase-11을 통해 비정형 인플라마좀을 활성화합니다.
+
+이 발견은 패혈증, 염증성 질환, 면역 신호 전달 연구 전반에 큰 전환점을 마련했습니다.
+
+<RelatedPosts
+  slugs={[
+    "eritoran-tlr4-caspase11-sepsis-classic",
+    "tlr4-nfkb-nlrp3-licensing-mechanism",
+    "2000-asea-hsp70-cd14-tlr4-damp-origin"
+  ]}
+/>
+
+## 참고문헌
+
+Kayagaki, Nobuhiko, et al. “Noncanonical Inflammasome Activation by Intracellular LPS Independent of TLR4.” Science, vol. 341, no. 6151, 2013, pp. 1246–1249. https://doi.org/10.1126/science.1240248.
+
+Broz, Petr, et al. “Caspase-11 Increases Susceptibility to Salmonella Infection in the Absence of Caspase-1.” Nature, vol. 490, 2012, pp. 288–291.
+
+Rathinam, Vijay A. K., et al. “TRIF Licenses Caspase-11–Dependent NLRP3 Inflammasome Activation by Gram-Negative Bacteria.” Cell, vol. 150, no. 3, 2012, pp. 606–619.
