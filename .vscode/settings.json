@@ -1,0 +1,7 @@
+{
+  "markdown.editor.drop.enabled": true,
+  "markdown.copyFiles.destination": {
+    "/content/docs/**/*": "/public/images/${documentBaseName}/"
+  },
+  "markdown.updateLinksOnFileMove.enabled": "always"
+}

@@ -1,0 +1,130 @@
+---
+title: "Trained Immunity의 실증: Quintin 2012가 보여준 단핵구 기억"
+description: "Quintin 2012 원문(nihms-511112.pdf)을 중심으로 trained immunity의 실질적 증거를 Figure 1-4 핵심 실험으로 정리합니다."
+slug: "2012-trained-immunity-candida-monocyte-reprogramming"
+category: "면역학 고전"
+section: "lps-saga"
+order: 2012
+tags: ["trained immunity", "Candida", "monocyte", "beta-glucan", "dectin-1", "H3K4me3"]
+docType: "docent"
+status: "rewrite"
+published: true
+date: 2026-02-28
+updated: 2026-02-28
+---
+<Paper title="Candida albicans infection affords protection against reinfection via functional reprogramming of monocytes" authors="Quintin J, et al." journal="Cell Host & Microbe" year={2012} doi="10.1016/j.chom.2012.06.006" takeaway="Candida/beta-glucan 노출이 T/B세포 없이도 단핵구를 재프로그래밍해 재감염 방어를 높이고, dectin-1/Raf-1 및 H3K4me3 변화를 동반함을 입증한 결정적 논문." />
+
+## 이 글의 질문
+
+Trained immunity가 정말 존재하는가?
+
+Quintin 2012는 이 질문에 대해 "개념"이 아니라 "실험 데이터"로 답한 논문입니다.  
+
+## 왜 이 논문이 결정적이었나
+
+이 논문은 단순 연관을 넘어서 네 가지를 순서대로 증명했습니다.
+
+1. 재감염 보호가 실제로 생긴다.
+2. 그 보호가 T/B세포 없이도 유지된다.
+3. 핵심 세포가 단핵구/대식세포임을 보여준다.
+4. 분자기전(dectin-1/Raf-1, H3K4me3)까지 연결한다.
+
+## Figure 1: "보호 효과"의 존재와 세포 의존성
+
+<Figure
+  src="/images/diagram/2011-candida-fig1.svg"
+  alt=""
+  caption=""
+  number={1}
+  maxWidth={600}
+/>
+
+원문 Figure 1의 메시지는 trained immunity 존재 주장에 가장 직접적입니다.
+
+- 1차 비치명적 Candida 노출 후 재감염 생존이 증가
+- Rag1-/- (T/B 결핍)에서도 보호 유지
+- Ccr2-/- (단핵구 축 결함)에서는 보호 소실
+- NK 고갈 조건에서도 보호가 유지되어 NK 단독 효과 설명은 약함
+
+(Rag1-/-: V(D)J 재조합에 필수인 Rag1 유전자가 제거되어 성숙한 B·T 림프구가 거의 없음 → 적응면역(항체·T세포) 결핍.
+Ccr2-/-: CC 화학주성 수용체 CCR2 결손 → 골수에서 혈중/조직으로 유출되는 Ly6C^hi 단핵구(모노사이트) 이동·유입이 심하게 저하 → 단핵구/유래 대식세포 축 기능 결함.)
+
+
+즉, 적응면역이 없어도 재감염 보호가 나타나며, 단핵구 축이 필수라는 결론입니다.
+
+## Figure 2: 사람 단핵구에서 기능적 재프로그래밍
+
+<Figure
+  src="/images/diagram/netea-fig2-parts.svg"
+  alt=""
+  caption=""
+  number={2}
+  maxWidth={600}
+/>
+
+in vitro에서 단핵구를 Candida 또는 beta-glucan으로 priming한 뒤 재자극하면:
+
+- TNF-alpha, IL-6 증가
+- IL-10은 같은 방향으로 증가하지 않음
+- 서로 다른 PRR 리간드/미생물 재자극에도 강화 반응(교차반응성)
+- 효과가 단기 priming을 넘어 약 2주까지 유지
+- candidacidal activity도 증가
+
+이건 "한 번 자극받은 단핵구가 다음 자극에서 더 강하게 반응한다"는 trained phenotype의 정석적 데이터입니다.
+
+## Figure 3: 경로 특이성 검증 (dectin-1 / Raf-1)
+
+이 논문의 강점은 경로 차단 실험입니다.
+
+- dectin-1 차단(또는 dectin-1 결함 세포)에서 training 저하
+- CR3 차단은 부분 억제
+- Syk 억제보다 Raf-1 억제에서 training 억제가 더 뚜렷
+- 마우스 in vivo에서도 Raf-1 억제 시 보호효과 소실
+- methyltransferase 억제(MTA)로 training 저해
+
+즉 training이 단순 염증 잔재가 아니라, 특정 수용체-신호축과 후성유전학 효소 의존 프로그램임을 보여줍니다.
+
+## Figure 4: 후성유전학 지문(H3K4me3)
+
+Figure 4는 trained immunity를 "기억 유사 상태"로 부르는 근거를 제공합니다.
+
+- beta-glucan training 후 H3K4me3가 genome-wide로 증가
+- H3K27me3는 상대적으로 변화가 작음
+- TNF, IL6, IL18, DECTIN-1, MYD88 등 관련 유전자 promoter에서 H3K4me3 증가
+- day 7 시점에도 일부 표지 유지
+
+결론적으로, training은 단순 일시 활성화가 아니라 재자극 반응 역치를 바꾸는 크로마틴 재설정으로 설명됩니다.
+
+## 이 논문이 남긴 핵심 결론
+
+Quintin 2012는 trained immunity의 "실질적 존재"를 다음 문장으로 요약할 수 있게 만들었습니다.
+
+> 선천면역 세포(단핵구)는 1차 자극 이후 기능과 염색질 상태가 재프로그래밍되어, 적응면역 없이도 이후 감염 반응을 바꿀 수 있다.
+
+그래서 2016년 종설/정리 논문이 중요하더라도, 실험적 결정타는 2012 원저라는 평가가 충분히 타당합니다.
+
+## 해석 시 주의점
+
+- 모델은 Candida/beta-glucan 축이므로 모든 자극에 일반화하면 과장
+- 보호 반응과 병적 과염증은 질환 맥락에 따라 달라짐
+- 사람 임상 질환에서 효과 크기/지속기간은 별도 검증 필요
+
+## 결론
+
+제공하신 nihms-511112 원문 기준으로 보면, trained immunity는 "가능성"이 아니라 "입증된 면역현상"에 가깝습니다.  
+이후 연구들은 주로 이 2012년 프레임을 확장하고 정교화한 것으로 읽는 것이 가장 정확합니다.
+
+<RelatedPosts
+  slugs={[
+    "2013-noncanonical-inflammasome-caspase11-lps",
+    "2016-polysaccharide-tlr4-landmark-studies-before",
+    "2007-metabolic-endotoxemia-cani"
+  ]}
+/>
+
+## 참고문헌
+
+1. Quintin J, Saeed S, Martens JHA, et al. Candida albicans infection affords protection against reinfection via functional reprogramming of monocytes. Cell Host Microbe. 2012;12(2):223-232. https://doi.org/10.1016/j.chom.2012.06.006
+2. Netea MG, Quintin J, van der Meer JWM. Trained immunity: a memory for innate host defense. Cell Host Microbe. 2011;9(5):355-361. https://doi.org/10.1016/j.chom.2011.04.006
+3. Netea MG, Joosten LAB, Latz E, et al. Trained immunity: A program of innate immune memory in health and disease. Science. 2016;352(6284):aaf1098. https://doi.org/10.1126/science.aaf1098
+4. NIHMS manuscript (PMCID): https://pmc.ncbi.nlm.nih.gov/articles/PMC3923645/
