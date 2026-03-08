@@ -1,6 +1,7 @@
 // app/sitemap.ts
 import type { MetadataRoute } from "next";
 import * as site from "@/.velite";
+import { normalizeDocSlug } from "@/lib/docs-slug";
 
 type VeliteItem = {
   slug: string;
@@ -38,7 +39,7 @@ function normalizeCollectionSlug(slug: string, collection: "docs" | "blog") {
     }
   }
 
-  return s;
+  return collection === "docs" ? normalizeDocSlug(s) : s;
 }
 
 function pickLastMod(item: VeliteItem): Date {

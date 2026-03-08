@@ -1,6 +1,7 @@
 // app/rss.xml/route.ts
 import { NextResponse } from "next/server";
 import * as site from "@/.velite";
+import { normalizeDocSlug } from "@/lib/docs-slug";
 
 const SITE_URL = "https://immunecube.com";
 const FEED_URL = `${SITE_URL}/rss.xml`;
@@ -51,7 +52,7 @@ function normalizeCollectionSlug(slug: string, collection: "docs" | "posts") {
       break;
     }
   }
-  return s;
+  return collection === "docs" ? normalizeDocSlug(s) : s;
 }
 
 type FeedItem = {

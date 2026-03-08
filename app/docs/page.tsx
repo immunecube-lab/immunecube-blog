@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import * as site from "@/.velite";
 import { CATEGORIES } from "./_categories";
 import { formatYmdDot } from "@/components/utils/date";
+import { normalizeDocSlug } from "@/lib/docs-slug";
 
 type Doc = {
   slug: string;
@@ -127,10 +128,8 @@ function sectionLabel(section: string) {
 }
 
 function getDocHref(slug: string) {
-  if (!slug) return "/docs";
-  if (slug.startsWith("/")) return slug;
-  if (slug.startsWith("docs/")) return `/${slug}`;
-  return `/docs/${slug}`;
+  const s = normalizeDocSlug(slug);
+  return s ? `/docs/${s}` : "/docs";
 }
 
 function pickDisplayDate(doc: Doc) {

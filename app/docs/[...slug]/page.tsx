@@ -1,9 +1,10 @@
 // app/docs/[...slug]/page.tsx
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import * as site from "@/.velite";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
+import { normalizeDocSlug } from "@/lib/docs-slug";
 
 type Doc = {
   slug: string;
@@ -21,9 +22,11 @@ const drafts = (site as any).drafts as Doc[] | undefined;
 const isLocalDev = process.env.NODE_ENV === "development";
 const docsSource = [...(docs ?? []), ...(isLocalDev ? drafts ?? [] : [])];
 
-function getDocByVeliteSlug(veliteSlug: string): Doc | undefined {
+function getDocBySlug(slug: string): Doc | undefined {
   if (docsSource.length === 0) return undefined;
-  return docsSource.find((d) => d.slug === veliteSlug);
+  const normalized = normalizeDocSlug(slug);
+  if (!normalized) return undefined;
+  return docsSource.find((d) => normalizeDocSlug(d.slug) === normalized);
 }
 
 // ✅ async로 변경 + params를 Promise로 받고 await
@@ -36,14 +39,15 @@ export async function generateMetadata({
 
   if (!segs || segs.length === 0) return {};
 
-  const veliteSlug = segs.join("/");
-  const doc = getDocByVeliteSlug(veliteSlug);
+  const rawSlug = segs.join("/");
+  const canonicalSlug = normalizeDocSlug(rawSlug);
+  const doc = getDocBySlug(rawSlug);
   if (!doc) return {};
 
   return {
     title: doc.title,
     description: doc.description,
-    alternates: { canonical: `/docs/${veliteSlug}` },
+    alternates: { canonical: `/docs/${canonicalSlug}` },
     robots: { index: true, follow: true },
   };
 }
@@ -52,7 +56,7 @@ export function generateStaticParams() {
   if (!docs) return [];
   return docs
     .filter((d) => d.published !== false)
-    .map((doc) => ({ slug: doc.slug.split("/") }));
+    .map((doc) => ({ slug: [normalizeDocSlug(doc.slug)] }));
 }
 
 // ✅ async로 변경 + params await
@@ -65,11 +69,16 @@ export default async function DocPage({
 
   if (!segs || segs.length === 0) notFound();
 
-  const veliteSlug = segs.join("/");
-  const doc = getDocByVeliteSlug(veliteSlug);
+  const rawSlug = segs.join("/");
+  const canonicalSlug = normalizeDocSlug(rawSlug);
+  const doc = getDocBySlug(rawSlug);
 
   if (!doc) notFound();
   if (!isLocalDev && doc.published === false) notFound();
+
+  if (rawSlug !== canonicalSlug) {
+    permanentRedirect(`/docs/${canonicalSlug}`);
+  }
 
   return (
     <main className="max-w-3xl mx-auto py-10 px-4">

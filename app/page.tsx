@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { BookOpen, Bell, Compass } from "lucide-react";
 import * as site from "@/.velite";
+import { normalizeDocSlug } from "@/lib/docs-slug";
 
 type Entry = {
   title: string;
@@ -34,10 +35,8 @@ function formatYmdDot(v?: string | Date) {
 }
 
 function getDocHref(slug: string) {
-  if (!slug) return "/docs";
-  if (slug.startsWith("/")) return slug;
-  if (slug.startsWith("docs/")) return `/${slug}`;
-  return `/docs/${slug}`;
+  const s = normalizeDocSlug(slug);
+  return s ? `/docs/${s}` : "/docs";
 }
 
 function getBlogHref(slug: string) {
