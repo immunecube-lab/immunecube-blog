@@ -2,8 +2,9 @@
 import { NextResponse } from "next/server";
 import * as site from "@/.velite";
 import { normalizeDocSlug } from "@/lib/docs-slug";
+import { buildSiteUrl } from "@/lib/site-url";
 
-const SITE_URL = "https://immunecube.com";
+const SITE_URL = buildSiteUrl("");
 const FEED_URL = `${SITE_URL}/rss.xml`;
 const TITLE = "ImmuneCube";
 const DESCRIPTION = "Latest updates from ImmuneCube docs & posts.";

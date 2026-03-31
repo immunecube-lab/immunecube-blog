@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { GlobalTopNav } from "../GlobalTopNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { getSiteUrl } from "@/lib/site-url";
 
 const pretendard = localFont({
   src: [
@@ -24,7 +25,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://immunecube.com"),
+  metadataBase: new URL(getSiteUrl()),
   title: "immunecube",
   description: "immunecube docs",
 

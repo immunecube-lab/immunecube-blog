@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "concurrently -k \"npm:velite:watch\" \"next dev\"",
-    "build": "npm run velite:build && next build",
-    "start": "next start",
-    "lint": "next lint",
+    "build": "npm run velite:build && npm run gen:legacy-doc-redirects && next build",
+    "start": "npx serve@latest out",
+    "lint": "eslint .",
     "velite:build": "velite build",
     "velite:watch": "velite build --watch",
-    "gen:index": "tsx scripts/generate-posts-index.ts"
+    "gen:index": "tsx scripts/generate-posts-index.ts",
+    "gen:legacy-doc-redirects": "node scripts/generate-legacy-doc-redirects.mjs",
+    "preview": "npx serve@latest out"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

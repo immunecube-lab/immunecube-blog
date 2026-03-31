@@ -20,6 +20,7 @@ void buildVelite().catch(console.error)
 const withNextra = nextra({})
 
 const nextConfig: NextConfig = {
+  output: "export",
   // Next 16용 Turbopack 설정
   turbopack: {
     resolveAlias: {

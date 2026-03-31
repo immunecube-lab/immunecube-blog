@@ -4,16 +4,11 @@ import type { Metadata } from "next";
 import { posts } from "@/.velite";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
+import { buildSiteUrl } from "@/lib/site-url";
 import { normalizePostSlug } from "../_lib";
 
-function getSiteUrl() {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "");
-  return SITE_URL || "";
-}
-
 function buildCanonical(slugPart: string) {
-  const siteUrl = getSiteUrl();
-  return siteUrl ? `${siteUrl}/blog/${slugPart}` : `/blog/${slugPart}`;
+  return buildSiteUrl(`/blog/${slugPart}`);
 }
 
 function getPost(slug: string) {

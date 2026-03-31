@@ -1,8 +1,15 @@
 // app/page.tsx
 import Link from "next/link";
+import type { Metadata } from "next";
 import { BookOpen, Bell, Compass } from "lucide-react";
 import * as site from "@/.velite";
 import { normalizeDocSlug } from "@/lib/docs-slug";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 type Entry = {
   title: string;

@@ -1,13 +1,7 @@
 import type { MetadataRoute } from "next";
+import { getSiteUrl } from "@/lib/site-url";
 
-function getSiteUrl(): string {
-  const raw =
-    process.env.SITE_URL ??
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    "https://immunecube.com";
-
-  return raw.endsWith("/") ? raw.slice(0, -1) : raw;
-}
+export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = getSiteUrl();
