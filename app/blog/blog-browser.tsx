@@ -140,6 +140,7 @@ export function BlogBrowser({ posts }: { posts: PostWithMeta[] }) {
                 <Link
                   key={post.slug}
                   href={`/blog/${encodeURIComponent(slugPart)}`}
+                  prefetch={false}
                   className="block rounded-xl border p-4 hover:bg-neutral-50"
                 >
                   {post.cover && (
@@ -172,6 +173,7 @@ export function BlogBrowser({ posts }: { posts: PostWithMeta[] }) {
               <li key={post.slug}>
                 <Link
                   href={`/blog/${encodeURIComponent(slugPart)}`}
+                  prefetch={false}
                   className="block rounded-md px-2 py-2 hover:bg-neutral-50"
                 >
                   <div className="flex items-baseline justify-between gap-3">

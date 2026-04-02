@@ -325,6 +325,7 @@ export function DocsBrowser({ docs }: { docs: Doc[] }) {
                 <li key={doc.slug}>
                   <Link
                     href={getDocHref(doc.slug)}
+                    prefetch={false}
                     className="block rounded-md px-2 py-2 hover:bg-neutral-50 transition"
                     title={doc.title}
                   >
