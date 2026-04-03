@@ -160,7 +160,7 @@ export const POSTS_INDEX: PostIndexItem[] = [
   { slug: "hfcs-not-pure-fructose", title: "액상과당은 순수 과당이 아닙니다" },
   { slug: "hib-vaccine-panic-virus-story", title: "백신을 맞지 않은 아이, 숨이 막혀 죽을 뻔했던 밤" },
   { slug: "hidden-toxin-endotoxin-in-sterile-injection", title: "숨겨진 독 – 멸균된 주사 속의 위협" },
-  { slug: "hirschhorn-antigen-specific-lymphocyte-response", title: "항원이 림프구를 깨우는 순간: 히르슈혼의 항원 특이적 림프구 실험" },
+  { slug: "hirschhorn-antigen-specific-lymphocyte-response", title: "항원이 림프구를 깨우는 순간: 허쉬혼의 항원 특이적 림프구 실험" },
   { slug: "history-of-radical-mastectomy", title: "유방암 근치수술은 어떻게 표준이 되었는가" },
   { slug: "hla-a2-mhc-structure-nature", title: "HLA-A2 구조가 바꾼 면역학: MHC가 펩타이드를 담는 방식" },
   { slug: "hormone-replacement-therapy-effect-illusion", title: "호르몬 대체 요법은 왜 효과가 있다고 믿어졌을까" },
