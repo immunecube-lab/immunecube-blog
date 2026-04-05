@@ -1,10 +1,10 @@
 ---
-title: '징커나겔과 도허티(1974): T세포는 ‘자기 위의 항원’을 본다'
+title: '1974년 - 징커나겔과 도허티: T세포는 ‘자기 위의 항원’을 본다'
 description: 세포독성 T세포 실험을 통해 MHC 제한성이라는 면역 인식의 핵심 원리를 확립한 징커나겔과 도허티의 고전 연구를 정리합니다.
 slug: zinkernagel-doherty-mhc-restriction-1974
-category: 면역학 고전
-section: imm-classic
-order: 1
+category: "면역학 고전"
+section: "세포면역학"
+order: 1974
 tags:
   - MHC 제한성
   - T세포
@@ -17,6 +17,25 @@ date: 1974-01-01
 updated: 2026-01-16
 ---
 <Paper title="Restriction of in vitro T cell-mediated cytotoxicity in lymphocytic choriomeningitis within a syngeneic or semiallogeneic system" authors="Rolf M. Zinkernagel; Peter C. Doherty" journal="Nature" year={1974} takeaway="바이러스 감염 마우스 모델에서 세포독성 T세포가 항원뿐 아니라 자기 MHC와 일치하는 세포만 공격함을 증명하며 MHC 제한성 개념을 확립한 고전 논문입니다." />
+
+<FigureGroup
+  images={[
+    {
+      src: "/images/person/doherty-13485-portrait-medium.webp",
+      alt: "피터 도허티 초상",
+      label: "피터 도허티",
+    },
+    {
+      src: "/images/person/zinkernagel-13486-portrait-medium.webp",
+      alt: "롤프 징커나겔 초상",
+      label: "롤프 징커나겔",
+    },
+  ]}
+  number={1}
+  caption="1996년 노벨생리의학상 수상한 피터 도허티(호주)와 롤프 징커나겔(스위스)"
+  maxWidth={600}
+  columns={2}
+/>
 
 ## T세포는 무엇을 어떻게 인식하는가
 
@@ -38,6 +57,26 @@ updated: 2026-01-16
 
 ## 결과: 항원만으로는 부족했다
 
+### Table 1. 다양한 마우스 계통에서 얻은 비장세포의 세포독성 활성
+이 표는 **C3H(H-2ᵏ) 감염 L-cell**을 공통 표적으로 고정해 놓고, 서로 다른 계통의 마우스에서 유도한 비장세포가 그 표적을 얼마나 죽일 수 있는지 비교한 실험입니다. 즉, 항원은 같게 두고 효과세포 쪽의 H-2 배경만 바꾸었을 때 세포독성 반응이 어떻게 달라지는지를 보여 줍니다.
+
+| 실험 | 마우스 계통 | H-2 타입 | 감염 세포 (% 51Cr release) | 정상 세포 (% 51Cr release) |
+|------|------------|----------|-----------------------------|-----------------------------|
+| 1    | CBA/H      | k        | **66.1 ± 3.3**                  | 17.2 ± 0.7                  |
+|      | Balb/C     | d        | 17.9 ± 0.9                  | 17.2 ± 0.6                  |
+|      | C57Bl      | b        | 22.7 ± 1.4                  | 19.8 ± 0.9                  |
+|      | CBA/H × C57Bl | k/b   | **56.1 ± 0.5**                  | 16.7 ± 0.3                  |
+|      | C57Bl × Balb/C | b/d  | 24.8 ± 2.4                  | 19.8 ± 0.9                  |
+|      | nu/+ 또는 +/+ | -     | 42.8 ± 2.0                  | 21.9 ± 0.7                  |
+|      | nu/nu      | -        | 23.3 ± 0.6                  | 20.0 ± 1.4                  |
+| 2    | CBA/H      | k        | **85.5 ± 3.1**                  | 20.9 ± 1.2                  |
+|      | AKR        | k        | **71.2 ± 1.6**                  | 18.6 ± 1.2                  |
+|      | DBA/2      | d        | 24.5 ± 1.2                  | 21.7 ± 1.7                  |
+| 3    | CBA/H      | k        | **77.9 ± 2.7**                  | 25.7 ± 1.3                  |
+|      | C3H/HeJ    | k        | **77.8 ± 0.8**                  | 24.5 ± 1.5                  |
+
+이 표에서 볼 수 있듯이, 세포독성 T세포는 표적세포와 H-2(MHC)를 공유하는 경우에만 높은 수준의 세포 용해를 보이며, MHC가 일치하지 않는 경우에는 감염되어 있어도 반응이 거의 나타나지 않는다.
+
 결과는 매우 분명했습니다. 예를 들어 H-2ᵏ를 가진 CBA/H 마우스에서 유도한 비장세포는, 같은 H-2ᵏ를 가진 C3H 감염 표적세포를 강하게 용해했습니다. 반면 H-2ᵈ의 BALB/c나 H-2ᵇ의 C57BL 마우스에서 유도한 비장세포는, 같은 바이러스로 감염된 C3H 표적세포에 거의 반응하지 않았습니다. 항원은 같았지만, **H-2가 맞지 않으면 CTL은 표적을 제대로 죽이지 못한 것**입니다.
 
 또 하나 흥미로운 점은 **semiallogeneic** 조합이었습니다. H-2를 한쪽만 공유하는 F1 효과세포는 완전한 syngeneic 조합만큼은 아니지만, 전혀 공유하지 않는 조합보다는 의미 있는 용해 반응을 보였습니다. 이 결과는 CTL 반응이 “자기와 완전히 동일해야만 한다”기보다, **적어도 하나의 자기 H-2 맥락을 공유해야 한다**는 방향을 보여 주었습니다.
@@ -46,7 +85,7 @@ updated: 2026-01-16
 
 이 현상이 바로 <b>MHC 제한성(MHC restriction)</b>입니다.
 
-원문에서 시간 경과를 본 실험도 같은 결론을 지지합니다. CBA/H 효과세포의 세포독성은 감염 후 7일과 10일 사이에 가장 강했고, 13일쯤 되면 뚜렷하게 떨어졌습니다. 반면 H-2가 맞지 않는 BALB/c나 C57BL 유래 세포는 같은 시점에도 C3H 감염 표적세포를 거의 죽이지 못했습니다. 즉, 반응의 크기가 감염 경과에 따라 달라질 수는 있어도, **인식의 규칙 자체는 H-2 일치라는 조건에 묶여 있었습니다.**
+논문에서 시간 경과를 본 실험도 같은 결론을 지지합니다. CBA/H 효과세포의 세포독성은 감염 후 7일과 10일 사이에 가장 강했고, 13일쯤 되면 뚜렷하게 떨어졌습니다. 반면 H-2가 맞지 않는 BALB/c나 C57BL 유래 세포는 같은 시점에도 C3H 감염 표적세포를 거의 죽이지 못했습니다. 즉, 반응의 크기가 감염 경과에 따라 달라질 수는 있어도, **인식의 규칙 자체는 H-2 일치라는 조건에 묶여 있었습니다.**
 
 ## T세포 인식의 삼자 관계
 
@@ -91,5 +130,4 @@ slugs={[
 - Zinkernagel, Rolf M., and Peter C. Doherty. “Restriction of in vitro T cell-mediated cytotoxicity in lymphocytic choriomeningitis.” Nature, 1974.
 - Doherty, Peter C., and Rolf M. Zinkernagel. “A biological role for the major histocompatibility antigens.” Lancet, 1975. https://doi.org/10.1016/S0140-6736(75)92610-0
 - Bjorkman, Pamela J., et al. “Structure of the human class I histocompatibility antigen.” Nature, 1987.
-
 
