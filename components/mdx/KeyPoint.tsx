@@ -3,12 +3,14 @@ import React, { ReactNode } from "react";
 import { Lightbulb } from "lucide-react";
 
 type KeyPointProps = {
+  title?: string;
   children: ReactNode;
   variant?: "default" | "subtle";
   className?: string;
 };
 
 export function KeyPoint({
+  title,
   children,
   variant = "default",
   className = "",
@@ -24,8 +26,8 @@ export function KeyPoint({
   // ✅ 라벨/아이콘 줄 + 본문 줄로 구조 분리
   const header =
     variant === "subtle"
-      ? "text-[0.78rem] tracking-widest text-gray-500"
-      : "text-[0.78rem] tracking-widest text-rose-700";
+      ? `text-[0.78rem] ${title ? "tracking-normal" : "tracking-widest"} text-gray-500`
+      : `text-[0.78rem] ${title ? "tracking-normal" : "tracking-widest"} text-rose-700`;
 
   const body =
     variant === "subtle"
@@ -36,7 +38,7 @@ export function KeyPoint({
     <aside
       className={`${base} ${style} ${className}`.trim()}
       role="note"
-      aria-label="Key point"
+      aria-label={title ? `Key point: ${title}` : "Key point"}
     >
       <div className="flex items-center gap-2">
         <Lightbulb
@@ -46,7 +48,7 @@ export function KeyPoint({
               : "h-4 w-4 text-rose-700"
           }
         />
-        <div className={header}>KEY POINT</div>
+        <div className={header}>{title ?? "KEY POINT"}</div>
       </div>
 
       <div className={body}>{children}</div>
