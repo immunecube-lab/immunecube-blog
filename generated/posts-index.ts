@@ -117,6 +117,7 @@ export const POSTS_INDEX: PostIndexItem[] = [
   { slug: "belgium-herb-nephropathy-thmpd-novel-food", title: "왜 ‘수천 년 먹어온 식품’이 유럽에서는 금지되는가: 벨기에 사건, THMPD, 그리고 Novel Food" },
   { slug: "beta-sitosterol-immunity-evidence", title: "베타 시토스테롤과 면역: 근거는 어디까지 확실한가" },
   { slug: "birth-of-lymphokine-1965", title: "1965년 - 림포카인의 탄생: 1965년, 면역계의 언어가 발견되다" },
+  { slug: "blog-and-docs-notice", title: "blog와 docs 운영 방식 안내" },
   { slug: "blog-publish-date-setup-notice", title: "블로그 발행일 표시 관련 안내" },
   { slug: "body-temperature-immunity", title: "체온과 면역: 체온이 낮아지면 면역력이 떨어진다는 말의 진실" },
   { slug: "bordet-complement-experiment-functional-separation", title: "1898 - 보르데의 보체의 발견, 항체와는 다른 그 무엇" },
