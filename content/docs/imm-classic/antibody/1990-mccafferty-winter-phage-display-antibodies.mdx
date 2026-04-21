@@ -1,0 +1,106 @@
+---
+title: "1990년 - Phage display 항체: 항체를 세포 밖에서 선택하다"
+description: "McCafferty, Griffiths, Winter, Chiswell의 1990년 Nature 논문을 중심으로, phage display가 항체공학을 hybridoma 이후의 시대로 옮긴 과정을 정리합니다."
+slug: "mccafferty-winter-phage-display-antibodies-1990"
+category: "면역학 고전"
+section: "항체 역사"
+order: 1990.5
+tags: ["phage display", "항체공학", "Greg Winter", "John McCafferty", "recombinant antibody", "면역학사"]
+status: "final"
+published: true
+date: 2026-04-21
+updated: 2026-04-21
+---
+<Paper
+  title="Phage Antibodies: Filamentous Phage Displaying Antibody Variable Domains"
+  authors="John McCafferty, Andrew D. Griffiths, Greg Winter, David J. Chiswell"
+  journal="Nature"
+  year={1990}
+  takeaway="single-chain Fv 항체 조각을 filamentous fd phage의 gene III 단백질에 융합해 표면에 표시하고, 항원 결합으로 드문 phage를 골라낼 수 있음을 보여 주며, 항체를 세포 융합이 아니라 라이브러리 선택으로 얻는 시대를 연 논문입니다."
+  doi="10.1038/348552a0"
+  pmid="2247164"
+/>
+
+## Hybridoma 다음에 남은 문제
+
+1975년 Köhler와 Milstein의 hybridoma 기술은 단일클론 항체를 만들 수 있게 했습니다. 이 기술은 항체 연구와 진단, 치료제 개발을 완전히 바꾸었습니다. 그러나 hybridoma에는 분명한 제약도 있었습니다. 동물을 면역해야 하고, B세포와 골수종 세포를 융합해야 하며, 원하는 항체를 만드는 clone을 세포 수준에서 찾아야 했습니다.
+
+분자유전학이 발전하면서 질문은 바뀌었습니다. 항체는 B세포 안에서만 골라야 할까요. 항체의 variable gene을 박테리아와 phage 안에 넣고, 항원에 붙는 항체 조각을 시험관에서 직접 고를 수는 없을까요.
+
+<Concept term="phage display" alias="파지 디스플레이">
+단백질이나 펩타이드를 박테리오파지 표면 단백질과 융합해 표시하고, 그 단백질을 암호화하는 DNA는 같은 phage 입자 안에 담아 두는 기술입니다. 표면의 결합 성질과 내부의 유전 정보가 물리적으로 연결되기 때문에, 결합하는 clone을 골라낸 뒤 곧바로 그 유전자를 회수할 수 있습니다.
+</Concept>
+
+## George Smith의 기술을 항체에 적용하다
+
+Phage display 자체의 출발점은 George P. Smith의 1985년 Science 논문입니다. Smith는 filamentous phage의 coat protein에 외래 peptide를 융합해 phage 표면에 표시할 수 있음을 보였습니다. 중요한 점은 phage 입자가 자신이 표시하는 peptide의 유전자를 내부에 함께 담고 있다는 것입니다. 이것은 선택과 증폭을 한 덩어리로 묶는 기술적 발상이었습니다.
+
+McCafferty, Griffiths, Winter, Chiswell의 1990년 논문은 이 원리를 항체에 적용했습니다. 그들은 항체의 variable domain을 filamentous fd phage 표면에 표시할 수 있는지 물었습니다. 항체의 결합 부위는 heavy chain variable domain과 light chain variable domain의 조합으로 만들어집니다. 따라서 단순한 짧은 peptide가 아니라 접힌 antibody variable domain을 phage 표면에서 기능적으로 유지할 수 있는지가 핵심 문제였습니다.
+
+원문에서 사용한 항체는 hen egg-white lysozyme에 결합하는 **D1.3 항체**였습니다. 연구진은 D1.3의 VH와 VL을 유연한 peptide linker로 이어 **single-chain Fv(scFv)**를 만들고, 이를 fd phage의 **gene III protein** N-말단 쪽에 융합했습니다. gene III protein은 fd phage 끝부분에 존재하며 세균 F pilus에 붙는 데 관여하는 단백질입니다.
+
+<Concept term="single-chain Fv" alias="scFv">
+항체의 heavy-chain variable domain(VH)과 light-chain variable domain(VL)을 짧은 유연한 linker로 한 폴리펩타이드 안에 연결한 항체 조각입니다. Fc는 없지만 항원 결합 부위의 핵심 구조를 유지할 수 있어, recombinant antibody와 phage display에서 널리 쓰였습니다.
+</Concept>
+
+## 항체 조각을 phage 표면에 올리다
+
+연구진은 먼저 D1.3 scFv가 박테리아 periplasm에서 발현되고 lysozyme-coated well에 결합할 수 있음을 확인한 뒤, 이를 fdCAT1 vector에 넣었습니다. 재조합 phage에서는 항체-gene III fusion 단백질이 western blot으로 검출되었습니다. 즉 phage 입자 표면에 항체 조각이 실제로 올라갔다는 물리적 증거가 있었습니다.
+
+다음 질문은 표면에 올라간 scFv가 아직 항원을 알아보는가였습니다. ELISA에서 D1.3 phage antibody는 **hen egg-white lysozyme**에는 결합했지만, **turkey egg-white lysozyme**, **human lysozyme**, **bovine serum albumin**에는 결합하지 않았습니다. 특히 turkey lysozyme은 hen lysozyme과 아미노산 차이가 7개뿐인데도 결합하지 않았습니다. 따라서 phage 표면의 항체 조각은 단순히 붙어 있는 것이 아니라, 원래 항체의 결합 특이성을 유지했습니다.
+
+<KeyPoint title="표면 표시만으로는 부족했다" variant="subtle">
+이 논문의 핵심 증거는 scFv가 phage에 붙었다는 사실이 아니라, phage 표면에서도 D1.3의 lysozyme 특이성이 유지되었고 항원으로 선택될 수 있었다는 점입니다.
+</KeyPoint>
+
+논문은 또한 드문 phage clone을 풍부한 background 속에서 골라낼 수 있음을 보여 주었습니다. D1.3 phage antibody를 parental fdCAT1 phage와 섞고, lysozyme-Sepharose affinity column에 통과시킨 뒤 결합한 phage를 회수했습니다. 한 번의 column selection만으로도 대략 천 배 enrichment가 가능했고, phage를 증폭해 다시 선택하면 최대 백만 배 수준의 enrichment가 관찰되었습니다. 원문은 rare phage가 백만 개 중 하나 수준이어도 항원 결합으로 회수될 수 있음을 보여 줍니다.
+
+<KeyPoint title="선택 가능한 항체 유전자" variant="subtle">
+Hybridoma에서는 항체를 만드는 세포를 골랐습니다. Phage display에서는 항체 조각을 표면에 단 phage를 항원 결합으로 고르고, 그 phage 안의 DNA에서 항체 유전자를 바로 얻습니다.
+</KeyPoint>
+
+## 항체공학의 논리가 바뀌다
+
+이 논문이 연 길은 단순한 실험법 개선이 아니었습니다. 항체를 만들기 위해 반드시 동물의 면역반응과 세포 융합에 의존할 필요가 없어졌습니다. 항체 variable gene library를 만들고, 그 library를 phage 표면에 표시한 뒤, 항원에 결합하는 clone을 반복적으로 선택하면 됩니다. 생체 안의 clonal selection을 시험관 안에서 흉내 내는 셈입니다.
+
+1991년 Winter 연구진은 이 발상을 더 밀어붙였습니다. 면역된 생쥐의 V gene library에서 항체 fragment를 만들 수 있었고, 이어 사람 말초혈 림프구의 V gene repertoire에서 human antibody fragment를 선택할 수 있음을 보여 주었습니다. 이 흐름은 immunization을 우회하는 인간 항체 개발로 이어졌습니다.
+
+원문 자체도 이미 그 가능성을 분명히 예상했습니다. 저자들은 hybridoma rescue, 큰 combinatorial library screening, 항원 선택 세포에서 원래 VH-VL 조합을 되찾는 방법, 완전 합성 항체 library, in vitro mutagenesis와 반복 선택을 언급했습니다. 즉 1990년 논문은 단순히 “D1.3을 phage에 붙였다”에서 끝나지 않고, 항체를 library와 selection의 대상으로 재정의했습니다.
+
+<Concept term="genotype-phenotype linkage" alias="유전자형-표현형 연결">
+Phage display에서 항원 결합이라는 표현형은 phage 표면의 항체 조각이 담당하고, 그 항체 조각의 유전자는 같은 phage 입자 안에 들어 있습니다. 이 연결 덕분에 결합체를 선택하면 그 유전자를 함께 얻을 수 있습니다.
+</Concept>
+
+## Hybridoma와 무엇이 달랐나
+
+Hybridoma는 생체가 만든 B세포 clone을 불멸화하는 기술입니다. 따라서 실제 면역반응이 만든 항체를 안정적으로 확보하는 데 강했습니다. 반면 phage display는 유전자를 먼저 library로 만들고, 그 library에서 원하는 결합체를 시험관 안에서 선택합니다. 세포를 융합하지 않아도 되고, 사람 항체 유전자를 직접 다룰 수 있으며, 선택 조건을 실험자가 설계할 수 있습니다.
+
+이 차이는 치료용 항체 개발에서 특히 중요했습니다. 마우스 hybridoma 항체는 사람에게 투여할 때 면역원성 문제가 생길 수 있습니다. Phage display는 human antibody fragment를 직접 선택하거나, 항체를 humanization하고 affinity maturation하는 데 강력한 기반을 제공했습니다. Greg Winter가 2018년 노벨화학상을 George Smith, Frances Arnold와 함께 받은 배경에도 이 항체공학의 전환이 있습니다.
+
+다만 이 1990년 논문만으로 모든 문제가 해결된 것은 아닙니다. 여기서 직접 보여 준 것은 주로 이미 알려진 D1.3 scFv를 phage에 올리고, lysozyme 결합으로 선택할 수 있다는 원리 증명입니다. 대규모 naive human library, synthetic library, 고친화도 therapeutic antibody 개발은 이 원리 위에서 이어진 후속 연구들의 성과입니다.
+
+## 항체 역사 속 위치
+
+Tonegawa가 항체 다양성이 DNA 조각의 재배열에서 나온다는 사실을 보여 주었다면, McCafferty와 Winter의 phage display는 그 유전자 조각들을 실험자가 다시 library로 다루고 선택할 수 있게 했습니다. 항체는 더 이상 생체가 만들어 주기를 기다리는 분자만이 아니라, 시험관 안에서 진화시키고 고를 수 있는 분자가 되었습니다.
+
+이 흐름은 단일클론 항체, recombinant antibody, human antibody library, affinity maturation, therapeutic antibody engineering으로 이어집니다. 항체 역사에서 phage display는 “발견된 항체”에서 “설계하고 선택하는 항체”로 넘어가는 전환점입니다.
+
+논문 말미의 note added in proof도 이 방향을 잘 보여 줍니다. 연구진은 2-phenyloxazolone hapten에 대한 scFv를 fdCAT1에 넣었을 때 예측한 특이성을 가진 phage antibody가 만들어진다고 덧붙였습니다. D1.3 하나의 사례가 아니라, 항체 특이성을 phage 표면으로 옮겨 선택할 수 있는 일반적 전략이라는 점을 강조한 셈입니다.
+
+## 한 줄 정리
+
+McCafferty와 Winter 연구진의 1990년 phage antibody 논문은 항체 variable domain을 phage 표면에 표시하고 항원 결합으로 선택할 수 있음을 보여 주며, 항체공학을 hybridoma 이후의 라이브러리 선택 시대로 옮겼습니다.
+
+<RelatedPosts
+  slugs={[
+    "kohler-milstein-1975-monoclonal-antibodies",
+    "tonegawa-antibody-gene-rearrangement-1976",
+    "aid-class-switch-hypermutation-honjo-2000"
+  ]}
+/>
+
+## 참고문헌
+
+- McCafferty J, Griffiths AD, Winter G, Chiswell DJ. Phage Antibodies: Filamentous Phage Displaying Antibody Variable Domains. *Nature*. 1990;348(6301):552-554. https://doi.org/10.1038/348552a0
+- Smith GP. Filamentous Fusion Phage: Novel Expression Vectors That Display Cloned Antigens on the Virion Surface. *Science*. 1985;228(4705):1315-1317. https://doi.org/10.1126/science.4001944
+- Marks JD, Hoogenboom HR, Bonnert TP, McCafferty J, Griffiths AD, Winter G. By-passing Immunization: Human Antibodies from V-gene Libraries Displayed on Phage. *Journal of Molecular Biology*. 1991;222(3):581-597. https://doi.org/10.1016/0022-2836(91)90498-U

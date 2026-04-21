@@ -1,0 +1,86 @@
+---
+title: "2000년 - AID의 발견: 항체 class switch와 체세포 과돌연변이를 묶다"
+description: "Muramatsu와 Honjo 연구진의 2000년 Cell 논문을 중심으로, AID가 class switch recombination과 somatic hypermutation에 필수적임을 보여 준 전환점을 정리합니다."
+slug: "aid-class-switch-hypermutation-honjo-2000"
+category: "면역학 고전"
+section: "항체 역사"
+order: 2000
+tags: ["AID", "class switch recombination", "somatic hypermutation", "항체 성숙", "Honjo", "면역유전학"]
+status: "final"
+published: true
+date: 2026-04-20
+updated: 2026-04-20
+---
+<Paper
+  title="Class Switch Recombination and Hypermutation Require Activation-Induced Cytidine Deaminase (AID), a Potential RNA Editing Enzyme"
+  authors="Masamichi Muramatsu, Kazuo Kinoshita, Sidonia Fagarasan, Shuichi Yamada, Yoichi Shinkai, Tasuku Honjo"
+  journal="Cell"
+  year={2000}
+  takeaway="AID 결핍이 class switch recombination과 somatic hypermutation을 모두 막는다는 사실을 보여 주며, 항체 성숙의 두 핵심 과정이 공통 효소에 의존한다는 그림을 세운 논문입니다."
+  doi="10.1016/S0092-8674(00)00078-7"
+/>
+
+## 항체는 만들어진 뒤에도 다시 변한다
+
+V(D)J recombination은 B세포가 처음 항원 수용체를 만들 때 일어납니다. 하지만 항체 반응은 거기서 끝나지 않습니다. 항원을 만난 B세포는 germinal center에서 항체 유전자를 다시 손봅니다. 하나는 class switch recombination이고, 다른 하나는 somatic hypermutation입니다.
+
+Class switch recombination은 Fc 기능을 바꿉니다. Somatic hypermutation은 variable region에 돌연변이를 넣어 더 잘 결합하는 항체를 선택할 수 있게 합니다. 두 과정은 겉으로는 달라 보이지만, 모두 활성화된 B세포에서 항체 유전자를 의도적으로 불안정하게 만든다는 공통점이 있습니다.
+
+<Concept term="AID" alias="activation-induced cytidine deaminase">
+AID는 활성화된 B세포에서 발현되는 cytidine deaminase 계열 효소입니다. 항체 유전자에 표적화된 변화를 일으켜 class switch recombination과 somatic hypermutation이 가능하게 합니다.
+</Concept>
+
+이 논문이 발표될 당시 AID의 정확한 표적은 아직 확정되지 않았습니다. 제목에도 "potential RNA editing enzyme"이라는 표현이 들어갑니다. AID가 APOBEC-1 같은 RNA editing cytidine deaminase와 닮았기 때문에, 저자들은 AID가 어떤 RNA를 편집해 CSR recombinase나 hypermutator를 만들 가능성을 진지하게 논의했습니다. 오늘날에는 AID가 DNA cytosine deamination을 통해 항체 유전자 변화를 시작한다는 쪽으로 이해하지만, 2000년 논문의 조심스러운 해석은 당시 맥락에서 중요합니다.
+
+## 결핍시키면 두 과정이 모두 멈췄다
+
+Muramatsu와 Honjo 연구진은 class switch가 잘 일어나는 CH12F3-2 B lymphoma 세포에서 AID를 찾아냈습니다. 이 세포는 CD40L, IL-4, TGF-beta 자극을 받으면 IgM에서 IgA로 잘 전환됩니다. 연구진은 tetracycline 조절 promoter로 AID를 유도 발현시키면, cytokine 자극이 없어도 약하게 class switching이 일어나고, suboptimal stimulation에서는 IgA 전환이 2-5배 증가한다는 gain-of-function 결과를 얻었습니다.
+
+하지만 이 논문의 결정적 증거는 결핍 실험이었습니다. 연구진은 AID 유전자의 exon 2와 exon 3 일부, 특히 cytidine deaminase motif를 포함하는 영역을 제거한 AID-deficient mouse와 RAG-2 deficient 배아를 이용한 AID-deficient chimera를 만들었습니다. AID 결핍 동물은 B세포와 T세포 발달 자체는 크게 망가지지 않았고, 항원 자극 뒤에도 IgM 항체는 만들 수 있었습니다. 그런데 IgG, IgA, IgE 같은 switched isotype은 거의 만들지 못했습니다. 혈청 IgM은 오히려 증가했고, germinal center에는 활성화된 IgM 양성 B세포가 축적되었습니다. 즉 B세포가 못 켜진 것이 아니라, 켜진 뒤 class switch 단계에서 막힌 것입니다.
+
+<Concept term="hyper-IgM phenotype" alias="고IgM 표현형">
+IgM은 만들지만 IgG, IgA, IgE 같은 switched isotype을 만들지 못해 혈청 IgM이 상대적으로 높게 남는 상태입니다. AID 결핍에서는 CD40L 결핍과 달리 germinal center 형성은 가능하지만 class switch와 hypermutation이 막힙니다.
+</Concept>
+
+연구진은 in vitro에서도 같은 결론을 확인했습니다. AID 결핍 비장 B세포를 LPS, IL-4, TGF-beta 등으로 자극해도 IgM은 분비했지만 다른 isotype 항체는 나오지 않았습니다. 더 중요한 점은 germline transcript는 정상적으로 유도되었다는 사실입니다. 각 switch region이 전사되어 접근 가능한 상태가 되는 단계는 살아 있었지만, postswitch transcript와 DC-PCR로 보는 실제 DNA 재조합 산물이 사라졌습니다. 따라서 AID는 cytokine 신호나 chromatin opening 이전 단계가 아니라, switch region DNA modification/recombination 단계에 필요하다고 해석할 수 있었습니다.
+
+## Hypermutation도 같이 사라졌다
+
+놀라운 대목은 somatic hypermutation도 함께 사라졌다는 점입니다. 연구진은 AID-deficient chimera를 NP-CGG로 면역하고, mesenteric lymph node에서 NP 반응에 자주 쓰이는 VH186.2 transcript를 증폭해 염기서열을 읽었습니다. 정상 대조군에서는 VH186.2에 돌연변이가 축적되고, NP에 대한 높은 친화도와 관련된 33번 tryptophan에서 leucine으로의 변이도 관찰되었습니다.
+
+반면 AID 결핍 B세포의 VH186.2에는 돌연변이가 거의 없었습니다. 원문 표에서는 AID 결핍 μ chain의 mutation frequency가 대조군 μ chain보다 약 10배 낮고, CDR1과 CDR2에는 돌연변이가 없었습니다. 이 수준은 PCR polymerase 오류 배경과 비슷하다고 설명됩니다. 즉 AID는 class switch만이 아니라 antigen-driven somatic hypermutation에도 필요했습니다.
+
+<KeyPoint title="실험의 핵심" variant="subtle">
+AID 결핍 B세포는 활성화되고 germline transcript도 만들지만, switch recombination 산물과 variable region hypermutation을 만들지 못했습니다. 그래서 AID는 B세포 활성화 인자가 아니라, 항체 유전자 자체를 바꾸는 단계에 필요한 분자로 해석되었습니다.
+</KeyPoint>
+
+## 항체 성숙의 공통 스위치
+
+이 발견은 항체 성숙을 이해하는 방식을 바꾸었습니다. B세포는 항체 유전자를 무작위로 흔드는 것이 아니라, 활성화 상태에서 특정 효소를 켜고, 그 효소의 작용을 switch region과 variable region에 집중시킵니다.
+
+이 과정은 유익하지만 위험합니다. AID는 항체를 더 강력하고 적절하게 만들지만, 동시에 DNA 손상과 염색체 전좌의 위험을 만들 수 있습니다. 그래서 AID는 항체 면역의 힘과 B세포 림프종 위험을 함께 설명하는 분자가 됩니다.
+
+이 논문과 같은 호에 실린 Revy 등의 연구는 사람의 autosomal recessive hyper-IgM syndrome, 즉 HIGM2 환자에서 AID 돌연변이를 발견했습니다. 그래서 AID 결핍 마우스의 표현형이 실험적 인공물이 아니라, 사람 면역결핍 질환과도 직접 연결된다는 점이 곧바로 확인되었습니다.
+
+## 항체 역사 속 위치
+
+1890년 혈청 속 보호 활성을 본 뒤, 항체 연구는 구조, 서열, 유전자 재배열, 단일클론 항체 기술을 거쳐 왔습니다. AID의 발견은 그 흐름에서 항체 반응의 "성숙"을 설명하는 결정적 단계입니다.
+
+도네가와가 초기 항체 다양성의 유전적 기원을 설명했다면, Muramatsu와 Honjo의 AID 연구는 항원 자극 이후 항체가 더 적절한 class와 affinity를 갖게 되는 과정을 하나의 분자에 연결했습니다.
+
+## 한 줄 정리
+
+2000년 AID 논문은 항체 class switch와 somatic hypermutation이 활성화된 B세포의 공통 유전자 편집 프로그램이라는 사실을 보여 주며, 항체 성숙의 분자적 중심을 제시했습니다.
+
+<RelatedPosts
+  slugs={[
+    "honjo-class-switch-circular-dna-1990",
+    "tonegawa-antibody-gene-rearrangement-1976",
+    "kohler-milstein-1975-monoclonal-antibodies"
+  ]}
+/>
+
+## 참고문헌
+
+- Muramatsu M, Kinoshita K, Fagarasan S, Yamada S, Shinkai Y, Honjo T. Class Switch Recombination and Hypermutation Require Activation-Induced Cytidine Deaminase (AID), a Potential RNA Editing Enzyme. *Cell*. 2000;102(5):553-563. https://doi.org/10.1016/S0092-8674(00)00078-7
+- Revy P, Muto T, Levy Y, et al. Activation-Induced Cytidine Deaminase (AID) Deficiency Causes the Autosomal Recessive Form of the Hyper-IgM Syndrome (HIGM2). *Cell*. 2000;102(5):565-575. https://doi.org/10.1016/S0092-8674(00)00079-9

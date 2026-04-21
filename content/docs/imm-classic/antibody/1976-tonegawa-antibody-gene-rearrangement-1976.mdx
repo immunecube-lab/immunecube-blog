@@ -10,12 +10,28 @@ tags:
   - 항체 다양성
   - V(D)J 재조합
   - 면역유전학
-status: rewrite
+status: final
 published: true
 date: 1976-01-01
-updated: 2026-01-16
+updated: 2026-04-20
 ---
-<Paper title="Somatic generation of antibody diversity" authors="Susumu Tonegawa" journal="Proceedings of the National Academy of Sciences" year={1976} takeaway="배아 세포와 성숙 B세포의 DNA를 비교해 항체 유전자가 발생 과정에서 재배열됨을 증명하며 항체 다양성의 유전적 기원을 처음으로 확정한 연구입니다." />
+<Paper
+  title="Evidence for Somatic Rearrangement of Immunoglobulin Genes Coding for Variable and Constant Regions"
+  authors="Nobumichi Hozumi, Susumu Tonegawa"
+  journal="Proceedings of the National Academy of Sciences"
+  year={1976}
+  takeaway="배아 세포와 항체 생산 세포의 DNA 구조를 비교해, 면역글로불린 유전자가 B세포 발생 과정에서 실제로 재배열된다는 증거를 제시한 논문입니다."
+  doi="10.1073/pnas.73.10.3628"
+/>
+
+<Paper
+  title="Somatic Generation of Antibody Diversity"
+  authors="Susumu Tonegawa"
+  journal="Nature"
+  year={1983}
+  takeaway="1976년 이후 축적된 항체 유전자 연구를 종합해, 조합 다양성, 접합부 다양성, 삽입 다양성, 체세포 돌연변이라는 네 가지 다양성 생성 원리를 정리한 리뷰입니다."
+  doi="10.1038/302575a0"
+/>
 
 <Figure
   src="/images/person/Susumu_Tonegawa_Photo.jpg"
@@ -31,7 +47,7 @@ updated: 2026-01-16
 
 항체는 어떻게 거의 무한에 가까운 항원을 구별할 수 있을까요.
 
-단백질 구조는 설명되었지만, **그 구조가 어떻게 그렇게 다양한 형태로 만들어지는지**는 아무도 설명하지 못하고 있었습니다. 이 문제를 정면으로 다룬 인물이 바로 **도네가와 스스무**였습니다.
+단백질 구조는 설명되었지만, **그 구조가 어떻게 그렇게 다양한 형태로 만들어지는지**는 아무도 설명하지 못하고 있었습니다. Hilschmann과 Craig는 light chain에 variable region과 constant region이 있음을 보여 주었고, Dreyer와 Bennett은 이 구조가 유전학적으로 역설적이라고 지적했습니다. 하나의 항체 사슬 안에 엄청나게 다양한 앞부분과 보존된 뒷부분이 함께 있어야 했기 때문입니다. 이 문제를 정면으로 다룬 인물이 바로 **도네가와 스스무**였습니다.
 
 ## 당시의 상식: 유전자는 변하지 않는다
 
@@ -39,17 +55,63 @@ updated: 2026-01-16
 
 하지만 첫 번째 설명은 곧바로 한계에 부딪혔습니다. 항체의 가능한 수를 생각하면, 유전체의 상당 부분이 항체 유전자로만 채워져야 하기 때문입니다. 도네가와는 바로 이 모순을 실험적으로 풀어 보려 했습니다.
 
-## 도네가와의 발상: 같은 개체, 다른 세포의 DNA를 비교하다
+## 도네가와의 발상: germ line DNA와 항체 생산 세포 DNA를 비교하다
 
-도네가와의 접근은 놀라울 정도로 단순하면서도 대담했습니다. “만약 항체 유전자가 발생 과정에서 바뀐다면, 배아 세포와 성숙한 B세포의 DNA는 같지 않을 것이다”라는 가설을 세운 것입니다.
+도네가와의 접근은 놀라울 정도로 단순하면서도 대담했습니다. “만약 항체 유전자가 B세포 분화 과정에서 바뀐다면, germ line DNA와 항체 생산 세포의 DNA는 같지 않을 것이다”라는 가설을 세운 것입니다.
 
-그는 같은 생쥐에서 **배아 세포**와 **항체를 생산하는 B세포**를 분리한 뒤, 항체 경쇄(light chain) 유전자 부위의 DNA 구조를 비교했습니다. 여기에는 당시로서는 매우 새로운 분자생물학 도구였던 **서던 블롯**(Southern blot) 분석이 사용되었습니다. 핵심은 특정 항체 유전자 조각이 배아 세포와 B세포에서 같은 위치에 있는지, 아니면 서로 다른 길이와 배열을 보이는지를 직접 비교하는 것이었습니다.
+Hozumi와 Tonegawa는 BALB/c 생쥐의 초기 배아 DNA와 κ light chain을 만드는 MOPC 321 plasmacytoma DNA를 비교했습니다. 배아 DNA는 germ line 배열을 대표하고, MOPC 321은 특정 κ chain을 실제로 발현하는 plasma cell tumor입니다.
+
+실험 방식도 지금 기준으로 보면 흥미롭습니다. 연구진은 고분자 DNA를 BamHI 제한효소로 완전히 절단하고, 큰 agarose gel에서 크기별로 분리한 뒤, gel slice마다 DNA를 회수했습니다. 그런 다음 방사성 요오드로 표지한 MOPC 321 κ mRNA 전체와, 그 mRNA의 3' half를 probe처럼 사용해 RNA-DNA hybridization을 했습니다. 3' half는 주로 constant region과 3' untranslated region을 반영하고, whole κ mRNA와 3' half의 차이를 통해 variable region 신호를 간접적으로 읽었습니다.
+
+만약 variable과 constant region이 처음부터 하나의 완성된 유전자라면 배아 DNA와 tumor DNA의 패턴은 같아야 합니다. 반대로 B세포에서 V와 C 정보가 재배열된다면, 항체 생산 세포에서만 다른 크기의 DNA 조각이 나타나야 합니다.
 
 ## 1976–1977년 실험의 결정적 결과
 
-실험 결과는 당시의 상식을 정면으로 뒤집었습니다. 배아 세포에서는 항체 유전자 부위가 서로 떨어진 조각처럼 보였지만, 성숙한 B세포에서는 그 조각들이 더 가까워지거나 하나로 이어진 것처럼 보였습니다. 즉, 항체 유전자는 세포가 분화하는 과정에서 **실제로 재배열**(rearrangement)되고 있었던 것입니다.
+실험 결과는 당시의 상식을 정면으로 뒤집었습니다. 배아 DNA에서는 두 개의 다른 BamHI fragment가 관찰되었습니다. 하나는 분자량 약 6.0 million의 fragment로 constant region 쪽 신호를 담고 있었고, 다른 하나는 약 3.9 million의 fragment로 variable region 쪽 신호를 담고 있었습니다. 즉 germ line에서는 Vκ와 Cκ 정보가 같은 절편 안에 있지 않았습니다.
 
-이 결과는 항체 다양성이 단순히 단백질 조립의 우연한 산물이 아니라, **DNA 수준에서 이미 만들어지는 현상**임을 처음으로 보여 주었습니다. 후대에 정교하게 정리된 **V(D)J 재조합**(V(D)J recombination) 개념의 실험적 토대가 바로 여기서 마련됩니다.
+반면 MOPC 321 tumor DNA에서는 약 2.4 million의 단일 fragment가 whole κ mRNA와 3' half 모두에 hybridization했습니다. 다시 말해 항체 생산 세포에서는 Vκ와 Cκ 정보가 같은 DNA 조각 안에 들어오도록 배열이 바뀌어 있었습니다. Hozumi와 Tonegawa는 이를 Vκ와 Cκ가 림프구 분화 과정에서 결합해 contiguous polynucleotide stretch를 만든다는 증거로 해석했습니다.
+
+이 결과는 항체 다양성이 단순히 단백질 조립의 우연한 산물이 아니라, **DNA 수준에서 만들어지는 현상**임을 처음으로 보여 주었습니다. 이어진 1977-1978년 연구들은 light chain의 V와 J segment, heavy chain의 V, D, J segment가 따로 존재하다가 B세포 발생 중 이어진다는 그림을 더 구체화했습니다. 후대에 정교하게 정리된 **V(D)J recombination** 개념의 실험적 토대가 바로 여기서 마련됩니다.
+
+<KeyPoint title="1976년 논문의 직접 증거" variant="subtle">
+배아 DNA에서는 κ light chain의 V 쪽과 C 쪽 신호가 서로 다른 BamHI fragment에 있었지만, MOPC 321 plasmacytoma DNA에서는 두 신호가 하나의 더 작은 fragment에 함께 나타났습니다. 이것이 somatic rearrangement의 핵심 증거였습니다.
+</KeyPoint>
+
+<Concept term="V(D)J recombination" alias="항체 유전자 재배열">
+B세포가 성숙하는 동안 V, D, J 유전자 조각을 새롭게 이어 붙여 항원 수용체의 다양성을 만드는 과정입니다. 도네가와의 실험은 이 재배열이 실제 DNA 수준에서 일어난다는 사실을 보여 준 출발점이었습니다.
+</Concept>
+
+## 무엇을 증명했고, 무엇은 아직 남았나
+
+1976년 논문은 매우 강한 증거를 제시했지만, 오늘날의 V(D)J recombination 전체 구조를 한 번에 증명한 것은 아니었습니다. 저자들은 V-C 정보가 DNA 수준에서 가까워진다는 점을 보였고, copy-insertion 모델은 자신들의 자료와 맞지 않는다고 보았습니다. 그러나 excision-insertion, deletion, inversion 같은 여러 모델은 당시 자료만으로 모두 가능했습니다.
+
+원문은 또 조심스럽습니다. MOPC 321 tumor에서 배아형 V fragment와 C fragment가 보이지 않는다는 점은 두 homologous chromosome 모두에서 재배열이 일어났다는 해석과 맞지만, plasmacytoma의 염색체 이상 때문에 한쪽 chromosome이 소실되었을 가능성을 완전히 배제할 수 없다고 적었습니다. 따라서 이 논문을 “현대적 V(D)J 기전의 완성”으로 읽기보다는, **항체 유전자가 체세포에서 재배열된다**는 문을 연 실험으로 읽는 편이 정확합니다.
+
+흥미로운 것은 저자들이 이미 용어 자체를 의심했다는 점입니다. 만약 V와 C가 분리된 DNA segment로 있다가 joining을 통해 활성 유전자가 된다면, "V gene"과 "C gene"이라는 말보다 "V region을 지정하는 DNA segment"와 "C region을 지정하는 DNA segment"라는 표현이 더 맞을 수 있다고 본 것입니다. 즉 항체 유전자는 처음부터 완성된 단위가 아니라, B세포에서 만들어지는 단위라는 생각이 여기서 드러납니다.
+
+## 1983년 리뷰가 정리한 네 가지 다양성
+
+1983년 Nature 리뷰에서 Tonegawa는 1976년 이후 축적된 결과를 정리하며, 항체 다양성이 한 가지 기전에서만 나오지 않는다고 설명했습니다. 첫 번째는 **combinatorial diversity**입니다. light chain에서는 여러 V segment와 J segment가 조합되고, heavy chain에서는 V, D, J segment가 조합됩니다. 조각 수가 제한되어 있어도 조합만으로 큰 다양성이 생깁니다.
+
+두 번째는 **junctional site diversity**입니다. V-J 또는 V-D-J가 이어질 때 절단과 연결 위치가 항상 정확히 같지 않습니다. 몇 염기가 더 들어가거나 빠질 수 있고, 이 차이는 특히 항원과 직접 만나는 CDR3에 큰 영향을 줍니다.
+
+세 번째는 **junctional insertion diversity**입니다. heavy chain의 V-D와 D-J 접합부에는 원래 germ line segment로 설명되지 않는 염기가 삽입될 수 있습니다. 1983년 리뷰는 terminal deoxynucleotidyl transferase가 관여할 가능성을 논의했습니다. 오늘날 말하는 N nucleotide addition과 연결되는 생각입니다.
+
+네 번째는 **somatic mutation**, 즉 somatic hypermutation입니다. B세포가 항원을 만난 뒤 variable region에 높은 빈도로 돌연변이가 들어가고, 그중 더 잘 결합하는 항체가 선택됩니다. Tonegawa는 1983년 리뷰에서 재배열과 돌연변이가 함께 항체 다양성을 크게 증폭한다고 정리했습니다.
+
+<KeyPoint title="네 가지 somatic diversifier" variant="subtle">
+Tonegawa의 1983년 정리는 항체 다양성을 V(D)J 조합만으로 설명하지 않습니다. 조합 다양성, 접합부 위치의 불정확성, 접합부 염기 삽입, 체세포 돌연변이가 함께 작동해 항체 레퍼토리를 넓힌다는 그림입니다.
+</KeyPoint>
+
+## 12/23 규칙과 재조합 신호
+
+1983년 리뷰에는 재조합이 아무 곳에서나 일어나지 않는다는 점도 정리되어 있습니다. V, D, J segment 주변에는 heptamer와 nonamer로 이루어진 recombination signal sequence가 있고, 그 사이 spacer 길이는 대체로 12 bp 또는 23 bp입니다. 기능적인 재조합은 보통 12 bp spacer를 가진 조각과 23 bp spacer를 가진 조각 사이에서 일어납니다. 이것이 나중에 **12/23 rule**로 정리됩니다.
+
+<Concept term="12/23 rule" alias="12/23 규칙">
+V(D)J recombination에서 12 bp spacer를 가진 recombination signal sequence와 23 bp spacer를 가진 signal sequence가 짝을 이루어 재조합되는 규칙입니다. 이 규칙은 잘못된 조합을 줄이고, V-D-J가 올바른 순서로 이어지도록 돕습니다.
+</Concept>
+
+1983년 당시에는 RAG1/RAG2가 아직 발견되기 전이었습니다. 따라서 Tonegawa는 recombinase의 존재와 작동 방식을 추정할 수는 있었지만, 그 분자적 정체까지 알지는 못했습니다. 이 점은 중요합니다. 1976년 발견은 "DNA가 재배열된다"는 사실을 열었고, 1980년대 초의 리뷰는 "어떤 조각과 규칙으로 재배열되는가"를 정리했으며, RAG 발견은 그 뒤의 문제였습니다.
 
 ## 이 발견이 의미하는 것
 
@@ -61,22 +123,26 @@ updated: 2026-01-16
 
 도네가와는 이 공로로 1987년 노벨 생리의학상을 수상했습니다. 그의 연구는 이후 T세포 수용체(TCR)의 유전자 재배열 발견으로 확장되었고, 면역계를 하나의 **발생학적·유전학적 시스템**으로 바라보는 관점을 정착시켰습니다.
 
-에덜먼과 포터가 “항체는 어떻게 생겼는가”를 설명했다면, 도네가와는 “항체는 어떻게 만들어지는가”에 답한 셈입니다.
+에덜먼과 포터가 “항체는 어떻게 생겼는가”를 설명했다면, 도네가와는 “항체는 어떻게 만들어지는가”에 답한 셈입니다. 그리고 1990년 Honjo의 class switch circle 연구와 2000년 AID 연구는, B세포가 항원 자극 뒤에도 다시 DNA를 편집한다는 후속 장면을 보여 줍니다. 항체 유전자는 한 번 조립되고 끝나는 것이 아니라, 발생과 면역반응의 여러 단계에서 다시 다듬어지는 시스템입니다.
 
 ## 정리하며
 
-도네가와의 실험은 화려한 장비나 복잡한 이론에서 출발하지 않았습니다. 같은 개체의 서로 다른 세포를 비교한다는, 단순하지만 매우 위험한 질문에서 시작되었습니다.
+도네가와의 실험은 화려한 장비나 복잡한 이론에서 출발하지 않았습니다. germ line DNA와 항체를 실제로 만드는 세포의 DNA가 같은지 묻는, 단순하지만 매우 위험한 질문에서 시작되었습니다.
 
 그 질문 하나로 면역학은 생화학의 시대를 넘어, **유전자가 스스로를 재배열하는 시스템**이라는 새로운 세계로 들어서게 됩니다. 오늘날 항체 공학, CAR-T 세포 치료, 면역 유전자 치료의 출발점에는 모두 이 발견이 놓여 있습니다.
 
 <RelatedPosts  
 slugs={[  
+"jerne-natural-selection-antibody-formation-1955",
+"nossal-lederberg-one-cell-one-antibody-1958",
+"dreyer-bennett-antibody-formation-paradox-1965",
 "edelman-porter-antibody-structure-1959",  
-"tiselius-kabat-electrophoretic-study-immune-sera",  
+"honjo-class-switch-circular-dna-1990",
+"aid-class-switch-hypermutation-honjo-2000",
 ]}  
 />
 
 ## 참고문헌
 
-- Tonegawa, Susumu. “Somatic generation of antibody diversity.” Proceedings of the National Academy of Sciences, 1976. https://doi.org/10.1073/pnas.73.6.203
-- Hozumi, Nobumichi, and Susumu Tonegawa. “Evidence for somatic rearrangement of immunoglobulin genes.” PNAS, 1976. https://doi.org/10.1073/pnas.73.10.3628
+- Hozumi N, Tonegawa S. Evidence for Somatic Rearrangement of Immunoglobulin Genes Coding for Variable and Constant Regions. *Proceedings of the National Academy of Sciences*. 1976;73(10):3628-3632. https://doi.org/10.1073/pnas.73.10.3628
+- Tonegawa S. Somatic Generation of Antibody Diversity. *Nature*. 1983;302:575-581. https://doi.org/10.1038/302575a0
