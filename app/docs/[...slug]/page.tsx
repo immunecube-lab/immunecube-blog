@@ -53,10 +53,16 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  if (!docs) return [];
-  return docs
-    .filter((d) => d.published !== false)
-    .map((doc) => ({ slug: [normalizeDocSlug(doc.slug)] }));
+  const seen = new Set<string>();
+  return docsSource
+    .filter((d) => (isLocalDev ? true : d.published !== false))
+    .map((doc) => normalizeDocSlug(doc.slug))
+    .filter((slug) => {
+      if (!slug || seen.has(slug)) return false;
+      seen.add(slug);
+      return true;
+    })
+    .map((slug) => ({ slug: [slug] }));
 }
 
 // ✅ async로 변경 + params await

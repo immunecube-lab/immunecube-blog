@@ -7,9 +7,9 @@ import { useMemo, useState } from 'react';
 type NavItem = { href: string; label: string };
 
 const NAV: NavItem[] = [
-  { href: '/', label: 'Home' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/docs', label: 'Docs' },
+  { href: '/', label: '홈' },
+  { href: '/blog', label: '공지' },
+  { href: '/docs', label: '문서' },
 ];
 
 function cx(...classes: Array<string | false | undefined>) {
@@ -23,10 +23,20 @@ function Breadcrumbs({ pathname }: { pathname: string }) {
 
     if (parts.length === 0) return [];
 
-    const prettify = (s: string) =>
-      decodeURIComponent(s)
-        .replace(/[-_]/g, ' ')
-        .replace(/\b\w/g, (c) => c.toUpperCase());
+    const labels: Record<string, string> = {
+      blog: '공지',
+      docs: '문서',
+    };
+
+    const prettify = (s: string) => {
+      const decoded = decodeURIComponent(s);
+      return (
+        labels[decoded] ??
+        decoded
+          .replace(/[-_]/g, ' ')
+          .replace(/\b\w/g, (c) => c.toUpperCase())
+      );
+    };
 
     const result: Array<{ href: string; label: string }> = [];
     let acc = '';

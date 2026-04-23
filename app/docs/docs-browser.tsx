@@ -13,6 +13,8 @@ type Doc = {
   category?: string;
   section?: string;
   docType?: string;
+  cover?: string;
+  featured?: boolean;
   order?: number;
   date?: string;
   updated?: string;
@@ -25,6 +27,7 @@ type Selection = {
 
 function sortDocsInCategory(items: Doc[]) {
   return [...items].sort((a, b) => {
+    if (a.featured !== b.featured) return a.featured ? -1 : 1;
     const ao = a.order ?? 9999;
     const bo = b.order ?? 9999;
     if (ao !== bo) return ao - bo;
@@ -167,6 +170,8 @@ export function DocsBrowser({ docs }: { docs: Doc[] }) {
   const activeItems = activeSection
     ? sectionGroups.find(([section]) => section === activeSection)?.[1] ?? []
     : activeAllItems;
+  const docentItems = activeItems.filter((doc) => doc.docType === "docent");
+  const standardItems = activeItems.filter((doc) => doc.docType !== "docent");
 
   function updateSelection(nextCategory: string, nextSection: string) {
     const safeCategory = categories.includes(nextCategory)
@@ -197,6 +202,65 @@ export function DocsBrowser({ docs }: { docs: Doc[] }) {
     const query = params.toString();
     const nextUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
     window.history.pushState({}, "", nextUrl);
+  }
+
+  function renderDocItem(doc: Doc, featured = false) {
+    const label = pickDisplayDate(doc);
+
+    return (
+      <li key={doc.slug}>
+        <Link
+          href={getDocHref(doc.slug)}
+          prefetch={false}
+          className={[
+            "block rounded-md transition",
+            featured
+              ? "border-l-4 border-amber-500 bg-amber-50/80 px-3 py-3 hover:bg-amber-50"
+              : "px-2 py-2 hover:bg-neutral-50",
+          ].join(" ")}
+          title={doc.title}
+        >
+          <div className={featured && doc.cover ? "flex gap-3" : ""}>
+            {featured && doc.cover ? (
+              <img
+                src={doc.cover}
+                alt=""
+                className="h-16 w-24 shrink-0 rounded object-cover"
+                loading="lazy"
+              />
+            ) : null}
+
+            <div className="min-w-0 flex-1">
+              <div className="flex items-baseline justify-between gap-3">
+                <span
+                  className={[
+                    "inline-flex items-center gap-2 hover:underline font-medium",
+                    doc.docType === "docent" ? "text-amber-700" : "text-sky-600",
+                  ].join(" ")}
+                >
+                  {doc.docType === "docent" ? (
+                    <span className="shrink-0 rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-semibold text-amber-800">
+                      해설
+                    </span>
+                  ) : null}
+                  <span>{doc.title}</span>
+                </span>
+
+                {label && (
+                  <span className="shrink-0 text-[11px] text-neutral-400">
+                    {label}
+                  </span>
+                )}
+              </div>
+
+              {doc.description && (
+                <p className="mt-1 text-sm text-neutral-500">{doc.description}</p>
+              )}
+            </div>
+          </div>
+        </Link>
+      </li>
+    );
   }
 
   return (
@@ -317,45 +381,37 @@ export function DocsBrowser({ docs }: { docs: Doc[] }) {
             </p>
           )}
 
-          <ul className="space-y-3">
-            {activeItems.map((doc) => {
-              const label = pickDisplayDate(doc);
+          <div className="space-y-6">
+            {docentItems.length > 0 ? (
+              <section>
+                <div className="mb-2 flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-amber-800">해설</h3>
+                  <span className="text-[11px] text-amber-700">
+                    {docentItems.length}개
+                  </span>
+                </div>
+                <ul className="space-y-3">
+                  {docentItems.map((doc) => renderDocItem(doc, true))}
+                </ul>
+              </section>
+            ) : null}
 
-              return (
-                <li key={doc.slug}>
-                  <Link
-                    href={getDocHref(doc.slug)}
-                    prefetch={false}
-                    className="block rounded-md px-2 py-2 hover:bg-neutral-50 transition"
-                    title={doc.title}
-                  >
-                    <div className="flex items-baseline justify-between gap-3">
-                      <span
-                        className={[
-                          "inline-flex items-center gap-2 hover:underline font-medium",
-                          doc.docType === "docent"
-                            ? "text-amber-700"
-                            : "text-sky-600",
-                        ].join(" ")}
-                      >
-                        <span>{doc.title}</span>
-                      </span>
-
-                      {label && (
-                        <span className="shrink-0 text-[11px] text-neutral-400">
-                          {label}
-                        </span>
-                      )}
-                    </div>
-
-                    {doc.description && (
-                      <p className="mt-1 text-sm text-neutral-500">{doc.description}</p>
-                    )}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+            {standardItems.length > 0 ? (
+              <section>
+                {docentItems.length > 0 ? (
+                  <div className="mb-2 flex items-center justify-between border-t border-neutral-100 pt-4">
+                    <h3 className="text-sm font-semibold text-neutral-700">문서</h3>
+                    <span className="text-[11px] text-neutral-400">
+                      {standardItems.length}개
+                    </span>
+                  </div>
+                ) : null}
+                <ul className="space-y-3">
+                  {standardItems.map((doc) => renderDocItem(doc))}
+                </ul>
+              </section>
+            ) : null}
+          </div>
         </section>
       </div>
     </main>
