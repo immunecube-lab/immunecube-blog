@@ -11,6 +11,7 @@
     "velite:watch": "velite build --watch",
     "gen:index": "tsx scripts/generate-posts-index.ts",
     "gen:legacy-doc-redirects": "node scripts/generate-legacy-doc-redirects.mjs",
+    "images:homepage-photos": "node scripts/convert-homepage-photos.mjs",
     "preview": "npx serve@latest out"
   },
   "dependencies": {
@@ -36,6 +37,7 @@
     "gray-matter": "^4.0.3",
     "playwright": "^1.57.0",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.17",
     "tsx": "^4.21.0",
     "typescript": "^5",
