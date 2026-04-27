@@ -106,6 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   addEntry(out, SITE_URL, siteLast);
   addEntry(out, joinUrl(SITE_URL, "/docs"), docsLast);
   addEntry(out, joinUrl(SITE_URL, "/blog"), postsLast);
+  addEntry(out, joinUrl(SITE_URL, "/contact"), siteLast);
 
   for (const p of posts) addEntry(out, p.url, p.lastModified);
   for (const d of docs) addEntry(out, d.url, d.lastModified);

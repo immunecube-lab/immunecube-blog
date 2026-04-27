@@ -10,6 +10,7 @@ const NAV: NavItem[] = [
   { href: '/', label: '홈' },
   { href: '/blog', label: '공지' },
   { href: '/docs', label: '문서' },
+  { href: '/contact', label: '문의' },
 ];
 
 function cx(...classes: Array<string | false | undefined>) {
@@ -26,6 +27,7 @@ function Breadcrumbs({ pathname }: { pathname: string }) {
     const labels: Record<string, string> = {
       blog: '공지',
       docs: '문서',
+      contact: '문의',
     };
 
     const prettify = (s: string) => {
