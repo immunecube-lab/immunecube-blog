@@ -1,0 +1,40 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
+    {
+      "src": "/knowledgebase(?:/.*)?",
+      "status": 410,
+      "headers": {
+        "X-Robots-Tag": "noindex"
+      }
+    },
+    {
+      "src": "/posts(?:/.*)?",
+      "status": 410,
+      "headers": {
+        "X-Robots-Tag": "noindex"
+      }
+    },
+    {
+      "src": "/articles(?:/.*)?",
+      "status": 410,
+      "headers": {
+        "X-Robots-Tag": "noindex"
+      }
+    },
+    {
+      "src": "/category(?:/.*)?",
+      "status": 410,
+      "headers": {
+        "X-Robots-Tag": "noindex"
+      }
+    },
+    {
+      "src": "/tag(?:/.*)?",
+      "status": 410,
+      "headers": {
+        "X-Robots-Tag": "noindex"
+      }
+    }
+  ]
+}
