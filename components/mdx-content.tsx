@@ -14,6 +14,7 @@ import { PaperLite } from "@/components/mdx/PaperLite";
 import RelatedPosts from "@/components/mdx/RelatedPosts";
 import { FigureGroup } from "@/components/mdx/FigureGroup";
 import { References, Reference } from "@/components/mdx/References";
+import { AuthorBio } from "@/components/mdx/AuthorBio";
 
 const sharedComponents: MDXComponents = {
   Series,
@@ -24,6 +25,7 @@ const sharedComponents: MDXComponents = {
   PaperLite,
   RelatedPosts, // ✅ 반드시 포함
   FigureGroup,
+  AuthorBio,
 
   // ✅ 전역 레퍼런스 컴포넌트 등록
   References,
