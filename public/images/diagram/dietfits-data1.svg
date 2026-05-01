@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 414.968 623.613">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-width: 1.058px;
+      }
+
+      .cls-4 {
+        fill: #00aeef;
+      }
+
+      .cls-4, .cls-5 {
+        font-family: AppleSDGothicNeoH00, AppleSDGothicNeoH00;
+        font-size: 12px;
+      }
+
+      .cls-6 {
+        font-size: 11px;
+      }
+
+      .cls-6, .cls-7, .cls-8, .cls-5, .cls-9 {
+        fill: #231f20;
+      }
+
+      .cls-6, .cls-7, .cls-8, .cls-9 {
+        font-family: AppleSDGothicNeoEB00, AppleSDGothicNeoEB00;
+      }
+
+      .cls-7 {
+        font-size: 9px;
+      }
+
+      .cls-8 {
+        font-size: 9.997px;
+      }
+
+      .cls-10 {
+        fill: #d2cfd0;
+      }
+
+      .cls-10, .cls-11, .cls-12, .cls-13, .cls-14 {
+        stroke-width: 0px;
+      }
+
+      .cls-11 {
+        fill: #00a2d6;
+      }
+
+      .cls-12 {
+        fill: #f1f2f2;
+      }
+
+      .cls-9 {
+        font-size: 10px;
+      }
+
+      .cls-13 {
+        fill: #df8f42;
+      }
+
+      .cls-3 {
+        stroke-width: 1.004px;
+      }
+
+      .cls-14 {
+        fill: #79ae96;
+      }
+    </style>
+  </defs>
+  <rect class="cls-12" width="414.968" height="623.613"/>
+  <rect class="cls-11" x="74.71" y="47.226" width="54.968" height="170.323"/>
+  <rect class="cls-11" x="74.71" y="335.226" width="54.968" height="193.161"/>
+  <rect class="cls-14" x="151.935" y="335.226" width="54.968" height="132"/>
+  <rect class="cls-13" x="229.355" y="335.226" width="54.968" height="162.387"/>
+  <rect class="cls-10" x="308.065" y="335.226" width="54.968" height="104.774"/>
+  <rect class="cls-14" x="149.864" y="47.226" width="54.968" height="151.355"/>
+  <rect class="cls-13" x="227.283" y="47.226" width="54.968" height="153.29"/>
+  <rect class="cls-10" x="304.315" y="47.226" width="54.968" height="118.065"/>
+  <g>
+    <text class="cls-9" transform="translate(86.89 589.162)"><tspan x="0" y="0">좋은식단</tspan><tspan x="0" y="12">순응도 높음</tspan></text>
+    <text class="cls-9" transform="translate(165.843 589.162)"><tspan x="0" y="0">좋은식단</tspan><tspan x="0" y="12">순응도 낮음</tspan></text>
+    <text class="cls-9" transform="translate(241.331 589.162)"><tspan x="0" y="0">안좋은 식단</tspan><tspan x="0" y="12">순응도 높음</tspan></text>
+    <text class="cls-9" transform="translate(308.065 589.162)"><tspan x="0" y="0">안좋은 식단</tspan><tspan x="0" y="12">순응도 낮음</tspan></text>
+  </g>
+  <text class="cls-9" transform="translate(89.735 276.497)"><tspan x="0" y="0">좋은식단</tspan><tspan x="0" y="12">순응도 높음</tspan></text>
+  <text class="cls-9" transform="translate(168.689 276.497)"><tspan x="0" y="0">좋은식단</tspan><tspan x="0" y="12">순응도 낮음</tspan></text>
+  <text class="cls-9" transform="translate(244.177 276.497)"><tspan x="0" y="0">안좋은 식단</tspan><tspan x="0" y="12">순응도 높음</tspan></text>
+  <text class="cls-9" transform="translate(310.91 276.497)"><tspan x="0" y="0">안좋은 식단</tspan><tspan x="0" y="12">순응도 낮음</tspan></text>
+  <text class="cls-7" transform="translate(98.322 250.285)"><tspan x="0" y="0">-1.15(-2.04, -0.26)</tspan></text>
+  <text class="cls-7" transform="translate(95.132 554.385)"><tspan x="0" y="0">-1.11(-2.10, -0.11)</tspan></text>
+  <text class="cls-7" transform="translate(176.419 233.542)"><tspan x="0" y="0">-0.30(-1.22, 0.61)</tspan></text>
+  <text class="cls-7" transform="translate(177.348 534.563)"><tspan x="0" y="0">-0.26(-1.26, 0.75)</tspan></text>
+  <text class="cls-7" transform="translate(254.573 217.548)"><tspan x="0" y="0">-0.80(-1.74, 0.14)</tspan></text>
+  <text class="cls-7" transform="translate(255.014 515.811)"><tspan x="0" y="0">-0.66(-1.74, 0.41)</tspan></text>
+  <polyline class="cls-1" points="98.323 217.548 98.323 237.419 331.799 237.419"/>
+  <polyline class="cls-1" points="177.347 200.516 177.347 222.452 331.799 222.452"/>
+  <polyline class="cls-1" points="254.767 200.516 254.767 207.484 331.799 207.484"/>
+  <line class="cls-1" x1="331.799" y1="167.742" x2="331.799" y2="237.419"/>
+  <g>
+    <rect class="cls-2" x="55.727" y="335.745" width="322.935" height="237.933"/>
+    <text class="cls-8" transform="translate(44.183 339.339)"><tspan x="0" y="0">0</tspan></text>
+    <text class="cls-8" transform="translate(44.183 416.309)"><tspan x="0" y="0">-1</tspan></text>
+    <text class="cls-8" transform="translate(44.183 490.698)"><tspan x="0" y="0">-2</tspan></text>
+    <text class="cls-8" transform="translate(44.183 566.15)"><tspan x="0" y="0">-3</tspan></text>
+  </g>
+  <g>
+    <rect class="cls-3" x="55.727" y="47.226" width="322.935" height="214.194"/>
+    <text class="cls-7" transform="translate(44.183 50.462)"><tspan x="0" y="0">0</tspan></text>
+    <text class="cls-7" transform="translate(44.183 119.753)"><tspan x="0" y="0">-1</tspan></text>
+    <text class="cls-7" transform="translate(44.183 186.72)"><tspan x="0" y="0">-2</tspan></text>
+    <text class="cls-7" transform="translate(44.183 254.643)"><tspan x="0" y="0">-3</tspan></text>
+  </g>
+  <text class="cls-6" transform="translate(34.693 196.26) rotate(-90)"><tspan x="0" y="0">12개월 후의 BMI 변화</tspan></text>
+  <text class="cls-6" transform="translate(34.693 502.71) rotate(-90)"><tspan x="0" y="0">12개월 후의 BMI 변화</tspan></text>
+  <text class="cls-4" transform="translate(56.363 35.09)"><tspan x="0" y="0">healthy low-carbohydrate diet</tspan></text>
+  <text class="cls-4" transform="translate(55.727 322.042)"><tspan x="0" y="0">healthy low-fat diet</tspan></text>
+  <text class="cls-5" transform="translate(94.712 122.903)"><tspan x="0" y="0">-2.5</tspan><tspan x="0" y="14.4">(2.3)</tspan></text>
+  <text class="cls-5" transform="translate(165.944 122.903)"><tspan x="0" y="0">-2.2</tspan><tspan x="0" y="14.4">(2.8)</tspan></text>
+  <text class="cls-5" transform="translate(241.771 122.903)"><tspan x="0" y="0">-2.3</tspan><tspan x="0" y="14.4">(2.1)</tspan></text>
+  <text class="cls-5" transform="translate(324.088 122.903)"><tspan x="0" y="0">-1.7</tspan><tspan x="0" y="14.4">(2.3)</tspan></text>
+  <text class="cls-5" transform="translate(94.712 378.029)"><tspan x="0" y="0">-2.5</tspan><tspan x="0" y="14.4">(3.1)</tspan></text>
+  <text class="cls-5" transform="translate(165.944 378.029)"><tspan x="0" y="0">-1.7</tspan><tspan x="0" y="14.4">(1.7)</tspan></text>
+  <text class="cls-5" transform="translate(241.771 378.029)"><tspan x="0" y="0">-2.0</tspan><tspan x="0" y="14.4">(2.3)</tspan></text>
+  <text class="cls-5" transform="translate(324.088 378.029)"><tspan x="0" y="0">-1.4</tspan><tspan x="0" y="14.4">(2.4)</tspan></text>
+  <g>
+    <polyline class="cls-1" points="178.485 468.774 178.485 523.484 334.872 523.484"/>
+    <polyline class="cls-1" points="256.678 498.968 256.678 506.452 334.872 506.452"/>
+    <polyline class="cls-1" points="334.872 442.194 334.872 544.645 99.517 544.645 99.517 529.419"/>
+  </g>
+</svg>
