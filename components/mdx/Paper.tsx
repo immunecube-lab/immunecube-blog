@@ -12,18 +12,27 @@ type PaperProps = {
   issue?: string;
   pages?: string;
   doi?: string;
+  DOI?: string;
   pmid?: string;
   url?: string; // direct link if no DOI
   links?: LinkItem[];
   takeaway?: string; // 1-2 line 핵심
   className?: string;
 
-  /** 링크를 Paper 블록에서 보여줄지 (기본: false) */
+  /** 링크를 Paper 블록에서 보여줄지 (기본: true) */
   showLinks?: boolean;
 };
 
-function doiToUrl(doi: string) {
+function normalizeDoi(doi?: string) {
+  if (!doi) return null;
   const clean = doi.replace(/^https?:\/\/(dx\.)?doi\.org\//i, "").trim();
+  if (!clean || /^n\/?a\b/i.test(clean)) return null;
+  return clean;
+}
+
+function doiToUrl(doi: string) {
+  const clean = normalizeDoi(doi);
+  if (!clean) return null;
   return `https://doi.org/${clean}`;
 }
 
@@ -41,15 +50,18 @@ export function Paper({
   issue,
   pages,
   doi,
+  DOI,
   pmid,
   url,
   links = [],
   takeaway,
   className = "",
-  showLinks = false,
+  showLinks = true,
 }: PaperProps) {
+  const normalizedDoi = normalizeDoi(doi ?? DOI);
+  const doiUrl = normalizedDoi ? doiToUrl(normalizedDoi) : null;
   const primaryUrl =
-    (doi && doiToUrl(doi)) || url || (pmid && pmidToUrl(pmid)) || "";
+    doiUrl || url || (pmid && pmidToUrl(pmid)) || "";
 
   const metaParts = [
     journal,
@@ -62,9 +74,9 @@ export function Paper({
   const oneLineMeta = [authors, ...metaParts].filter(Boolean).join(" · ");
 
   const allLinks: LinkItem[] = [
-    ...(doi ? [{ label: "DOI", href: doiToUrl(doi) }] : []),
+    ...(doiUrl ? [{ label: "DOI", href: doiUrl }] : []),
     ...(pmid ? [{ label: "PubMed", href: pmidToUrl(pmid) }] : []),
-    ...(primaryUrl && !doi && !pmid ? [{ label: "Link", href: primaryUrl }] : []),
+    ...(primaryUrl && !doiUrl && !pmid ? [{ label: "Link", href: primaryUrl }] : []),
     ...links,
   ];
 

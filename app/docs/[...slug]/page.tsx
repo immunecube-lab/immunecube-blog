@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import * as site from "@/.velite";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 
 type Doc = {
@@ -87,36 +88,39 @@ export default async function DocPage({
   }
 
   return (
-    <main className="max-w-3xl mx-auto py-10 px-4">
-      <article>
-        <header className="mb-6">
-          <h1
-            className={[
-              "text-3xl font-bold leading-tight",
-              doc.docType === "docent" ? "text-amber-700" : "",
-            ].join(" ")}
-          >
-            {doc.title}
-            {isLocalDev && doc.published === false ? (
-              <span className="ml-3 align-middle rounded bg-amber-100 px-2 py-1 text-xs font-semibold text-amber-800">
-                DRAFT
-              </span>
+    <>
+      <ReadingProgress />
+      <main className="max-w-3xl mx-auto py-10 px-4">
+        <article>
+          <header className="mb-6">
+            <h1
+              className={[
+                "text-3xl font-bold leading-tight",
+                doc.docType === "docent" ? "text-amber-700" : "",
+              ].join(" ")}
+            >
+              {doc.title}
+              {isLocalDev && doc.published === false ? (
+                <span className="ml-3 align-middle rounded bg-amber-100 px-2 py-1 text-xs font-semibold text-amber-800">
+                  DRAFT
+                </span>
+              ) : null}
+            </h1>
+            <div className="mt-2 text-sm text-neutral-500">
+              <MetaLine date={doc.date} updated={doc.updated} />
+            </div>
+            {doc.description ? (
+              <p className="mt-4 mb-8 text-sm text-violet-900 leading-relaxed dark:text-violet-200">
+                {doc.description}
+              </p>
             ) : null}
-          </h1>
-          <div className="mt-2 text-sm text-neutral-500">
-            <MetaLine date={doc.date} updated={doc.updated} />
-          </div>
-          {doc.description ? (
-            <p className="mt-4 mb-8 text-sm text-violet-900 leading-relaxed dark:text-violet-200">
-              {doc.description}
-            </p>
-          ) : null}
-        </header>
+          </header>
 
-        <section className={["prose dark:prose-invert max-w-none", doc.docType === "docent" ? "prose-docent" : ""].join(" ")}>
-          <MDXContent code={doc.body} />
-        </section>
-      </article>
-    </main>
+          <section className={["prose dark:prose-invert max-w-none", doc.docType === "docent" ? "prose-docent" : ""].join(" ")}>
+            <MDXContent code={doc.body} />
+          </section>
+        </article>
+      </main>
+    </>
   );
 }

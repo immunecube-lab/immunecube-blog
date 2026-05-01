@@ -1254,7 +1254,10 @@ export const people = {
     name: "Tracey Yukich",
     years: "1972-",
     image: "/images/person/tracey-yukich.webp",
-    role: "",
+    role: "The Biggest Loser 이후 장기 체중유지 사례로 알려진 참가자",
+    summaryItems: [
+      "The Biggest Loser 이후 장기 체중유지 사례로 알려진 참가자입니다.",
+    ],
   },
   "virgil-craig-jordan": {
     name: "Virgil Craig Jordan",

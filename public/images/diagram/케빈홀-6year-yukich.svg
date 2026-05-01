@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 321.032 339.613">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #231f20;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        font-size: 14px;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill: #231f20;
+      }
+
+      .cls-4, .cls-5, .cls-7 {
+        font-family: AppleSDGothicNeoEB00, AppleSDGothicNeoEB00;
+      }
+
+      .cls-5 {
+        font-size: 15.508px;
+      }
+
+      .cls-2 {
+        stroke: #6d6e71;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        stroke: #ed1c24;
+      }
+
+      .cls-6, .cls-8 {
+        stroke-width: 0px;
+      }
+
+      .cls-8 {
+        fill: #f1f2f2;
+      }
+
+      .cls-7 {
+        font-size: 17px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-8" width="321.032" height="339.613"/>
+  <line class="cls-3" x1="156.348" y1="138.829" x2="282.71" y2="163.226"/>
+  <line class="cls-1" x1="156.516" y1="149.752" x2="284.129" y2="123.742"/>
+  <line class="cls-1" x1="153.548" y1="156.913" x2="282.71" y2="83.29"/>
+  <line class="cls-1" x1="156.348" y1="160.978" x2="286.774" y2="137.677"/>
+  <line class="cls-1" x1="156.348" y1="165.246" x2="284.129" y2="113.097"/>
+  <line class="cls-1" x1="154.323" y1="160.978" x2="285.419" y2="127.806"/>
+  <line class="cls-1" x1="153.806" y1="195.042" x2="284.129" y2="44.387"/>
+  <line class="cls-1" x1="153.548" y1="210.839" x2="284.129" y2="65.806"/>
+  <line class="cls-1" x1="156.348" y1="224.516" x2="284.129" y2="89.484"/>
+  <line class="cls-1" x1="153.548" y1="232.774" x2="285.419" y2="91.419"/>
+  <line class="cls-1" x1="153.548" y1="272" x2="286.774" y2="213.355"/>
+  <line class="cls-1" x1="155.097" y1="277.3" x2="286.774" y2="200.175"/>
+  <line class="cls-1" x1="152.452" y1="178.591" x2="286.774" y2="113.097"/>
+  <line class="cls-1" x1="154.839" y1="172.903" x2="286.774" y2="113.097"/>
+  <g>
+    <circle class="cls-6" cx="152.452" cy="137.677" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="42.645" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="63.935" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="82.129" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="87.355" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="89.484" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="111.355" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="113.097" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="121.613" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="127.806" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="137.677" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="163.226" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="200.175" r="4.065"/>
+    <circle class="cls-6" cx="286.774" cy="213.355" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="149.752" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="156.913" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="160.978" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="166.397" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="174.526" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="179.752" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="195.042" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="213.236" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="226.978" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="234.139" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="273.236" r="4.065"/>
+    <circle class="cls-6" cx="152.452" cy="279.429" r="4.065"/>
+    <text class="cls-5" transform="translate(128.893 325.619)"><tspan x="0" y="0">30주후 </tspan></text>
+    <text class="cls-5" transform="translate(256.618 326.921)"><tspan x="0" y="0">6년후</tspan></text>
+    <line class="cls-2" x1="85.613" y1="14.452" x2="85.613" y2="306.065"/>
+    <line class="cls-2" x1="79.775" y1="15.44" x2="84.937" y2="15.44"/>
+    <line class="cls-2" x1="79.775" y1="51.639" x2="84.937" y2="51.639"/>
+    <line class="cls-2" x1="79.775" y1="87.838" x2="84.937" y2="87.838"/>
+    <line class="cls-2" x1="79.775" y1="124.037" x2="84.937" y2="124.037"/>
+    <line class="cls-2" x1="79.775" y1="160.236" x2="84.937" y2="160.236"/>
+    <line class="cls-2" x1="79.775" y1="196.435" x2="84.937" y2="196.435"/>
+    <line class="cls-2" x1="79.775" y1="232.634" x2="84.937" y2="232.634"/>
+    <line class="cls-2" x1="79.775" y1="268.833" x2="84.937" y2="268.833"/>
+    <line class="cls-2" x1="79.775" y1="305.032" x2="84.937" y2="305.032"/>
+    <text class="cls-4" transform="translate(54.047 20.406)"><tspan x="0" y="0">40</tspan><tspan x=".924" y="36">20</tspan><tspan x="8.428" y="72">0</tspan><tspan x="-4.382" y="108">-20</tspan><tspan x="-5.306" y="144">-40</tspan><tspan x="-5.096" y="180">-60</tspan><tspan x="-5.306" y="216">-80</tspan><tspan x="-11.256" y="252">-100</tspan><tspan x="-9.632" y="288">-120</tspan></text>
+    <text class="cls-7" transform="translate(30.84 208.227) rotate(-90)"><tspan x="0" y="0">체중 감량(Kg)</tspan></text>
+  </g>
+</svg>
