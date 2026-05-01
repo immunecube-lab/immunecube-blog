@@ -7,7 +7,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-3">
-          © {new Date().getFullYear()} immunecube. All rights reserved.
+          © 2026 immunecube. All rights reserved.
         </div>
       </div>
     </footer>
