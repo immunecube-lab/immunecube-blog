@@ -31,7 +31,7 @@ export function Figure({
         <figcaption
           style={{
             fontSize: "0.85em",
-            color: "#555",
+            color: "var(--figure-caption, #555)",
             marginTop: "0.6em",
             lineHeight: "1.5",
           }}

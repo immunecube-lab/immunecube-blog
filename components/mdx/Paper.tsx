@@ -71,33 +71,33 @@ export function Paper({
   return (
     <section
       className={[
-        "my-6 overflow-hidden rounded-md border border-gray-200 shadow-sm",
+        "my-6 overflow-hidden rounded-md border border-gray-200 shadow-sm dark:border-rose-900/70",
         className,
       ].join(" ")}
       role="note"
       aria-label="Paper"
     >
       {/* 제목 바 */}
-      <div className="-mt-px px-4 py-3 text-[1.05rem] font-semibold leading-snug bg-rose-100 text-gray-900 border-b border-rose-200 rounded-t-md">
+      <div className="-mt-px px-4 py-3 text-[1.05rem] font-semibold leading-snug bg-rose-100 text-gray-900 border-b border-rose-200 rounded-t-md dark:bg-rose-950 dark:text-rose-50 dark:border-rose-900">
         {title}
       </div>
 
       {/* ✅ 본문 영역: 옅은 배경 + inset ring으로 '카드' 느낌 강화 */}
-      <div className="bg-rose-50/40 ring-1 ring-inset ring-rose-100">
+      <div className="bg-rose-50/40 ring-1 ring-inset ring-rose-100 dark:bg-rose-950/20 dark:ring-rose-900/70">
         {oneLineMeta && (
-          <div className="px-4 pt-2 text-[0.92rem] text-rose-950/70 whitespace-normal">
+          <div className="px-4 pt-2 text-[0.92rem] text-rose-950/70 whitespace-normal dark:text-rose-100/75">
             {oneLineMeta}
           </div>
         )}
 
         {takeaway && (
-          <div className="px-4 pt-2 pb-3 text-[0.95rem] leading-relaxed text-gray-900">
+          <div className="px-4 pt-2 pb-3 text-[0.95rem] leading-relaxed text-gray-900 dark:text-gray-100">
             {takeaway}
           </div>
         )}
 
         {showLinks && allLinks.length > 0 && (
-          <div className="px-4 pb-3 flex flex-wrap gap-x-3 gap-y-1 text-[0.9rem] text-rose-950/70">
+          <div className="px-4 pb-3 flex flex-wrap gap-x-3 gap-y-1 text-[0.9rem] text-rose-950/70 dark:text-rose-100/75">
             {allLinks.map((l) => (
               <a
                 key={`${l.label}:${l.href}`}

@@ -54,22 +54,22 @@ export function RefItem({
   return (
     <li
       id={id}
-      className="my-2 leading-relaxed text-gray-700"
+      className="my-2 leading-relaxed text-gray-700 dark:text-gray-300"
     >
-      <span className="mr-2 text-gray-500">
+      <span className="mr-2 text-gray-500 dark:text-gray-400">
         {typeof index === "number" ? `${index}.` : "•"}
       </span>
 
-      <span className="text-gray-900">{authors}</span>
-      <span className="text-gray-500"> ({year}). </span>
+      <span className="text-gray-900 dark:text-gray-100">{authors}</span>
+      <span className="text-gray-500 dark:text-gray-400"> ({year}). </span>
 
-      <span className="text-gray-900">{title}</span>
-      {source && <span className="text-gray-700">. {source}</span>}
-      {detail && <span className="text-gray-700"> {detail}</span>}
-      <span className="text-gray-700">.</span>
+      <span className="text-gray-900 dark:text-gray-100">{title}</span>
+      {source && <span className="text-gray-700 dark:text-gray-300">. {source}</span>}
+      {detail && <span className="text-gray-700 dark:text-gray-300"> {detail}</span>}
+      <span className="text-gray-700 dark:text-gray-300">.</span>
 
       {(doi || url) && (
-        <div className="mt-1 text-sm text-gray-500">
+        <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
           {doi && <div>{formatDoi(doi)}</div>}
           {url && (
             <div className="break-all">
@@ -80,7 +80,7 @@ export function RefItem({
       )}
 
       {note && (
-        <div className="mt-1 text-sm text-gray-500">
+        <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
           {note}
         </div>
       )}

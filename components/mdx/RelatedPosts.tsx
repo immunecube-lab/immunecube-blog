@@ -32,44 +32,21 @@ export default function RelatedPosts({
 
   return (
     <section
-      style={{
-        marginTop: "2.5rem",
-        border: "1px solid #e5e7eb",
-        borderRadius: "10px",
-        overflow: "hidden",
-        backgroundColor: "#ffffff",
-      }}
+      className="related-posts not-prose"
     >
-      <div
-        style={{
-          padding: "0.75rem 1rem",
-          backgroundColor: "#f3f4f6",
-          borderBottom: "1px solid #e5e7eb",
-          fontWeight: 700,
-          color: "#111827",
-        }}
-      >
+      <div className="related-posts-heading">
         {heading}
       </div>
 
-      <ul style={{ listStyle: "none", margin: 0, padding: "0.75rem 1rem" }}>
+      <ul className="related-posts-list">
         {items.map((post, i) => (
           <li
             key={post.slug}
-            style={{
-              padding: "0.45rem 0",
-              borderTop: i === 0 ? "none" : "1px solid #f1f5f9",
-            }}
+            className={i === 0 ? "" : "with-divider"}
           >
             <a
               href={`${prefix}/${post.slug}`}
               className="related-post-link"
-              style={{
-                color: "#111827",
-                fontWeight: 600,
-                lineHeight: 1.4,
-                textDecoration: "none",
-              }}
             >
               {post.title}
             </a>
@@ -78,8 +55,66 @@ export default function RelatedPosts({
       </ul>
 
       <style jsx>{`
+        .related-posts {
+          margin-top: 2.5rem;
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
+          overflow: hidden;
+          background: #ffffff;
+        }
+
+        .related-posts-heading {
+          padding: 0.75rem 1rem;
+          background: #f3f4f6;
+          border-bottom: 1px solid #e5e7eb;
+          font-weight: 700;
+          color: #111827;
+        }
+
+        .related-posts-list {
+          list-style: none;
+          margin: 0;
+          padding: 0.75rem 1rem;
+        }
+
+        .related-posts-list li {
+          padding: 0.45rem 0;
+        }
+
+        .related-posts-list li.with-divider {
+          border-top: 1px solid #f1f5f9;
+        }
+
+        .related-post-link {
+          color: #111827;
+          font-weight: 600;
+          line-height: 1.4;
+          text-decoration: none;
+        }
+
         .related-post-link:hover {
           text-decoration: underline;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          .related-posts {
+            border-color: #374151;
+            background: #111827;
+          }
+
+          .related-posts-heading {
+            background: #1f2937;
+            border-bottom-color: #374151;
+            color: #f9fafb;
+          }
+
+          .related-posts-list li.with-divider {
+            border-top-color: #374151;
+          }
+
+          .related-post-link {
+            color: #f3f4f6;
+          }
         }
       `}</style>
     </section>

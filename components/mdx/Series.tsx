@@ -35,33 +35,33 @@ export function Series({
 
   const root =
     variant === "subtle"
-      ? "my-6 border-l-4 border-gray-100 pl-3 text-sm text-gray-600"
-      : "my-6 border-l-4 border-gray-200 pl-3 text-sm text-gray-600";
+      ? "my-6 border-l-4 border-gray-100 pl-3 text-sm text-gray-600 dark:border-gray-800 dark:text-gray-400"
+      : "my-6 border-l-4 border-gray-200 pl-3 text-sm text-gray-600 dark:border-gray-700 dark:text-gray-400";
 
   return (
     <div className={`${root} ${className}`.trim()} aria-label="Series context">
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-        <span className="uppercase tracking-wider text-[0.65rem] text-gray-400">
+        <span className="uppercase tracking-wider text-[0.65rem] text-gray-400 dark:text-gray-500">
           Series
         </span>
 
         {hasNumber && (
-          <span className="text-[0.7rem] text-gray-400">
+          <span className="text-[0.7rem] text-gray-400 dark:text-gray-500">
             {part}/{total}
           </span>
         )}
       </div>
 
       <div className="mt-1 leading-relaxed">
-        <span className="font-medium text-gray-900">{title}</span>
+        <span className="font-medium text-gray-900 dark:text-gray-100">{title}</span>
 
         {position && (
-          <span className="text-gray-500"> — {position}</span>
+          <span className="text-gray-500 dark:text-gray-400"> — {position}</span>
         )}
       </div>
 
       {scope && (
-        <div className="mt-1 text-xs text-gray-500">
+        <div className="mt-1 text-xs text-gray-500 dark:text-gray-400">
           {scope}
         </div>
       )}

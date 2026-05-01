@@ -130,6 +130,38 @@ export function AuthorBio({
           padding-top: 1rem;
         }
 
+        @media (prefers-color-scheme: dark) {
+          aside[data-author-bio="true"] {
+            border-color: #374151;
+            background: #111827;
+          }
+
+          aside[data-author-bio="true"] .author-bio-image {
+            background: #1f2937;
+          }
+
+          aside[data-author-bio="true"] .author-bio-name {
+            color: #f9fafb;
+          }
+
+          aside[data-author-bio="true"] .author-bio-role,
+          aside[data-author-bio="true"] .author-bio-role-list {
+            color: #d1d5db;
+          }
+
+          aside[data-author-bio="true"] .author-bio-years {
+            color: #9ca3af;
+          }
+
+          aside[data-author-bio="true"] .author-bio-body {
+            color: #e5e7eb;
+          }
+
+          aside[data-author-bio="true"] .author-bio-body.with-divider {
+            border-top-color: #374151;
+          }
+        }
+
         aside[data-author-bio="true"] .author-bio-body > :first-child {
           margin-top: 0;
         }

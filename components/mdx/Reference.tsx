@@ -15,7 +15,7 @@ export function References({
 }: ReferencesProps) {
   return (
     <section className={`mt-10 ${className}`.trim()} aria-label={title}>
-      <div className="mb-3 text-base font-semibold text-gray-900">
+      <div className="mb-3 text-base font-semibold text-gray-900 dark:text-gray-100">
         {title}
       </div>
 

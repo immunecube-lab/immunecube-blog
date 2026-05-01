@@ -318,6 +318,15 @@ export const people = {
     role: "저탄수화물 식이 임상 적용으로 알려진 의사",
     summaryItems: ["저탄수화물 식이 임상 적용으로 알려진 의사입니다."],
   },
+  "eric-ravussin": {
+    name: "Eric Ravussin",
+    years: "",
+    image: "/images/person/eric-ravussin.webp",
+    role: "에너지 대사, 비만, 칼로리 제한 연구에 기여한 대사 연구자",
+    summaryItems: [
+      "에너지 대사, 비만, 칼로리 제한 연구에 기여한 대사 연구자입니다.",
+    ],
+  },
   "ethan-m-shevach": {
     name: "Ethan M Shevach",
     years: "1943-",
@@ -359,6 +368,13 @@ export const people = {
     summaryItems: [
       "클론선택 이론과 면역관용 연구로 노벨 생리의학상을 받은 면역학자입니다.",
     ],
+  },
+  "frank-sacks": {
+    name: "Frank M. Sacks",
+    years: "",
+    image: "/images/person/frank-sacks.webp",
+    role: "심혈관 영양역학과 식이 임상시험 연구자",
+    summaryItems: ["심혈관 영양역학과 식이 임상시험 연구자입니다."],
   },
   "fred-ramsdell": {
     name: "Fred Ramsdell",
@@ -555,6 +571,15 @@ export const people = {
     roleItems: ["식세포 이론", "1908년 노벨 생리의학상 수상자", "면역학자"],
     summaryItems: ["식세포 이론으로 노벨 생리의학상을 받은 면역학자입니다."],
   },
+  "iris-shai": {
+    name: "Iris Shai",
+    years: "",
+    image: "/images/person/iris-shai.webp",
+    role: "DIRECT 식이 임상시험과 지중해식·저탄수화물 식단 연구자",
+    summaryItems: [
+      "DIRECT 식이 임상시험과 지중해식·저탄수화물 식단 연구자입니다.",
+    ],
+  },
   "jack-levin": {
     name: "Jack Levin",
     years: "1934-",
@@ -618,6 +643,13 @@ export const people = {
     summaryItems: [
       "암 통계와 암 치료 성과 비판으로 알려진 생물통계학자입니다.",
     ],
+  },
+  "john-wilding": {
+    name: "John P. H. Wilding",
+    years: "",
+    image: "/images/person/john-wilding.webp",
+    role: "비만, 당뇨병, 세마글루타이드 임상시험 연구자",
+    summaryItems: ["비만, 당뇨병, 세마글루타이드 임상시험 연구자입니다."],
   },
   "john-yudkin": {
     name: "John Yudkin",
@@ -722,14 +754,14 @@ export const people = {
     years: "",
     image: "/images/person/kevin-hall.webp",
     role: "대사병동 식이 실험과 에너지대사 연구자",
-    summaryItems: ["대사병동 식이 실험과 에너지대사 연구자입니다."],
+    summaryItems: ["대사병동 식이 실험과 에너지대사 연구자입니다.", "전임 NIH 소속", "Food Intelligence 의 저자"],
   },
   "kevin-tracey": {
     name: "Kevin Tracey",
     years: "1957-",
     image: "/images/person/kevin-tracey.webp",
-    role: "TNF, 패혈증, 염증반사 연구에 기여한 의사과학자",
-    summaryItems: ["TNF, 패혈증, 염증반사 연구에 기여한 의사과학자입니다."],
+    role: "TNF, 패혈증, 염증반사 연구에 기여한 의사&과학자",
+    summaryItems: ["TNF, 패혈증, 염증반사 연구에 기여한 의사&과학자입니다."],
   },
   "kitasato-shibasaburo": {
     name: "Kitasato Shibasaburo",
@@ -738,6 +770,22 @@ export const people = {
     role: "디프테리아 항독소와 혈청학의 출발점에 기여한 세균학자",
     summaryItems: [
       "디프테리아 항독소와 혈청학의 출발점에 기여한 세균학자입니다.",
+    ],
+  },
+  "krista-varady": {
+    name: "Krista A. Varady",
+    years: "",
+    image: "/images/person/krista-varady.webp",
+    role: "격일 단식과 시간제한 식사 임상 연구자",
+    summaryItems: ["격일 단식과 시간제한 식사 임상 연구자입니다."],
+  },
+  "leanne-redman": {
+    name: "Leanne M. Redman",
+    years: "",
+    image: "/images/person/leanne-redman.webp",
+    role: "칼로리 제한, 에너지 대사, CALERIE 연구에 기여한 연구자",
+    summaryItems: [
+      "칼로리 제한, 에너지 대사, CALERIE 연구에 기여한 연구자입니다.",
     ],
   },
   "lloyd-old": {
@@ -819,6 +867,15 @@ export const people = {
     image: "/images/person/michael-dansinger.webp",
     role: "상업 식이요법 비교 임상시험 연구자",
     summaryItems: ["상업 식이요법 비교 임상시험 연구자입니다."],
+  },
+  "michael-lean": {
+    name: "Michael E. J. Lean",
+    years: "",
+    image: "/images/person/michael-lean.webp",
+    role: "DiRECT 연구와 제2형 당뇨병 관해 연구에 기여한 영양의학 연구자",
+    summaryItems: [
+      "DiRECT 연구와 제2형 당뇨병 관해 연구에 기여한 영양의학 연구자입니다.",
+    ],
   },
   "michael-heidelberger": {
     name: "Michael Heidelberger",
@@ -969,6 +1026,15 @@ export const people = {
     image: "/images/person/randy-jirtle.webp",
     role: "",
   },
+  "richard-dutton": {
+    name: "Richard W. Dutton",
+    years: "",
+    image: "/images/person/richard-dutton.webp",
+    role: "림프구 배양과 항체 반응의 세포 협력 연구에 기여한 면역학자",
+    summaryItems: [
+      "림프구 배양과 항체 반응의 세포 협력 연구에 기여한 면역학자입니다.",
+    ],
+  },
   "richard-flavell": {
     name: "Richard Flavell",
     years: "1945-",
@@ -1019,6 +1085,15 @@ export const people = {
     role: "당류와 대사질환 비판으로 알려진 의사",
     summaryItems: ["당류와 대사질환 비판으로 알려진 의사입니다."],
   },
+  "robert-mishell": {
+    name: "Robert I. Mishell",
+    years: "",
+    image: "/images/person/robert-mishell.webp",
+    role: "Mishell-Dutton 배양계를 통해 체외 항체 반응 연구에 기여한 면역학자",
+    summaryItems: [
+      "Mishell-Dutton 배양계를 통해 체외 항체 반응 연구에 기여한 면역학자입니다.",
+    ],
+  },
   "robin-warren": {
     name: "Robin Warren",
     years: "1937-",
@@ -1051,6 +1126,15 @@ export const people = {
       "MHC 제한성 발견으로 노벨 생리의학상을 받은 면역학자입니다.",
     ],
   },
+  "roy-taylor": {
+    name: "Roy Taylor",
+    years: "",
+    image: "/images/person/roy-taylor.webp",
+    role: "제2형 당뇨병 관해와 twin-cycle hypothesis 연구로 알려진 의사과학자",
+    summaryItems: [
+      "제2형 당뇨병 관해와 twin-cycle hypothesis 연구로 알려진 의사과학자입니다.",
+    ],
+  },
   "rudolf-leibel": {
     name: "Rudolf Leibel",
     years: "1942-",
@@ -1070,6 +1154,13 @@ export const people = {
     image: "/images/person/ruslan-medzhitov.webp",
     role: "TLR와 선천면역 신호 연구에 기여한 면역학자",
     summaryItems: ["TLR와 선천면역 신호 연구에 기여한 면역학자입니다."],
+  },
+  "samuel-klein": {
+    name: "Samuel Klein",
+    years: "",
+    image: "/images/person/samuel-klein.webp",
+    role: "비만, 체중감량, 대사 기능 연구에 기여한 의사과학자",
+    summaryItems: ["비만, 체중감량, 대사 기능 연구에 기여한 의사과학자입니다."],
   },
   "shimon-sakaguchi": {
     name: "Shimon Sakaguchi",

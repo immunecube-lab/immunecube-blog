@@ -5,12 +5,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --figure-caption: #555555;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --figure-caption: #d1d5db;
   }
 }
 
@@ -69,6 +71,21 @@ body {
 }
 
 /* =========================
+   Dark Mode – MDX readability
+   ========================= */
+
+@media (prefers-color-scheme: dark) {
+  .prose :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)),
+  .prose :where(b):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: #f8fafc;
+  }
+
+  .prose .footnotes {
+    border-top-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+/* =========================
    Lists – tighter spacing
    ========================= */
 
@@ -103,7 +120,7 @@ body {
   }
 
   .prose-docent :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    @apply text-amber-700;
+    @apply text-amber-700 dark:text-amber-300;
   }
 
   .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {

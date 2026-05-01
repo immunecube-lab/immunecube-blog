@@ -20,14 +20,14 @@ export function KeyPoint({
   // ✅ 본문과 분리: border + bg + (아주 약한) shadow
   const style =
     variant === "subtle"
-      ? "border-gray-200 bg-gray-50 text-gray-800"
-      : "border-rose-200 bg-rose-50 text-gray-900 shadow-sm";
+      ? "border-gray-200 bg-gray-50 text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+      : "border-rose-200 bg-rose-50 text-gray-900 shadow-sm dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-50";
 
   // ✅ 라벨/아이콘 줄 + 본문 줄로 구조 분리
   const header =
     variant === "subtle"
-      ? `text-[0.78rem] ${title ? "tracking-normal" : "tracking-widest"} text-gray-500`
-      : `text-[0.78rem] ${title ? "tracking-normal" : "tracking-widest"} text-rose-700`;
+      ? `text-[0.78rem] ${title ? "tracking-normal" : "tracking-widest"} text-gray-500 dark:text-gray-400`
+      : `text-[0.78rem] ${title ? "tracking-normal" : "tracking-widest"} text-rose-700 dark:text-rose-300`;
 
   const body =
     variant === "subtle"
@@ -44,8 +44,8 @@ export function KeyPoint({
         <Lightbulb
           className={
             variant === "subtle"
-              ? "h-4 w-4 text-gray-500"
-              : "h-4 w-4 text-rose-700"
+              ? "h-4 w-4 text-gray-500 dark:text-gray-400"
+              : "h-4 w-4 text-rose-700 dark:text-rose-300"
           }
         />
         <div className={header}>{title ?? "KEY POINT"}</div>

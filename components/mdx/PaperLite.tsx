@@ -42,14 +42,14 @@ export function PaperLite({
   return (
     <div
       className={[
-        "my-4 pl-3 border-l-4 border-gray-400", // ✅ 굵기 통일
+        "my-4 pl-3 border-l-4 border-gray-400 dark:border-gray-600", // ✅ 굵기 통일
         "text-[0.95rem] leading-snug",
         className,
       ].join(" ")}
       role="note"
       aria-label="Paper reference"
     >
-      <div className="font-medium text-gray-900">
+      <div className="font-medium text-gray-900 dark:text-gray-100">
         {href ? (
           <a
             href={href}
@@ -65,13 +65,13 @@ export function PaperLite({
       </div>
 
       {authors && (
-        <div className="text-gray-700 text-[0.9rem]">
+        <div className="text-gray-700 text-[0.9rem] dark:text-gray-300">
           {authors}
         </div>
       )}
 
       {metaBottom && (
-        <div className="text-gray-600 text-[0.85rem]">
+        <div className="text-gray-600 text-[0.85rem] dark:text-gray-400">
           {metaBottom}
         </div>
       )}
