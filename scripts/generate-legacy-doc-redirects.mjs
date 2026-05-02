@@ -29,6 +29,7 @@ function buildRedirectHtml(destination) {
   <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
+    <meta name="robots" content="noindex,follow" />
     <meta http-equiv="refresh" content="0; url=${destination}" />
     <link rel="canonical" href="${destination}" />
     <script>
@@ -36,7 +37,7 @@ function buildRedirectHtml(destination) {
       window.location.replace(target + window.location.search + window.location.hash);
     </script>
   </head>
-  <body>
+  <body data-pagefind-ignore>
     <p>Redirecting to <a href="${destination}">${destination}</a>...</p>
   </body>
 </html>
