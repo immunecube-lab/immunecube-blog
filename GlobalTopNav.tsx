@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMemo, useState } from 'react';
+import { PagefindSearch } from '@/components/PagefindSearch';
 
 type NavItem = { href: string; label: string };
 
@@ -108,8 +109,10 @@ export function GlobalTopNav() {
             <Breadcrumbs pathname={pathname} />
           </div>
 
-          {/* 오른쪽: 모바일 메뉴만 남김 */}
+          {/* 오른쪽: 검색 + 모바일 메뉴 */}
           <div className="flex items-center gap-2">
+            <PagefindSearch />
+
             <button
               type="button"
               className="md:hidden inline-flex items-center rounded-lg border px-3 py-1.5 text-sm hover:bg-muted transition"
