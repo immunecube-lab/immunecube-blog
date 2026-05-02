@@ -1,6 +1,6 @@
 // app/rss.xml/route.ts
 import { NextResponse } from "next/server";
-import * as site from "@/.velite";
+import { docs, posts } from "@/.velite";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 import { buildSiteUrl } from "@/lib/site-url";
 
@@ -64,7 +64,7 @@ type FeedItem = {
 };
 
 function buildItems(): FeedItem[] {
-  const docs = (((site as any).docs ?? []) as VeliteItem[])
+  const docItems = (docs satisfies VeliteItem[])
     .filter((d) => d?.slug && d.published !== false)
     .map((d) => {
       const s = normalizeCollectionSlug(d.slug, "docs");
@@ -78,7 +78,7 @@ function buildItems(): FeedItem[] {
     })
     .filter(Boolean) as FeedItem[];
 
-  const posts = (((site as any).posts ?? []) as VeliteItem[])
+  const postItems = (posts satisfies VeliteItem[])
     .filter((p) => p?.slug && p.published !== false)
     .map((p) => {
       const s = normalizeCollectionSlug(p.slug, "posts");
@@ -92,7 +92,7 @@ function buildItems(): FeedItem[] {
     })
     .filter(Boolean) as FeedItem[];
 
-  return [...docs, ...posts]
+  return [...docItems, ...postItems]
     .sort((a, b) => b.date.getTime() - a.date.getTime())
     .slice(0, 50);
 }

@@ -1,5 +1,14 @@
 import type { Plugin } from "unified";
+import type { Node } from "unist";
 import { visit } from "unist-util-visit";
+
+type TextNode = Node & {
+  value?: unknown;
+};
+
+type ParentNode = Node & {
+  type?: string;
+};
 
 /**
  * Fix cases where bold breaks near parentheses:
@@ -7,8 +16,8 @@ import { visit } from "unist-util-visit";
  *  - **(text)** -> <strong>(text)</strong>
  */
 const remarkFixBoldParenthesis: Plugin = () => {
-  return (tree: any) => {
-    visit(tree, "text", (node: any, _i, parent: any) => {
+  return (tree: Node) => {
+    visit(tree, "text", (node: TextNode, _i, parent: ParentNode | undefined) => {
       if (!parent || typeof node.value !== "string") return;
 
       // safety: do not touch code

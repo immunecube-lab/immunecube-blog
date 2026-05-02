@@ -10,7 +10,7 @@ export type PostWithMeta = Post & {
 };
 
 export function getPostTime(p: PostWithMeta) {
-  const v = (p.updated as any) ?? (p.date as any);
+  const v = p.updated ?? p.date;
   const t = new Date(v ?? 0).getTime();
   return Number.isFinite(t) ? t : 0;
 }

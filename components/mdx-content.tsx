@@ -1,5 +1,6 @@
 // components/mdx-content.tsx
 import * as runtime from "react/jsx-runtime";
+import { useMemo } from "react";
 import type { ComponentType } from "react";
 import type { MDXComponents } from "mdx/types";
 
@@ -37,12 +38,14 @@ interface MDXProps {
   components?: MDXComponents;
 }
 
+type CompiledMDXComponent = ComponentType<{ components?: MDXComponents }>;
+
 // Velite가 만들어 준 function-body 문자열을 React 컴포넌트로 변환
 const compileMDX = (code: string, components: MDXComponents) => {
   const fn = new Function(code);
 
   // ✅ 핵심: 컴파일된 MDX 코드가 components를 "실행 시점"에 필요로 하는 경우가 있어 주입합니다.
-  const mod = fn({ ...runtime, components }) as { default: ComponentType<any> };
+  const mod = fn({ ...runtime, components }) as { default?: CompiledMDXComponent };
 
   if (!mod?.default) {
     throw new Error("MDX compile error: default export not found.");
@@ -53,11 +56,18 @@ const compileMDX = (code: string, components: MDXComponents) => {
 
 export function MDXContent({ code, components = {} }: MDXProps) {
   // ✅ shared + page components 병합
-  const mergedComponents: MDXComponents = { ...sharedComponents, ...components };
+  const mergedComponents = useMemo<MDXComponents>(
+    () => ({ ...sharedComponents, ...components }),
+    [components],
+  );
 
   // ✅ 컴파일 시점에도 components 주입
-  const Component = compileMDX(code, mergedComponents);
+  const Component = useMemo(
+    () => compileMDX(code, mergedComponents),
+    [code, mergedComponents],
+  );
 
   // ✅ 렌더링 시점에도 components 전달 (안전)
+  // eslint-disable-next-line react-hooks/static-components -- Velite stores MDX as function-body strings, so the component is compiled from content at runtime.
   return <Component components={mergedComponents} />;
 }

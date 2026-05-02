@@ -1,6 +1,6 @@
 // app/sitemap.ts
 import type { MetadataRoute } from "next";
-import * as site from "@/.velite";
+import { docs, posts } from "@/.velite";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -56,11 +56,15 @@ function maxDate(dates: Array<Date | undefined>): Date | undefined {
   return new Date(Math.max(...xs.map((d) => d.getTime())));
 }
 
-function addEntry(out: MetadataRoute.Sitemap, url: string, lastModified?: Date) {
+function addEntry(
+  out: MetadataRoute.Sitemap,
+  seen: Set<string>,
+  url: string,
+  lastModified?: Date,
+) {
   // 중복 방지
-  if ((out as any)._seen?.has(url)) return;
-  (out as any)._seen ??= new Set<string>();
-  (out as any)._seen.add(url);
+  if (seen.has(url)) return;
+  seen.add(url);
 
   out.push(lastModified ? { url, lastModified } : { url });
 }
@@ -68,8 +72,9 @@ function addEntry(out: MetadataRoute.Sitemap, url: string, lastModified?: Date) 
 export default function sitemap(): MetadataRoute.Sitemap {
   const SITE_URL = getSiteUrl();
   const out: MetadataRoute.Sitemap = [];
+  const seen = new Set<string>();
 
-  const posts = (((site as any).posts ?? []) as VeliteItem[])
+  const postEntries = (posts satisfies VeliteItem[])
     .filter((p) => p?.slug && p.published !== false)
     .map((p) => {
       const s = normalizeCollectionSlug(p.slug, "blog");
@@ -82,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
     .filter(Boolean) as { url: string; lastModified: Date }[];
 
-  const docs = (((site as any).docs ?? []) as VeliteItem[])
+  const docEntries = (docs satisfies VeliteItem[])
     .filter((d) => d?.slug && d.published !== false)
     .map((d) => {
       const s = normalizeCollectionSlug(d.slug, "docs");
@@ -98,22 +103,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter(Boolean) as { url: string; lastModified: Date }[];
 
   // 허브 페이지들: "콘텐츠 최신 갱신일" 기반 lastModified로 신호 강화
-  const postsLast = maxDate(posts.map((p) => p.lastModified));
-  const docsLast = maxDate(docs.map((d) => d.lastModified));
+  const postsLast = maxDate(postEntries.map((p) => p.lastModified));
+  const docsLast = maxDate(docEntries.map((d) => d.lastModified));
   const siteLast = maxDate([postsLast, docsLast]);
 
   // 허브 페이지들(크롤링/발견에 도움)
-  addEntry(out, SITE_URL, siteLast);
-  addEntry(out, joinUrl(SITE_URL, "/docs"), docsLast);
-  addEntry(out, joinUrl(SITE_URL, "/blog"), postsLast);
-  addEntry(out, joinUrl(SITE_URL, "/about"), siteLast);
-  addEntry(out, joinUrl(SITE_URL, "/contact"), siteLast);
+  addEntry(out, seen, SITE_URL, siteLast);
+  addEntry(out, seen, joinUrl(SITE_URL, "/docs"), docsLast);
+  addEntry(out, seen, joinUrl(SITE_URL, "/blog"), postsLast);
+  addEntry(out, seen, joinUrl(SITE_URL, "/about"), siteLast);
+  addEntry(out, seen, joinUrl(SITE_URL, "/contact"), siteLast);
 
-  for (const p of posts) addEntry(out, p.url, p.lastModified);
-  for (const d of docs) addEntry(out, d.url, d.lastModified);
-
-  // 내부용 seen 제거(출력에 영향 없지만 타입 깨끗하게)
-  delete (out as any)._seen;
+  for (const p of postEntries) addEntry(out, seen, p.url, p.lastModified);
+  for (const d of docEntries) addEntry(out, seen, d.url, d.lastModified);
 
   return out;
 }

@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
-import * as V from "@/.velite";
+import { docs, drafts } from "@/.velite";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 
 export const dynamic = "force-static";
 
 export async function GET() {
-  const docs = (V as any).docs as any[];
-  const drafts = (V as any).drafts as any[] | undefined;
   const isLocalDev = process.env.NODE_ENV === "development";
   const source = [...(docs ?? []), ...(isLocalDev ? drafts ?? [] : [])];
 

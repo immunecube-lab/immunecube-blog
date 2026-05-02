@@ -1,8 +1,8 @@
 // app/page.tsx
 import Link from "next/link";
 import type { Metadata } from "next";
-import { BookOpen, Bell, Compass } from "lucide-react";
-import * as site from "@/.velite";
+import { Bell, Compass } from "lucide-react";
+import { docs as veliteDocs, posts as velitePosts } from "@/.velite";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 
 export const metadata: Metadata = {
@@ -16,6 +16,10 @@ type Entry = {
   href: string;
   dateLabel?: string;
   kind: "blog" | "docs";
+};
+
+type TimedEntry = Entry & {
+  timestamp: number;
 };
 
 const MAX_DOC_ITEMS = 10;
@@ -72,9 +76,9 @@ type VeliteDoc = {
 /* ----------------------------- page ----------------------------- */
 
 export default function Home() {
-  const posts = (((site as any).posts ?? []) as VelitePost[])
+  const posts = (velitePosts satisfies VelitePost[])
     .filter((p) => p.published !== false)
-    .map((p) => {
+    .map<TimedEntry>((p) => {
       const raw = p.updated ?? p.date;
       const label = formatYmdDot(raw);
       const dt = raw ? new Date(raw) : null;
@@ -82,15 +86,15 @@ export default function Home() {
         title: p.title,
         href: getBlogHref(p.slug),
         dateLabel: label,
-        _dt: dt?.getTime() ?? 0,
+        timestamp: dt?.getTime() ?? 0,
         kind: "blog" as const,
       };
     })
-    .sort((a, b) => (b._dt ?? 0) - (a._dt ?? 0));
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-  const docs = (((site as any).docs ?? []) as VeliteDoc[])
+  const docs = (veliteDocs satisfies VeliteDoc[])
     .filter((d) => d.published !== false)
-    .map((d) => {
+    .map<TimedEntry>((d) => {
       const raw = d.updated ?? d.date;
       const label = formatYmdDot(raw);
       const dt = raw ? new Date(raw) : null;
@@ -98,14 +102,20 @@ export default function Home() {
         title: d.title,
         href: getDocHref(d.slug),
         dateLabel: label,
-        _dt: dt?.getTime() ?? 0,
+        timestamp: dt?.getTime() ?? 0,
         kind: "docs" as const,
       };
     })
-    .sort((a, b) => (b._dt ?? 0) - (a._dt ?? 0));
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-  const docsLatest: Entry[] = docs.slice(0, MAX_DOC_ITEMS).map(({ _dt, ...x }) => x);
-  const blogLatest: Entry[] = posts.slice(0, MAX_BLOG_ITEMS).map(({ _dt, ...x }) => x);
+  const toEntry = (entry: TimedEntry): Entry => ({
+    title: entry.title,
+    href: entry.href,
+    dateLabel: entry.dateLabel,
+    kind: entry.kind,
+  });
+  const docsLatest = docs.slice(0, MAX_DOC_ITEMS).map(toEntry);
+  const blogLatest = posts.slice(0, MAX_BLOG_ITEMS).map(toEntry);
 
   return (
     <main className="min-h-screen bg-neutral-50 text-neutral-900 px-6 py-20">

@@ -57,7 +57,7 @@ function parseKeyLine(line) {
   return { key: m[1], value: m[2] ?? "" };
 }
 
-function ensureNormalizedFrontmatter(raw, filePath) {
+function ensureNormalizedFrontmatter(raw) {
   const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
   if (!fmMatch) return { changed: false, reason: "no_frontmatter", content: raw };
 
@@ -144,7 +144,7 @@ function main() {
   for (const f of files) {
     scanned++;
     const raw = fs.readFileSync(f, "utf8");
-    const res = ensureNormalizedFrontmatter(raw, f);
+    const res = ensureNormalizedFrontmatter(raw);
     if (res.changed) {
       changed++;
       changedFiles.push({ f, reason: res.reason });

@@ -1,23 +1,8 @@
 // app/docs/page.tsx
 import type { Metadata } from "next";
-import * as site from "@/.velite";
+import { docs, drafts } from "@/.velite";
 import { DocsBrowser } from "./docs-browser";
 
-type Doc = {
-  slug: string;
-  title: string;
-  description?: string;
-  published?: boolean;
-  category?: string;
-  section?: string; // subgroup(2단)로 사용할 값
-  docType?: string; // "paper" | "docent"
-  order?: number;
-  date?: string;
-  updated?: string;
-};
-
-const docs = (site as any).docs as Doc[] | undefined;
-const drafts = (site as any).drafts as Doc[] | undefined;
 const isLocalDev = process.env.NODE_ENV === "development";
 
 /* --------------------------- metadata --------------------------- */

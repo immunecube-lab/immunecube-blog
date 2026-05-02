@@ -1,7 +1,7 @@
 // app/docs/[...slug]/page.tsx
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
-import * as site from "@/.velite";
+import { docs, drafts } from "@/.velite";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
 import { ReadingProgress } from "@/components/ReadingProgress";
@@ -13,15 +13,13 @@ type Doc = {
   description?: string;
   date?: string;
   updated?: string;
-  body: any;
+  body: string;
   published?: boolean;
   docType?: string; // "paper" | "docent"
 };
 
-const docs = (site as any).docs as Doc[] | undefined;
-const drafts = (site as any).drafts as Doc[] | undefined;
 const isLocalDev = process.env.NODE_ENV === "development";
-const docsSource = [...(docs ?? []), ...(isLocalDev ? drafts ?? [] : [])];
+const docsSource: Doc[] = [...docs, ...(isLocalDev ? drafts : [])];
 
 function getDocBySlug(slug: string): Doc | undefined {
   if (docsSource.length === 0) return undefined;

@@ -82,8 +82,8 @@ export default async function BlogPostPage(props: {
 
   if (!post) notFound();
 
-  const dateRaw = (post as any).date as string | undefined;
-  const updatedRaw = (post as any).updated as string | undefined;
+  const dateRaw = post.date;
+  const updatedRaw = post.updated;
 
   const dateYmd = ymd(dateRaw);
 
