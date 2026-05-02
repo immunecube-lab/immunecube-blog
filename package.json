@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "concurrently -k \"npm:velite:watch\" \"next dev\"",
     "build": "npm run velite:build && npm run gen:legacy-doc-redirects && next build",
+    "postbuild": "pagefind --site .next/server/app --output-path out/_pagefind",
     "start": "npx serve@latest out",
     "lint": "eslint .",
     "velite:build": "velite build",
@@ -35,6 +36,7 @@
     "eslint-config-next": "^16.0.10",
     "fast-glob": "^3.3.3",
     "gray-matter": "^4.0.3",
+    "pagefind": "^1.5.2",
     "playwright": "^1.57.0",
     "postcss": "^8.5.6",
     "sharp": "^0.34.5",
