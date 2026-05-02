@@ -121,7 +121,7 @@ export function PagefindSearch() {
 
       {open ? (
         <div
-          className="fixed inset-0 z-50 bg-black/35 px-4 py-20"
+          className="fixed inset-0 z-50 bg-black/35 px-4 py-6 sm:py-20"
           role="dialog"
           aria-modal="true"
           aria-label="사이트 검색"
@@ -129,8 +129,8 @@ export function PagefindSearch() {
             if (event.target === event.currentTarget) setOpen(false);
           }}
         >
-          <div className="mx-auto max-w-2xl rounded-lg border border-neutral-200 bg-white p-4 shadow-xl dark:border-neutral-800 dark:bg-neutral-950">
-            <div className="mb-3 flex items-center justify-between gap-3">
+          <div className="mx-auto flex max-h-[calc(100dvh-3rem)] max-w-2xl flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white p-4 shadow-xl dark:border-neutral-800 dark:bg-neutral-950 sm:max-h-[calc(100dvh-10rem)]">
+            <div className="mb-3 flex shrink-0 items-center justify-between gap-3">
               <h2 className="text-base font-semibold">사이트 검색</h2>
               <button
                 type="button"
@@ -143,10 +143,13 @@ export function PagefindSearch() {
               </button>
             </div>
 
-            <div id={searchId} className="pagefind-search-root" />
+            <div
+              id={searchId}
+              className="pagefind-search-root min-h-0 flex-1 overflow-y-auto pr-1"
+            />
 
             {failed ? (
-              <p className="mt-3 text-sm text-red-600">
+              <p className="mt-3 shrink-0 text-sm text-red-600">
                 검색 인덱스를 불러오지 못했습니다. 배포가 끝난 뒤 다시 시도해 주세요.
               </p>
             ) : null}
