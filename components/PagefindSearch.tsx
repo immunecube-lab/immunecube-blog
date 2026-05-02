@@ -9,12 +9,55 @@ type PagefindWindow = Window & {
     baseUrl?: string;
     showImages?: boolean;
     showSubResults?: boolean;
+    processResult?: (result: PagefindSearchResult) => PagefindSearchResult;
     translations?: Record<string, string>;
   }) => unknown;
 };
 
+type PagefindSearchResult = {
+  url?: string;
+  meta?: Record<string, string | undefined>;
+  sub_results?: Array<Record<string, unknown> & { url?: string }>;
+  [key: string]: unknown;
+};
+
 const PAGEFIND_CSS_ID = "pagefind-ui-css";
 const PAGEFIND_SCRIPT_ID = "pagefind-ui-script";
+
+function normalizePagefindUrl(url: string | undefined) {
+  if (!url) return url;
+
+  try {
+    const parsed = new URL(url, window.location.origin);
+    if (parsed.origin !== window.location.origin) return url;
+
+    parsed.pathname = parsed.pathname
+      .replace(/\/index\.html$/, "/")
+      .replace(/\.html$/, "");
+
+    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  } catch {
+    return url.replace(/\/index\.html(?=([?#]|$))/, "/").replace(/\.html(?=([?#]|$))/, "");
+  }
+}
+
+function normalizePagefindResult(result: PagefindSearchResult) {
+  const meta = result.meta
+    ? { ...result.meta, url: normalizePagefindUrl(result.meta.url) }
+    : result.meta;
+
+  const subResults = result.sub_results?.map((subResult) => ({
+    ...subResult,
+    url: normalizePagefindUrl(subResult.url),
+  }));
+
+  return {
+    ...result,
+    url: normalizePagefindUrl(result.url),
+    meta,
+    sub_results: subResults,
+  };
+}
 
 function loadPagefindUi() {
   const win = window as PagefindWindow;
@@ -72,6 +115,7 @@ export function PagefindSearch() {
           baseUrl: "/",
           showImages: false,
           showSubResults: true,
+          processResult: normalizePagefindResult,
           translations: {
             placeholder: "검색어를 입력하세요",
             clear_search: "검색어 지우기",

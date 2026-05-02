@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently -k \"npm:velite:watch\" \"next dev\"",
     "build": "npm run velite:build && npm run gen:legacy-doc-redirects && next build",
-    "postbuild": "pagefind --site .next/server/app --output-path out/_pagefind",
+    "postbuild": "pagefind --site out --output-path out/_pagefind",
     "start": "npx serve@latest out",
     "lint": "eslint .",
     "velite:build": "velite build",
