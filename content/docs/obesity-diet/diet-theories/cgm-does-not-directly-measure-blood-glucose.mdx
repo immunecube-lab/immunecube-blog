@@ -1,0 +1,143 @@
+---
+title: "Food Intelligence 9장: 연속혈당측정기는 혈당을 직접 측정하지 않는다"
+description: "Kevin Hall과 Julia Belluz의 Food Intelligence 9장에서 다룬 CGM과 정밀영양 논의를 바탕으로, 간질액 포도당 측정의 의미와 개별 음식 판정의 한계를 정리합니다."
+slug: "cgm-does-not-directly-measure-blood-glucose"
+category: "비만 다이어트"
+section: "식단 이론"
+order: 2025
+tags: ["CGM", "연속혈당측정기", "혈당", "간질액", "정밀영양", "Kevin Hall", "초가공식품"]
+status: "draft"
+published: false
+date: 2026-05-02
+updated: 2026-05-02
+---
+
+<Paper
+  title="Imprecision nutrition? Duplicate meals result in unreliable individual glycemic responses measured by continuous glucose monitors across three dietary patterns in adults without diabetes"
+  authors="Aaron Hengist, Juen Guo, Kevin D. Hall et al."
+  journal="medRxiv preprint"
+  year={2023}
+  takeaway="당뇨병이 없는 성인에서 CGM으로 측정한 식후 포도당 반응은 같은 음식을 반복해서 먹었을 때도 상당히 달라질 수 있으며, 개인 맞춤 영양에서 단일 식사 반응을 과도하게 해석하는 데 한계가 있음을 보여준 연구."
+  doi="10.1101/2023.06.14.23291406"
+/>
+
+<Paper
+  title="Accuracy of flash glucose monitoring and continuous glucose monitoring technologies: Implications for clinical practice"
+  authors="Ramzi A. Ajjan, Michael H. Cummings, Peter Jennings, Lalantha Leelarathna, Gerry Rayman, Emma G. Wilmot"
+  journal="Diabetes and Vascular Disease Research"
+  year={2018}
+  takeaway="CGM과 flash glucose monitoring은 혈액이 아니라 피하 간질액 포도당을 측정하며, 정확도 평가는 장치, 혈당 변화 속도, 측정 조건, 보정 방식에 따라 달라질 수 있음을 정리한 리뷰."
+  doi="10.1177/1479164118756240"
+/>
+
+<AuthorBio person="kevin-hall" />
+
+
+## 이 장치는 무엇을 측정하는가
+
+연속혈당측정기(CGM)는 혈당을 직접 측정하지 않습니다.
+
+이 문장은 단순한 표현상의 문제가 아닙니다. CGM을 어떻게 이해해야 하는지를 결정하는 핵심입니다. 우리가 흔히 CGM 화면에서 보는 숫자를 "혈당"이라고 부르지만, 실제 센서는 혈관 안에 들어가 있지 않습니다.
+
+CGM은 피부 아래 피하 조직에 위치한 센서로 **간질액(interstitial fluid)의 포도당 농도**를 측정합니다. 이 값은 혈액 포도당과 밀접하게 연결되어 있지만, 혈액 포도당 그 자체는 아닙니다.
+
+따라서 더 정확한 표현은 이렇습니다.
+
+CGM은 혈당을 직접 재는 장치가 아니라, 피하 간질액 포도당을 측정해 혈당의 흐름을 추정하는 장치입니다.
+
+## 차이는 단순한 시간 지연만이 아닙니다
+
+CGM의 한계는 흔히 "혈당보다 5-15분 정도 늦게 따라온다"는 식으로 설명됩니다. 이 설명은 맞지만 충분하지 않습니다.
+
+문제는 단순히 시간이 늦는 것이 아닙니다. **측정 대상 자체가 다릅니다.**
+
+혈액은 빠르게 순환하는 구획입니다. 반면 간질액은 혈관 밖 조직 사이에 있는 액체입니다. 혈액 속 포도당이 조직으로 이동하고, 세포가 포도당을 흡수하고, 그 주변의 혈류와 확산 상태가 바뀌면서 간질액 포도당 신호가 만들어집니다.
+
+즉 CGM 값은 혈액 속 포도당을 그대로 복사한 숫자가 아닙니다. 특정 위치의 조직 환경에서 만들어진 신호입니다.
+
+## 같은 사람, 같은 음식, 다른 반응
+
+Kevin Hall이 주목한 지점은 바로 여기였습니다. CGM은 개인 맞춤 영양의 핵심 도구처럼 소개되곤 합니다. 어떤 음식을 먹었을 때 혈당이 얼마나 오르는지 보면, 그 음식이 나에게 맞는지 아닌지 알 수 있다는 주장입니다.
+
+하지만 실제 데이터는 그렇게 단순하지 않습니다.
+
+Hall 연구팀이 참여한 연구에서는 같은 사람이 같은 음식을 반복해서 먹었을 때도 CGM으로 측정한 식후 포도당 반응이 꽤 달라질 수 있었습니다. 어떤 경우에는 같은 음식을 두 번 먹었을 때의 차이가, 서로 다른 음식을 먹었을 때의 차이와 비슷한 수준으로 나타났습니다.
+
+그 결과는 케빈 홀이 예상하던 차이보다 훨씬 컷습니다. 
+
+이 결과는 직관을 흔듭니다. 우리는 보통 이렇게 생각합니다.
+
+음식이 다르면 반응이 다르고, 음식이 같으면 반응도 비슷할 것이다.
+
+하지만 실제 몸은 그렇게 단순한 기계가 아닙니다. 같은 음식이라도 수면, 스트레스, 전날 식사, 운동, 식사 속도, 위 배출 속도, 장내 환경, 호르몬 상태, 센서 위치에 따라 반응이 달라질 수 있습니다.
+
+## 기기의 문제가 아니라 구조의 문제입니다
+
+이 결과를 단순히 "기기가 아직 완벽하지 않다"는 말로만 해석하면 중요한 부분을 놓칩니다.
+
+물론 센서의 정확도, 알고리즘, 보정 기술은 계속 좋아질 수 있습니다. 그러나 CGM이 간질액을 측정하는 이상, 몇 가지 한계는 남습니다.
+
+첫째, 혈액과 간질액 사이에는 시간 차이가 있습니다.
+
+둘째, 센서가 놓인 위치에 따라 국소 조직 환경이 달라질 수 있습니다.
+
+셋째, 식후 포도당 반응 자체가 매번 완전히 재현되는 안정된 값이 아닙니다.
+
+넷째, 장치의 필터링 알고리즘은 실제 생리 신호를 그대로 보여주는 것이 아니라, 사용자가 읽을 수 있는 형태로 가공된 신호를 보여줍니다.
+
+따라서 우리가 보는 값은 "몸 전체의 혈당 반응"이라기보다, **특정 위치에서 측정된 간질액 포도당 신호를 장치가 해석한 값**에 가깝습니다.
+
+## CGM은 쓸모없다는 뜻이 아닙니다
+
+이 말은 CGM이 쓸모없다는 뜻이 아닙니다. 오히려 CGM은 당뇨병 관리에서 매우 유용한 도구입니다. 하루 전체의 흐름, 야간 저혈당, 식후 상승 패턴, 운동과 약물에 따른 변화 같은 것을 볼 수 있게 해줍니다.
+
+문제는 CGM을 **음식 판정기**처럼 사용할 때 생깁니다.
+
+"이 음식은 나에게 안 맞는다."
+
+"이 음식은 혈당을 튀게 만든다."
+
+"이 음식은 안전하고, 저 음식은 나쁘다."
+
+이런 식의 결론은 매우 불안정할 수 있습니다. 같은 음식도 반응이 달라지고, 장치마다 신호가 달라질 수 있으며, 측정 자체가 혈액이 아니라 국소 간질액 신호이기 때문입니다.
+
+즉, 우리가 "개인 차이"라고 부르는 것 중 일부는 진짜 개인 차이일 수 있지만, 일부는 측정 방식, 상황 변수, 생리적 변동성이 합쳐진 결과일 수 있습니다.
+
+## 혈당 하나로 음식의 의미를 판단할 수 없습니다
+
+이 문제는 초가공식품 환경과 연결될 때 더 중요해집니다.
+
+현대 식품은 단순히 혈당을 올리는 음식이 아닙니다. 빠르게 먹히고, 에너지 밀도가 높고, 포만 신호보다 먼저 에너지가 들어오는 구조를 가지고 있습니다. 당, 지방, 소금, 향, 질감, 식사 속도, 섬유질 부족이 함께 작동합니다.
+
+이 과정에서 흔들리는 것은 혈당 하나가 아닙니다.
+
+인슐린, 렙틴, 포만 신호, 위장관 호르몬, 대사 속도, 면역 반응이 함께 영향을 받을 수 있습니다. 혈당은 그 결과 중 하나일 뿐입니다.
+
+따라서 어떤 음식을 CGM 스파이크 하나로 판단하는 것은 너무 좁은 해석입니다. 혈당이 덜 오른다고 해서 좋은 식사가 되는 것도 아니고, 혈당이 오른다고 해서 나쁜 식사가 되는 것도 아닙니다.
+
+## 결론
+
+연속혈당측정기는 유용한 도구입니다. 특히 당뇨병 관리에서는 큰 의미가 있습니다. 그러나 이 장치는 혈액 속 포도당을 직접 측정하지 않습니다. 피하 간질액 포도당을 측정하고, 그 신호를 알고리즘으로 해석해 보여줍니다.
+
+그러므로 CGM은 패턴을 보는 도구이지, 개별 음식의 정답을 알려주는 판정기가 아닙니다.
+
+기술이 발전하면 센서 정확도는 좋아질 수 있습니다. 하지만 혈액과 간질액의 차이, 센서 위치의 차이, 식후 반응의 생리적 변동성은 완전히 사라지지 않습니다.
+
+한 문장으로 정리하면 이렇습니다.
+
+연속혈당측정기는 혈당을 직접 측정하지 않으며, 우리가 보고 있는 값은 몸 전체가 아니라 한 위치에서 만들어진 해석된 포도당 신호입니다.
+
+## 참고문헌
+
+1. Belluz J, Hall KD. Food Intelligence: The Science of How Food Both Nourishes and Harms Us. Chapter 9. Avery; 2025.
+2. Hengist A, Guo J, Hall KD, et al. Imprecision nutrition? Duplicate meals result in unreliable individual glycemic responses measured by continuous glucose monitors across three dietary patterns in adults without diabetes. medRxiv. 2023. doi:10.1101/2023.06.14.23291406
+3. Ajjan RA, Cummings MH, Jennings P, Leelarathna L, Rayman G, Wilmot EG. Accuracy of flash glucose monitoring and continuous glucose monitoring technologies: Implications for clinical practice. Diabetes and Vascular Disease Research. 2018;15(3):175-184. doi:10.1177/1479164118756240
+
+<RelatedPosts
+  slugs={[
+    "modern-food-environment-breaks-body-weight-defense",
+    "2021-carbohydrates-insulin-obesity",
+    "hfcs-not-pure-fructose",
+    "kevin-hall-low-carb-low-fat-diet"
+  ]}
+/>
