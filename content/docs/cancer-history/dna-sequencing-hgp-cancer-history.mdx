@@ -1,0 +1,290 @@
+---
+title: "DNA 서열분석과 인간 게놈 프로젝트: 염기서열을 읽는 기술은 어떻게 암 연구를 바꾸었나"
+description: "Sanger sequencing에서 인간 게놈 프로젝트, 차세대 시퀀싱, long-read sequencing까지 DNA 서열분석 기술의 원리와 암 연구에 미친 영향을 생화학적 관점에서 정리합니다."
+slug: "dna-sequencing-hgp-cancer-history"
+category: "암의 역사"
+section: "cancer-history"
+order: 2001
+tags: ["DNA시퀀싱", "Sanger", "인간게놈프로젝트", "NGS", "암유전체", "정밀의학", "TCGA"]
+
+status: "rewrite"
+published: true
+date: 2026-05-05
+updated: 2026-05-09
+---
+
+<Paper
+  title="DNA sequencing with chain-terminating inhibitors"
+  authors="Sanger, F.; Nicklen, S.; Coulson, A. R."
+  journal="Proceedings of the National Academy of Sciences"
+  year={1977}
+  doi="10.1073/pnas.74.12.5463"
+  takeaway="dideoxynucleotide를 이용해 DNA 합성을 특정 염기에서 중단시키고, 조각 길이를 전기영동으로 읽어 염기서열을 결정하는 Sanger sequencing의 원리를 제시한 고전 논문."
+/>
+
+## DNA 서열을 읽는다는 것은 무엇인가
+
+DNA 서열분석은 단순히 A, T, G, C 글자를 나열하는 기술이 아닙니다. 생화학적으로 보면 “DNA polymerase가 어느 염기를 붙였는가”를 간접적으로 관찰하는 기술입니다. 즉 핵심 질문은 이것입니다.
+
+새로 합성되는 DNA 가닥의 다음 위치에 어떤 염기가 들어갔는가?
+
+이 질문을 풀기 위해 세대마다 다른 방법이 등장했습니다. 어떤 방법은 DNA 합성이 멈추는 위치를 이용했고, 어떤 방법은 염기가 붙을 때 나오는 빛을 읽었고, 어떤 방법은 DNA가 nanopore를 지나갈 때 생기는 전류 변화를 측정했습니다.
+
+암 연구에서 이 기술이 중요한 이유는 분명합니다. 암은 세포가 축적한 유전적 변화의 질병입니다. 하지만 그 변화를 보려면 먼저 DNA 서열을 읽을 수 있어야 합니다. 현미경이 세포 모양을 보여주었다면, 시퀀싱은 암세포가 어떤 유전적 경로를 지나왔는지 보여주는 도구가 되었습니다.
+
+## 1세대: Sanger sequencing의 생화학
+
+1977년 Sanger, Nicklen, Coulson이 제시한 방법은 DNA 합성 반응의 성질을 이용했습니다. DNA polymerase는 primer의 3' 말단에 dNTP를 하나씩 붙여 새 DNA를 합성합니다. 그런데 dideoxynucleotide, 즉 ddNTP는 3' OH가 없습니다. 그래서 한 번 ddNTP가 들어가면 다음 phosphodiester bond를 만들 수 없고 DNA 합성이 멈춥니다.
+
+Sanger sequencing의 핵심은 이 “무작위적이지만 염기 특이적인 종료”입니다. 예를 들어 ddATP가 조금 섞인 반응에서는 A가 들어갈 위치에서 일부 가닥이 멈춥니다. 그러면 길이가 서로 다른 DNA 조각들이 만들어지고, 이 조각들을 크기별로 분리하면 어느 위치가 A였는지 알 수 있습니다.
+
+초기 방식은 A, T, G, C 네 개의 반응을 따로 돌렸습니다. 각 반응에는 하나의 ddNTP가 들어갔고, 방사성 표지된 DNA 조각을 polyacrylamide gel에서 분리했습니다. gel 아래쪽에는 짧은 조각, 위쪽에는 긴 조각이 위치합니다. 네 lane의 band를 아래에서 위로 읽으면 서열이 나옵니다.
+
+| 구성 요소 | 역할 |
+|---|---|
+| template DNA | 읽고 싶은 원본 DNA |
+| primer | DNA polymerase가 합성을 시작할 3' OH 제공 |
+| DNA polymerase | dNTP를 붙여 새 가닥 합성 |
+| dNTP | 정상적인 DNA 합성 재료 |
+| ddNTP | 3' OH가 없어 합성을 종료시키는 염기 |
+| 전기영동 | 길이가 1염기씩 다른 조각을 분리 |
+
+이 방법은 생화학적으로 매우 아름답습니다. DNA polymerase의 정상 반응을 그대로 이용하되, 3' OH가 없는 염기를 아주 조금 섞어 “멈춘 위치”를 기록하게 한 것입니다.
+
+## Maxam-Gilbert sequencing과 왜 Sanger가 살아남았나
+
+비슷한 시기에 Maxam-Gilbert sequencing도 등장했습니다. 이 방법은 DNA를 화학적으로 특정 염기에서 절단한 뒤, 조각 길이로 서열을 읽는 방식이었습니다. G, A+G, C, C+T 같은 염기 특이적 화학 반응을 이용했습니다.
+
+하지만 이 방법은 독성이 강한 화학물질을 쓰고, 실험 과정이 복잡했습니다. 반면 Sanger 방식은 효소 반응을 기반으로 했기 때문에 자동화와 형광 표지로 확장하기 쉬웠습니다. 결국 DNA 서열분석의 주류는 Sanger sequencing으로 넘어갔습니다.
+
+## 자동화된 Sanger: 형광과 capillary가 만든 대량생산
+
+Sanger sequencing이 인간 게놈 프로젝트의 주력 기술이 될 수 있었던 이유는 자동화 때문입니다. 핵심 변화는 세 가지였습니다.
+
+첫째, 방사성 표지 대신 형광 표지가 들어왔습니다. 네 종류의 ddNTP에 서로 다른 형광 dye를 붙이면, 네 반응을 따로 돌릴 필요가 줄어듭니다. 한 반응 안에서 DNA 조각들이 만들어지고, 마지막 염기에 붙은 색으로 A, T, G, C를 구분할 수 있습니다.
+
+둘째, slab gel 대신 capillary electrophoresis가 쓰였습니다. 아주 가는 모세관 안에서 DNA 조각을 크기별로 분리하고, detector가 지나가는 조각의 형광 신호를 읽습니다. 결과는 gel 사진이 아니라 chromatogram, 즉 색깔 peak의 연속으로 나옵니다.
+
+셋째, clone 기반 shotgun sequencing과 assembly 알고리즘이 결합했습니다. 긴 genome을 한 번에 읽을 수 없기 때문에 DNA를 잘게 자르고, 각 조각을 읽은 뒤, 겹치는 서열을 이용해 원래 genome을 조립했습니다.
+
+이 시기의 Sanger read는 보통 수백에서 약 1,000염기 정도까지 읽을 수 있었습니다. 정확도는 높았지만, 한 번에 처리할 수 있는 양은 제한적이었습니다. 그래서 사람 genome처럼 큰 대상을 읽으려면 실험실 기술만이 아니라 공장형 자동화, 로봇, 데이터베이스, assembly 소프트웨어가 필요했습니다.
+
+## 인간 게놈 프로젝트는 기술의 가속기였다
+
+인간 게놈 프로젝트(Human Genome Project, HGP)는 1990년에 시작되어 2001년에 초안이 발표되고 2003년에 완료가 선언되었습니다. 이 프로젝트는 단순히 “인간 DNA를 한 번 읽었다”는 사건이 아니었습니다. DNA 서열분석을 대규모 산업형 생명과학으로 바꾼 사건이었습니다.
+
+HGP가 한 일은 크게 네 가지입니다.
+
+1. 자동화된 Sanger sequencing을 거대한 규모로 밀어붙였습니다.
+2. clone library, physical map, shotgun assembly 같은 genome 조립 전략을 표준화했습니다.
+3. 읽은 서열을 공개 데이터베이스에 축적하고 공유하는 문화를 만들었습니다.
+4. 참조 유전체(reference genome)를 만들어 이후 모든 암 유전체 비교의 기준선을 제공했습니다.
+
+암 연구에서 참조 유전체는 결정적이었습니다. 암세포 DNA를 읽어도 비교할 기준이 없으면 변이가 무엇인지 알기 어렵습니다. HGP 이후 연구자들은 암세포의 DNA를 정상 참조서열과 비교해 SNV, insertion, deletion, copy number alteration, structural rearrangement를 체계적으로 찾을 수 있게 되었습니다.
+
+즉 HGP는 암을 직접 치료한 프로젝트가 아니었습니다. 하지만 암세포의 유전체를 읽고 해석할 수 있는 지도, 장비, 데이터 처리 방식, 협업 문화를 만들어 주었습니다.
+
+이 지점에서 HGP는 생화학자들에게 양가적인 프로젝트였습니다. 사용된 핵심 반응은 여전히 DNA polymerase, dNTP, ddNTP, 전기영동이라는 생화학의 언어로 설명할 수 있었습니다. 그러나 프로젝트의 실제 성공 요인은 개별 효소 반응을 더 깊이 이해하는 데 있지 않았습니다. 수천만 번의 반응을 자동화하고, 로봇으로 처리하고, capillary sequencer를 병렬화하고, 나온 데이터를 조립하는 공학과 informatics에 있었습니다.
+
+그런 의미에서 HGP는 생화학의 산물이면서 동시에 생화학자를 주변으로 밀어낸 프로젝트였습니다. DNA를 읽는 반응은 생화학이었지만, 인간 유전체를 끝까지 읽게 만든 힘은 공장형 실험 시스템, 데이터베이스, 소프트웨어, 표준화된 파이프라인이었습니다.
+
+## 2세대 sequencing: 한 분자씩 길게 읽기에서 수백만 조각을 동시에 읽기로
+
+2000년대 중반 이후 등장한 차세대 시퀀싱(NGS)의 핵심은 massively parallel sequencing입니다. Sanger 방식이 한 capillary에서 하나의 DNA 조각 집단을 읽는 방식이었다면, NGS는 수백만에서 수십억 개의 DNA fragment를 flow cell이나 bead 위에 고정하고 동시에 읽습니다.
+
+아래 두 그림은 Illumina 계열 NGS에서 DNA를 길이별로 분리하는 대신, DNA 조각을 flow cell의 좌표에 고정하고 같은 좌표에서 반복적으로 형광 신호를 읽는 과정을 보여줍니다.
+
+<Figure
+  src="/images/diagram/NGS1.svg"
+  alt="Illumina NGS에서 DNA 조각이 flow cell 위에서 bridge amplification으로 cluster를 형성하는 과정"
+  caption="NGS library preparation과 cluster generation의 개념도입니다. DNA를 조각화하고 adapter를 붙인 뒤, 단일가닥 DNA가 flow cell 표면의 oligo와 결합합니다. bridge amplification을 반복하면 같은 서열을 가진 복사본들이 한 좌표에 모여 cluster를 만들고, 이 cluster가 이후 이미징에서 하나의 read 단위가 됩니다."
+  number={1}
+  maxWidth={520}
+/>
+
+
+<Figure
+  src="/images/diagram/NGS2.svg"
+  alt="Illumina sequencing by synthesis에서 형광표지 염기를 cycle마다 촬영해 염기서열을 판독하는 과정"
+  caption="Illumina sequencing by synthesis의 개념도입니다. 각 cluster에서 DNA polymerase가 형광표지 reversible terminator nucleotide를 한 염기씩 붙이고, 장비는 cycle마다 형광 신호를 촬영해 A, T, G, C를 판독합니다. 촬영 후 형광표지와 blocking group을 제거하면 다음 cycle을 읽을 수 있습니다."
+  number={2}
+  maxWidth={560}
+/>
+
+따라서 NGS의 핵심은 DNA 조각을 길이별로 분리하는 것이 아니라, 각 조각을 flow cell의 좌표에 고정한 뒤 같은 좌표에서 색의 시간 순서를 읽는 데 있습니다.
+
+이 변화는 발상의 전환이었습니다. read 하나의 길이는 Sanger보다 짧아져도, 읽는 분자 수가 압도적으로 많아지면 전체 생산량은 훨씬 커집니다. 암 연구에서는 이것이 결정적이었습니다. 종양은 정상세포가 섞인 불균질한 조직이고, 낮은 빈도의 subclone 변이도 중요할 수 있습니다. 깊게 많이 읽는 기술이 필요했습니다.
+
+NGS를 이해할 때는 “염기서열을 읽는 반응”만 보면 부족합니다. 실제 NGS는 대개 다섯 단계의 pipeline으로 움직입니다.
+
+| 단계 | 무엇을 하는가 | 왜 중요한가 |
+|---|---|---|
+| library preparation | DNA를 잘게 자르고 adapter를 붙임 | 모든 조각에 공통 primer 결합 부위와 sample index를 부여 |
+| clonal amplification | 한 DNA 조각을 같은 서열의 집단으로 증폭 | 단일 분자의 신호를 검출 가능한 신호로 키움 |
+| sequencing reaction | 염기가 들어가는 순서를 cycle별로 측정 | 짧은 read를 대량 생산 |
+| alignment | read를 reference genome에 맞춤 | 각 read가 genome의 어느 위치에서 왔는지 결정 |
+| variant calling | reference와 다른 위치를 통계적으로 판정 | SNV, indel, copy number, 구조변이 후보를 도출 |
+
+즉 NGS는 실험과 계산이 분리되지 않습니다. library를 어떻게 만들었는지, 얼마나 깊게 읽었는지, reference에 얼마나 잘 붙였는지, 오류율을 어떻게 모델링했는지가 최종 변이 목록을 바꿉니다.
+
+## library preparation: 서열분석 전에 이미 많은 것이 결정된다
+
+NGS의 첫 단계는 library preparation입니다. genomic DNA를 초음파나 효소로 잘게 자르고, 양끝을 다듬은 뒤 adapter를 붙입니다. adapter는 단순한 손잡이가 아닙니다. flow cell이나 bead에 결합하는 서열, sequencing primer가 붙는 서열, sample을 구분하는 index 또는 barcode가 들어갑니다.
+
+이 단계에서 이미 bias가 생길 수 있습니다. DNA가 너무 많이 손상되어 있거나, FFPE 조직처럼 formalin 고정으로 fragment가 짧고 변형되어 있으면 library 품질이 떨어집니다. GC가 매우 높은 영역이나 반복서열 영역은 증폭과 mapping에서 불리할 수 있습니다. 암 조직은 정상세포와 암세포가 섞여 있으므로 tumor purity도 중요합니다. 암세포가 20%뿐인 표본에서 heterozygous mutation을 찾으면, 그 변이의 allele fraction은 대략 10% 수준으로 낮아질 수 있습니다.
+
+그래서 NGS 결과는 “기계가 읽어준 글자”가 아니라, 표본 상태와 library 제작 방식이 반영된 데이터입니다.
+
+## coverage와 depth: 많이 읽는다는 것의 의미
+
+NGS에서 자주 나오는 말이 coverage 또는 depth입니다. 어떤 위치를 평균 몇 번 읽었는지를 뜻합니다. 예를 들어 30x whole genome sequencing은 genome의 각 위치가 평균 30개의 read로 덮였다는 뜻입니다.
+
+암에서는 depth가 특히 중요합니다. 정상 germline variant는 보통 allele fraction이 50% 또는 100%에 가깝습니다. 하지만 종양 변이는 암세포 비율, copy number 변화, subclone 구조에 따라 5%, 10%, 30%처럼 다양하게 보입니다. 낮은 빈도의 변이를 보려면 더 깊게 읽어야 합니다.
+
+하지만 depth만 높인다고 모든 문제가 해결되지는 않습니다. PCR duplicate가 많으면 같은 원래 분자를 여러 번 센 것처럼 보일 수 있고, sequencing error가 특정 위치에 반복되면 낮은 빈도의 변이처럼 보일 수 있습니다. 그래서 임상 암 panel에서는 unique molecular identifier(UMI)를 붙여 원래 DNA 분자 단위로 read를 묶고 오류를 줄이기도 합니다.
+
+## paired-end read와 insert size
+
+Illumina NGS에서 중요한 개념 중 하나는 paired-end read입니다. 하나의 DNA fragment 양쪽 끝을 모두 읽으면, 두 read가 reference genome에서 어느 방향과 거리로 붙는지 알 수 있습니다. 정상적인 fragment라면 두 read는 예상한 거리 안에서 서로 마주 보는 방향으로 mapping됩니다.
+
+이 정보는 단순 SNV보다 큰 변화를 찾는 데 도움이 됩니다. 두 read가 너무 멀리 떨어져 붙거나, 방향이 이상하거나, 서로 다른 염색체에 붙으면 deletion, inversion, translocation 같은 구조변이를 의심할 수 있습니다. 물론 짧은 read만으로 복잡한 구조변이를 완전히 복원하기는 어렵지만, paired-end 정보는 암 유전체 분석에서 중요한 단서가 됩니다.
+
+## variant calling은 통계 문제다
+
+NGS 이후의 핵심은 variant calling입니다. read가 reference와 다르다고 해서 곧바로 변이라고 할 수는 없습니다. DNA polymerase 오류, sequencing chemistry 오류, base calling 오류, mapping 오류, PCR 오류, FFPE artifact가 모두 섞일 수 있습니다.
+
+variant caller는 대략 다음 질문을 합니다.
+
+1. 이 위치를 덮는 read가 충분한가?
+2. reference와 다른 염기가 양쪽 strand에서 반복적으로 보이는가?
+3. base quality와 mapping quality가 충분한가?
+4. 같은 오류가 주변 문맥이나 특정 플랫폼에서 자주 생기는가?
+5. matched normal과 비교했을 때 종양에만 있는 변화인가?
+
+암에서는 가능하면 종양 조직과 같은 환자의 정상 DNA를 함께 읽습니다. 그래야 태어날 때부터 갖고 있던 germline variant와 암에서 새로 생긴 somatic mutation을 구분할 수 있습니다. 이 구분이 없으면, 암 변이라고 생각한 것 중 상당수가 사실은 개인의 정상 유전적 차이일 수 있습니다.
+
+## 454 pyrosequencing: pyrophosphate를 빛으로 읽다
+
+초기 NGS의 대표 기술 중 하나는 454 pyrosequencing이었습니다. DNA polymerase가 dNTP를 붙일 때 pyrophosphate(PPi)가 방출됩니다. pyrosequencing은 이 PPi를 ATP sulfurylase와 luciferase 반응으로 연결해 빛으로 바꾸어 읽었습니다.
+
+원리는 다음과 같습니다.
+
+1. DNA fragment를 bead에 붙입니다.
+2. emulsion PCR로 한 bead 위에 같은 DNA 조각을 많이 증폭합니다.
+3. A, T, G, C 중 하나의 dNTP를 순서대로 흘려보냅니다.
+4. 맞는 염기가 들어가면 PPi가 나오고, 효소 반응을 거쳐 빛이 납니다.
+5. 빛의 세기로 몇 개의 같은 염기가 연속으로 들어갔는지 추정합니다.
+
+이 방식은 당시로서는 read length가 비교적 길었지만, 같은 염기가 길게 반복되는 homopolymer 구간에서 오류가 생기기 쉬웠습니다. 예를 들어 AAAAA가 몇 개인지 빛의 세기만으로 정확히 구분하기 어렵기 때문입니다.
+
+## Illumina sequencing: reversible terminator와 bridge amplification
+
+오늘날 가장 널리 쓰인 NGS 방식은 Illumina sequencing by synthesis입니다. 이 기술의 핵심은 flow cell 위에서 DNA fragment를 증폭하고, 한 cycle에 한 염기씩 읽는 것입니다.
+
+먼저 DNA를 잘게 자르고 양끝에 adapter를 붙입니다. 이 adapter는 flow cell 표면의 oligo와 결합합니다. 한 DNA fragment가 표면에 붙으면 bridge amplification을 통해 같은 서열을 가진 cluster가 만들어집니다. cluster는 같은 DNA 조각의 복사본들이 모여 있는 작은 점입니다.
+
+그 다음 sequencing이 시작됩니다. 네 종류의 nucleotide는 각각 다른 형광을 갖고 있고, 동시에 reversible terminator를 가지고 있습니다. 즉 한 cycle에서 DNA polymerase가 염기 하나를 붙이면 더 이상 다음 염기가 붙지 못합니다. 이미지를 찍어 색을 읽은 뒤, blocking group과 형광기를 제거합니다. 그리고 다음 cycle로 넘어갑니다.
+
+Illumina 방식의 생화학적 핵심은 “한 번에 한 염기씩, 모든 cluster를 동시에 읽는다”입니다.
+
+| 단계 | 생화학적 의미 |
+|---|---|
+| adapter ligation | 표면 결합과 primer 결합을 위한 공통 손잡이 부착 |
+| bridge amplification | 한 분자 신호를 볼 수 있을 만큼 cluster로 증폭 |
+| reversible terminator incorporation | 한 cycle에 한 염기만 합성되도록 제한 |
+| imaging | 각 cluster의 형광 색으로 염기 판독 |
+| deblocking | 다음 염기를 읽기 위해 3' 말단을 다시 활성화 |
+
+Illumina의 강점은 정확도, 처리량, 비용이었습니다. 단점은 read가 짧고, PCR amplification과 GC bias, mapping 어려움, repetitive region 해석 문제가 있다는 점입니다.
+
+## SOLiD와 Ion Torrent: 다른 방식의 2세대 기술들
+
+SOLiD sequencing은 DNA ligase를 이용하는 sequencing by ligation 방식이었습니다. 형광 표지된 oligonucleotide probe가 template에 맞게 ligation되고, 그 신호를 읽었습니다. 두 염기 조합을 색으로 읽는 color space 방식이라 오류 검출에는 장점이 있었지만, 해석과 workflow가 복잡해 널리 오래 살아남지는 못했습니다.
+
+Ion Torrent는 염기가 붙을 때 방출되는 H+를 감지했습니다. DNA polymerase가 dNTP를 붙이면 pyrophosphate와 함께 proton이 나오고, 이로 인한 pH 변화를 반도체 칩에서 전기 신호로 읽습니다. 형광이나 카메라가 필요 없다는 장점이 있었지만, 454처럼 homopolymer 구간에서 오류가 생기기 쉬웠습니다.
+
+이 기술들은 모두 같은 방향을 가리켰습니다. DNA 서열분석은 더 이상 gel을 읽는 기술이 아니라, 효소 반응을 광학 신호나 전기 신호로 바꾸고 컴퓨터가 대량으로 해석하는 기술이 되었습니다.
+
+## 3세대 sequencing: PCR 없이 긴 분자를 읽다
+
+2세대 NGS의 약점은 짧은 read였습니다. 짧은 조각을 많이 읽으면 SNV나 작은 indel은 잘 찾을 수 있지만, 반복서열, 큰 구조변이, haplotype, fusion, complex rearrangement를 해석하기 어렵습니다. 여기서 long-read sequencing이 등장합니다.
+
+PacBio SMRT sequencing은 DNA polymerase가 한 분자를 합성하는 장면을 실시간으로 관찰합니다. 아주 작은 관찰 공간인 zero-mode waveguide 안에 polymerase를 고정하고, 형광 표지된 nucleotide가 들어오는 순간을 읽습니다. 하나의 DNA 분자를 길게 읽을 수 있고, 같은 circular template를 여러 번 읽어 consensus 정확도를 높일 수 있습니다.
+
+Oxford Nanopore sequencing은 DNA가 nanopore를 통과할 때 전류가 달라지는 현상을 이용합니다. 염기 조합마다 pore를 지나는 동안 전류 변화 패턴이 다르고, 이 신호를 basecaller가 염기서열로 변환합니다. DNA 합성 반응을 읽는 것이 아니라, DNA 분자 자체가 지나가는 물리적 신호를 읽는 방식입니다.
+
+Long-read 기술의 장점은 긴 구조를 볼 수 있다는 점입니다. 암에서는 chromothripsis, gene fusion, enhancer hijacking, insertion, deletion, inversion 같은 복잡한 구조변이를 이해하는 데 도움이 됩니다. 또한 methylation 같은 일부 epigenetic signal도 직접 또는 간접적으로 함께 읽을 수 있습니다.
+
+## 암 유전체에서 무엇을 읽는가
+
+암 연구에서 시퀀싱은 단순히 “유전자 변이가 있다”를 확인하는 데서 끝나지 않습니다. 어떤 플랫폼을 쓰느냐에 따라 읽는 질문이 달라집니다.
+
+| 분석 | 주로 보는 것 | 암 연구에서의 의미 |
+|---|---|---|
+| targeted panel sequencing | 수십-수백 개 암 관련 유전자 | 임상 표적 변이, 동반진단, 내성 변이 |
+| whole exome sequencing | 단백질 코딩 영역 | driver mutation, tumor mutational burden |
+| whole genome sequencing | 전체 유전체 | 비코딩 변이, 구조변이, copy number, mutational signature |
+| RNA sequencing | 전사체 | fusion gene, 발현량, subtype, immune signature |
+| methylation profiling | DNA methylation pattern | 종양 분류, epigenetic silencing, tissue of origin |
+| single-cell sequencing | 세포별 유전체/전사체 | 종양 이질성, clonal evolution, 미세환경 |
+| ctDNA sequencing | 혈액 속 종양 DNA 조각 | 액체생검, 재발 감시, 치료 내성 추적 |
+
+이 중 암 치료와 직접 연결되는 것은 targeted panel sequencing입니다. EGFR, ALK, BRAF, KRAS, BRCA1/2, ERBB2, NTRK, MSI-high, TMB 같은 정보는 치료 선택에 영향을 줄 수 있습니다. 하지만 연구 차원에서는 WGS와 RNA-seq, single-cell 분석이 암의 진화와 미세환경을 이해하는 데 더 넓은 정보를 줍니다.
+
+## driver와 passenger를 구분해야 한다
+
+암세포에는 수많은 변이가 있습니다. 하지만 모든 변이가 암을 움직이는 것은 아닙니다. 암 성장에 직접 이득을 주는 변이는 driver mutation이고, 암이 증식하는 과정에서 함께 쌓였지만 기능적 이득을 주지 않는 변이는 passenger mutation입니다.
+
+시퀀싱 데이터만으로 driver를 바로 알 수는 없습니다. 반복적으로 같은 유전자에 변이가 생기는지, 단백질 기능에 어떤 영향을 주는지, 암종별 선택 압력이 있는지, 실험적으로 세포 성장이나 생존을 바꾸는지 함께 봐야 합니다.
+
+예를 들어 TP53 변이는 많은 암에서 반복적으로 나타나지만, 변이 위치와 기능은 다양합니다. KRAS G12C처럼 특정 변이가 약물 표적이 되는 경우도 있고, 종양 억제 유전자처럼 “망가짐” 자체가 중요한 경우도 있습니다. 따라서 암 유전체 해석은 염기서열을 읽는 일과 생물학적 의미를 붙이는 일이 분리되어 있습니다.
+
+## HGP 이후: TCGA와 암 유전체 지도
+
+인간 게놈 프로젝트가 참조 지도를 만들었다면, TCGA와 ICGC는 암별 변이 지도를 만들었습니다. 이 프로젝트들은 DNA 변이뿐 아니라 RNA 발현, copy number, methylation, 임상 정보를 함께 모았습니다.
+
+그 결과 암은 장기 이름만으로는 충분히 설명되지 않는다는 점이 분명해졌습니다. 같은 유방암 안에서도 분자 subtype이 다르고, 같은 폐암 안에서도 EGFR, ALK, KRAS 변이에 따라 치료 전략이 달라집니다. 반대로 다른 장기의 암이라도 MSI-high나 NTRK fusion처럼 같은 분자 취약점을 공유할 수 있습니다.
+
+이 변화는 암 분류의 언어를 바꾸었습니다. 암은 여전히 조직과 장기로 진단되지만, 치료와 연구에서는 점점 유전체, 전사체, 면역표지자, 미세환경 정보를 함께 봅니다.
+
+## 액체생검: 혈액에서 종양 DNA를 읽기
+
+암세포가 죽거나 분해되면 DNA 조각이 혈액으로 나올 수 있습니다. 이 중 종양에서 나온 DNA 조각을 circulating tumor DNA, 즉 ctDNA라고 합니다. ctDNA sequencing은 조직을 반복해서 떼어내기 어려운 상황에서 변이를 추적할 수 있는 도구가 됩니다.
+
+액체생검의 중요한 응용은 세 가지입니다.
+
+1. 치료 중 내성 변이가 생겼는지 추적합니다.
+2. 수술이나 치료 후 minimal residual disease를 감시합니다.
+3. 조직검사가 어려운 경우 표적 변이를 찾는 데 도움을 줍니다.
+
+그러나 조기검진으로 확대할 때는 조심해야 합니다. 혈액에서 암 관련 신호를 찾는 것은 기술적으로 매력적이지만, 위양성, 과잉진단, 암 위치 추정, 실제 사망률 감소 여부 같은 문제가 남습니다. 시퀀싱이 민감하다는 것과 검진으로 유익하다는 것은 같은 말이 아닙니다.
+
+## 서열분석 기술이 남긴 진짜 변화
+
+DNA 서열분석의 역사는 기술 세대의 교체처럼 보이지만, 더 깊게 보면 생화학 반응을 읽는 방식의 변화입니다.
+
+Sanger sequencing은 DNA 합성이 멈춘 위치를 읽었습니다. 자동화된 Sanger는 그 종료 반응을 형광과 capillary로 대량 처리했습니다. HGP는 이 기술을 거대한 생산 시스템으로 만들고 참조 유전체를 제공했습니다. NGS는 수백만 DNA fragment를 동시에 읽어 암의 변이 지도를 만들었습니다. Long-read sequencing은 짧은 read로는 보이지 않던 구조변이와 반복서열의 문제를 다시 열었습니다.
+
+암 연구에서 이 변화는 결정적이었습니다. 암은 더 이상 현미경으로 보이는 세포 모양만의 질병이 아니게 되었습니다. 어떤 변이가 쌓였고, 어떤 경로가 켜졌고, 어떤 clone이 치료 후 살아남았는지 추적할 수 있게 되었습니다.
+
+하지만 DNA 서열은 답안지가 아니라 질문지입니다. 서열분석은 암을 단순하게 만든 것이 아니라, 더 정확하게 복잡하게 만들었습니다. 그 복잡성을 다룰 수 있게 된 것이야말로 DNA sequencing과 인간 게놈 프로젝트가 암 연구에 남긴 가장 큰 변화입니다.
+
+<RelatedPosts
+  slugs={[
+    "2000-hallmarks-of-cancer-history",
+    "src-ras-oncogene-history",
+    "1979-p53-guardian-of-genome-history",
+    "1983-cancer-epigenetics-history"
+  ]}
+/>
+
+## References
+
+1. Sanger F, Nicklen S, Coulson AR. [DNA sequencing with chain-terminating inhibitors](https://doi.org/10.1073/pnas.74.12.5463). Proc Natl Acad Sci U S A. 1977;74(12):5463-5467.
+2. Maxam AM, Gilbert W. [A new method for sequencing DNA](https://doi.org/10.1073/pnas.74.2.560). Proc Natl Acad Sci U S A. 1977;74(2):560-564.
+3. International Human Genome Sequencing Consortium. [Initial sequencing and analysis of the human genome](https://doi.org/10.1038/35057062). Nature. 2001;409:860-921.
+4. Venter JC, et al. [The sequence of the human genome](https://doi.org/10.1126/science.1058040). Science. 2001;291:1304-1351.
+5. Margulies M, et al. [Genome sequencing in microfabricated high-density picolitre reactors](https://doi.org/10.1038/nature03959). Nature. 2005;437:376-380.
+6. Bentley DR, et al. [Accurate whole human genome sequencing using reversible terminator chemistry](https://doi.org/10.1038/nature07517). Nature. 2008;456:53-59.
+7. The Cancer Genome Atlas Research Network. [The Cancer Genome Atlas Pan-Cancer analysis project](https://doi.org/10.1038/ng.2764). Nat Genet. 2013;45:1113-1120.
+8. Stratton MR, Campbell PJ, Futreal PA. [The cancer genome](https://doi.org/10.1038/nature07943). Nature. 2009;458:719-724.

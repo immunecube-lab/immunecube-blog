@@ -45,6 +45,15 @@ export const people = {
       "MMR 백신 논란과 철회된 1998년 Lancet 논문의 중심 인물입니다.",
     ],
   },
+  "achim-peters": {
+    name: "Achim Peters",
+    years: "1957-",
+    image: "/images/person/achim-peters.webp",
+    role: "selfish brain 이론으로 알려진 비만과 뇌 에너지 대사 연구자",
+    summaryItems: [
+      "selfish brain 이론으로 알려진 비만과 뇌 에너지 대사 연구자입니다.",
+    ],
+  },
   "anthony-cerami": {
     name: "Anthony Cerami",
     years: "1940-",
@@ -334,6 +343,15 @@ export const people = {
     role: "조절 T세포 기능 연구에 기여한 면역학자",
     summaryItems: ["조절 T세포 기능 연구에 기여한 면역학자입니다."],
   },
+  "ethan-weiss": {
+    name: "Ethan Weiss",
+    years: "",
+    image: "/images/person/ethan-weiss.webp",
+    role: "시간제한식과 대사 건강 임상연구로 알려진 심장내과 의사과학자",
+    summaryItems: [
+      "시간제한식과 대사 건강 임상연구로 알려진 심장내과 의사과학자입니다.",
+    ],
+  },
   "florence-seibert": {
     name: "Florence Seibert",
     years: "1897-1991",
@@ -498,6 +516,20 @@ export const people = {
     roleItems: ["암유전자 연구", "1989년 노벨 생리의학상 수상자", "과학자"],
     summaryItems: ["암유전자 연구로 노벨 생리의학상을 받은 과학자입니다."],
   },
+  "harald-zur-hausen": {
+    name: "Harald zur Hausen",
+    years: "1936-2023",
+    image: "/images/person/harald-zur-hausen.webp",
+    role: "HPV와 자궁경부암의 인과관계를 밝힌 바이러스학자",
+    roleItems: [
+      "HPV와 자궁경부암 연구",
+      "2008년 노벨 생리의학상 수상자",
+      "바이러스학자",
+    ],
+    summaryItems: [
+      "HPV와 자궁경부암의 인과관계를 밝히고 암 예방 백신의 길을 연 바이러스학자입니다.",
+    ],
+  },
   "harvey-alter": {
     name: "Harvey Alter",
     years: "1935-",
@@ -642,6 +674,15 @@ export const people = {
     role: "암 통계와 암 치료 성과 비판으로 알려진 생물통계학자",
     summaryItems: [
       "암 통계와 암 치료 성과 비판으로 알려진 생물통계학자입니다.",
+    ],
+  },
+  "judah-folkman": {
+    name: "Judah Folkman",
+    years: "1933-2008",
+    image: "/images/person/judah-folkman.webp",
+    role: "종양 신생혈관형성 가설과 혈관 억제 치료 개념을 세운 외과의사과학자",
+    summaryItems: [
+      "종양 신생혈관형성 가설과 혈관 억제 치료 개념을 세운 외과의사과학자입니다.",
     ],
   },
   "john-wilding": {
@@ -828,6 +869,15 @@ export const people = {
     ],
     summaryItems: [
       "FOXP3와 조절 T세포 연구로 노벨 생리의학상을 받은 유전학자입니다.",
+    ],
+  },
+  "mary-lasker": {
+    name: "Mary Lasker",
+    years: "1900-1994",
+    image: "/images/person/mary-lasker.webp",
+    role: "의학 연구비 확대와 미국 암 연구 정책에 큰 영향을 준 보건의료 활동가",
+    summaryItems: [
+      "의학 연구비 확대와 미국 암 연구 정책에 큰 영향을 준 보건의료 활동가입니다.",
     ],
   },
   "matin-raff": {
@@ -1020,6 +1070,15 @@ export const people = {
       "수지상세포 발견으로 노벨 생리의학상을 받은 면역학자입니다.",
     ],
   },
+  "rainer-h-straub": {
+    name: "Rainer H. Straub",
+    years: "",
+    image: "/images/person/rainer-h-straub.webp",
+    role: "만성 염증, 신경내분비 면역 조절, 에너지 배분 관점의 염증 연구자",
+    summaryItems: [
+      "만성 염증, 신경내분비 면역 조절, 에너지 배분 관점의 염증 연구자입니다.",
+    ],
+  },
   "randy-jirtle": {
     name: "Randy Jirtle",
     years: "1947-",
@@ -1041,6 +1100,15 @@ export const people = {
     image: "/images/person/richard-flavell.webp",
     role: "T세포와 선천면역 유전학 연구에 기여한 면역학자",
     summaryItems: ["T세포와 선천면역 유전학 연구에 기여한 면역학자입니다."],
+  },
+  "richard-nixon": {
+    name: "Richard Nixon",
+    years: "1913-1994",
+    image: "/images/person/richard-nixon.webp",
+    role: "1971년 National Cancer Act에 서명해 미국 암 연구 투자를 국가적 사업으로 확대한 대통령",
+    summaryItems: [
+      "1971년 National Cancer Act에 서명해 미국 암 연구 투자를 국가적 사업으로 확대한 대통령입니다.",
+    ],
   },
   "richard-pfeiffer": {
     name: "Richard Pfeiffer",
