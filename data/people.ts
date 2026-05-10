@@ -179,6 +179,15 @@ export const people = {
       "1998년 Science 논문에서 TLR4가 LPS 감지의 핵심 수용체임을 보였습니다.",
     ],
   },
+  "carlos-augusto-monteiro": {
+    name: "Carlos Augusto Monteiro",
+    years: "",
+    image: "/images/person/carlos-augusto-monteiro.webp",
+    role: "NOVA 식품분류와 초가공식품 연구를 이끈 영양역학자",
+    summaryItems: [
+      "NOVA 식품분류와 초가공식품 연구를 이끈 영양역학자입니다.",
+    ],
+  },
   "carl-june": {
     name: "Carl June",
     years: "1953-",
@@ -221,6 +230,15 @@ export const people = {
     image: "/images/person/christopher-gardner.webp",
     role: "식이 임상시험과 영양 역학 연구자",
     summaryItems: ["식이 임상시험과 영양 역학 연구자입니다."],
+  },
+  "christopher-henney": {
+    name: "Christopher Henney",
+    years: "",
+    image: "/images/person/christopher-henney.webp",
+    role: "Immunex 공동창립자이자 사이토카인 생명공학 산업화에 기여한 면역학자",
+    summaryItems: [
+      "Immunex 공동창립자이자 사이토카인 생명공학 산업화에 기여한 면역학자입니다.",
+    ],
   },
   "david-baltimore": {
     name: "David Baltimore",
@@ -270,6 +288,15 @@ export const people = {
     image: "/images/person/donald-mosier.webp",
     role: "항체 형성에서 세포 협력 연구에 기여한 면역학자",
     summaryItems: ["항체 형성에서 세포 협력 연구에 기여한 면역학자입니다."],
+  },
+  "igal-gery": {
+    name: "Igal Gery",
+    years: "",
+    image: "/images/person/igal-gery.webp",
+    role: "림프구 활성 인자와 초기 사이토카인 연구에 기여한 면역학자",
+    summaryItems: [
+      "림프구 활성 인자와 초기 사이토카인 연구에 기여한 면역학자입니다.",
+    ],
   },
   "earle-wheelock": {
     name: "Earle Wheelock",
@@ -499,6 +526,20 @@ export const people = {
     role: "PD-L1/B7 계열 면역조절 연구에 기여한 면역학자",
     summaryItems: ["PD-L1/B7 계열 면역조절 연구에 기여한 면역학자입니다."],
   },
+  "gregory-winter": {
+    name: "Gregory Winter",
+    years: "",
+    image: "/images/person/gregory-winter.webp",
+    role: "phage display와 항체공학 연구로 노벨 화학상을 받은 생화학자",
+    roleItems: [
+      "phage display 기반 항체공학",
+      "2018년 노벨 화학상 수상자",
+      "생화학자",
+    ],
+    summaryItems: [
+      "phage display와 항체공학 연구로 노벨 화학상을 받은 생화학자입니다.",
+    ],
+  },
   "gustav-nossal": {
     name: "Gustav Nossal",
     years: "1931-",
@@ -612,6 +653,15 @@ export const people = {
       "DIRECT 식이 임상시험과 지중해식·저탄수화물 식단 연구자입니다.",
     ],
   },
+  "j-claude-bennett": {
+    name: "J. Claude Bennett",
+    years: "",
+    image: "/images/person/j-claude-bennett.webp",
+    role: "항체 유전자 조합 가설과 임상면역학에 기여한 의사과학자",
+    summaryItems: [
+      "항체 유전자 조합 가설과 임상면역학에 기여한 의사과학자입니다.",
+    ],
+  },
   "jack-levin": {
     name: "Jack Levin",
     years: "1934-",
@@ -698,6 +748,15 @@ export const people = {
     image: "/images/person/john-yudkin.webp",
     role: "설탕과 심혈관질환 위험을 제기한 영양학자",
     summaryItems: ["설탕과 심혈관질환 위험을 제기한 영양학자입니다."],
+  },
+  "jon-van-rood": {
+    name: "Jon van Rood",
+    years: "",
+    image: "/images/person/jon-van-rood.webp",
+    role: "HLA 혈청학과 조직적합성 연구에 기여한 면역유전학자",
+    summaryItems: [
+      "HLA 혈청학과 조직적합성 연구에 기여한 면역유전학자입니다.",
+    ],
   },
   "jonathan-eisen": {
     name: "Jonathan Eisen",
@@ -827,6 +886,15 @@ export const people = {
     role: "칼로리 제한, 에너지 대사, CALERIE 연구에 기여한 연구자",
     summaryItems: [
       "칼로리 제한, 에너지 대사, CALERIE 연구에 기여한 연구자입니다.",
+    ],
+  },
+  "lloyd-douglas-maclean": {
+    name: "Lloyd Douglas MacLean",
+    years: "",
+    image: "/images/person/lloyd-douglas-maclean.webp",
+    role: "림프구 자극 인자와 초기 림포카인 개념 형성에 기여한 연구자",
+    summaryItems: [
+      "림프구 자극 인자와 초기 림포카인 개념 형성에 기여한 연구자입니다.",
     ],
   },
   "lloyd-old": {
@@ -1261,6 +1329,15 @@ export const people = {
     role: "인슐린과 대사 건강 콘텐츠로 알려진 카이로프랙터",
     summaryItems: ["인슐린과 대사 건강 콘텐츠로 알려진 카이로프랙터입니다."],
   },
+  "steve-gillis": {
+    name: "Steve Gillis",
+    years: "",
+    image: "/images/person/steve-gillis.webp",
+    role: "IL-2 연구와 Immunex 창립에 기여한 면역학자이자 바이오텍 기업가",
+    summaryItems: [
+      "IL-2 연구와 Immunex 창립에 기여한 면역학자이자 바이오텍 기업가입니다.",
+    ],
+  },
   "steven-rosenberg": {
     name: "Steven Rosenberg",
     years: "1940-",
@@ -1334,6 +1411,15 @@ export const people = {
     role: "타목시펜과 선택적 에스트로겐 수용체 조절제 연구자",
     summaryItems: ["타목시펜과 선택적 에스트로겐 수용체 조절제 연구자입니다."],
   },
+  "walter-willett": {
+    name: "Walter Willett",
+    years: "",
+    image: "/images/person/walter-willett.webp",
+    role: "영양역학과 하버드 Healthy Eating Plate에 큰 영향을 준 공중보건 연구자",
+    summaryItems: [
+      "영양역학과 하버드 Healthy Eating Plate에 큰 영향을 준 공중보건 연구자입니다.",
+    ],
+  },
   "william-coley": {
     name: "William Coley",
     years: "1862-1936",
@@ -1341,6 +1427,15 @@ export const people = {
     role: "Coley toxin과 암면역치료의 초기 역사에 기여한 외과의사",
     summaryItems: [
       "Coley toxin과 암면역치료의 초기 역사에 기여한 외과의사입니다.",
+    ],
+  },
+  "william-dreyer": {
+    name: "William J. Dreyer",
+    years: "",
+    image: "/images/person/william-dreyer.webp",
+    role: "항체 유전자 조합 가설을 제안한 분자생물학자",
+    summaryItems: [
+      "항체 유전자 조합 가설을 제안한 분자생물학자입니다.",
     ],
   },
   "william-halsted": {
