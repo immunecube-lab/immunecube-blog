@@ -1,4 +1,6 @@
 // app/docs/[...slug]/page.tsx
+import fs from "node:fs";
+import path from "node:path";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { docs, drafts } from "@/.velite";
@@ -28,6 +30,44 @@ function getDocBySlug(slug: string): Doc | undefined {
   return docsSource.find((d) => normalizeDocSlug(d.slug) === normalized);
 }
 
+function getLegacyDocSlugs(): string[] {
+  const contentRoot = path.join(process.cwd(), "content", "docs");
+  const slugs: string[] = [];
+
+  function walk(dir: string) {
+    if (!fs.existsSync(dir)) return;
+
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const fullPath = path.join(dir, entry.name);
+
+      if (entry.isDirectory()) {
+        walk(fullPath);
+        continue;
+      }
+
+      if (!entry.isFile() || !entry.name.endsWith(".mdx")) continue;
+
+      const raw = fs.readFileSync(fullPath, "utf8");
+      const match = raw.match(/^---\s*[\r\n]+([\s\S]*?)[\r\n]+---/);
+      const frontmatterSlug = match?.[1].match(/^slug:\s*["']?([^"'\r\n]+)["']?\s*$/m)?.[1];
+      const canonicalSlug = normalizeDocSlug(frontmatterSlug ?? "");
+      if (!canonicalSlug) continue;
+
+      const relativePath = path
+        .relative(contentRoot, fullPath)
+        .replace(/\\/g, "/")
+        .replace(/\.mdx$/, "");
+      const basename = path.posix.basename(relativePath);
+
+      slugs.push(canonicalSlug, relativePath);
+      if (basename !== canonicalSlug) slugs.push(basename);
+    }
+  }
+
+  walk(contentRoot);
+  return slugs;
+}
+
 // ✅ async로 변경 + params를 Promise로 받고 await
 export async function generateMetadata({
   params,
@@ -53,15 +93,17 @@ export async function generateMetadata({
 
 export function generateStaticParams() {
   const seen = new Set<string>();
-  return docsSource
+  const veliteSlugs = docsSource
     .filter((d) => (isLocalDev ? true : d.published !== false))
-    .map((doc) => normalizeDocSlug(doc.slug))
+    .map((doc) => normalizeDocSlug(doc.slug));
+
+  return [...veliteSlugs, ...getLegacyDocSlugs()]
     .filter((slug) => {
       if (!slug || seen.has(slug)) return false;
       seen.add(slug);
       return true;
     })
-    .map((slug) => ({ slug: [slug] }));
+    .map((slug) => ({ slug: slug.split("/") }));
 }
 
 // ✅ async로 변경 + params await
