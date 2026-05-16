@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">CHO-DG44 DHFR/MTX selection and amplification platform</title>
+  <desc id="desc">A diagram showing how DHFR-negative CHO-DG44 cells are selected and amplified with DHFR and methotrexate to obtain high-producing recombinant protein clones.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b4a5f"/>
+    </marker>
+    <style>
+      .bg { fill: #fbfaf7; }
+      .panel { fill: #ffffff; stroke: #d7d0c4; stroke-width: 2; }
+      .cell { fill: #e8f3ee; stroke: #3d7d68; stroke-width: 2.4; }
+      .cell2 { fill: #eaf1fb; stroke: #426e9f; stroke-width: 2.4; }
+      .cell3 { fill: #fff2dc; stroke: #c2772f; stroke-width: 2.4; }
+      .nucleus { fill: #f8fbff; stroke: #7894b0; stroke-width: 1.6; }
+      .dna { fill: none; stroke: #7d4fa3; stroke-width: 3; stroke-linecap: round; }
+      .arrow { fill: none; stroke: #2b4a5f; stroke-width: 2.4; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #c2772f; stroke-width: 2.2; stroke-dasharray: 7 6; marker-end: url(#arrow); }
+      .title { font-family: Arial, "Noto Sans KR", sans-serif; font-size: 27px; font-weight: 700; fill: #24313a; }
+      .label { font-family: Arial, "Noto Sans KR", sans-serif; font-size: 20px; font-weight: 700; fill: #24313a; }
+      .small { font-family: Arial, "Noto Sans KR", sans-serif; font-size: 15px; fill: #4e5b63; }
+      .tiny { font-family: Arial, "Noto Sans KR", sans-serif; font-size: 13px; fill: #60717b; }
+      .tag { fill: #f4f1ea; stroke: #d7d0c4; stroke-width: 1.5; }
+      .tagText { font-family: Arial, "Noto Sans KR", sans-serif; font-size: 14px; font-weight: 700; fill: #5b5145; }
+      .protein { fill: #7d4fa3; opacity: .85; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="920" height="520"/>
+  <text class="title" x="460" y="46" text-anchor="middle">CHO-DG44와 DHFR/MTX 증폭 시스템</text>
+  <text class="small" x="460" y="74" text-anchor="middle">DHFR 결핍을 약점이 아니라 고생산 세포주를 고르는 장치로 바꾼 플랫폼</text>
+
+  <rect class="panel" x="40" y="112" width="170" height="260" rx="18"/>
+  <text class="label" x="125" y="148" text-anchor="middle">CHO 세포</text>
+  <text class="small" x="125" y="173" text-anchor="middle">잘 자라고</text>
+  <text class="small" x="125" y="194" text-anchor="middle">단백질 후처리에 유리</text>
+  <ellipse class="cell" cx="125" cy="255" rx="52" ry="42"/>
+  <ellipse class="nucleus" cx="125" cy="255" rx="20" ry="15"/>
+  <path class="dna" d="M114 254 C120 243, 130 267, 136 256"/>
+  <rect class="tag" x="72" y="318" width="106" height="29" rx="14"/>
+  <text class="tagText" x="125" y="338" text-anchor="middle">1950s 기원</text>
+
+  <path class="arrow" d="M220 242 H300"/>
+
+  <rect class="panel" x="310" y="112" width="210" height="260" rx="18"/>
+  <text class="label" x="415" y="148" text-anchor="middle">DHFR 음성</text>
+  <text class="small" x="415" y="173" text-anchor="middle">DXB11 / DG44</text>
+  <text class="small" x="415" y="194" text-anchor="middle">선별 가능한 숙주세포</text>
+  <ellipse class="cell2" cx="415" cy="255" rx="55" ry="43"/>
+  <ellipse class="nucleus" cx="415" cy="255" rx="22" ry="16"/>
+  <line x1="390" y1="234" x2="440" y2="276" stroke="#b33a3a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="440" y1="234" x2="390" y2="276" stroke="#b33a3a" stroke-width="4" stroke-linecap="round"/>
+  <text class="tiny" x="415" y="315" text-anchor="middle">DHFR이 없으면</text>
+  <text class="tiny" x="415" y="334" text-anchor="middle">선택 조건에서 성장 불가</text>
+
+  <path class="arrow" d="M530 242 H610"/>
+
+  <rect class="panel" x="620" y="112" width="260" height="260" rx="18"/>
+  <text class="label" x="750" y="148" text-anchor="middle">유전자 도입</text>
+  <text class="small" x="750" y="173" text-anchor="middle">치료 단백질 유전자 + DHFR</text>
+  <ellipse class="cell3" cx="750" cy="255" rx="58" ry="44"/>
+  <ellipse class="nucleus" cx="750" cy="255" rx="23" ry="17"/>
+  <path class="dna" d="M734 256 C742 240, 754 271, 766 253"/>
+  <rect x="676" y="310" width="62" height="28" rx="8" fill="#efe1f8" stroke="#9d73bb" stroke-width="1.5"/>
+  <text class="tiny" x="707" y="329" text-anchor="middle">GOI</text>
+  <rect x="752" y="310" width="62" height="28" rx="8" fill="#e3f1df" stroke="#6f9a5f" stroke-width="1.5"/>
+  <text class="tiny" x="783" y="329" text-anchor="middle">DHFR</text>
+
+  <path class="dash" d="M750 382 C750 428, 548 432, 500 382"/>
+  <text class="small" x="600" y="431" text-anchor="middle">methotrexate 압력 증가</text>
+
+  <rect class="panel" x="208" y="402" width="504" height="82" rx="18"/>
+  <text class="label" x="460" y="433" text-anchor="middle">고생산 클론 선별</text>
+  <text class="small" x="460" y="458" text-anchor="middle">DHFR 주변 유전자 사본 수가 늘면서 치료 단백질 생산량도 증가</text>
+  <circle class="protein" cx="292" cy="442" r="6"/>
+  <circle class="protein" cx="318" cy="458" r="5"/>
+  <circle class="protein" cx="343" cy="438" r="6"/>
+  <circle class="protein" cx="603" cy="440" r="6"/>
+  <circle class="protein" cx="630" cy="458" r="5"/>
+  <circle class="protein" cx="656" cy="437" r="6"/>
+</svg>

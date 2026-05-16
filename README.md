@@ -2,16 +2,24 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, build or watch the Velite content output when editing MDX:
+
+```bash
+npm run velite:build
+# or, while editing content
+npm run velite:watch
+```
+
+Then run the Next.js development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+
+To run both Velite watch mode and Next.js together, use:
+
+```bash
+npm run dev:all
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

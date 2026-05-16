@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 593.929 451.812">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 2.002px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        font-size: 22.483px;
+      }
+
+      .cls-4, .cls-5, .cls-3, .cls-6, .cls-7 {
+        fill: #231f20;
+      }
+
+      .cls-4, .cls-5, .cls-7 {
+        font-family: AppleSDGothicNeoEB00, AppleSDGothicNeoEB00;
+      }
+
+      .cls-5 {
+        font-size: 20.672px;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 2px;
+      }
+
+      .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-7 {
+        font-size: 25.06px;
+      }
+    </style>
+  </defs>
+  <line class="cls-2" x1="193.164" y1="143.952" x2="495.33" y2="270.403"/>
+  <text class="cls-7" transform="translate(360.561 82.036)"><tspan x="0" y="0">r = 0.53</tspan><tspan x="0" y="30.072">P = 0.049</tspan></text>
+  <g>
+    <circle class="cls-3" cx="259.325" cy="34.919" r="6.774"/>
+    <circle class="cls-3" cx="291.712" cy="93.403" r="6.774"/>
+    <circle class="cls-3" cx="217.938" cy="153.693" r="6.774"/>
+    <circle class="cls-3" cx="193.164" cy="221.629" r="6.774"/>
+    <circle class="cls-3" cx="217.099" cy="190.274" r="6.774"/>
+    <circle class="cls-3" cx="270.782" cy="234.113" r="6.774"/>
+    <circle class="cls-3" cx="291.588" cy="212.726" r="6.774"/>
+    <circle class="cls-3" cx="347.137" cy="182.048" r="6.774"/>
+    <circle class="cls-3" cx="467.588" cy="159.5" r="6.774"/>
+    <circle class="cls-3" cx="440.659" cy="226.919" r="6.774"/>
+    <circle class="cls-3" cx="428.105" cy="242.145" r="6.774"/>
+    <circle class="cls-3" cx="433.524" cy="325.177" r="6.774"/>
+    <circle class="cls-3" cx="495.33" cy="325.177" r="6.774"/>
+    <circle class="cls-3" cx="428.105" cy="287.242" r="6.774"/>
+    <line class="cls-1" x1="102.357" y1="361.758" x2="578.099" y2="361.758"/>
+    <line class="cls-2" x1="109.067" y1="9.758" x2="109.067" y2="370.532"/>
+    <line class="cls-2" x1="577.196" y1="370.661" x2="577.196" y2="361.758"/>
+    <line class="cls-2" x1="460.422" y1="370.661" x2="460.422" y2="361.758"/>
+    <line class="cls-2" x1="343.647" y1="370.661" x2="343.647" y2="361.758"/>
+    <line class="cls-2" x1="226.873" y1="370.661" x2="226.873" y2="361.758"/>
+    <line class="cls-2" x1="101.841" y1="49.081" x2="109.067" y2="49.081"/>
+    <line class="cls-2" x1="101.841" y1="88.403" x2="109.067" y2="88.403"/>
+    <line class="cls-2" x1="101.841" y1="127.726" x2="109.067" y2="127.726"/>
+    <line class="cls-2" x1="101.841" y1="167.048" x2="109.067" y2="167.048"/>
+    <line class="cls-2" x1="101.841" y1="206.371" x2="109.067" y2="206.371"/>
+    <line class="cls-2" x1="101.841" y1="245.694" x2="109.067" y2="245.694"/>
+    <line class="cls-2" x1="101.841" y1="285.016" x2="109.067" y2="285.016"/>
+    <line class="cls-2" x1="101.841" y1="324.339" x2="109.067" y2="324.339"/>
+    <circle class="cls-6" cx="259.325" cy="34.919" r="6.774"/>
+    <text class="cls-5" transform="translate(88.75 405.706)"><tspan x="0" y="0">-100</tspan></text>
+    <text class="cls-5" transform="translate(220.022 405.706)"><tspan x="0" y="0">0</tspan></text>
+    <text class="cls-5" transform="translate(81.703 18.191)"><tspan x="0" y="0">0</tspan></text>
+    <text class="cls-5" transform="translate(44.805 57.354)"><tspan x="0" y="0">--100</tspan></text>
+    <text class="cls-5" transform="translate(49.312 96.517)"><tspan x="0" y="0">-200</tspan></text>
+    <text class="cls-5" transform="translate(49.312 135.681)"><tspan x="0" y="0">-300</tspan></text>
+    <text class="cls-5" transform="translate(47.947 174.845)"><tspan x="0" y="0">-400</tspan></text>
+    <text class="cls-5" transform="translate(49.663 214.008)"><tspan x="0" y="0">-500</tspan></text>
+    <text class="cls-5" transform="translate(48.258 253.172)"><tspan x="0" y="0">-600</tspan></text>
+    <text class="cls-5" transform="translate(49.518 292.335)"><tspan x="0" y="0">-700</tspan></text>
+    <text class="cls-5" transform="translate(47.947 331.498)"><tspan x="0" y="0">-800</tspan></text>
+    <text class="cls-5" transform="translate(48.257 370.661)"><tspan x="0" y="0">-900</tspan></text>
+    <text class="cls-5" transform="translate(328.4 405.706)"><tspan x="0" y="0">100</tspan></text>
+    <text class="cls-5" transform="translate(444.359 405.706)"><tspan x="0" y="0">200</tspan></text>
+    <text class="cls-5" transform="translate(555.893 405.706)"><tspan x="0" y="0">300</tspan></text>
+    <text class="cls-4" transform="translate(238.369 446.079)"><tspan x="0" y="0">활동 에너지 소비 변화 (%)</tspan></text>
+    <text class="cls-4" transform="translate(19.785 276.28) rotate(-90)"><tspan x="0" y="0">6년 후 대사 적응(kcal/d)</tspan></text>
+  </g>
+</svg>

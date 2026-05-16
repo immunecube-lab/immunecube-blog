@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently -k \"npm:velite:watch\" \"next dev\"",
+    "dev": "next dev",
+    "dev:all": "concurrently -k \"npm:velite:watch\" \"npm:dev\"",
     "build": "npm run velite:build && npm run gen:legacy-doc-redirects && next build",
     "postbuild": "pagefind --site out --output-path out/_pagefind",
     "start": "npx serve@latest out",

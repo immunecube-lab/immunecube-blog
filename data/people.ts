@@ -275,6 +275,21 @@ export const people = {
     role: "클론선택 이론 형성에 기여한 면역학자",
     summaryItems: ["클론선택 이론 형성에 기여한 면역학자입니다."],
   },
+  "e-donnall-thomas": {
+    name: "E. Donnall Thomas",
+    years: "1920-2012",
+    image: "/images/person/e-donnall-thomas.webp",
+    role: "골수이식과 조혈모세포이식의 임상 정착에 기여한 의사과학자",
+    roleItems: [
+      "골수이식과 조혈모세포이식",
+      "1990년 노벨 생리의학상 수상자",
+      "의사과학자",
+    ],
+    summaryItems: [
+      "백혈병과 혈액질환 치료에서 골수이식이 실제 임상 치료가 될 수 있음을 장기간의 실패와 개선 끝에 보여준 인물입니다.",
+      "조혈모세포를 이용해 병든 골수를 대체한다는 개념을 현대 혈액암 치료와 세포치료의 중요한 출발점으로 만들었습니다.",
+    ],
+  },
   "don-wiley": {
     name: "Don Wiley",
     years: "1944-2001",
@@ -592,6 +607,16 @@ export const people = {
     role: "T세포-B세포 협력 연구에 기여한 면역학자",
     summaryItems: ["T세포-B세포 협력 연구에 기여한 면역학자입니다."],
   },
+  "herbert-tilg": {
+    name: "Herbert Tilg",
+    years: "",
+    image: "/images/person/herbert-tilg.webp",
+    role: "장-간 축, 장내미생물, 대사염증과 지방간 질환 연구자",
+    summaryItems: [
+      "장내미생물과 장 장벽, 간 염증이 비알코올성 지방간질환과 대사질환에서 어떻게 연결되는지 연구해 온 소화기·간질환 연구자입니다.",
+      "gut-liver axis 관점에서 LPS, 미생물 대사산물, 면역 반응이 간질환을 악화시킬 수 있다는 흐름을 정리하는 데 중요한 역할을 했습니다.",
+    ],
+  },
   "hermann-muller": {
     name: "Hermann Muller",
     years: "1890-1967",
@@ -833,6 +858,17 @@ export const people = {
     ],
     summaryItems: [
       "ABO 혈액형 발견으로 노벨 생리의학상을 받은 면역혈청학자입니다.",
+    ],
+  },
+  "kelly-brownell": {
+    name: "Kelly Brownell",
+    years: "1951-",
+    image: "/images/person/kelly-brownell.webp",
+    role: "toxic food environment 개념과 식품정책 연구로 알려진 비만·공중보건 연구자",
+    summaryItems: [
+      "비만을 개인의 의지 실패가 아니라, 고열량 식품의 가격·접근성·마케팅·정책이 만드는 식품환경의 문제로 보아야 한다고 주장한 연구자입니다.",
+      "Yale Rudd Center for Food Policy and Obesity를 이끌었고, Duke World Food Policy Center에서 식품정책과 공중보건 연구를 이어갔습니다.",
+      "toxic food environment라는 표현을 통해 미국식 식품환경이 체중 조절을 구조적으로 어렵게 만든다는 관점을 대중화했습니다.",
     ],
   },
   "ken-berry": {
@@ -1128,6 +1164,16 @@ export const people = {
       "PHA 림프구 증식과 필라델피아 염색체 연구에 기여한 병리학자입니다.",
     ],
   },
+  "patrice-cani": {
+    name: "Patrice Cani",
+    years: "",
+    image: "/images/person/patrice-cani.webp",
+    role: "대사성 내독소혈증과 장내미생물-대사질환 연결을 연구한 과학자",
+    summaryItems: [
+      "고지방 식이, 장내미생물, 장 투과성, LPS가 저등급 염증과 인슐린 저항성을 연결할 수 있다는 대사성 내독소혈증 개념을 제시한 연구자입니다.",
+      "Akkermansia muciniphila와 장 장벽, GLP-2, 대사 건강의 관계를 연구하며 장내미생물 기반 대사질환 이해에 큰 영향을 주었습니다.",
+    ],
+  },
   "ralph-steinman": {
     name: "Ralph Steinman",
     years: "1943-2011",
@@ -1399,9 +1445,9 @@ export const people = {
     name: "Tracey Yukich",
     years: "1972-",
     image: "/images/person/tracey-yukich.webp",
-    role: "The Biggest Loser 이후 장기 체중유지 사례로 알려진 참가자",
+    role: "The Biggest Loser 이후 체중 유지와 GLP-1 약물치료의 복잡성을 보여주는 참가자",
     summaryItems: [
-      "The Biggest Loser 이후 장기 체중유지 사례로 알려진 참가자입니다.",
+      "케빈 홀의 저서 Food Intelligence에서 체중 유지, 운동 제한, GLP-1 약물치료의 복잡성을 보여주는 사례로 소개된 참가자입니다. 다만 Fothergill et al. 2016 논문 그림의 예외적 체중 유지 사례를 Tracey Yukich로 단정하기는 어렵고, 방송 공개 자료와 감량률을 대조하면 Alexandra White로 추정됩니다.",
     ],
   },
   "virgil-craig-jordan": {

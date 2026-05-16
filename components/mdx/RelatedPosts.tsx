@@ -5,14 +5,14 @@ import { POSTS_INDEX, type PostIndexItem } from "@/generated/posts-index";
 type Props = {
   slugs: string[];
   heading?: string;
-  max?: number; // 기본 4
+  max?: number;
   basePath?: string; // 기본 "/docs"
 };
 
 export default function RelatedPosts({
   slugs,
   heading = "관련 글",
-  max = 5,
+  max = Number.POSITIVE_INFINITY,
   basePath = "/docs",
 }: Props) {
   if (!Array.isArray(slugs) || slugs.length === 0) return null;
