@@ -109,7 +109,7 @@ const TOPIC_CARDS: TopicCard[] = [
     icon: Microscope,
   },
   {
-    title: "IL-2와 LPS saga",
+    title: "사이토카인과 선천면역",
     description: "T세포, 사이토카인, 선천면역, 내독소 연구가 이어지는 긴 흐름입니다.",
     category: "IL-2 saga",
     icon: FlaskConical,
@@ -133,7 +133,7 @@ const TOPIC_CARDS: TopicCard[] = [
     icon: HeartPulse,
   },
   {
-    title: "건강 정보 비판적으로 읽기",
+    title: "건강 정보 비판적 읽기",
     description: "통계, 진단, 플라시보, 역인과성처럼 연구 해석에서 자주 생기는 함정을 다룹니다.",
     category: "critics",
     icon: Stethoscope,

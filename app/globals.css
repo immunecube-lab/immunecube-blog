@@ -22,6 +22,26 @@ body {
   color: var(--foreground);
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.prose :where(a, p, li, h1, h2, h3, h4, blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  overflow-wrap: anywhere;
+}
+
+.prose :where(img, svg, video, canvas):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  max-width: 100%;
+  height: auto;
+}
+
+.prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 /* =========================
    Footnotes (Markdown/MDX)
    ========================= */
