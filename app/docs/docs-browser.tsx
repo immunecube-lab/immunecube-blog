@@ -97,9 +97,42 @@ function groupBySection(items: Doc[], category?: string) {
   return entries;
 }
 
-const SECTION_LABELS: Record<string, string> = {};
+const SECTION_LABELS: Record<string, string> = {
+  "etc": "기타",
+  "guide": "안내",
+  "immunology": "면역학 기초",
+  "daily-immunity": "생활면역",
+  "everyday-immunity": "생활면역",
+  "vaccine-society": "백신과 사회",
+  "medicine-history": "의학의 역사",
+  "cancer-history": "암의 역사",
+  "imm-classic": "면역학 고전",
+  "metabolism": "대사",
+  "metabolism-immunity": "대사와 면역",
+  "News": "새 글",
+};
 
-const SECTION_ORDER: Record<string, number> = {};
+const SECTION_ORDER: Record<string, number> = {
+  "guide": 1,
+  "개요": 1,
+  "0. 먼저 읽기": 1,
+  "면역 기초": 5,
+  "immunology": 6,
+  "연구와 통계": 10,
+  "임상시험": 10,
+  "에너지 균형": 20,
+  "식단 이론": 30,
+  "식이 이론": 31,
+  "식품과 영양소": 40,
+  "영양학": 41,
+  "설탕과 감미료": 50,
+  "식사지침과 정책": 60,
+  "인플루언서": 70,
+  "대체의학과 건강상술": 80,
+  "생활면역과 질병 오해": 90,
+  "검사와 진단": 100,
+  "News": 999,
+};
 
 function sectionLabel(section: string) {
   return SECTION_LABELS[section] ?? section;
