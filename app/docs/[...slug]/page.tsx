@@ -130,12 +130,12 @@ export default async function DocPage({
   return (
     <>
       <ReadingProgress />
-      <main className="max-w-3xl mx-auto py-10 px-4">
+      <main className="mx-auto max-w-3xl px-4 py-7 sm:py-10">
         <article>
-          <header className="mb-6">
+          <header className="mb-5 sm:mb-6">
             <h1
               className={[
-                "text-3xl font-bold leading-tight",
+                "text-2xl font-bold leading-tight sm:text-3xl",
                 doc.docType === "docent" ? "text-amber-700" : "",
               ].join(" ")}
             >
@@ -156,7 +156,7 @@ export default async function DocPage({
             ) : null}
           </header>
 
-          <section className={["prose dark:prose-invert max-w-none", doc.docType === "docent" ? "prose-docent" : ""].join(" ")}>
+          <section className={["prose prose-sm max-w-none dark:prose-invert sm:prose", doc.docType === "docent" ? "prose-docent" : ""].join(" ")}>
             <MDXContent code={doc.body} />
           </section>
         </article>

@@ -30,7 +30,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
   });
 
   return (
-    <div className="mx-auto flex max-w-6xl gap-10 px-6 py-10">
+    <div className="mx-auto flex max-w-6xl gap-10 px-4 py-8 sm:px-6 sm:py-10">
       {/* 왼쪽 사이드바 */}
       <aside className="hidden w-56 shrink-0 border-r pr-6 text-sm md:block">
         <div className="mb-6">
@@ -77,7 +77,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
       </aside>
 
       {/* 오른쪽 메인 영역 */}
-      <main className="flex-1">{children}</main>
+      <main className="min-w-0 flex-1">{children}</main>
     </div>
   );
 }

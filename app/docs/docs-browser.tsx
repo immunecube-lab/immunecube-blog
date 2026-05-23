@@ -264,7 +264,7 @@ export function DocsBrowser({ docs }: { docs: Doc[] }) {
             ) : null}
 
             <div className="min-w-0 flex-1">
-              <div className="flex items-baseline justify-between gap-3">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
                 <span
                   className={[
                     "inline-flex items-center gap-2 hover:underline font-medium",
@@ -297,10 +297,10 @@ export function DocsBrowser({ docs }: { docs: Doc[] }) {
   }
 
   return (
-    <main className="max-w-6xl mx-auto py-12 px-4">
-      <div className="flex items-baseline justify-between mb-8">
-        <h1 className="text-3xl font-bold">글 모음</h1>
-        <div className="text-xs text-neutral-500">
+    <main className="mx-auto max-w-6xl px-4 py-8 sm:py-12">
+      <div className="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-baseline sm:justify-between">
+        <h1 className="text-2xl font-bold sm:text-3xl">글 모음</h1>
+        <div className="text-xs leading-relaxed text-neutral-500">
           카테고리(1단)와 섹션(2단)을 선택하면 목록이 필터링됩니다.
         </div>
       </div>
@@ -394,12 +394,12 @@ export function DocsBrowser({ docs }: { docs: Doc[] }) {
           </ul>
         </aside>
 
-        <section className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
-          <div className="flex items-baseline justify-between gap-3">
-            <h2 className="text-xl font-semibold">
+        <section className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-5">
+          <div className="flex items-start justify-between gap-3 sm:items-baseline">
+            <h2 className="min-w-0 text-lg font-semibold sm:text-xl">
               {activeCategory}
               {activeSection ? (
-                <span className="ml-2 text-sm font-normal text-neutral-500">
+                <span className="block text-sm font-normal text-neutral-500 sm:ml-2 sm:inline">
                   / {sectionLabel(activeSection)}
                 </span>
               ) : null}

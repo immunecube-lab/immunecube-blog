@@ -1,6 +1,6 @@
 // app/layout.tsx
 import localFont from "next/font/local";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import React from "react";
 import { Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
@@ -35,6 +35,11 @@ export const metadata: Metadata = {
       "application/rss+xml": "/rss.xml",
     },
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
