@@ -73,7 +73,7 @@ export function generateStaticParams() {
   const seen = new Set<string>();
   const source = [...DOCS_INDEX, ...(isLocalDev ? DRAFT_DOCS_INDEX : [])];
   const veliteSlugs = source
-    .filter((d) => d.published !== false)
+    .filter((d) => isLocalDev || d.published !== false)
     .map((doc) => normalizeDocSlug(doc.slug));
 
   return [...veliteSlugs, ...getLegacyDocSlugs()]
