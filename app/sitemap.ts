@@ -1,6 +1,6 @@
 // app/sitemap.ts
 import type { MetadataRoute } from "next";
-import { docs, posts } from "@/.velite";
+import { BLOG_INDEX, DOCS_INDEX } from "@/generated/content-index";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -74,7 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const out: MetadataRoute.Sitemap = [];
   const seen = new Set<string>();
 
-  const postEntries = (posts satisfies VeliteItem[])
+  const postEntries = (BLOG_INDEX satisfies VeliteItem[])
     .filter((p) => p?.slug && p.published !== false)
     .map((p) => {
       const s = normalizeCollectionSlug(p.slug, "blog");
@@ -87,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
     .filter(Boolean) as { url: string; lastModified: Date }[];
 
-  const docEntries = (docs satisfies VeliteItem[])
+  const docEntries = (DOCS_INDEX satisfies VeliteItem[])
     .filter((d) => d?.slug && d.published !== false)
     .map((d) => {
       const s = normalizeCollectionSlug(d.slug, "docs");

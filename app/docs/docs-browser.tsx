@@ -108,7 +108,9 @@ const SECTION_LABELS: Record<string, string> = {
   "cancer-history": "암의 역사",
   "imm-classic": "면역학 고전",
   "metabolism": "대사",
+  "이기적인 면역": "이기적인 면역",
   "metabolism-immunity": "대사와 면역",
+  "케빈 홀": "케빈 홀",
   "News": "새 글",
 };
 
@@ -118,9 +120,11 @@ const SECTION_ORDER: Record<string, number> = {
   "0. 먼저 읽기": 1,
   "면역 기초": 5,
   "immunology": 6,
+  "이기적인 면역": 7,
   "연구와 통계": 10,
   "임상시험": 10,
   "에너지 균형": 20,
+  "케빈 홀": 25,
   "식단 이론": 30,
   "식이 이론": 31,
   "식품과 영양소": 40,

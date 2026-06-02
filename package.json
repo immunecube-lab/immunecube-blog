@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:all": "concurrently -k \"npm:velite:watch\" \"npm:dev\"",
-    "build": "npm run velite:build && npm run gen:legacy-doc-redirects && next build",
+    "build": "npm run velite:build && npm run gen:index && npm run gen:legacy-doc-redirects && next build",
     "postbuild": "pagefind --site out --output-path out/_pagefind",
     "start": "npx serve@latest out",
     "lint": "eslint .",
@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
+    "@vercel/speed-insights": "^2.0.0",
     "lucide-react": "^0.561.0",
     "next": "^16.1.0",
     "nextra": "^4.6.1",

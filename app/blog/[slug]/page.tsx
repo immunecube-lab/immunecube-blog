@@ -1,17 +1,28 @@
 // app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { posts } from "@/.velite";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
 import { buildSiteUrl } from "@/lib/site-url";
 import { normalizePostSlug } from "../_lib";
+import { BLOG_INDEX } from "@/generated/content-index";
 
 function buildCanonical(slugPart: string) {
   return buildSiteUrl(`/blog/${slugPart}`);
 }
 
-function getPost(slug: string) {
+type BlogPost = {
+  slug: string;
+  title: string;
+  description?: string;
+  date?: string;
+  updated?: string;
+  body: string;
+  published?: boolean;
+};
+
+async function getPost(slug: string): Promise<BlogPost | undefined> {
+  const { posts } = await import("@/.velite");
   const normalized = normalizePostSlug(slug);
 
   // ✅ 폴더가 바뀌어도 URL은 마지막 세그먼트만 기준으로 매칭
@@ -27,7 +38,7 @@ function getPost(slug: string) {
     );
   }
 
-  return matches[0];
+  return matches[0] as BlogPost | undefined;
 }
 
 // ISO 문자열(예: 2025-12-17T00:00:00.000Z)에서 YYYY-MM-DD만 추출
@@ -43,7 +54,7 @@ function isoDate(v?: string) {
 }
 
 export function generateStaticParams() {
-  return posts
+  return BLOG_INDEX
     .filter((p) => p.published !== false)
     .map((post) => ({ slug: normalizePostSlug(post.slug) }));
 }
@@ -52,7 +63,7 @@ export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await props.params;
-  const post = getPost(slug);
+  const post = await getPost(slug);
 
   if (!post) return {};
 
@@ -78,7 +89,7 @@ export default async function BlogPostPage(props: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await props.params;
-  const post = getPost(slug);
+  const post = await getPost(slug);
 
   if (!post) notFound();
 

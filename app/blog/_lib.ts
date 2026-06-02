@@ -1,7 +1,10 @@
 // app/blog/_lib.ts
-import type { Post } from "@/.velite";
-
-export type PostWithMeta = Post & {
+export type PostWithMeta = {
+  slug: string;
+  title: string;
+  description?: string;
+  published?: boolean;
+  date?: string;
   featured?: boolean;
   cover?: string;
   tags?: string[];

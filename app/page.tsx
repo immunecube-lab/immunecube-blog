@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   Stethoscope,
 } from "lucide-react";
-import { docs as veliteDocs, posts as velitePosts } from "@/.velite";
+import { BLOG_INDEX, DOCS_INDEX } from "@/generated/content-index";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 
 export const metadata: Metadata = {
@@ -161,7 +161,7 @@ const READING_PATHS: ReadingPath[] = [
 /* ----------------------------- page ----------------------------- */
 
 export default function Home() {
-  const posts = (velitePosts satisfies VelitePost[])
+  const posts = (BLOG_INDEX satisfies VelitePost[])
     .filter((p) => p.published !== false)
     .map<TimedEntry>((p) => {
       const raw = p.updated ?? p.date;
@@ -177,7 +177,7 @@ export default function Home() {
     })
     .sort((a, b) => b.timestamp - a.timestamp);
 
-  const docs = (veliteDocs satisfies VeliteDoc[])
+  const docs = (DOCS_INDEX satisfies VeliteDoc[])
     .filter((d) => d.published !== false)
     .map<TimedEntry>((d) => {
       const raw = d.updated ?? d.date;

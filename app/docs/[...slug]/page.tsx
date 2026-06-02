@@ -1,13 +1,12 @@
 // app/docs/[...slug]/page.tsx
-import fs from "node:fs";
-import path from "node:path";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
-import { docs, drafts } from "@/.velite";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { normalizeDocSlug } from "@/lib/docs-slug";
+import { LEGACY_DOC_BASENAME_TO_SLUG } from "@/lib/legacy-doc-slugs";
+import { DOCS_INDEX, DRAFT_DOCS_INDEX } from "@/generated/content-index";
 
 type Doc = {
   slug: string;
@@ -21,51 +20,30 @@ type Doc = {
 };
 
 const isLocalDev = process.env.NODE_ENV === "development";
-const docsSource: Doc[] = [...docs, ...(isLocalDev ? drafts : [])];
 
-function getDocBySlug(slug: string): Doc | undefined {
+async function getDocsSource(): Promise<Doc[]> {
+  const source = await import("@/.velite");
+  return [...source.docs, ...(isLocalDev ? source.drafts : [])] as Doc[];
+}
+
+async function getDocBySlug(slug: string): Promise<Doc | undefined> {
+  const docsSource = await getDocsSource();
   if (docsSource.length === 0) return undefined;
   const normalized = normalizeDocSlug(slug);
   if (!normalized) return undefined;
   return docsSource.find((d) => normalizeDocSlug(d.slug) === normalized);
 }
 
+function getCanonicalFromLegacySlug(slug: string): string | undefined {
+  const normalized = normalizeDocSlug(slug);
+  return LEGACY_DOC_BASENAME_TO_SLUG[normalized];
+}
+
 function getLegacyDocSlugs(): string[] {
-  const contentRoot = path.join(process.cwd(), "content", "docs");
-  const slugs: string[] = [];
-
-  function walk(dir: string) {
-    if (!fs.existsSync(dir)) return;
-
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const fullPath = path.join(dir, entry.name);
-
-      if (entry.isDirectory()) {
-        walk(fullPath);
-        continue;
-      }
-
-      if (!entry.isFile() || !entry.name.endsWith(".mdx")) continue;
-
-      const raw = fs.readFileSync(fullPath, "utf8");
-      const match = raw.match(/^---\s*[\r\n]+([\s\S]*?)[\r\n]+---/);
-      const frontmatterSlug = match?.[1].match(/^slug:\s*["']?([^"'\r\n]+)["']?\s*$/m)?.[1];
-      const canonicalSlug = normalizeDocSlug(frontmatterSlug ?? "");
-      if (!canonicalSlug) continue;
-
-      const relativePath = path
-        .relative(contentRoot, fullPath)
-        .replace(/\\/g, "/")
-        .replace(/\.mdx$/, "");
-      const basename = path.posix.basename(relativePath);
-
-      slugs.push(canonicalSlug, relativePath);
-      if (basename !== canonicalSlug) slugs.push(basename);
-    }
-  }
-
-  walk(contentRoot);
-  return slugs;
+  return [
+    ...Object.keys(LEGACY_DOC_BASENAME_TO_SLUG),
+    ...Object.values(LEGACY_DOC_BASENAME_TO_SLUG),
+  ];
 }
 
 // ✅ async로 변경 + params를 Promise로 받고 await
@@ -80,7 +58,7 @@ export async function generateMetadata({
 
   const rawSlug = segs.join("/");
   const canonicalSlug = normalizeDocSlug(rawSlug);
-  const doc = getDocBySlug(rawSlug);
+  const doc = await getDocBySlug(rawSlug);
   if (!doc) return {};
 
   return {
@@ -93,8 +71,9 @@ export async function generateMetadata({
 
 export function generateStaticParams() {
   const seen = new Set<string>();
-  const veliteSlugs = docsSource
-    .filter((d) => (isLocalDev ? true : d.published !== false))
+  const source = [...DOCS_INDEX, ...(isLocalDev ? DRAFT_DOCS_INDEX : [])];
+  const veliteSlugs = source
+    .filter((d) => d.published !== false)
     .map((doc) => normalizeDocSlug(doc.slug));
 
   return [...veliteSlugs, ...getLegacyDocSlugs()]
@@ -118,9 +97,13 @@ export default async function DocPage({
 
   const rawSlug = segs.join("/");
   const canonicalSlug = normalizeDocSlug(rawSlug);
-  const doc = getDocBySlug(rawSlug);
+  const doc = await getDocBySlug(rawSlug);
 
-  if (!doc) notFound();
+  if (!doc) {
+    const legacyCanonical = getCanonicalFromLegacySlug(rawSlug);
+    if (legacyCanonical) permanentRedirect(`/docs/${legacyCanonical}`);
+    notFound();
+  }
   if (!isLocalDev && doc.published === false) notFound();
 
   if (rawSlug !== canonicalSlug) {

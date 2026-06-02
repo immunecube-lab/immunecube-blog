@@ -1,7 +1,6 @@
 // app/blog/page.tsx
 import type { Metadata } from "next";
-import { posts } from "@/.velite";
-import type { Post } from "@/.velite";
+import { BLOG_INDEX } from "@/generated/content-index";
 import { BlogBrowser } from "./blog-browser";
 
 export const metadata: Metadata = {
@@ -12,15 +11,20 @@ export const metadata: Metadata = {
   },
 };
 
-type PostWithMeta = Post & {
+type PostWithMeta = {
+  slug: string;
+  title: string;
+  description?: string;
+  published?: boolean;
+  date?: string;
+  updated?: string;
   featured?: boolean;
   cover?: string;
   tags?: string[];
   category?: string;
-  updated?: string;
 };
 
 export default function BlogPage() {
-  const visible = [...posts].filter((post) => post.published !== false) as PostWithMeta[];
+  const visible = [...BLOG_INDEX].filter((post) => post.published !== false) as PostWithMeta[];
   return <BlogBrowser posts={visible} />;
 }

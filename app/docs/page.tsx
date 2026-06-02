@@ -1,6 +1,6 @@
 // app/docs/page.tsx
 import type { Metadata } from "next";
-import { docs, drafts } from "@/.velite";
+import { DOCS_INDEX, DRAFT_DOCS_INDEX } from "@/generated/content-index";
 import { DocsBrowser } from "./docs-browser";
 
 const isLocalDev = process.env.NODE_ENV === "development";
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
 };
 export default function DocsPage() {
-  if (!docs) {
+  if (!DOCS_INDEX) {
     return (
       <main className="max-w-6xl mx-auto py-12 px-4">
         <h1 className="text-3xl font-bold mb-8">글 모음</h1>
@@ -28,7 +28,7 @@ export default function DocsPage() {
     );
   }
 
-  const source = [...docs, ...(isLocalDev ? drafts ?? [] : [])];
+  const source = [...DOCS_INDEX, ...(isLocalDev ? DRAFT_DOCS_INDEX ?? [] : [])];
   const visible = isLocalDev ? source : source.filter((doc) => doc.published !== false);
   return <DocsBrowser docs={visible} />;
 }

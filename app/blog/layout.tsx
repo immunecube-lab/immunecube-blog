@@ -1,8 +1,8 @@
 // app/blog/layout.tsx
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { posts } from "@/.velite";
 import { type PostWithMeta } from "./_lib";
+import { BLOG_INDEX } from "@/generated/content-index";
 
 const CATEGORY_LABELS: Record<string, string> = {
   notice: "공지사항",
@@ -14,7 +14,7 @@ function categoryLabel(cat: string) {
 }
 
 export default function BlogLayout({ children }: { children: ReactNode }) {
-  const all = [...(posts as PostWithMeta[])].filter((p) => p.published !== false);
+  const all = [...(BLOG_INDEX as PostWithMeta[])].filter((p) => p.published !== false);
 
   // ✅ 카테고리 목록만 생성
   const categories = Array.from(

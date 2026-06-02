@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { docs, drafts } from "@/.velite";
+import { DOCS_INDEX, DRAFT_DOCS_INDEX } from "@/generated/content-index";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 
 export const dynamic = "force-static";
 
 export async function GET() {
   const isLocalDev = process.env.NODE_ENV === "development";
-  const source = [...(docs ?? []), ...(isLocalDev ? drafts ?? [] : [])];
+  const source = [...(DOCS_INDEX ?? []), ...(isLocalDev ? DRAFT_DOCS_INDEX ?? [] : [])];
 
   const items = source
     .filter((d) => (isLocalDev ? true : d?.published !== false))
