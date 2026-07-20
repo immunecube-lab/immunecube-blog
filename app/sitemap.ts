@@ -1,6 +1,10 @@
 // app/sitemap.ts
 import type { MetadataRoute } from "next";
-import { BLOG_INDEX, DOCS_INDEX } from "@/generated/content-index";
+import {
+  BLOG_INDEX,
+  DOCS_INDEX,
+  STORIES_INDEX,
+} from "@/generated/content-index";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -14,7 +18,10 @@ type VeliteItem = {
 };
 
 // "docs/xxx" 또는 "/docs/xxx" 같은 형태가 들어오면 "xxx"로 정리
-function normalizeCollectionSlug(slug: string, collection: "docs" | "blog") {
+function normalizeCollectionSlug(
+  slug: string,
+  collection: "docs" | "blog" | "stories",
+) {
   let s = (slug ?? "").trim();
   if (!s) return "";
 
@@ -23,7 +30,12 @@ function normalizeCollectionSlug(slug: string, collection: "docs" | "blog") {
 
   // collection prefix 제거(혹시 섞여 들어온 경우 방어)
   // blog 컬렉션은 posts/ 로 들어오는 케이스까지 방어(안전)
-  const prefixes = collection === "blog" ? ["blog/", "posts/"] : ["docs/"];
+  const prefixes =
+    collection === "blog"
+      ? ["blog/", "posts/"]
+      : collection === "stories"
+        ? ["stories/"]
+        : ["docs/"];
   for (const prefix of prefixes) {
     if (s.startsWith(prefix)) {
       s = s.slice(prefix.length);
@@ -102,20 +114,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
     .filter(Boolean) as { url: string; lastModified: Date }[];
 
+  const storyEntries = (STORIES_INDEX satisfies VeliteItem[])
+    .filter((story) => story?.slug && story.published !== false)
+    .map((story) => {
+      const slug = normalizeCollectionSlug(story.slug, "stories");
+      if (!slug) return null;
+
+      return {
+        url: joinUrl(SITE_URL, `/stories/${slug}`),
+        lastModified: pickLastMod(story),
+      };
+    })
+    .filter(Boolean) as { url: string; lastModified: Date }[];
+
   // 허브 페이지들: "콘텐츠 최신 갱신일" 기반 lastModified로 신호 강화
   const postsLast = maxDate(postEntries.map((p) => p.lastModified));
   const docsLast = maxDate(docEntries.map((d) => d.lastModified));
-  const siteLast = maxDate([postsLast, docsLast]);
+  const storiesLast = maxDate(storyEntries.map((story) => story.lastModified));
+  const siteLast = maxDate([postsLast, docsLast, storiesLast]);
 
   // 허브 페이지들(크롤링/발견에 도움)
   addEntry(out, seen, SITE_URL, siteLast);
   addEntry(out, seen, joinUrl(SITE_URL, "/docs"), docsLast);
   addEntry(out, seen, joinUrl(SITE_URL, "/blog"), postsLast);
+  addEntry(out, seen, joinUrl(SITE_URL, "/stories"), storiesLast);
   addEntry(out, seen, joinUrl(SITE_URL, "/about"), siteLast);
   addEntry(out, seen, joinUrl(SITE_URL, "/contact"), siteLast);
 
   for (const p of postEntries) addEntry(out, seen, p.url, p.lastModified);
   for (const d of docEntries) addEntry(out, seen, d.url, d.lastModified);
+  for (const story of storyEntries) {
+    addEntry(out, seen, story.url, story.lastModified);
+  }
 
   return out;
 }

@@ -25,11 +25,9 @@ type ContentIndexItem = {
 
 const CONTENT_GLOB = [
   "content/docs/**/*.mdx",
-  "content/docs/**/*.md",
   "content/draft/**/*.mdx",
-  "content/draft/**/*.md",
   "content/posts/**/*.mdx",
-  "content/posts/**/*.md",
+  "content/stories/**/*.mdx",
 ]
 const OUTPUT_FILE = "generated/posts-index.ts"
 const CONTENT_INDEX_OUTPUT_FILE = "generated/content-index.ts"
@@ -101,6 +99,7 @@ async function main(): Promise<void> {
   const docsIndex: ContentIndexItem[] = []
   const draftsIndex: ContentIndexItem[] = []
   const blogIndex: ContentIndexItem[] = []
+  const storiesIndex: ContentIndexItem[] = []
   const missing: Array<{ file: string; missing: string[] }> = []
 
   for (const file of files) {
@@ -128,6 +127,8 @@ async function main(): Promise<void> {
         draftsIndex.push(item)
       } else if (file.startsWith("content/posts/")) {
         blogIndex.push(item)
+      } else if (file.startsWith("content/stories/")) {
+        storiesIndex.push(item)
       }
     }
 
@@ -182,6 +183,7 @@ async function main(): Promise<void> {
   docsIndex.sort(sortBySlug)
   draftsIndex.sort(sortBySlug)
   blogIndex.sort(sortBySlug)
+  storiesIndex.sort(sortBySlug)
 
   const contentOut =
     `// AUTO-GENERATED FILE. DO NOT EDIT.\n` +
@@ -208,13 +210,16 @@ async function main(): Promise<void> {
     `]\n\n` +
     `export const BLOG_INDEX: ContentIndexItem[] = [\n` +
     `${blogIndex.map(serializeIndexItem).join("\n")}\n` +
+    `]\n\n` +
+    `export const STORIES_INDEX: ContentIndexItem[] = [\n` +
+    `${storiesIndex.map(serializeIndexItem).join("\n")}\n` +
     `]\n`
 
   await fs.writeFile(CONTENT_INDEX_OUTPUT_FILE, contentOut, "utf8")
 
   console.log(`Generated ${OUTPUT_FILE} (${index.length} posts)`)
   console.log(
-    `Generated ${CONTENT_INDEX_OUTPUT_FILE} (${docsIndex.length} docs, ${draftsIndex.length} drafts, ${blogIndex.length} blog posts)`,
+    `Generated ${CONTENT_INDEX_OUTPUT_FILE} (${docsIndex.length} docs, ${draftsIndex.length} drafts, ${blogIndex.length} blog posts, ${storiesIndex.length} stories)`,
   )
 }
 

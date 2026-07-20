@@ -32,6 +32,10 @@ published: false
 | 예정 | 면역치료 | 신규 그림 | `2023-mrna4157-pembrolizumab-melanoma-phase2b` | mRNA-4157과 pembrolizumab 병용 논리 | 백신은 보이게 만들고, PD-1 차단은 죽지 않게 붙잡는다는 구조 |
 | 예정 | 면역치료 | 확인 필요 | `2010-early-cd19-car-t-crs` | CAR-T와 CRS 기전 도식 | IL-6, 대식세포 활성화, 발열/저혈압 흐름을 너무 단순화하지 않도록 확인 |
 | 예정 | 면역치료 | 신규 그림 | `rosenberg-cytokine-immunotherapy-clinical-history` | IL-2, LAK, TIL, ACT의 역사 흐름 | 로젠버그 계열 치료법의 발전선을 연표로 정리 |
+| 예정 | 생활면역 | 신규 그림 | [고지혈증과 스타틴의 역사](../content/docs/daily-immunity/hyperlipidemia-statin/hyperlipidemia-statin-history.mdx) | 4S → WOSCOPS → HPS → JUPITER → CANTOS 임상 흐름도 | 스타틴이 고지혈증 약에서 심혈관 위험 약으로 확장되는 흐름을 연표로 정리 |
+| 예정 | 생활면역 | 신규 그림 | [JUPITER 임상](../content/docs/daily-immunity/hyperlipidemia-statin/jupiter-rosuvastatin-normal-ldl-high-crp.mdx) | LDL 낮음 + hs-CRP 높음 → rosuvastatin → LDL/CRP 감소 → 사건 감소 도식 | 신약 허가가 아니라 이미 허가된 rosuvastatin의 적응증 확장 임상이라는 점을 그림 안에 명시 |
+| 예정 | 생활면역 | 신규 그림 | [CANTOS 임상](../content/docs/daily-immunity/hyperlipidemia-statin/2017-cantos-canakinumab-inflammation-atherosclerosis.mdx) | PAMP/DAMP → PRR/inflammasome → IL-1β → IL-6/CRP → 혈관 염증 도식 | LDL을 낮추지 않고 IL-1β 축을 낮춘 임상이라는 점, LPS는 PAMP 후보 중 하나라는 점을 과장 없이 표시 |
+| 예정 | 생활면역 | 신규 그림 | [만성염증과 심혈관질환 draft](../content/draft/chronic-inflammation-cardiovascular-disease-cantos.mdx) | LDL 부담 + 선천면역 염증 축이 심혈관 사건으로 이어지는 큰 지도 | 스토리텔링용 핵심 그림. 나중에 공개 전 반드시 추가 |
 
 ## 전역 후보
 
