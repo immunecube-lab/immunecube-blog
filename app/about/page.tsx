@@ -52,21 +52,30 @@ export default function AboutPage() {
 
           <section>
             <h2 className="text-base font-semibold text-neutral-900">
-              운영자에 대하여
+              운영진과 편집 원칙
             </h2>
             <p className="mt-3">
-              현재 운영자는 3명의 팀으로 구성되어 있습니다.
-              허재욱 : 유전자재조합 Factor VIII의 총괄 책임자
-              김진만 : 유전자재조합 Factor VIII의 실무 책임자
-              신철교 : 약학 박사
-
-              각 담당자는 이 외에도 다양한 연구를 수행했지만, 서로 인연이 된 것은
+              Immunecube는 세 명의 운영진이 함께하는 면역학 지식
+              아카이브입니다. 모든 글은 Immunecube 명의로 발행되며, 원고의
+              집필과 편집은 대표 편집자가 담당합니다. 다른 운영진은 오랜
+              연구·개발 경험을 공유하고 사이트의 방향과 주제에 관해 의견을
+              나눕니다.
+            </p>
+            <ul className="mt-3 list-disc space-y-1 pl-5">
+              <li>허재욱: 유전자재조합 Factor VIII의 총괄 책임자</li>
+              <li>김진만: 유전자재조합 Factor VIII의 실무 책임자</li>
+              <li>신철교: 약학 박사</li>
+            </ul>
+            <p className="mt-3">
+              세 운영진은 이 외에도 다양한 연구를 수행했지만, 서로 인연이 된 것은
               재조합 혈액응고 제8인자 베록토코그 알파(beroctocog alfa)의
               개발과 관련된 업무를 수행하면서입니다.
-
-              Immunecube는 이러한 경험을 바탕으로 생명과학 논문을 해석하고, 실제로 구현된
-              생물학적 시스템의 관점에서 면역학을 이해하려는 지식
-              아카이브입니다.
+            </p>
+            <p className="mt-3">
+              Immunecube는 이러한 경험을 바탕으로 생명과학 논문을 해석하고,
+              실제로 구현된 생물학적 시스템의 관점에서 면역학을 이해합니다.
+              논문 중심의 문서와 누구나 편하게 읽을 수 있는 면역이야기를 함께
+              제공합니다.
             </p>
             <p className="mt-3">
               오류가 없도록 주의하지만, 오래된 문헌이나 빠르게 바뀌는 주제는

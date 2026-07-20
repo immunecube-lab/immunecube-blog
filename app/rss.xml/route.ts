@@ -1,13 +1,17 @@
 // app/rss.xml/route.ts
 import { NextResponse } from "next/server";
-import { BLOG_INDEX, DOCS_INDEX } from "@/generated/content-index";
+import {
+  BLOG_INDEX,
+  DOCS_INDEX,
+  STORIES_INDEX,
+} from "@/generated/content-index";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 import { buildSiteUrl } from "@/lib/site-url";
 
 const SITE_URL = buildSiteUrl("");
 const FEED_URL = `${SITE_URL}/rss.xml`;
 const TITLE = "ImmuneCube";
-const DESCRIPTION = "Latest updates from ImmuneCube docs & posts.";
+const DESCRIPTION = "Latest updates from ImmuneCube stories, docs, and notices.";
 
 export const dynamic = "force-static"; // 정적 빌드 기반이면 이게 안전
 // export const revalidate = 3600; // (선택) ISR 쓰면 1시간 캐시
@@ -40,13 +44,20 @@ function pickLastMod(item: VeliteItem): Date {
   return toDate(item.updated) ?? toDate(item.date) ?? new Date(0);
 }
 
-function normalizeCollectionSlug(slug: string, collection: "docs" | "posts") {
+function normalizeCollectionSlug(
+  slug: string,
+  collection: "docs" | "posts" | "stories",
+) {
   let s = (slug ?? "").trim();
   if (!s) return "";
   if (s.startsWith("/")) s = s.slice(1);
 
   const prefixes =
-    collection === "posts" ? ["posts/", "blog/"] : ["docs/"];
+    collection === "posts"
+      ? ["posts/", "blog/"]
+      : collection === "stories"
+        ? ["stories/"]
+        : ["docs/"];
   for (const prefix of prefixes) {
     if (s.startsWith(prefix)) {
       s = s.slice(prefix.length);
@@ -92,7 +103,21 @@ function buildItems(): FeedItem[] {
     })
     .filter(Boolean) as FeedItem[];
 
-  return [...docItems, ...postItems]
+  const storyItems = (STORIES_INDEX satisfies VeliteItem[])
+    .filter((story) => story?.slug && story.published !== false)
+    .map((story) => {
+      const slug = normalizeCollectionSlug(story.slug, "stories");
+      if (!slug) return null;
+      return {
+        title: story.title ?? slug,
+        url: `${SITE_URL}/stories/${slug}`,
+        description: story.description,
+        date: pickLastMod(story),
+      } satisfies FeedItem;
+    })
+    .filter(Boolean) as FeedItem[];
+
+  return [...docItems, ...postItems, ...storyItems]
     .sort((a, b) => b.date.getTime() - a.date.getTime())
     .slice(0, 50);
 }

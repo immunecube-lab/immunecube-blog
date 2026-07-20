@@ -7,6 +7,9 @@ type Collections = typeof __vc.collections
 export type Post = Collections['posts']['schema']['_output']
 export declare const posts: Post[]
 
+export type Story = Collections['stories']['schema']['_output']
+export declare const stories: Story[]
+
 export type Doc = Collections['docs']['schema']['_output']
 export declare const docs: Doc[]
 

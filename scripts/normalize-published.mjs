@@ -1,6 +1,6 @@
 // scripts/normalize-published.mjs
 // Normalize `published` for MDX frontmatter under:
-// - content/docs, content/posts  => published must be true
+// - content/docs, content/posts, content/stories => published must be true
 // - content/draft               => published must be false
 //
 // Usage:
@@ -18,6 +18,7 @@ import path from "node:path";
 const TARGETS = [
   { root: "content/docs", forcedPublished: true },
   { root: "content/posts", forcedPublished: true },
+  { root: "content/stories", forcedPublished: true },
   { root: "content/draft", forcedPublished: false },
 ];
 

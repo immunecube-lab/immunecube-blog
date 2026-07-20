@@ -9,7 +9,7 @@ type NavItem = { href: string; label: string };
 
 const NAV: NavItem[] = [
   { href: '/', label: '홈' },
-  { href: '/blog', label: '공지' },
+  { href: '/stories', label: '면역이야기' },
   { href: '/docs', label: '문서' },
   { href: '/about', label: '소개' },
   { href: '/contact', label: '문의' },
@@ -28,6 +28,7 @@ function Breadcrumbs({ pathname }: { pathname: string }) {
 
     const labels: Record<string, string> = {
       blog: '공지',
+      stories: '면역이야기',
       docs: '문서',
       about: '소개',
       contact: '문의',

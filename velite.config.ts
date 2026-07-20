@@ -23,6 +23,24 @@ export default defineConfig({
       }),
     },
 
+    stories: {
+      name: "Story",
+      pattern: "stories/**/*.mdx",
+      schema: s.object({
+        title: s.string(),
+        description: s.string().optional(),
+        date: s.isodate(),
+        updated: s.isodate().optional(),
+        slug: s.slug("stories"),
+        published: s.boolean().default(true),
+        body: s.mdx(),
+        tags: s.array(s.string()).optional(),
+        category: s.string().optional(),
+        cover: s.string().optional(),
+        featured: s.boolean().default(false),
+      }),
+    },
+
     docs: {
       name: "Doc",
       pattern: "docs/**/*.mdx",

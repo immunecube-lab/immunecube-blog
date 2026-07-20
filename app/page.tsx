@@ -3,17 +3,17 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
 import {
-  Bell,
   BookOpen,
   Compass,
   FlaskConical,
   HeartPulse,
   History,
   Microscope,
+  MessageCircle,
   ShieldCheck,
   Stethoscope,
 } from "lucide-react";
-import { BLOG_INDEX, DOCS_INDEX } from "@/generated/content-index";
+import { DOCS_INDEX, STORIES_INDEX } from "@/generated/content-index";
 import { normalizeDocSlug } from "@/lib/docs-slug";
 
 export const metadata: Metadata = {
@@ -45,6 +45,7 @@ function normalizeSlugPart(slug: string) {
   const s = slug.startsWith("/") ? slug.slice(1) : slug;
   if (s.startsWith("docs/")) return s.slice("docs/".length);
   if (s.startsWith("posts/")) return s.slice("posts/".length);
+  if (s.startsWith("stories/")) return s.slice("stories/".length);
   if (s.startsWith("blog/")) return s.slice("blog/".length);
   return s;
 }
@@ -64,9 +65,9 @@ function getDocHref(slug: string) {
   return s ? `/docs/${s}` : "/docs";
 }
 
-function getBlogHref(slug: string) {
+function getStoryHref(slug: string) {
   const s = normalizeSlugPart(slug);
-  return `/blog/${encodeURIComponent(s)}`;
+  return `/stories/${encodeURIComponent(s)}`;
 }
 
 /* ----------------------------- velite types ----------------------------- */
@@ -161,7 +162,7 @@ const READING_PATHS: ReadingPath[] = [
 /* ----------------------------- page ----------------------------- */
 
 export default function Home() {
-  const posts = (BLOG_INDEX satisfies VelitePost[])
+  const stories = (STORIES_INDEX satisfies VelitePost[])
     .filter((p) => p.published !== false)
     .map<TimedEntry>((p) => {
       const raw = p.updated ?? p.date;
@@ -169,7 +170,7 @@ export default function Home() {
       const dt = raw ? new Date(raw) : null;
       return {
         title: p.title,
-        href: getBlogHref(p.slug),
+        href: getStoryHref(p.slug),
         dateLabel: label,
         timestamp: dt?.getTime() ?? 0,
         kind: "blog" as const,
@@ -200,7 +201,7 @@ export default function Home() {
     kind: entry.kind,
   });
   const docsLatest = docs.slice(0, MAX_DOC_ITEMS).map(toEntry);
-  const blogLatest = posts.slice(0, MAX_BLOG_ITEMS).map(toEntry);
+  const storyLatest = stories.slice(0, MAX_BLOG_ITEMS).map(toEntry);
   const publishedDocCount = docs.length;
 
   return (
@@ -357,15 +358,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 4) Blog: 공지 / 운영 (★ 수정 5: 제목 톤 다운) */}
+        {/* 4) 누구나 편하게 읽는 면역 이야기 */}
         <section className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Bell className="h-4 w-4 text-neutral-700" aria-hidden />
-              <h2 className="text-base font-semibold">사이트 공지</h2>
+              <MessageCircle className="h-4 w-4 text-neutral-700" aria-hidden />
+              <h2 className="text-base font-semibold">면역이야기</h2>
             </div>
             <Link
-              href="/blog"
+              href="/stories"
               className="text-xs rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-neutral-700 hover:bg-neutral-100 transition"
             >
               전체 보기
@@ -373,14 +374,14 @@ export default function Home() {
           </div>
 
           <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-            블로그에는 사이트 운영과 공지 사항을 게시합니다.
+            면역과 건강을 누구나 이해할 수 있는 쉬운 글로 전합니다.
           </p>
 
-          {blogLatest.length === 0 ? (
-            <div className="mt-3 text-sm text-neutral-600">아직 공지 글이 없습니다.</div>
+          {storyLatest.length === 0 ? (
+            <div className="mt-3 text-sm text-neutral-600">아직 등록된 글이 없습니다.</div>
           ) : (
             <ul className="mt-3 space-y-2">
-              {blogLatest.map((item) => (
+              {storyLatest.map((item) => (
                 <li
                   key={item.href}
                   className="rounded-xl border border-neutral-200 bg-neutral-50"
