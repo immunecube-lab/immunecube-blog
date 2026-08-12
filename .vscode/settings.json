@@ -1,4 +1,6 @@
 {
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
   "markdown.editor.drop.enabled": true,
   "markdown.copyFiles.destination": {
     "/content/docs/**/*": "/public/images/${documentBaseName}/"
