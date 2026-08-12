@@ -549,4 +549,6 @@ export const BLOG_INDEX: ContentIndexItem[] = [
 
 export const STORIES_INDEX: ContentIndexItem[] = [
   { slug: "immunity-aging-inflammation-recovery", title: "면역력을 올린다는 말의 뜻: 노년기 면역과 회복", description: "면역반응을 무조건 강하게 만드는 관점의 한계를 살펴보고, 염증 조절과 회복력의 관점에서 노년기 면역 관리의 의미를 쉽게 설명합니다.", date: "2026-07-20", updated: "2026-07-20", published: true, category: "노화와 면역", featured: false },
+  { slug: "innate-adaptive-immunity-aging-diseases", title: "노년기 질환에서 선천면역과 적응면역의 역할", description: "관절염, 근감소증, 노쇠, 치매, COPD, 천식, 심부전, 암과 자가면역질환에서 선천면역과 적응면역이 각각 어떤 역할을 하는지 비교합니다.", date: "2026-08-12", updated: "2026-08-12", published: true, category: "노화와 면역", cover: "/images/stories/innate-adaptive-immunity-aging-diseases-cover.webp", featured: false },
+  { slug: "madonna-kim-taewon-sepsis-endotoxin", title: "마돈나와 김태원을 쓰러뜨린 병, 패혈증은 무엇인가", description: "마돈나와 김태원의 사례를 통해 패혈증이 무엇인지, 면역 반응과 내독소가 어떤 역할을 하는지, 회복 후에는 어떤 후유증이 남을 수 있는지 살펴봅니다.", date: "2026-07-21", updated: "2026-07-21", published: true, category: "감염과 면역", featured: false },
 ]
