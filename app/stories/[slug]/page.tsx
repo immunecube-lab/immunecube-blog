@@ -14,6 +14,7 @@ type Story = {
   updated?: string;
   body: string;
   published?: boolean;
+  cover?: string;
 };
 
 async function getStory(slug: string): Promise<Story | undefined> {
@@ -72,6 +73,7 @@ export async function generateMetadata(props: {
       description: story.description,
       url: canonical,
       type: "article",
+      images: story.cover ? [{ url: buildSiteUrl(story.cover) }] : undefined,
     },
   };
 }
@@ -96,6 +98,7 @@ export default async function StoryPage(props: {
     mainEntityOfPage: canonicalUrl,
     datePublished,
     dateModified,
+    image: story.cover ? buildSiteUrl(story.cover) : undefined,
     author: {
       "@type": "Organization",
       name: "Immunecube",
@@ -118,6 +121,16 @@ export default async function StoryPage(props: {
         <p className="mb-6 text-gray-700 dark:text-gray-300">
           {story.description}
         </p>
+      )}
+
+      {story.cover && (
+        <img
+          src={story.cover}
+          alt={`${story.title} 커버 이미지`}
+          width={1600}
+          height={900}
+          className="mb-8 aspect-video w-full rounded-xl object-cover"
+        />
       )}
 
       <article
