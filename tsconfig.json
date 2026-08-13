@@ -19,10 +19,9 @@
       }
     ],
 
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/.velite": [".velite/index"]   // ✅ 하나만, 확장자 없이
+      "@/.velite": ["./.velite/index"]   // ✅ 하나만, 확장자 없이
     }
   },
   "include": [
