@@ -220,7 +220,7 @@ export const POSTS_INDEX: PostIndexItem[] = [
   { slug: "cgm-does-not-directly-measure-blood-glucose", title: "2023년 - 연속혈당측정기는 혈당을 직접 측정하지 않는다" },
   { slug: "chase-1945-cellular-transfer-dth", title: "1945년 - 1945-면역은 혈청이 아니라 세포에 있다: 체이스의 지연형 과민반응 전달 실험" },
   { slug: "chase-1945-reinterpreted-tcell-immunity", title: "1945년 - 1945-T세포 이전의 T세포 면역: 체이스의 실험의 현대적 해석" },
-  { slug: "cholesterol-hypothesis-1913-1984-debate", title: "콜레스테롤 가설은 처음부터 확실하지 않았습니다" },
+  { slug: "cholesterol-hypothesis-1913-1984-debate", title: "콜레스테롤 가설은 처음에는 확실하지 않았습니다" },
   { slug: "cholesterol-misinterpretation-lbc1936", title: "1. 콜레스테롤이 높을수록 건강하다는 논문은, 어떤 문제가 있는가?" },
   { slug: "claman-two-cell-helper-t-cell-1966", title: "1966년 - 항체가 형성되기 위해서는 2가지 세포가 필요하다 : Claman의 Two-cell 실험" },
   { slug: "clinical-judgment-vs-statistical-model", title: "의사의 직관은 왜 종종 틀리는가: 임상 판단과 통계 모델의 차이" },

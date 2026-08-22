@@ -8,6 +8,12 @@ type PostIndexItem = {
   title: string
 }
 
+type SeriesMeta = {
+  title: string
+  order: number
+  total?: number
+}
+
 type ContentIndexItem = {
   slug: string
   title: string
@@ -21,6 +27,7 @@ type ContentIndexItem = {
   order?: number
   cover?: string
   featured?: boolean
+  series?: SeriesMeta
 }
 
 const CONTENT_GLOB = [
@@ -64,6 +71,20 @@ function toIndexItem(data: Record<string, unknown>): ContentIndexItem | undefine
   const title = pickString(data.title)
   if (!slug || !title) return undefined
 
+  let series: SeriesMeta | undefined
+  if (data.series && typeof data.series === "object") {
+    const s = data.series as Record<string, unknown>
+    const stitle = pickString(s.title)
+    const sorder = pickOptionalNumber(s.order)
+    if (stitle && sorder !== undefined) {
+      series = {
+        title: stitle,
+        order: sorder,
+        total: pickOptionalNumber(s.total),
+      }
+    }
+  }
+
   return {
     slug,
     title,
@@ -77,6 +98,7 @@ function toIndexItem(data: Record<string, unknown>): ContentIndexItem | undefine
     order: pickOptionalNumber(data.order),
     cover: pickOptionalString(data.cover),
     featured: pickOptionalBoolean(data.featured),
+    series,
   }
 }
 
@@ -201,6 +223,7 @@ async function main(): Promise<void> {
     `  order?: number\n` +
     `  cover?: string\n` +
     `  featured?: boolean\n` +
+    `  series?: { title: string; order: number; total?: number }\n` +
     `}\n\n` +
     `export const DOCS_INDEX: ContentIndexItem[] = [\n` +
     `${docsIndex.map(serializeIndexItem).join("\n")}\n` +

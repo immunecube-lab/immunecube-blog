@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MDXContent } from "@/components/mdx-content";
 import { MetaLine } from "@/components/article-meta";
+import { Series } from "@/components/mdx/Series";
 import { buildSiteUrl } from "@/lib/site-url";
 import { STORIES_INDEX } from "@/generated/content-index";
 import { normalizeStorySlug } from "../_lib";
@@ -15,6 +17,11 @@ type Story = {
   body: string;
   published?: boolean;
   cover?: string;
+  series?: {
+    title: string;
+    order: number;
+    total?: number;
+  };
 };
 
 async function getStory(slug: string): Promise<Story | undefined> {
@@ -106,6 +113,22 @@ export default async function StoryPage(props: {
     },
   };
 
+  const seriesItems = story.series
+    ? STORIES_INDEX.filter(
+        (item) => item.series?.title === story.series?.title,
+      ).sort((a, b) => (a.series?.order ?? 0) - (b.series?.order ?? 0))
+    : [];
+
+  const totalParts = story.series?.total ?? seriesItems.length;
+  const currentSeriesIdx = seriesItems.findIndex(
+    (item) => normalizeStorySlug(item.slug) === slugPart,
+  );
+  const prevStory = currentSeriesIdx > 0 ? seriesItems[currentSeriesIdx - 1] : null;
+  const nextStory =
+    currentSeriesIdx >= 0 && currentSeriesIdx < seriesItems.length - 1
+      ? seriesItems[currentSeriesIdx + 1]
+      : null;
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
       <script
@@ -113,9 +136,25 @@ export default async function StoryPage(props: {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <p className="mb-3 text-sm font-medium text-neutral-500">면역이야기</p>
-      <h1 className="mb-2 text-3xl font-bold">{story.title}</h1>
+      <div className="flex items-center justify-between text-sm font-medium text-neutral-500">
+        <span>면역이야기</span>
+        {story.category && (
+          <span className="rounded-full bg-sky-50 px-2.5 py-0.5 text-xs text-sky-600 dark:bg-sky-950/50 dark:text-sky-400">
+            {story.category}
+          </span>
+        )}
+      </div>
+
+      <h1 className="mt-2 mb-2 text-3xl font-bold">{story.title}</h1>
       <MetaLine date={ymd(story.date)} updated={ymd(story.updated)} />
+
+      {story.series && (
+        <Series
+          title={story.series.title}
+          part={story.series.order}
+          total={totalParts}
+        />
+      )}
 
       {story.description && (
         <p className="mb-6 text-gray-700 dark:text-gray-300">
@@ -142,6 +181,70 @@ export default async function StoryPage(props: {
       >
         <MDXContent code={story.body} />
       </article>
+
+      {/* 시리즈 연관 글 네비게이션 Box */}
+      {seriesItems.length > 1 && (
+        <div className="mt-12 rounded-xl border border-sky-100 bg-sky-50/50 p-6 dark:border-sky-900/40 dark:bg-sky-950/20">
+          <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
+            Series — {story.series?.title}
+          </div>
+          <ol className="space-y-2 text-sm">
+            {seriesItems.map((item) => {
+              const isCurrent = normalizeStorySlug(item.slug) === slugPart;
+              return (
+                <li key={item.slug} className="flex items-baseline gap-2">
+                  <span className="font-mono text-xs text-neutral-400">
+                    {item.series?.order ?? 0}.
+                  </span>
+                  {isCurrent ? (
+                    <span className="font-semibold text-sky-700 dark:text-sky-300">
+                      {item.title} <span className="text-xs font-normal text-sky-500">(현재 글)</span>
+                    </span>
+                  ) : (
+                    <Link
+                      href={`/stories/${normalizeStorySlug(item.slug)}`}
+                      className="text-neutral-700 hover:text-sky-600 dark:text-neutral-300 dark:hover:text-sky-400"
+                    >
+                      {item.title}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+
+          {(prevStory || nextStory) && (
+            <div className="mt-6 flex flex-col gap-3 border-t border-sky-100 pt-4 sm:flex-row sm:justify-between dark:border-sky-900/40">
+              {prevStory ? (
+                <Link
+                  href={`/stories/${normalizeStorySlug(prevStory.slug)}`}
+                  className="group flex flex-1 flex-col text-left"
+                >
+                  <span className="text-xs text-neutral-400">← 이전 시리즈 글</span>
+                  <span className="text-sm font-medium text-neutral-800 group-hover:text-sky-600 dark:text-neutral-200 dark:group-hover:text-sky-400">
+                    {prevStory.title}
+                  </span>
+                </Link>
+              ) : (
+                <div className="flex-1" />
+              )}
+
+              {nextStory && (
+                <Link
+                  href={`/stories/${normalizeStorySlug(nextStory.slug)}`}
+                  className="group flex flex-1 flex-col text-right"
+                >
+                  <span className="text-xs text-neutral-400">다음 시리즈 글 →</span>
+                  <span className="text-sm font-medium text-neutral-800 group-hover:text-sky-600 dark:text-neutral-200 dark:group-hover:text-sky-400">
+                    {nextStory.title}
+                  </span>
+                </Link>
+              )}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
+

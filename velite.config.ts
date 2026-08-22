@@ -20,6 +20,13 @@ export default defineConfig({
         category: s.string().optional(),
         cover: s.string().optional(),
         featured: s.boolean().default(false),
+        series: s
+          .object({
+            title: s.string(),
+            order: s.number(),
+            total: s.number().optional(),
+          })
+          .optional(),
       }),
     },
 
@@ -38,6 +45,13 @@ export default defineConfig({
         category: s.string().optional(),
         cover: s.string().optional(),
         featured: s.boolean().default(false),
+        series: s
+          .object({
+            title: s.string(),
+            order: s.number(),
+            total: s.number().optional(),
+          })
+          .optional(),
       }),
     },
 
@@ -50,15 +64,22 @@ export default defineConfig({
         date: s.isodate().optional(),
         updated: s.isodate().optional(),
         slug: s.slug("docs"),
-        published: s.boolean().default(true), // ✅ docs에서도 published 필터 쓰면 추가 추천
+        published: s.boolean().default(true),
         body: s.mdx(),
         tags: s.array(s.string()).optional(),
         category: s.string().optional(),
-        section: s.string().optional(), // ✅ 추가: 이게 핵심
-        docType: s.string().optional(), // "paper" | "docent" (선택)
+        section: s.string().optional(),
+        docType: s.string().optional(),
         order: s.number().optional(),
         cover: s.string().optional(),
         featured: s.boolean().default(false),
+        series: s
+          .object({
+            title: s.string(),
+            order: s.number(),
+            total: s.number().optional(),
+          })
+          .optional(),
       }),
     },
 
@@ -80,6 +101,13 @@ export default defineConfig({
         order: s.number().optional(),
         cover: s.string().optional(),
         featured: s.boolean().default(false),
+        series: s
+          .object({
+            title: s.string(),
+            order: s.number(),
+            total: s.number().optional(),
+          })
+          .optional(),
       }),
     },
   },
