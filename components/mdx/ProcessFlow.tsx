@@ -18,14 +18,16 @@ export function ProcessFlow({
   const stepList = items || steps || [];
 
   return (
-    <div className={`my-8 rounded-xl border border-sky-100 bg-sky-50/40 p-5 dark:border-sky-900/40 dark:bg-sky-950/20 ${className}`.trim()}>
+    <div
+      className={`my-8 mx-auto max-w-md rounded-xl border border-sky-100 bg-sky-50/40 p-4 sm:p-5 dark:border-sky-900/40 dark:bg-sky-950/20 ${className}`.trim()}
+    >
       {title && (
-        <div className="mb-4 text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">
+        <div className="mb-4 text-center text-base font-extrabold tracking-tight text-sky-800 dark:text-sky-300">
           {title}
         </div>
       )}
 
-      <div className="space-y-2.5">
+      <div className="space-y-2">
         {stepList.map((step, index) => {
           const isLast = index === stepList.length - 1;
           const stepTitle = typeof step === "string" ? step : step.title;
@@ -36,41 +38,41 @@ export function ProcessFlow({
             <div key={index} className="flex flex-col items-center">
               {/* Step Card */}
               <div
-                className={`flex w-full items-center gap-3.5 rounded-lg border px-4 py-3 text-sm font-medium transition-all ${
+                className={`flex w-full flex-col items-center justify-center rounded-lg border px-4 py-2.5 text-center text-sm font-medium transition-all ${
                   isHighlight
                     ? "border-sky-500 bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-md dark:border-sky-400 dark:from-sky-500 dark:to-blue-600"
                     : "border-neutral-200 bg-white text-neutral-800 shadow-2xs dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200"
                 }`}
               >
-                <span
-                  className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                    isHighlight
-                      ? "bg-white/20 text-white"
-                      : "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300"
-                  }`}
-                >
-                  {index + 1}
-                </span>
-
-                <div className="flex-1">
-                  <div className="leading-snug">{stepTitle}</div>
-                  {stepDesc && (
-                    <div
-                      className={`mt-0.5 text-xs ${
-                        isHighlight
-                          ? "text-sky-100"
-                          : "text-neutral-500 dark:text-neutral-400"
-                      }`}
-                    >
-                      {stepDesc}
-                    </div>
-                  )}
+                <div className="flex items-center justify-center gap-2">
+                  <span
+                    className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${
+                      isHighlight
+                        ? "bg-white/25 text-white"
+                        : "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300"
+                    }`}
+                  >
+                    {index + 1}
+                  </span>
+                  <span className="leading-snug">{stepTitle}</span>
                 </div>
+
+                {stepDesc && (
+                  <div
+                    className={`mt-1 text-xs ${
+                      isHighlight
+                        ? "text-sky-100"
+                        : "text-neutral-500 dark:text-neutral-400"
+                    }`}
+                  >
+                    {stepDesc}
+                  </div>
+                )}
               </div>
 
               {/* Downward Arrow Connection */}
               {!isLast && (
-                <div className="my-1 flex items-center justify-center text-sky-400 dark:text-sky-500">
+                <div className="my-0.5 flex items-center justify-center text-sky-400 dark:text-sky-500">
                   <svg
                     className="h-4 w-4"
                     fill="none"
