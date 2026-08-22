@@ -16,6 +16,7 @@ import RelatedPosts from "@/components/mdx/RelatedPosts";
 import { FigureGroup } from "@/components/mdx/FigureGroup";
 import { References, Reference } from "@/components/mdx/References";
 import { AuthorBio } from "@/components/mdx/AuthorBio";
+import { ArticleLink } from "@/components/mdx/ArticleLink";
 
 const sharedComponents: MDXComponents = {
   Series,
@@ -27,6 +28,7 @@ const sharedComponents: MDXComponents = {
   RelatedPosts, // ✅ 반드시 포함
   FigureGroup,
   AuthorBio,
+  ArticleLink,
 
   // ✅ 전역 레퍼런스 컴포넌트 등록
   References,
