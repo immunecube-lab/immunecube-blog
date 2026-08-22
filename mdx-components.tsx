@@ -8,6 +8,7 @@ import { KeyPoint } from "@/components/mdx/KeyPoint";
 import { Concept } from "@/components/mdx/Concept";
 import { AuthorBio } from "@/components/mdx/AuthorBio";
 import { ArticleLink } from "@/components/mdx/ArticleLink";
+import { ProcessFlow } from "@/components/mdx/ProcessFlow";
 
 // ✅ 여기! 실제 파일 위치가 mdx/RelatedPosts.tsx 라면 이게 정답입니다.
 import RelatedPosts from "@/components/mdx/RelatedPosts";
@@ -26,5 +27,6 @@ export function useMDXComponents(
     RelatedPosts,
     AuthorBio,
     ArticleLink,
+    ProcessFlow,
   };
 }
