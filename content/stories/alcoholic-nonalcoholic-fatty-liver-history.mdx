@@ -18,8 +18,9 @@ tags:
   - 만성염증
 featured: false
 series:
-  title: "노년기 질환과 생활면역"
+  title: "LPS Saga: 엔도톡신과 현대 만성질환"
   order: 5
+  total: 8
 ---
 
 알코올성 간질환과 비알코올성 지방간의 역사를 같이 살펴보면 흥미로운 점이 하나 있습니다. 처음에는 두 질환을 완전히 다른 질병으로 생각했지만, 연구가 진행될수록 **지방 축적, 산화 스트레스, Kupffer cell, 장에서 유래한 LPS, 염증, 섬유화**라는 공통된 병태생리가 드러났다는 것입니다.
@@ -28,18 +29,18 @@ series:
 
 ## 한눈에 보는 역사
 
-| 시기 | 연구자·사건 | 핵심 발견 | 의미 |
-| :--- | :--- | :--- | :--- |
-| **1950년대 이전** | 전통적 견해 | 알코올 중독자의 간질환은 주로 영양결핍 때문이라고 생각 | 알코올 자체의 독성을 과소평가 |
-| **1965** | Charles Lieber, Leonore DeCarli | 영양이 충분해도 알코올만으로 지방간 발생 | **알코올 자체가 간독성 물질**임을 입증 |
-| **1973–1975** | Lieber, Rubin, DeCarli | 영양이 충분한 원숭이에서 지방간 → 간염 → 간경변 재현 | 알코올성 간질환의 자연사를 실험적으로 확립 |
-| **1970–1990년대** | 여러 연구팀 | 장내 endotoxin과 Kupffer cell이 알코올성 간손상에 관여 | **장–간 축**의 등장 |
-| **1980** | Jürgen Ludwig | 술을 거의 마시지 않는 사람에게도 알코올성 간염과 거의 같은 병변 발견 | **NASH** 최초 명명 및 연구 출발 |
-| **1990년대** | 비만·당뇨 연구 | NASH가 비만·인슐린 저항성과 강하게 연결됨 | NASH를 대사질환으로 이해 |
-| **1998** | Day & James | **two-hit hypothesis** 제안 | 지방축적 후 염증이 발생한다는 2단계 모델 |
-| **2000년대** | Wigg 등, 여러 연구 | 장내세균·LPS·Kupffer cell·TNF-α가 NASH에도 관여 | 두 질환의 기전이 장–간 축으로 수렴 |
-| **2010** | Tilg & Moschen | **multiple parallel hits hypothesis** | 단순한 2단계 모델에서 복합 면역·대사 모델로 전환 |
-| **2023** | 국제 합의 | NAFLD → **MASLD**, NASH → **MASH** | 원인 부정이 아닌 **대사 이상을 적극적으로 정의** |
+| 시기              | 연구자·사건                     | 핵심 발견                                                            | 의미                                             |
+| :---------------- | :------------------------------ | :------------------------------------------------------------------- | :----------------------------------------------- |
+| **1950년대 이전** | 전통적 견해                     | 알코올 중독자의 간질환은 주로 영양결핍 때문이라고 생각               | 알코올 자체의 독성을 과소평가                    |
+| **1965**          | Charles Lieber, Leonore DeCarli | 영양이 충분해도 알코올만으로 지방간 발생                             | **알코올 자체가 간독성 물질**임을 입증           |
+| **1973–1975**     | Lieber, Rubin, DeCarli          | 영양이 충분한 원숭이에서 지방간 → 간염 → 간경변 재현                 | 알코올성 간질환의 자연사를 실험적으로 확립       |
+| **1970–1990년대** | 여러 연구팀                     | 장내 endotoxin과 Kupffer cell이 알코올성 간손상에 관여               | **장–간 축**의 등장                              |
+| **1980**          | Jürgen Ludwig                   | 술을 거의 마시지 않는 사람에게도 알코올성 간염과 거의 같은 병변 발견 | **NASH** 최초 명명 및 연구 출발                  |
+| **1990년대**      | 비만·당뇨 연구                  | NASH가 비만·인슐린 저항성과 강하게 연결됨                            | NASH를 대사질환으로 이해                         |
+| **1998**          | Day & James                     | **two-hit hypothesis** 제안                                          | 지방축적 후 염증이 발생한다는 2단계 모델         |
+| **2000년대**      | Wigg 등, 여러 연구              | 장내세균·LPS·Kupffer cell·TNF-α가 NASH에도 관여                      | 두 질환의 기전이 장–간 축으로 수렴               |
+| **2010**          | Tilg & Moschen                  | **multiple parallel hits hypothesis**                                | 단순한 2단계 모델에서 복합 면역·대사 모델로 전환 |
+| **2023**          | 국제 합의                       | NAFLD → **MASLD**, NASH → **MASH**                                   | 원인 부정이 아닌 **대사 이상을 적극적으로 정의** |
 
 ---
 
@@ -48,29 +49,34 @@ series:
   steps={[
     {
       title: "1965년 Charles Lieber",
-      description: "영양결핍이 없어도 알코올 자체가 직접 간 지방간을 형성함을 입증"
+      description:
+        "영양결핍이 없어도 알코올 자체가 직접 간 지방간을 형성함을 입증",
     },
     {
       title: "1973~1975년 Lieber & Rubin",
-      description: "영양 충분 상태에서도 알코올만으로 지방간 → 간염 → 간경변 진행 재현"
+      description:
+        "영양 충분 상태에서도 알코올만으로 지방간 → 간염 → 간경변 진행 재현",
     },
     {
       title: "1980년 Jürgen Ludwig",
-      description: "비음주자에게서 알코올성 간염과 동일한 병변 발견하여 'NASH' 명명"
+      description:
+        "비음주자에게서 알코올성 간염과 동일한 병변 발견하여 'NASH' 명명",
     },
     {
       title: "1998년 Day & James",
-      description: "NASH의 병인 모델로 'Two-Hit Hypothesis (지방축적 + 염증/산화스트레스)' 제안"
+      description:
+        "NASH의 병인 모델로 'Two-Hit Hypothesis (지방축적 + 염증/산화스트레스)' 제안",
     },
     {
       title: "2010년 Herbert Tilg",
-      description: "장내 미생물, LPS, 대식세포, 세포 스트레스가 동시 작용하는 Multiple Parallel Hits 제안"
+      description:
+        "장내 미생물, LPS, 대식세포, 세포 스트레스가 동시 작용하는 Multiple Parallel Hits 제안",
     },
     {
       title: "2023년 국제 간학회 합의",
       description: "NAFLD/NASH를 대사이상 중심의 'MASLD/MASH'로 질병명 개정",
-      highlight: true
-    }
+      highlight: true,
+    },
   ]}
 />
 
@@ -90,7 +96,7 @@ Lieber와 DeCarli 연구팀은 영양성분을 정확하게 조절하면서 알�
 
 이것은 중요한 전환점이었습니다.
 
-> *"알코올 중독자의 지방간은 단순히 잘 먹지 않아서 생기는 것이 아니다. **알코올 그 자체가 간에 지방을 축적시킨다.**"*
+> _"알코올 중독자의 지방간은 단순히 잘 먹지 않아서 생기는 것이 아니다. **알코올 그 자체가 간에 지방을 축적시킨다.**"_
 
 알코올이 간에서 대사될 때 NADH가 증가하면서 지방산 산화가 억제되고 중성지방 축적이 촉진된다는 생화학적 기전도 점차 밝혀졌습니다. 초기 알코올성 지방간은 상당 부분 간세포의 대사 이상으로 설명되었습니다.
 
@@ -112,7 +118,7 @@ Lieber와 Rubin은 영양이 충분한 baboon에게 장기간 에탄올을 공�
 
 따라서 연구자들은 생각하기 시작했습니다.
 
-> *"알코올이 지방간을 만드는 것과 지방간이 염증성 간질환으로 진행하는 것은 **서로 다른 과정이 아닐까?**"*
+> _"알코올이 지방간을 만드는 것과 지방간이 염증성 간질환으로 진행하는 것은 **서로 다른 과정이 아닐까?**"_
 
 이 질문은 훗날 NASH 연구에서도 그대로 반복됩니다.
 
@@ -142,6 +148,10 @@ Ludwig는 20명의 환자를 보고하면서 이 질병에 새로운 이름을 �
 
 *"술을 마시지 않아도 알코올성 간염과 똑같은 질환이 생길 수 있다"*는 사실이 현대 비알코올성 지방간 연구의 출발점이 되었습니다.
 
+<KeyPoint title="역사적 통찰: 피터 아티아의 《질병해방》이 조명한 1980년 사건">
+  피터 아티아(Peter Attia) 박사는 저서 《질병해방(Outlive)》에서 위르겐 루드비히 박사의 1980년 발견을 만성질환 역사의 결정적 순간으로 꼽습니다. 현미경 너머로 알코올 중독자와 똑같이 파괴된 비음주자들의 간 조직을 보았을 때의 충격은, **"술을 단 한 방울도 마시지 않아도 과도한 당분, 비만, 인슐린 저항성이 간을 알코올성 간염처럼 파괴할 수 있다"**는 대사질환의 무서운 진실을 세상에 알린 계기가 되었습니다.
+</KeyPoint>
+
 ## 8. 비만과 인슐린 저항성이 NASH를 일으키다
 
 Ludwig의 환자들을 재분석하자 공통점이 드러났습니다. 상당수가 **비만**이었고 **제2형 당뇨병**을 가지고 있었습니다. 1990년대 비만과 당뇨병이 늘어나면서 NASH의 기전이 밝혀집니다:
@@ -161,7 +171,7 @@ Ludwig의 환자들을 재분석하자 공통점이 드러났습니다. 상당�
 
 ## 10. 알코올성과 비알코올성 간질환이 만나다
 
-NASH에서도 연구자들은 알코올성 간질환과 동일한 질문을 던졌습니다: *"장에서 들어오는 endotoxin(LPS)이 NASH에도 관여하는 것은 아닐까?"*
+NASH에서도 연구자들은 알코올성 간질환과 동일한 질문을 던졌습니다: _"장에서 들어오는 endotoxin(LPS)이 NASH에도 관여하는 것은 아닐까?"_
 
 2001년 Wigg 등의 연구를 시작으로 NASH 환자에서도 장 소장 세균 과증식, 장 투과성 증가, endotoxemia가 확인되었습니다. 결국 두 질환은 출발점만 다를 뿐, 중간부터 동일한 병태생리 경로를 공유함이 드러났습니다:
 
@@ -173,7 +183,7 @@ NASH에서도 연구자들은 알코올성 간질환과 동일한 질문을 던�
     "장 장벽 손상 및 장 유래 LPS 문맥 유입",
     "간 Kupffer 세포 (TLR4) 활성화 및 TNF-α 분비",
     "지속적 만성염증 및 간세포 사멸 (MASH/간염)",
-    "간성상세포 활성화 및 간섬유화·간경변 진행"
+    "간성상세포 활성화 및 간섬유화·간경변 진행",
   ]}
 />
 
@@ -182,6 +192,8 @@ NASH에서도 연구자들은 알코올성 간질환과 동일한 질문을 던�
 2010년 **Herbert Tilg와 Alexander Moschen**은 단순한 2단계 모델을 넘어 **Multiple parallel hits hypothesis**를 제안했습니다. 지방 축적 후에만 염증이 오는 것이 아니라, 장내 미생물, LPS, 지방조직 염증, 인슐린 저항성, 지질독성, 세포 스트레스가 동시다발적으로 작용하여 서로를 증폭시킨다는 복합 모델입니다.
 
 이 과정에서 임상적으로 가장 중요한 것은 단순히 지방이 얼마나 쌓였는가가 아니라, **Kupffer 세포 활성화에 의한 염증과 섬유화(Fibrosis)의 진행 정도**라는 점이 분명해졌습니다.
+
+<ArticleLink slug="2007-tilg-day-management-alcoholic-liver-disease" />
 
 ## 12. 2023년 — 질병명의 역사적 변경: NAFLD에서 MASLD로
 
@@ -202,19 +214,3 @@ NASH에서도 연구자들은 알코올성 간질환과 동일한 질문을 던�
 그러나 질병이 진행되는 핵심 하류 경로는 **장–간 축, Kupffer 세포의 TLR4 활성화, 만성 저강도 염증, 간세포 손상, 그리고 섬유화**로 완벽하게 수렴합니다. 결국 간에 지방이 쌓이는 것은 시작 조건일 뿐이며, 질병의 운명을 결정하는 진짜 주범은 **선천면역계의 지속적인 염증 반응**입니다.
 
 <ArticleLink slug="obesity-diabetes-metaflammation-history" />
-
-## 참고문헌
-
-1. Lieber CS, DeCarli LM. Study of ethanol-induced fatty liver: items of method and evaluation of pathogenesis. _Gastroenterology_. 1965;48(5):637–639.
-
-2. Rubin E, Lieber CS. Fatty liver, alcoholic hepatitis and cirrhosis produced by alcohol in primates. _New England Journal of Medicine_. 1974;290(3):128–135. https://doi.org/10.1056/NEJM197401172900303
-
-3. Ludwig J, Viggiano TR, McGill DB, Oh BJ. Nonalcoholic steatohepatitis: Mayo Clinic experiences with a hitherto unnamed disease. _Mayo Clinic Proceedings_. 1980;55(7):434–438. PMID: 7382552
-
-4. Day CP, James OF. Steatohepatitis: a tale of two "hits"? _Gastroenterology_. 1998;114(4):842–845. https://doi.org/10.1016/s0016-5085(98)70599-2
-
-5. Wigg AJ, Roberts-Thomson IC, Dymock RB, et al. The role of small intestinal bacterial overgrowth, intestinal permeability, endotoxaemia, and tumour necrosis factor-alpha in the pathogenesis of non-alcoholic steatohepatitis. _Gut_. 2001;48(2):206–211. https://doi.org/10.1136/gut.48.2.206
-
-6. Tilg H, Moschen AR. Evolution of inflammation in nonalcoholic fatty liver disease: the multiple parallel hits hypothesis. _Hepatology_. 2010;52(5):1836–1846. https://doi.org/10.1002/hep.24017
-
-7. Rinella ME, Lazarus JV, Ratziu V, et al. A multisociety Delphi consensus statement on new fatty liver disease nomenclature. _Hepatology_. 2023;78(6):1966–1986. https://doi.org/10.1097/HEP.0000000000000520
