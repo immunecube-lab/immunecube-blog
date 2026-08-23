@@ -205,7 +205,7 @@ export const POSTS_INDEX: PostIndexItem[] = [
   { slug: "cancer-cachexia-inflammation", title: "암환자의 염증과 악액질: 왜 영양만으로는 해결되지 않는가" },
   { slug: "cancer-cachexia-lps-inflammation-history", title: "암 환자는 왜 점점 마르는가 — 면역, 염증 그리고 악액질의 역사" },
   { slug: "cancer-cells-hydrogen-peroxide-paradox", title: "3. 암세포는 왜 과산화수소 신호를 감당하지 못하는가" },
-  { slug: "cancer-related-fatigue-inflammation", title: "암관련 피로와 염증: 왜 함께 관리해야 하는가" },
+  { slug: "cancer-related-fatigue-inflammation", title: "암 환자는 왜 쉬어도 피로가 풀리지 않는가 — 암 관련 피로(CRF)와 염증 사이토카인의 신경면역학적 기전" },
   { slug: "cancer-statistics-prevention-alternative-medicine", title: "암 통계 논쟁과 대체의학 확산의 역사적 배경" },
   { slug: "cancer-tumor-microenvironment-inflammation-history", title: "암은 왜 염증 속에서 자라는가 — 종양미세환경과 만성염증의 역사" },
   { slug: "cancer-tumor-neoplasia-terminology", title: "암, 종양, 신생물: 우리가 혼동해온 용어들의 정확한 의미" },
