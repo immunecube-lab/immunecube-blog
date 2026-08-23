@@ -502,7 +502,7 @@ export const POSTS_INDEX: PostIndexItem[] = [
   { slug: "tiselius-kabat-electrophoretic-study-immune-sera", title: "1939년 - 면역혈청을 분획하다: Kabat의 실험과 Tiselius의 전기영동 플랫폼" },
   { slug: "tlr3-dsrna-nfkb-alexopoulou-flavell-2001", title: "2001년 - dsRNA는 누가 알아채는가: 2001년 TLR3 논문으로 보는 항바이러스 선천면역" },
   { slug: "tlr4-inflammation-phagocytosis-myd88-trif", title: "04. TLR4 염증은 탐식작용이 끝나야 종결된다." },
-  { slug: "tlr4-lps-beutler-1998-science", title: "1998년 - TLR4는 어떻게 LPS 수용체가 되었나: 1998년 Beutler 연구실의 유전학적 정면돌파" },
+  { slug: "tlr4-lps-beutler-1998-science", title: "LPS 수용체 TLR4의 발견 — 브루스 보이틀러(Bruce Beutler)의 1998년 Science 논문 해설" },
   { slug: "tlr4-nfkb-nlrp3-licensing-mechanism", title: "TLR4–NF-κB 신호는 어떻게 NLRP3 인플라마좀을 ‘라이선스’하는가?" },
   { slug: "tnf-cachectin-identity-1985", title: "1985년 - TNF와 캐케틴은 같은 분자였다: 사이토카인을 ‘독소’에서 ‘호르몬’으로 바꾼 1985년" },
   { slug: "tolerogenic-memory-treg-immune-regulation", title: "공격하지 않도록 기억하는 면역: tolerogenic memory와 Treg 기억" },
