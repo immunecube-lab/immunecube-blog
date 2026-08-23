@@ -7,6 +7,9 @@ const withNextra = nextra({})
 
 const nextConfig: NextConfig = {
   output: "export",
+  images: {
+    unoptimized: true,
+  },
   // Next 16용 Turbopack 설정
   turbopack: {
     resolveAlias: {

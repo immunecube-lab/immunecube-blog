@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { formatYmdDot } from "@/components/utils/date";
@@ -134,10 +135,13 @@ export function StoriesBrowser({ stories }: { stories: StoryWithMeta[] }) {
                   className="block rounded-xl border p-4 hover:bg-neutral-50"
                 >
                   {story.cover && (
-                    <img
+                    <Image
                       src={story.cover}
                       alt={story.title}
-                      className="mb-3 h-40 w-full rounded-lg object-cover"
+                      width={1280}
+                      height={720}
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="mb-3 aspect-video w-full rounded-lg object-cover"
                     />
                   )}
                   <h3 className="text-lg font-semibold">{story.title}</h3>
@@ -173,21 +177,33 @@ export function StoriesBrowser({ stories }: { stories: StoryWithMeta[] }) {
                   <Link
                     href={`/stories/${encodeURIComponent(slugPart)}`}
                     prefetch={false}
-                    className="block rounded-md px-2 py-2 hover:bg-neutral-50"
+                    className="flex gap-4 rounded-lg px-2 py-2 hover:bg-neutral-50"
                   >
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="text-base font-semibold">{story.title}</h3>
-                      {label && (
-                        <span className="shrink-0 text-[11px] text-neutral-400">
-                          {label}
-                        </span>
+                    {story.cover && (
+                      <Image
+                        src={story.cover}
+                        alt={story.title}
+                        width={160}
+                        height={90}
+                        sizes="(min-width: 640px) 160px, 128px"
+                        className="aspect-video w-32 shrink-0 rounded-md object-cover sm:w-40"
+                      />
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-baseline justify-between gap-3">
+                        <h3 className="text-base font-semibold">{story.title}</h3>
+                        {label && (
+                          <span className="shrink-0 text-[11px] text-neutral-400">
+                            {label}
+                          </span>
+                        )}
+                      </div>
+                      {story.description && (
+                        <p className="mt-1 text-sm text-neutral-600">
+                          {story.description}
+                        </p>
                       )}
                     </div>
-                    {story.description && (
-                      <p className="mt-1 text-sm text-neutral-600">
-                        {story.description}
-                      </p>
-                    )}
                   </Link>
                 </li>
               );

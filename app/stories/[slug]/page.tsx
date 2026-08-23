@@ -16,6 +16,7 @@ type Story = {
   updated?: string;
   body: string;
   published?: boolean;
+  category?: string;
   cover?: string;
   series?: {
     title: string;
