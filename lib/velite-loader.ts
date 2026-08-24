@@ -8,7 +8,7 @@ let cachedStories: any[] | null = null;
 let cachedPosts: any[] | null = null;
 
 export async function getVeliteDocs() {
-  if (cachedDocs) return cachedDocs;
+  if (!isLocalDev && cachedDocs) return cachedDocs;
   try {
     const docsPath = path.join(process.cwd(), ".velite", "docs.json");
     const raw = await fs.readFile(docsPath, "utf8");
@@ -22,8 +22,9 @@ export async function getVeliteDocs() {
         drafts = JSON.parse(draftsRaw);
       } catch {}
     }
-    cachedDocs = [...docs, ...drafts];
-    return cachedDocs;
+    const result = [...docs, ...drafts];
+    cachedDocs = result;
+    return result;
   } catch (err) {
     console.error("Failed to load velite docs from disk:", err);
     return [];
@@ -31,12 +32,13 @@ export async function getVeliteDocs() {
 }
 
 export async function getVeliteStories() {
-  if (cachedStories) return cachedStories;
+  if (!isLocalDev && cachedStories) return cachedStories;
   try {
     const storiesPath = path.join(process.cwd(), ".velite", "stories.json");
     const raw = await fs.readFile(storiesPath, "utf8");
-    cachedStories = JSON.parse(raw);
-    return cachedStories;
+    const stories = JSON.parse(raw);
+    cachedStories = stories;
+    return stories;
   } catch (err) {
     console.error("Failed to load velite stories from disk:", err);
     return [];
@@ -44,12 +46,13 @@ export async function getVeliteStories() {
 }
 
 export async function getVelitePosts() {
-  if (cachedPosts) return cachedPosts;
+  if (!isLocalDev && cachedPosts) return cachedPosts;
   try {
     const postsPath = path.join(process.cwd(), ".velite", "posts.json");
     const raw = await fs.readFile(postsPath, "utf8");
-    cachedPosts = JSON.parse(raw);
-    return cachedPosts;
+    const posts = JSON.parse(raw);
+    cachedPosts = posts;
+    return posts;
   } catch (err) {
     console.error("Failed to load velite posts from disk:", err);
     return [];
