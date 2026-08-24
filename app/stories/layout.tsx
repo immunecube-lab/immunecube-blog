@@ -19,7 +19,7 @@ export default function StoriesLayout({ children }: { children: ReactNode }) {
   const seriesGroups = groupStoriesBySeries(all);
 
   return (
-    <div className="mx-auto flex max-w-6xl gap-10 px-4 py-8 sm:px-6 sm:py-10 print:p-0 print:gap-0">
+    <div className="mx-auto flex max-w-6xl flex-col md:flex-row gap-6 md:gap-10 px-4 py-6 sm:px-6 sm:py-10 print:p-0 print:gap-0">
       <Suspense fallback={<div className="w-60 shrink-0 border-r pr-6 print:hidden" />}>
         <LeftSidebar categories={categories} seriesGroups={seriesGroups} />
       </Suspense>

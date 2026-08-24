@@ -18,7 +18,6 @@ type Story = {
   published?: boolean;
   category?: string;
   cover?: string;
-  category?: string;
   series?: {
     title: string;
     order: number;

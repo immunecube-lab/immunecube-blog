@@ -33,6 +33,12 @@ const LEGACY_STORIES_WITHOUT_COVERS = new Set([
   "modern-food-environment-breaks-body-weight-defense.mdx",
   "obesity-diabetes-metaflammation-history.mdx",
   "sarcopenia-frailty-inflammation-lps-history.mdx",
+  "cholesterol-misinterpretation-lbc1936.mdx",
+  "ldl-not-important-myth.mdx",
+  "lipid-hypothesis-subjective-validation.mdx",
+  "pre-drug-lifestyle-immunity.mdx",
+  "statin-anti-inflammatory-mechanism.mdx",
+  "why-cholesterol-should-be-controlled.mdx",
 ]);
 
 const storyFiles = (await fs.readdir(STORIES_DIR)).filter((file) =>

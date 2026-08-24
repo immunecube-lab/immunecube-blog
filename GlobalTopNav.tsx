@@ -28,7 +28,6 @@ export function GlobalTopNav() {
   };
 
   return (
-<<<<<<< Updated upstream
     <header className="sticky top-0 z-50 w-full border-b border-neutral-200/80 bg-white/80 backdrop-blur-md print:hidden dark:border-neutral-800 dark:bg-neutral-950/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         {/* Left: Brand Logo & Main Nav */}
