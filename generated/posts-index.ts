@@ -99,7 +99,7 @@ export const POSTS_INDEX: PostIndexItem[] = [
   { slug: "2007-atoz-atkins-zone-learn-ornish-diet-study", title: "2007년 - A TO Z 연구: Atkins, Zone, LEARN, Ornish를 1년 동안 비교하다" },
   { slug: "2007-mpla-trif-biased-tlr4", title: "2007년 - MPLA TRIF-biased 논문: 왜 염증은 줄고 면역증강은 유지되는가" },
   { slug: "2007-seki-tlr4-hepatic-fibrosis", title: "2007년 - Seki et al.: TLR4는 어떻게 간섬유화를 증폭시키는가" },
-  { slug: "2007-tilg-day-management-alcoholic-liver-disease", title: "2007년 - Tilg & Day: 알코올성 간질환의 LPS-장간축 가설" },
+  { slug: "2007-tilg-day-management-alcoholic-liver-disease", title: "2007년 - Tilg & Day: 알코올성 간질환(ALD)과 LPS-장간축(Gut-Liver Axis) 병인 가설" },
   { slug: "2008-direct-lowcarb-mediterranean-lowfat-diet-trial", title: "2008년 - DIRECT 연구: 저지방, 지중해식, 저탄수화물을 비교하다" },
   { slug: "2009-comparison-weight-loss-diets-macronutrients", title: "2009년 - POUNDS LOST 연구: 지방·단백질·탄수화물 비율은 얼마나 중요했나" },
   { slug: "2009-fendrix-as04-mpl-clinical-success", title: "2009년 - Fendrix/AS04 임상 성공의 정리: MPL 보조제의 실전 입증" },
