@@ -272,4 +272,24 @@ body {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
+
+  /* 인쇄 시 본문 및 제목 글자 크기 최적화 (11pt 기준) */
+  .prose {
+    font-size: 11pt !important;
+  }
+  .prose p, .prose li {
+    font-size: 11pt !important;
+    line-height: 1.65 !important;
+  }
+  .prose h1 {
+    font-size: 20pt !important;
+  }
+  .prose h2 {
+    font-size: 15pt !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .prose h3 {
+    font-size: 12.5pt !important;
+  }
 }
