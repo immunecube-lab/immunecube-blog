@@ -86,6 +86,10 @@ export function FigureGroup({
             color: "var(--figure-caption, #555)",
             marginTop: "0.6em",
             lineHeight: "1.5",
+            textAlign: "left",
+            maxWidth: `${maxWidth}px`,
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           {number && <strong>그림 {number}. </strong>}
