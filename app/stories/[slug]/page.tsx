@@ -131,7 +131,7 @@ export default async function StoryPage(props: {
       : null;
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10">
+    <div className="mx-auto max-w-3xl px-4 py-10 print:max-w-none print:p-0">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -185,7 +185,7 @@ export default async function StoryPage(props: {
 
       {/* 시리즈 연관 글 네비게이션 Box */}
       {seriesItems.length > 1 && (
-        <div className="mt-12 rounded-xl border border-sky-100 bg-sky-50/50 p-6 dark:border-sky-900/40 dark:bg-sky-950/20">
+        <div className="mt-12 rounded-xl border border-sky-100 bg-sky-50/50 p-6 dark:border-sky-900/40 dark:bg-sky-950/20 print:hidden">
           <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400">
             Series — {story.series?.title}
           </div>

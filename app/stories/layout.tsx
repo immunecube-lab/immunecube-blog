@@ -16,8 +16,8 @@ export default function StoriesLayout({ children }: { children: ReactNode }) {
   ).sort((a, b) => a.localeCompare(b, "ko"));
 
   return (
-    <div className="mx-auto flex max-w-6xl gap-10 px-4 py-8 sm:px-6 sm:py-10">
-      <aside className="hidden w-56 shrink-0 border-r pr-6 text-sm md:block">
+    <div className="mx-auto flex max-w-6xl gap-10 px-4 py-8 sm:px-6 sm:py-10 print:p-0 print:gap-0">
+      <aside className="hidden w-56 shrink-0 border-r pr-6 text-sm md:block print:hidden">
         <div className="mb-6">
           <Link
             href="/"

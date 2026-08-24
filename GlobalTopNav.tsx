@@ -80,7 +80,7 @@ export function GlobalTopNav() {
   };
 
   return (
-    <header className="border-b bg-background">
+    <header className="border-b bg-background print:hidden">
       <div className="mx-auto max-w-5xl px-4 py-2">
         <div className="flex items-center justify-between gap-3">
           {/* 왼쪽: 로고/사이트명 + 기본 네비 */}
