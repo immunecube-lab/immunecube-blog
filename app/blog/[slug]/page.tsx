@@ -21,8 +21,10 @@ type BlogPost = {
   published?: boolean;
 };
 
+import { getVelitePosts } from "@/lib/velite-loader";
+
 async function getPost(slug: string): Promise<BlogPost | undefined> {
-  const { posts } = await import("@/.velite");
+  const posts = (await getVelitePosts()) as BlogPost[];
   const normalized = normalizePostSlug(slug);
 
   // ✅ 폴더가 바뀌어도 URL은 마지막 세그먼트만 기준으로 매칭

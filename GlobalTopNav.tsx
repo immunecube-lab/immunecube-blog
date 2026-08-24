@@ -2,72 +2,20 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { PagefindSearch } from '@/components/PagefindSearch';
 
 type NavItem = { href: string; label: string };
 
 const NAV: NavItem[] = [
-  { href: '/', label: '홈' },
   { href: '/stories', label: '면역이야기' },
-  { href: '/docs', label: '문서' },
+  { href: '/docs', label: '지식 문서' },
   { href: '/about', label: '소개' },
-  { href: '/contact', label: '문의' },
+  { href: '/qna', label: '질문 게시판' },
 ];
 
 function cx(...classes: Array<string | false | undefined>) {
   return classes.filter(Boolean).join(' ');
-}
-
-function Breadcrumbs({ pathname }: { pathname: string }) {
-  const crumbs = useMemo(() => {
-    const clean = pathname.split('?')[0].split('#')[0];
-    const parts = clean.split('/').filter(Boolean);
-
-    if (parts.length === 0) return [];
-
-    const labels: Record<string, string> = {
-      blog: '공지',
-      stories: '면역이야기',
-      docs: '문서',
-      about: '소개',
-      contact: '문의',
-    };
-
-    const prettify = (s: string) => {
-      const decoded = decodeURIComponent(s);
-      return (
-        labels[decoded] ??
-        decoded
-          .replace(/[-_]/g, ' ')
-          .replace(/\b\w/g, (c) => c.toUpperCase())
-      );
-    };
-
-    const result: Array<{ href: string; label: string }> = [];
-    let acc = '';
-    for (const p of parts) {
-      acc += `/${p}`;
-      result.push({ href: acc, label: prettify(p) });
-    }
-    return result;
-  }, [pathname]);
-
-  if (crumbs.length === 0) return null;
-
-  return (
-    <div className="hidden md:flex items-center gap-2 text-xs text-foreground/60">
-      <span className="select-none">/</span>
-      {crumbs.map((c, idx) => (
-        <div key={c.href} className="flex items-center gap-2">
-          <Link href={c.href} className="hover:text-foreground/90 transition">
-            {c.label}
-          </Link>
-          {idx < crumbs.length - 1 && <span className="select-none">/</span>}
-        </div>
-      ))}
-    </div>
-  );
 }
 
 export function GlobalTopNav() {
@@ -80,73 +28,103 @@ export function GlobalTopNav() {
   };
 
   return (
-    <header className="border-b bg-background print:hidden">
-      <div className="mx-auto max-w-5xl px-4 py-2">
-        <div className="flex items-center justify-between gap-3">
-          {/* 왼쪽: 로고/사이트명 + 기본 네비 */}
-          <div className="flex items-center gap-3">
-            <Link href="/" className="font-semibold tracking-tight">
+<<<<<<< Updated upstream
+    <header className="sticky top-0 z-50 w-full border-b border-neutral-200/80 bg-white/80 backdrop-blur-md print:hidden dark:border-neutral-800 dark:bg-neutral-950/80">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+        {/* Left: Brand Logo & Main Nav */}
+        <div className="flex items-center gap-8">
+          <Link href="/" className="group flex items-center gap-2">
+            <span className="rounded-md bg-emerald-600 px-2 py-0.5 text-[11px] font-bold text-white transition group-hover:bg-emerald-700">
+              IMMUNECUBE
+            </span>
+            <span className="text-base font-extrabold tracking-tight text-neutral-900 dark:text-white">
               생활면역
-            </Link>
+            </span>
+          </Link>
 
-            <nav className="hidden md:flex items-center gap-2">
-              {NAV.map((item) => (
+          <nav className="hidden md:flex items-center gap-1.5">
+            {NAV.map((item) => {
+              const active = isActive(item.href);
+              return (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cx(
-                    'rounded-lg px-3 py-1.5 text-sm transition',
-                    isActive(item.href)
-                      ? 'bg-foreground text-background'
-                      : 'text-foreground/80 hover:bg-muted'
+                    'rounded-lg px-3.5 py-1.5 text-sm font-medium transition',
+                    active
+                      ? 'bg-neutral-900 text-white shadow-xs dark:bg-neutral-100 dark:text-neutral-900'
+                      : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white'
                   )}
                 >
                   {item.label}
                 </Link>
-              ))}
-            </nav>
-
-            {/* Breadcrumbs (데스크탑에서만) */}
-            <Breadcrumbs pathname={pathname} />
-          </div>
-
-          {/* 오른쪽: 검색 + 모바일 메뉴 */}
-          <div className="flex items-center gap-2">
-            <PagefindSearch />
-
-            <button
-              type="button"
-              className="md:hidden inline-flex items-center rounded-lg border px-3 py-1.5 text-sm hover:bg-muted transition"
-              onClick={() => setOpen((v) => !v)}
-              aria-expanded={open}
-              aria-label="Open menu"
-            >
-              Menu
-            </button>
-          </div>
+              );
+            })}
+          </nav>
         </div>
 
-        {/* 모바일 드롭다운 */}
-        {open && (
-          <div className="md:hidden mt-3 flex flex-col gap-2">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className={cx(
-                  'rounded-lg px-3 py-2 text-sm transition',
-                  isActive(item.href)
-                    ? 'bg-foreground text-background'
-                    : 'text-foreground/80 hover:bg-muted'
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        )}
+        {/* Right: Search & Mobile Menu Toggle */}
+        <div className="flex items-center gap-3">
+          <PagefindSearch />
+
+          <button
+            type="button"
+            className="inline-flex md:hidden items-center justify-center rounded-lg border border-neutral-200 p-2 text-neutral-600 hover:bg-neutral-100 dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-900"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label="Toggle navigation menu"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {open ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {open && (
+        <div className="border-t border-neutral-200 bg-white/95 px-4 py-3 shadow-lg md:hidden dark:border-neutral-800 dark:bg-neutral-950/95">
+          <nav className="flex flex-col gap-1">
+            {NAV.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={cx(
+                    'rounded-lg px-3.5 py-2 text-sm font-medium transition',
+                    active
+                      ? 'bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900'
+                      : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900'
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

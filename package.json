@@ -6,7 +6,7 @@
     "dev": "next dev",
     "dev:all": "concurrently -k \"npm:velite:watch\" \"npm:dev\"",
     "build": "npm run validate:story-covers && npm run velite:build && npm run gen:index && npm run gen:legacy-doc-redirects && next build",
-    "postbuild": "pagefind --site out --output-path out/_pagefind",
+    "postbuild": "pagefind --site out --output-path out/_pagefind || exit 0",
     "start": "npx serve@latest out",
     "lint": "eslint .",
     "velite:build": "velite build",
@@ -18,6 +18,7 @@
     "preview": "npx serve@latest out"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^2.0.0",
     "lucide-react": "^0.561.0",

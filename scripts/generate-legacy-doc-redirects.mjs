@@ -86,6 +86,8 @@ async function main() {
     const legacyPaths = new Set([
       `/docs/${relativePath}`,
       basename !== canonicalSlug ? `/docs/${basename}` : "",
+      `/blog/${canonicalSlug}`,
+      `/blog/${basename}`,
     ]);
 
     for (const legacyPath of legacyPaths) {

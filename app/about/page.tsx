@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BLOG_INDEX } from "@/generated/content-index";
 
 export const metadata: Metadata = {
   title: "소개 | immunecube",
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  // Notice posts (공지 카테고리)
+  const noticePosts = BLOG_INDEX.filter(
+    (post) => post.published !== false && (post.category === "공지" || post.slug.startsWith("hello") || post.slug.includes("notice"))
+  );
+
   return (
     <main className="min-h-screen bg-neutral-50 px-6 py-20 text-neutral-900">
       <section className="mx-auto max-w-3xl rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
@@ -105,6 +111,44 @@ export default function AboutPage() {
               모든 의견에 바로 답하지는 못하지만, 중요한 오류와 보완할 내용은
               가능한 한 확인해 반영하겠습니다.
             </p>
+          </section>
+
+          {/* 공지사항 및 운영 소식 섹션 */}
+          <section className="mt-10 border-t border-neutral-200 pt-8">
+            <div className="flex items-center justify-between">
+              <h2 className="text-base font-semibold text-neutral-900">
+                📢 공지사항 및 사이트 소식
+              </h2>
+              <Link
+                href="/blog"
+                className="text-xs font-medium text-emerald-600 hover:text-emerald-700 transition"
+              >
+                전체 공지 보기 →
+              </Link>
+            </div>
+            <p className="mt-2 text-xs text-neutral-500">
+              Immunecube 개설 배경, 시스템 업데이트 및 사이트 안내 소식입니다.
+            </p>
+            <div className="mt-4 divide-y divide-neutral-200/60 rounded-xl border border-neutral-200 bg-neutral-50/50 p-4">
+              {noticePosts.length > 0 ? (
+                noticePosts.slice(0, 5).map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group flex items-center justify-between py-2 text-sm transition hover:text-emerald-600"
+                  >
+                    <span className="font-medium text-neutral-800 group-hover:text-emerald-600">
+                      {post.title}
+                    </span>
+                    <span className="ml-4 shrink-0 text-xs text-neutral-400">
+                      {post.date}
+                    </span>
+                  </Link>
+                ))
+              ) : (
+                <p className="text-xs text-neutral-400 py-2">등록된 공지사항이 없습니다.</p>
+              )}
+            </div>
           </section>
         </div>
 

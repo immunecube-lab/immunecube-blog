@@ -21,13 +21,10 @@ type Doc = {
 
 const isLocalDev = process.env.NODE_ENV === "development";
 
-async function getDocsSource(): Promise<Doc[]> {
-  const source = await import("@/.velite");
-  return [...source.docs, ...(isLocalDev ? source.drafts : [])] as Doc[];
-}
+import { getVeliteDocs } from "@/lib/velite-loader";
 
 async function getDocBySlug(slug: string): Promise<Doc | undefined> {
-  const docsSource = await getDocsSource();
+  const docsSource = (await getVeliteDocs()) as Doc[];
   if (docsSource.length === 0) return undefined;
   const normalized = normalizeDocSlug(slug);
   if (!normalized) return undefined;

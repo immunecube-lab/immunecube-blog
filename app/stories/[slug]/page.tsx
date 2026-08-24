@@ -18,6 +18,7 @@ type Story = {
   published?: boolean;
   category?: string;
   cover?: string;
+  category?: string;
   series?: {
     title: string;
     order: number;
@@ -25,11 +26,10 @@ type Story = {
   };
 };
 
+import { getVeliteStories } from "@/lib/velite-loader";
+
 async function getStory(slug: string): Promise<Story | undefined> {
-  const collection = (await import("@/.velite")) as unknown as {
-    stories?: Story[];
-  };
-  const stories = collection.stories ?? [];
+  const stories = (await getVeliteStories()) as Story[];
   const normalized = normalizeStorySlug(slug);
   const matches = stories.filter(
     (story) => normalizeStorySlug(story.slug) === normalized,

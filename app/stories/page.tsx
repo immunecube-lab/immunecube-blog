@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { STORIES_INDEX } from "@/generated/content-index";
 import { StoriesBrowser } from "./stories-browser";
@@ -17,5 +18,10 @@ export default function StoriesPage() {
     (story) => story.published !== false,
   ) as StoryWithMeta[];
 
-  return <StoriesBrowser stories={visible} />;
+  return (
+    <Suspense fallback={<div className="py-10 text-center text-sm text-neutral-400">이야기를 불러오는 중...</div>}>
+      <StoriesBrowser stories={visible} />
+    </Suspense>
+  );
 }
+

@@ -62,9 +62,10 @@ function groupBySection(items: Doc[], category?: string) {
   const map = new Map<string, Doc[]>();
 
   for (const doc of items) {
-    const key = (doc.section || "etc").trim();
-    if (!map.has(key)) map.set(key, []);
-    map.get(key)!.push(doc);
+    const rawKey = (doc.section || "etc").trim();
+    const label = sectionLabel(rawKey);
+    if (!map.has(label)) map.set(label, []);
+    map.get(label)!.push(doc);
   }
 
   const entries = Array.from(map.entries()).map(([section, list]) => {
@@ -111,6 +112,8 @@ const SECTION_LABELS: Record<string, string> = {
   "이기적인 면역": "이기적인 면역",
   "metabolism-immunity": "대사와 면역",
   "케빈 홀": "케빈 홀",
+  "식이 이론": "식단 이론",
+  "다이어트 이론": "식단 이론",
   "News": "새 글",
 };
 
