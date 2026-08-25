@@ -4,20 +4,31 @@ import { POSTS_INDEX } from "@/generated/posts-index";
 
 type ArticleLinkProps = {
   slug: string;
+  /** @deprecated The destination is derived from the content index. */
   basePath?: "/docs" | "/stories" | "/blog";
   label?: string;
 };
 
 export function ArticleLink({
   slug,
-  basePath = "/docs",
+  basePath,
   label = "관련 글",
 }: ArticleLinkProps) {
-  const article = POSTS_INDEX.find((post) => post.slug === slug);
-
+  const normalized = slug ? slug.replace(/^\/+|\/+$/g, "") : "";
+  const article = POSTS_INDEX.find((post) => post.slug === normalized);
   if (!article) {
-    throw new Error(`[ArticleLink] Published content not found: ${slug}`);
+    throw new Error(
+      `[ArticleLink] Published content not found in POSTS_INDEX: "${slug}"`,
+    );
   }
+
+  if (basePath && basePath !== article.basePath) {
+    throw new Error(
+      `[ArticleLink] basePath mismatch for "${slug}": expected "${article.basePath}", received "${basePath}"`,
+    );
+  }
+
+  const href = `${article.basePath}/${article.slug}`;
 
   return (
     <aside
@@ -28,7 +39,7 @@ export function ArticleLink({
         {label}
       </span>
       <Link
-        href={`${basePath}/${article.slug}`}
+        href={href}
         className="font-medium text-neutral-700 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-sky-700 hover:decoration-sky-500 dark:text-neutral-200 dark:decoration-neutral-600 dark:hover:text-sky-300"
       >
         {article.title}

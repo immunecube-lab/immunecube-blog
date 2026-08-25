@@ -6,7 +6,10 @@ import matter from "gray-matter"
 type PostIndexItem = {
   slug: string
   title: string
+  basePath: ArticleBasePath
 }
+
+type ArticleBasePath = "/docs" | "/stories" | "/blog"
 
 type SeriesMeta = {
   title: string
@@ -156,7 +159,13 @@ async function main(): Promise<void> {
 
     if (published === false || file.startsWith("content/draft/")) continue
 
-    index.push({ slug, title })
+    const basePath: ArticleBasePath = file.startsWith("content/docs/")
+      ? "/docs"
+      : file.startsWith("content/stories/")
+        ? "/stories"
+        : "/blog"
+
+    index.push({ slug, title, basePath })
   }
 
   // frontmatter 누락이 있으면 실패(원하시면 경고로 바꿔드릴 수 있음)
@@ -183,7 +192,8 @@ async function main(): Promise<void> {
   index.sort((a, b) => a.slug.localeCompare(b.slug, "en"))
 
   const lines = index.map(
-    (p) => `  { slug: ${tsString(p.slug)}, title: ${tsString(p.title)} },`
+    (p) =>
+      `  { slug: ${tsString(p.slug)}, title: ${tsString(p.title)}, basePath: ${tsString(p.basePath)} },`
   )
 
   const out =
@@ -192,6 +202,7 @@ async function main(): Promise<void> {
     `export type PostIndexItem = {\n` +
     `  slug: string\n` +
     `  title: string\n` +
+    `  basePath: "/docs" | "/stories" | "/blog"\n` +
     `}\n\n` +
     `export const POSTS_INDEX: PostIndexItem[] = [\n` +
     `${lines.join("\n")}\n` +
