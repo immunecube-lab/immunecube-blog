@@ -57,6 +57,7 @@ export function FigureGroup({
               src={img.src}
               alt={img.alt}
               loading="lazy"
+              decoding="async"
               style={{
                 width: "100%",
                 height: "auto",

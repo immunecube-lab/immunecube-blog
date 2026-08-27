@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { normalizeStorySlug, type StoryWithMeta } from "./_lib";
 
 type SeriesGroup = {
@@ -52,23 +52,25 @@ export function LeftSidebar({
     ? queryCategory
     : activeStoryCategory || queryCategory;
 
-  const [openSeries, setOpenSeries] = useState<Record<string, boolean>>({});
+  const routeKey = `${pathname}?${searchParams?.toString() ?? ""}`;
+  const [seriesState, setSeriesState] = useState<{
+    routeKey: string;
+    overrides: Record<string, boolean>;
+  }>({ routeKey, overrides: {} });
+  const seriesOverrides = seriesState.routeKey === routeKey ? seriesState.overrides : {};
 
-  // Auto-expand active series when viewing a story detail page
-  useEffect(() => {
-    if (activeSeriesTitle) {
-      setOpenSeries((prev) => ({
-        ...prev,
-        [activeSeriesTitle]: true,
-      }));
-    }
-  }, [activeSeriesTitle]);
+  // Route changes immediately discard stale overrides; the active series opens by default.
+  const isSeriesOpen = (title: string) =>
+    seriesOverrides[title] ?? title === activeSeriesTitle;
 
   const toggleSeries = (title: string) => {
-    setOpenSeries((prev) => ({
-      ...prev,
-      [title]: !prev[title],
-    }));
+    setSeriesState({
+      routeKey,
+      overrides: {
+        ...seriesOverrides,
+        [title]: !isSeriesOpen(title),
+      },
+    });
   };
 
   const navContent = (
@@ -77,6 +79,7 @@ export function LeftSidebar({
       <div>
         <Link
           href="/stories"
+          prefetch={false}
           onClick={() => setMobileOpen(false)}
           className={[
             "block rounded-lg px-3 py-2 text-xs md:text-sm font-medium transition",
@@ -104,6 +107,7 @@ export function LeftSidebar({
                 <Link
                   key={category}
                   href={`/stories?category=${encodeURIComponent(category)}`}
+                  prefetch={false}
                   onClick={() => setMobileOpen(false)}
                   className={[
                     "block rounded-lg px-2.5 py-1.5 text-xs transition",
@@ -128,7 +132,7 @@ export function LeftSidebar({
           </div>
           <div className="space-y-1.5">
             {seriesGroups.map((group) => {
-              const isOpen = !!openSeries[group.title];
+              const isOpen = isSeriesOpen(group.title);
               const isGroupActive = activeSeriesTitle === group.title;
 
               return (
@@ -278,6 +282,7 @@ export function LeftSidebar({
         <div className="mb-6 border-b border-neutral-100 pb-4 dark:border-neutral-800">
           <Link
             href="/"
+            prefetch={false}
             className="text-xs font-semibold uppercase tracking-wide text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
           >
             immunecube

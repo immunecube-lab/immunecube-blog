@@ -200,7 +200,7 @@ export function AuthorBio({
 
       <div className="author-bio-inner">
         <div className="author-bio-image">
-          <img src={displayImage} alt={imageAlt ?? displayName} loading="lazy" />
+          <img src={displayImage} alt={imageAlt ?? displayName} loading="lazy" decoding="async" />
         </div>
 
         <div>

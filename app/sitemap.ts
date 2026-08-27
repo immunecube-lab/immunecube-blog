@@ -5,7 +5,7 @@ import {
   DOCS_INDEX,
   STORIES_INDEX,
 } from "@/generated/content-index";
-import { normalizeDocSlug } from "@/lib/docs-slug";
+import { getContentDate, isPublished, normalizeCollectionSlug } from "@/lib/content-policy";
 import { getSiteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-static";
@@ -18,42 +18,8 @@ type VeliteItem = {
 };
 
 // "docs/xxx" 또는 "/docs/xxx" 같은 형태가 들어오면 "xxx"로 정리
-function normalizeCollectionSlug(
-  slug: string,
-  collection: "docs" | "blog" | "stories",
-) {
-  let s = (slug ?? "").trim();
-  if (!s) return "";
-
-  // leading slash 제거
-  if (s.startsWith("/")) s = s.slice(1);
-
-  // collection prefix 제거(혹시 섞여 들어온 경우 방어)
-  // blog 컬렉션은 posts/ 로 들어오는 케이스까지 방어(안전)
-  const prefixes =
-    collection === "blog"
-      ? ["blog/", "posts/"]
-      : collection === "stories"
-        ? ["stories/"]
-        : ["docs/"];
-  for (const prefix of prefixes) {
-    if (s.startsWith(prefix)) {
-      s = s.slice(prefix.length);
-      break;
-    }
-  }
-
-  return collection === "docs" ? normalizeDocSlug(s) : s;
-}
-
-function pickLastMod(item: VeliteItem): Date {
-  const v = item.updated ?? item.date;
-
-  const d = v instanceof Date ? v : v ? new Date(v) : null;
-  if (d && !Number.isNaN(d.getTime())) return d;
-
-  // 정적 빌드에서는 "빌드 시각"이 최소 신호(항상 lastModified를 채움)
-  return new Date();
+function pickLastMod(item: VeliteItem): Date | undefined {
+  return getContentDate(item) ?? undefined;
 }
 
 function joinUrl(base: string, path: string) {
@@ -87,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const seen = new Set<string>();
 
   const postEntries = (BLOG_INDEX satisfies VeliteItem[])
-    .filter((p) => p?.slug && p.published !== false)
+    .filter((p) => p?.slug && isPublished(p))
     .map((p) => {
       const s = normalizeCollectionSlug(p.slug, "blog");
       if (!s) return null;
@@ -97,10 +63,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: pickLastMod(p),
       };
     })
-    .filter(Boolean) as { url: string; lastModified: Date }[];
+    .filter(Boolean) as { url: string; lastModified?: Date }[];
 
   const docEntries = (DOCS_INDEX satisfies VeliteItem[])
-    .filter((d) => d?.slug && d.published !== false)
+    .filter((d) => d?.slug && isPublished(d))
     .map((d) => {
       const s = normalizeCollectionSlug(d.slug, "docs");
       if (!s) return null;
@@ -112,10 +78,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: pickLastMod(d),
       };
     })
-    .filter(Boolean) as { url: string; lastModified: Date }[];
+    .filter(Boolean) as { url: string; lastModified?: Date }[];
 
   const storyEntries = (STORIES_INDEX satisfies VeliteItem[])
-    .filter((story) => story?.slug && story.published !== false)
+    .filter((story) => story?.slug && isPublished(story))
     .map((story) => {
       const slug = normalizeCollectionSlug(story.slug, "stories");
       if (!slug) return null;
@@ -125,7 +91,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: pickLastMod(story),
       };
     })
-    .filter(Boolean) as { url: string; lastModified: Date }[];
+    .filter(Boolean) as { url: string; lastModified?: Date }[];
 
   // 허브 페이지들: "콘텐츠 최신 갱신일" 기반 lastModified로 신호 강화
   const postsLast = maxDate(postEntries.map((p) => p.lastModified));

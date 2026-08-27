@@ -1,60 +1,48 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+export type VeliteContent = Record<string, unknown> & {
+  slug: string;
+  title: string;
+  published?: boolean;
+};
+
 const isLocalDev = process.env.NODE_ENV === "development";
+let cachedDocs: VeliteContent[] | null = null;
+let cachedStories: VeliteContent[] | null = null;
+let cachedPosts: VeliteContent[] | null = null;
 
-let cachedDocs: any[] | null = null;
-let cachedStories: any[] | null = null;
-let cachedPosts: any[] | null = null;
+async function readCollection(file: string): Promise<VeliteContent[]> {
+  const filePath = path.join(process.cwd(), ".velite", file);
+  try {
+    const parsed: unknown = JSON.parse(await fs.readFile(filePath, "utf8"));
+    if (!Array.isArray(parsed)) throw new Error("collection root must be an array");
+    return parsed as VeliteContent[];
+  } catch (error) {
+    const message = `Failed to load required Velite collection: ${filePath}`;
+    if (!isLocalDev) throw new Error(message, { cause: error });
+    console.error(message, error);
+    return [];
+  }
+}
 
-export async function getVeliteDocs() {
+export async function getVeliteDocs(): Promise<VeliteContent[]> {
   if (!isLocalDev && cachedDocs) return cachedDocs;
-  try {
-    const docsPath = path.join(process.cwd(), ".velite", "docs.json");
-    const raw = await fs.readFile(docsPath, "utf8");
-    const docs = JSON.parse(raw);
-
-    let drafts: any[] = [];
-    if (isLocalDev) {
-      try {
-        const draftsPath = path.join(process.cwd(), ".velite", "drafts.json");
-        const draftsRaw = await fs.readFile(draftsPath, "utf8");
-        drafts = JSON.parse(draftsRaw);
-      } catch {}
-    }
-    const result = [...docs, ...drafts];
-    cachedDocs = result;
-    return result;
-  } catch (err) {
-    console.error("Failed to load velite docs from disk:", err);
-    return [];
-  }
+  const docs = await readCollection("docs.json");
+  let drafts: VeliteContent[] = [];
+  if (isLocalDev) drafts = await readCollection("drafts.json");
+  cachedDocs = [...docs, ...drafts];
+  return cachedDocs;
 }
 
-export async function getVeliteStories() {
+export async function getVeliteStories(): Promise<VeliteContent[]> {
   if (!isLocalDev && cachedStories) return cachedStories;
-  try {
-    const storiesPath = path.join(process.cwd(), ".velite", "stories.json");
-    const raw = await fs.readFile(storiesPath, "utf8");
-    const stories = JSON.parse(raw);
-    cachedStories = stories;
-    return stories;
-  } catch (err) {
-    console.error("Failed to load velite stories from disk:", err);
-    return [];
-  }
+  cachedStories = await readCollection("stories.json");
+  return cachedStories;
 }
 
-export async function getVelitePosts() {
+export async function getVelitePosts(): Promise<VeliteContent[]> {
   if (!isLocalDev && cachedPosts) return cachedPosts;
-  try {
-    const postsPath = path.join(process.cwd(), ".velite", "posts.json");
-    const raw = await fs.readFile(postsPath, "utf8");
-    const posts = JSON.parse(raw);
-    cachedPosts = posts;
-    return posts;
-  } catch (err) {
-    console.error("Failed to load velite posts from disk:", err);
-    return [];
-  }
+  cachedPosts = await readCollection("posts.json");
+  return cachedPosts;
 }

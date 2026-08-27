@@ -19,6 +19,8 @@ export function Figure({
       <img
         src={src}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         style={{
           display: "block",
           margin: "0 auto",

@@ -47,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko" suppressHydrationWarning>
       <body
+        data-pagefind-body
         suppressHydrationWarning
         className={`
           ${pretendard.variable}
