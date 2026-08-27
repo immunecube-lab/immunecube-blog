@@ -15,6 +15,7 @@
     "gen:index": "tsx scripts/generate-posts-index.ts",
     "gen:legacy-doc-redirects": "node scripts/generate-legacy-doc-redirects.mjs",
     "images:homepage-photos": "node scripts/convert-homepage-photos.mjs",
+    "pdf:mitochondria": "python scripts/build-mitochondria-pdf.py",
     "preview": "npx serve@latest out"
   },
   "dependencies": {

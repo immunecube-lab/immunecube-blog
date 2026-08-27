@@ -23,6 +23,7 @@ type ContentIndexItem = {
   description?: string
   date?: string
   updated?: string
+  status?: string
   published?: boolean
   category?: string
   section?: string
@@ -94,6 +95,7 @@ function toIndexItem(data: Record<string, unknown>): ContentIndexItem | undefine
     description: pickOptionalString(data.description),
     date: pickOptionalString(data.date),
     updated: pickOptionalString(data.updated),
+    status: pickOptionalString(data.status),
     published: pickOptionalBoolean(data.published),
     category: pickOptionalString(data.category),
     section: pickOptionalString(data.section),
@@ -227,6 +229,7 @@ async function main(): Promise<void> {
     `  description?: string\n` +
     `  date?: string\n` +
     `  updated?: string\n` +
+    `  status?: string\n` +
     `  published?: boolean\n` +
     `  category?: string\n` +
     `  section?: string\n` +
