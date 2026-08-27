@@ -1,8 +1,8 @@
 ---
-title: "미토파지(Mitophagy)와 품질관리: 증설보다 중요한 낡은 미토콘드리아의 교체"
-description: "미토콘드리아의 융합·분열과 PINK1–Parkin 선별 기전, 미토파지가 mtROS·mtDNA와 인플라마좀 신호를 억제해 신경퇴행과 만성 염증에 연결되는 과정을 다룹니다."
+title: "미토파지와 미토콘드리아 회전율: 제거와 재생의 균형"
+description: "융합·분열과 PINK1–Parkin 및 수용체 매개 미토파지, 손상 미토콘드리아의 제거와 생합성의 균형이 염증과 조직 기능을 어떻게 조절하는지 다룹니다."
 date: "2026-08-25"
-updated: "2026-08-25"
+updated: "2026-08-27"
 slug: "mitophagy-pink1-parkin-mitochondrial-quality-control"
 published: true
 category: "대사와 면역"
@@ -21,7 +21,7 @@ featured: false
 series:
   title: "미토콘드리아와 면역"
   order: 11
-  total: 13
+  total: 14
 ---
 
 ## 미토콘드리아는 영구 불변의 기관이 아니다
@@ -42,15 +42,27 @@ series:
 
 소환된 Parkin은 손상된 미토콘드리아 외막의 단백질들에 대량의 유비퀴틴 표식을 붙이고(자가포식 유도 태그), 자가포식 수용체(p62, OPTN 등)가 이를 인식하여 이중막 자가포식체(autophagosome)로 감싸 리소좀으로 운반해 완전히 분해합니다.
 
+PINK1–Parkin만이 미토파지의 전부는 아닙니다. 저산소나 적혈구 성숙, 발생과 조직 적응에서는 **BNIP3, NIX/BNIP3L, FUNDC1** 같은 미토콘드리아 외막 수용체가 LC3 계열 단백질과 직접 결합해 제거를 유도할 수 있습니다. 어떤 경로를 사용하는지는 조직과 손상 원인에 따라 달라집니다.
+
 <ArticleLink slug="2025-bensalem-itre-human-autophagy" label="관련 연구" />
 
 <InlineFlow text="미토콘드리아 손상 및 막 전위 소실 → 외막 표면에 PINK1 축적 → Parkin 소환 및 단백질 유비퀴틴화 → 자가포식체 형성 및 리소좀 융합 → 안전한 분해 및 재활용" />
 
-## 증설보다 중요한 것은 낡은 쓰레기의 청소
+## 제거와 재생의 속도가 맞아야 합니다
 
-새로운 공장을 짓는 것(생합성)보다 더 중요한 것은 공장 안의 유독 폐기물(손상 미토콘드리아)을 제때 치우는 것입니다.
+품질관리의 목적은 미토파지를 최대한 높이는 것이 아닙니다. 미토파지가 부족하면 기능이 낮고 mtROS를 많이 만드는 미토콘드리아가 남습니다. 반대로 제거 속도가 새 미토콘드리아를 만들고 기존 네트워크를 보충하는 속도보다 계속 빠르면, 세포가 사용할 미토콘드리아의 양과 호흡 능력 자체가 줄어듭니다.
 
-미토파지가 충분히 작동하지 않으면 기능이 저하된 미토콘드리아와 산화 스트레스가 축적되고, 일부 조건에서는 mtDNA 누출과 염증 신호가 증가할 수 있습니다. PINK1과 PRKN(Parkin)의 병원성 변이는 드문 상염색체 열성 조기발병 파킨슨병을 일으킬 수 있지만, 전체 파킨슨병의 상당수를 설명하는 것은 아닙니다. 또한 생체 내 기저 미토파지에는 PINK1–Parkin 비의존 경로도 관여합니다.
+생합성만 늘리는 것도 답이 아닙니다. 손상된 부분을 분리하고 제거하지 않은 채 PGC-1α와 TFAM 신호만 높이면 기능이 나쁜 미토콘드리아가 네트워크 안에 계속 남을 수 있습니다. 분열은 손상된 구획을 떼어내고, 미토파지는 이를 제거하며, 생합성은 줄어든 기능을 보충합니다. 이 전체 과정을 **미토콘드리아 회전율(turnover)**로 보는 편이 정확합니다.
+
+<InlineFlow text="부분 손상 → 융합·분열을 통한 기능 보완과 손상 구획 분리 → 미토파지로 제거 → 생합성으로 기능 보충 → 세포 수요에 맞는 미토콘드리아 집단 유지" />
+
+PINK1과 PRKN(Parkin)의 병원성 변이는 드문 상염색체 열성 조기발병 파킨슨병을 일으킬 수 있지만 전체 파킨슨병의 상당수를 설명하는 것은 아닙니다. 생체 내 기저 미토파지에는 PINK1–Parkin 비의존 경로도 관여합니다.
+
+## 미토파지는 실제 분해까지 확인해야 합니다
+
+자가포식체가 많이 보인다고 해서 청소가 잘된다는 뜻은 아닙니다. 생성된 자가포식체가 리소좀과 융합하지 못하면 LC3-II가 늘어도 분해는 막혀 있을 수 있습니다. 일반적인 LC3-II나 p62 변화만으로 미토콘드리아가 선택적으로 제거됐다고 단정할 수도 없습니다.
+
+연구에서는 미토콘드리아 단백질의 회전, 미토콘드리아와 리소좀의 결합, 산성 리소좀으로 들어갈 때 형광이 변하는 **mt-Keima**와 **mito-QC** 같은 도구를 함께 사용합니다. 중요한 것은 미토파지 관련 단백질이 증가했는지가 아니라 손상된 미토콘드리아가 실제로 리소좀까지 전달되어 분해됐는지, 즉 **미토파지 흐름(mitophagic flux)**입니다.
 
 ## 미토파지는 선천면역의 브레이크이기도 합니다
 
@@ -80,3 +92,7 @@ series:
 3. Klein C, Westenberger A. Genetics of Parkinson's disease. _Cold Spring Harbor Perspectives in Medicine_. 2012;2:a008888. https://doi.org/10.1101/cshperspect.a008888
 4. Bensalem J, et al. Intermittent time-restricted eating may increase autophagic flux in humans: an exploratory analysis. _Journal of Physiology_. 2025. https://doi.org/10.1113/JP287938
 5. Nakahira K, et al. Autophagy proteins regulate innate immune responses by inhibiting the release of mitochondrial DNA mediated by the NALP3 inflammasome. _Nature Immunology_. 2011;12:222–230. https://doi.org/10.1038/ni.1980
+6. Giacomello M, Pyakurel A, Glytsou C, Scorrano L. The cell biology of mitochondrial membrane dynamics. _Nature Reviews Molecular Cell Biology_. 2020;21:204–224. https://doi.org/10.1038/s41580-020-0210-7
+7. Liu L, Li Y, Chen G, Chen Q. Crosstalk between mitochondrial biogenesis and mitophagy to maintain mitochondrial homeostasis. _Journal of Biomedical Science_. 2023;30:86. https://doi.org/10.1186/s12929-023-00975-7
+8. Klionsky DJ, et al. Guidelines for the use and interpretation of assays for monitoring autophagy. _Autophagy_. 2021;17:1–382. https://doi.org/10.1080/15548627.2020.1797280
+9. Williams JA, Zhao K, Jin S, Ding WX. New methods for monitoring mitochondrial biogenesis and mitophagy in vitro and in vivo. _Experimental Biology and Medicine_. 2017;242:781–787. https://doi.org/10.1177/1535370216688802

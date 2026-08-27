@@ -2,7 +2,7 @@
 title: "미토콘드리아와 면역 대사: 세포 발전소에서 면역 조절의 사령탑으로"
 description: "대식세포의 M1·M2 전환, TCA 회로의 대사적 절단(숙신산과 이타콘산), mtROS 및 mtDNA 누출이 만성 염증을 촉발하는 면역대사(Immunometabolism)의 핵심 원리를 살펴봅니다."
 date: "2026-08-25"
-updated: "2026-08-25"
+updated: "2026-08-27"
 slug: "mitochondria-immunometabolism-macrophage-reprogramming"
 published: true
 category: "대사와 면역"
@@ -19,12 +19,12 @@ featured: true
 series:
   title: "미토콘드리아와 면역"
   order: 1
-  total: 13
+  total: 14
 ---
 
 ## 미토콘드리아와 면역세포의 대사 프로그램
 
-미토콘드리아는 흔히 세포의 발전소라고 불립니다. 하지만 면역을 온전히 이해하려면 이 설명만으로는 부족합니다. 미토콘드리아는 단순히 ATP를 만드는 에너지 기관에 머무르지 않고, 면역세포가 어떤 상태로 반응할지를 결정하는 데 깊이 관여합니다.
+미토콘드리아는 흔히 세포의 발전소라고 불립니다. 하지만 미토콘드리아는 단순히 ATP를 만드는 에너지 기관에 머무르지 않고, 면역세포가 어떤 상태로 반응할지를 결정하는 데 깊이 관여합니다.
 
 특히 대식세포를 살펴보면 이 관계가 뚜렷하게 드러납니다. 대식세포는 처한 상황에 따라 매우 다른 모습으로 변신합니다. 세균이나 LPS 같은 강력한 염증 자극을 받으면 흔히 M1형이라 부르는 염증성 상태로 기울고, 조직을 회복하거나 염증을 정리하는 환경에서는 M2형에 가까운 상태로 전환됩니다.
 
@@ -77,6 +77,16 @@ LPS가 TLR4를 자극하거나 IFN-γ 같은 신호가 전달되면 대식세포
 
 세포 내부의 대사 이상이 염증을 자가 발전시키는 만성 구조가 고착되는 것입니다.
 
+## 염증도 미토콘드리아의 호흡을 망가뜨립니다
+
+이 악순환은 반대 방향으로도 작동합니다. 염증성 대식세포에서 iNOS가 강하게 유도되면 **일산화질소(NO)** 생성이 늘어납니다. NO는 미토콘드리아 복합체 IV에서 산소와 경쟁하여 전자의 흐름과 산소 소비를 일시적으로 늦출 수 있습니다. 자극이 짧을 때는 면역세포의 대사를 조절하는 가역적인 반응입니다.
+
+문제는 염증이 끝나지 않을 때입니다. NO가 활성산소인 초과산화물과 만나면 반응성이 강한 **퍼옥시나이트라이트(peroxynitrite)**가 만들어집니다. 이 물질은 복합체 I을 포함한 전자전달계 단백질과 미토콘드리아 막의 지질, mtDNA를 변형할 수 있습니다. 전자전달 효율이 떨어지면 전자가 다시 새어 나와 mtROS가 늘고, 손상된 mtDNA가 선천면역 센서를 자극할 가능성도 커집니다.
+
+<InlineFlow text="지속적인 염증 → iNOS·NO 증가 → 복합체 IV 호흡 억제 + 퍼옥시나이트라이트 생성 → 전자전달계·막·mtDNA 손상 → mtROS·mtDNA 위험 신호 증가 → 염증 추가 증폭" />
+
+따라서 만성 염증에서 미토콘드리아는 일방적인 원인도, 일방적인 피해자도 아닙니다. 면역 반응이 미토콘드리아 호흡과 품질관리를 손상시키고, 그 손상이 다시 염증 신호를 키우는 양방향 증폭기가 됩니다.
+
 ## 작용기전에서 질병까지: 이 시리즈를 관통하는 네 개의 연결축
 
 미토콘드리아와 질병의 관계를 이해할 때는 “ATP가 줄었다”는 한 문장만으로는 부족합니다. 세포 안의 변화가 실제 질병으로 번역되려면 대체로 다음 네 단계 가운데 하나 이상을 거칩니다.
@@ -115,3 +125,4 @@ LPS가 TLR4를 자극하거나 IFN-γ 같은 신호가 전달되면 대식세포
 3. West AP, et al. Mitochondrial DNA stress primes the antiviral innate immune response. _Nature_. 2015;520:553–557. https://doi.org/10.1038/nature14156
 4. O'Neill LAJ, Kishton RJ, Rathmell J. A guide to immunometabolism for immunologists. _Nature Reviews Immunology_. 2016;16:553–565. https://doi.org/10.1038/nri.2016.70
 5. Hu MM, Shu HB. Mitochondrial DNA-triggered innate immune response: mechanisms and diseases. _Cellular & Molecular Immunology_. 2023;20:1403–1412. https://doi.org/10.1038/s41423-023-01086-x
+6. Poderoso JJ, Helfenberger K, Poderoso C. The effect of nitric oxide on mitochondrial respiration. _Nitric Oxide_. 2019;88:61–72. https://doi.org/10.1016/j.niox.2019.04.005
