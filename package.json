@@ -14,6 +14,7 @@
     "validate:story-covers": "node scripts/validate-story-covers.mjs",
     "validate:content-images": "node scripts/validate-content-images.mjs",
     "validate:content-index": "node scripts/validate-content-index.mjs",
+    "audit:content": "node scripts/audit-content-quality.mjs",
     "gen:index": "tsx scripts/generate-posts-index.ts",
     "gen:legacy-doc-redirects": "node scripts/generate-legacy-doc-redirects.mjs",
     "images:homepage-photos": "node scripts/convert-homepage-photos.mjs",

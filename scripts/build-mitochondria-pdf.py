@@ -155,7 +155,7 @@ def load_content_index() -> dict[str, tuple[str, str]]:
 def inline_markup(text: str) -> str:
     escaped = html.escape(text, quote=False)
     escaped = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", escaped)
-    escaped = re.sub(r"(?<!\w)_(.+?)_(?!\w)", r"<i>\1</i>", escaped)
+    escaped = re.sub(r"(?<!_)_(.+?)_(?!_)", r"<i>\1</i>", escaped)
     escaped = re.sub(r"`(.+?)`", r'<font color="#235F68">\1</font>', escaped)
 
     url_pattern = re.compile(r"(?<![\"'=])(https?://[^\s<]+)")
@@ -310,6 +310,36 @@ def make_styles() -> dict[str, ParagraphStyle]:
             spaceAfter=4,
             splitLongWords=True,
         ),
+        "TableHeader": ParagraphStyle(
+            "TableHeader",
+            parent=base["BodyText"],
+            fontName="Pretendard-Bold",
+            fontSize=7.8,
+            leading=11.4,
+            textColor=colors.white,
+            alignment=TA_CENTER,
+            splitLongWords=True,
+        ),
+        "TableCell": ParagraphStyle(
+            "TableCell",
+            parent=base["BodyText"],
+            fontName="Pretendard",
+            fontSize=7.6,
+            leading=11.2,
+            textColor=INK,
+            alignment=TA_LEFT,
+            splitLongWords=True,
+        ),
+        "TableRank": ParagraphStyle(
+            "TableRank",
+            parent=base["BodyText"],
+            fontName="Pretendard-Bold",
+            fontSize=7.8,
+            leading=11.4,
+            textColor=TEAL,
+            alignment=TA_CENTER,
+            splitLongWords=True,
+        ),
         "Flow": ParagraphStyle(
             "Flow",
             parent=base["BodyText"],
@@ -383,6 +413,70 @@ def article_link(
     base_path = resolved[1] if resolved else (
         base_match.group(1) if base_match else "/docs"
     )
+
+
+def markdown_table(
+    lines: list[str],
+    styles: dict[str, ParagraphStyle],
+    content_width: float,
+) -> Table:
+    rows: list[list[str]] = []
+    for line in lines:
+        cells = [cell.strip() for cell in re.split(r"(?<!\\)\|", line.strip("|"))]
+        cells = [cell.replace(r"\|", "|") for cell in cells]
+        if cells and all(re.fullmatch(r":?-{3,}:?", cell) for cell in cells):
+            continue
+        rows.append(cells)
+
+    if len(rows) < 2:
+        raise ValueError("Markdown table requires a header and at least one row")
+    column_count = len(rows[0])
+    if any(len(row) != column_count for row in rows):
+        raise ValueError(f"Markdown table has inconsistent columns: {lines}")
+
+    if column_count == 4:
+        ratios = [0.09, 0.22, 0.35, 0.34]
+    else:
+        ratios = [1 / column_count] * column_count
+    col_widths = [content_width * ratio for ratio in ratios]
+
+    data: list[list[Paragraph]] = []
+    for row_index, row in enumerate(rows):
+        rendered_row: list[Paragraph] = []
+        for column_index, cell in enumerate(row):
+            if row_index == 0:
+                style = styles["TableHeader"]
+            elif column_index == 0:
+                style = styles["TableRank"]
+            else:
+                style = styles["TableCell"]
+            rendered_row.append(Paragraph(inline_markup(cell), style))
+        data.append(rendered_row)
+
+    table = Table(
+        data,
+        colWidths=col_widths,
+        repeatRows=1,
+        splitByRow=1,
+        hAlign="LEFT",
+    )
+    commands = [
+        ("BACKGROUND", (0, 0), (-1, 0), NAVY),
+        ("BOX", (0, 0), (-1, -1), 0.7, LINE),
+        ("INNERGRID", (0, 0), (-1, -1), 0.35, LINE),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 5),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+        ("TOPPADDING", (0, 0), (-1, -1), 5),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+    ]
+    for row_index in range(1, len(data)):
+        background = colors.white if row_index % 2 else PALE_BLUE
+        commands.append(("BACKGROUND", (0, row_index), (-1, row_index), background))
+    table.setStyle(TableStyle(commands))
+    table.spaceBefore = 4
+    table.spaceAfter = 12
+    return table
     url = f"https://immunecube.com{base_path}/{slug}"
     return Paragraph(
         f'{html.escape(label)} · <link href="{url}" color="#287C74">'
@@ -401,6 +495,7 @@ def body_flowables(
     lines = chapter.body.splitlines()
     paragraph_lines: list[str] = []
     list_lines: list[tuple[str, str]] = []
+    table_lines: list[str] = []
     in_references = False
 
     def flush_paragraph() -> None:
@@ -423,22 +518,35 @@ def body_flowables(
             ListItem(Paragraph(inline_markup(text), style), leftIndent=10)
             for _, text in list_lines
         ]
-        items.append(
-            ListFlowable(
-                bullets,
-                bulletType="1" if ordered else "bullet",
-                start="1",
-                leftIndent=17,
-                bulletFontName="Pretendard",
-                bulletFontSize=8.5,
-                bulletColor=MUTED,
-                spaceAfter=7,
-            )
-        )
+        list_options = {
+            "bulletType": "1" if ordered else "bullet",
+            "leftIndent": 17,
+            "bulletFontName": "Pretendard",
+            "bulletFontSize": 8.5,
+            "bulletColor": MUTED,
+            "spaceAfter": 7,
+        }
+        if ordered:
+            list_options["start"] = "1"
+        items.append(ListFlowable(bullets, **list_options))
         list_lines = []
+
+    def flush_table() -> None:
+        nonlocal table_lines
+        if not table_lines:
+            return
+        items.append(markdown_table(table_lines, styles, content_width))
+        table_lines = []
 
     for raw_line in lines:
         line = raw_line.strip()
+        if line.startswith("|") and line.endswith("|"):
+            flush_paragraph()
+            flush_list()
+            table_lines.append(line)
+            continue
+
+        flush_table()
         if not line:
             flush_paragraph()
             flush_list()
@@ -495,6 +603,7 @@ def body_flowables(
 
     flush_paragraph()
     flush_list()
+    flush_table()
     return items
 
 
@@ -545,7 +654,7 @@ def build_pdf(
         bottomMargin=bottom,
         title="미토콘드리아와 면역",
         author="ImmuneCube",
-        subject="미토콘드리아 항상성과 면역대사를 다룬 14편의 연재 글",
+        subject=f"미토콘드리아 항상성과 면역대사를 다룬 {len(chapters)}편의 연재 글",
     )
     frame = Frame(left, bottom, content_width, content_height, id="body")
     doc.addPageTemplates(
@@ -573,7 +682,7 @@ def build_pdf(
         Paragraph(
             "미토콘드리아는 ATP를 만드는 기관을 넘어 영양 상태와 세포 스트레스, "
             "면역 신호와 세포 사멸을 연결합니다. 이 책은 ImmuneCube의 ‘미토콘드리아와 "
-            "면역’ 연재 14편을 한 권으로 묶어, 기본 원리에서 질환별 작동기전과 생활·치료 "
+            f"면역’ 연재 {len(chapters)}편을 한 권으로 묶어, 기본 원리에서 질환별 작동기전과 생활·치료 "
             "전략까지 순서대로 읽을 수 있도록 구성했습니다.",
             styles["Preface"],
         ),

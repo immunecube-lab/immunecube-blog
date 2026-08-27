@@ -50,5 +50,9 @@ next-env.d.ts
 # generated PDFs
 pdf/
 
+# Python bytecode
+__pycache__/
+*.py[cod]
+
 # generated legacy doc redirects
 /public/docs/
