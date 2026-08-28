@@ -5,7 +5,8 @@ type Props = {
   slugs: string[];
   heading?: string;
   max?: number;
-  basePath?: string; // 기본 "/docs"
+  /** @deprecated Each destination's path is derived from the content index. */
+  basePath?: string;
 };
 
 const postsBySlug = new Map<string, PostIndexItem>(
@@ -16,19 +17,27 @@ export default function RelatedPosts({
   slugs,
   heading = "관련 글",
   max = Number.POSITIVE_INFINITY,
-  basePath = "/docs",
 }: Props) {
-  if (!Array.isArray(slugs) || slugs.length === 0) return null;
+  if (!Array.isArray(slugs)) {
+    throw new Error("[RelatedPosts] `slugs` prop must be an array.");
+  }
+
+  if (slugs.length === 0) return null;
+
+  const missingSlugs = slugs.filter((slug) => !postsBySlug.has(slug));
+  if (missingSlugs.length > 0) {
+    throw new Error(
+      `[RelatedPosts] Published content not found in POSTS_INDEX: ${missingSlugs
+        .map((slug) => `"${slug}"`)
+        .join(", ")}`,
+    );
+  }
 
   const items = slugs
     .slice(0, max)
-    .map((slug) => postsBySlug.get(slug))
-    .filter((post): post is PostIndexItem => Boolean(post));
+    .map((slug) => postsBySlug.get(slug)!);
 
   if (items.length === 0) return null;
-
-  // "/docs" + "/slug" 결합을 안전하게 처리
-  const prefix = basePath.endsWith("/") ? basePath.slice(0, -1) : basePath;
 
   return (
     <section className={`related-posts not-prose ${styles.root}`}>
@@ -48,7 +57,7 @@ export default function RelatedPosts({
               .join(" ")}
           >
             <a
-              href={`${prefix}/${post.slug}`}
+              href={`${post.basePath}/${post.slug}`}
               className={`related-post-link ${styles.link}`}
             >
               {post.title}
